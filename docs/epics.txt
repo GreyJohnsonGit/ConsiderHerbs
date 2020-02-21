@@ -1,0 +1,11 @@
+#1 Click on body to find remedy based on locatioon
+#2 Search for ailments through text search bar
+#3 Glossary page and links for keywords.
+#4 Subscription and Payment Systems
+#5 Login and Authentication
+#6 Website Redesign
+#7 Client/User Scheduling
+#8 Store and Display recipes
+#9 Blog for posting Images and Links
+#10 Products Page
+#11 Admin Portal to Edit site contents
