@@ -1,0 +1,23 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Times New Roman', Times, serif;
+	background: #00ac171c;
+}
+header {  /*menu bar maybe?*/
+    position: absolute;
+    width: 1393px;
+    height: 71px;
+    left: 23px;
+    top: 21px;
+}
+footer{
+
+    position: absolute;
+    width: 1441px;
+    height: 357px;
+    left: -1px;
+    top: 13px;
+    
+    background: #D97F5B;
+}

@@ -2,10 +2,12 @@ import React from 'react';
 import logo from '../../assets/logo.svg';
 import './Home.css';
 
-function Home() {
+const Home = ()=> {
     return (
         <div className="App">
-            <header className="App-header">
+            <p> This is the home page, not sure how to make its backgroud start right bellow the header </p>
+            
+            {/*<header className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
                 <p>
                     Edit <code>src/App.js</code> and save to reload.
@@ -18,6 +20,8 @@ function Home() {
                 >
                 </a>
             </header>
+           */}
+            
         </div>
     );
 }

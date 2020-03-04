@@ -1,5 +1,5 @@
 .header {
-    background: #282c34;
+    background: #f3f5f8;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -7,14 +7,16 @@
 }
 
 .nav-logo {
-    display:flex;
-    height: 50px;
-    width: 50px;
-    padding: 10%;
+    position: absolute;
+    width: 219px;
+    height: 71px;
+    left: 0px;
+    top: 0px;
 }
 
 .nav-logo:hover {
-
+    cursor: pointer;
+	background-color: #ddd;
 }
 
 .nav-items {
@@ -25,7 +27,7 @@
 }
 
 .nav-link {
-    background-color: #09d3ac;
+    background-color: #d7eee9;
     color: black;
     padding: 14px 25px;
     text-align: center;
