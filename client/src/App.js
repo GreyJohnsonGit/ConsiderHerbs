@@ -6,6 +6,7 @@ import About from "./components/About/About"
 import DidYouKnow from "./components/DidYouKnow/DidYouKnow"
 import Schedule from "./components/Schedule/Schedule"
 import Forum from "./components/Forum/Forum"
+import Footer from "./components/Footer/Footer"
 
 
 import NotFound from "./views/NotFound";
@@ -28,6 +29,7 @@ const App = () => {
         </Route>
         <Route component={NotFound}/>
       </Switch>
+      <Footer />
     </div>
   );
 }

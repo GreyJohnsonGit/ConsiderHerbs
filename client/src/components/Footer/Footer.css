@@ -1,0 +1,22 @@
+.footer {
+    background: #D97F5B;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 1%;
+}
+.foot-link {
+    color: black;
+    padding: 2px 2px;
+    text-align: left;
+    text-decoration: none;
+}
+.foot-link:hover{
+    background-color: #99ada6;
+}
+footer:any-link {
+	float: left;
+	width: 50%;
+	padding: 10px;
+	background-color: #a4f7e225;
+}

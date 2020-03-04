@@ -12,12 +12,10 @@ header {  /*menu bar maybe?*/
     top: 21px;
 }
 footer{
-
     position: absolute;
     width: 1441px;
     height: 357px;
     left: -1px;
     top: 13px;
-    
     background: #D97F5B;
 }
