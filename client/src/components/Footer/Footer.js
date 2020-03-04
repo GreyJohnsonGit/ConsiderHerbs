@@ -6,7 +6,7 @@ import './Footer.css';
 const Footer=()=>{
     return(
         <div className = "footer">
-            <p>This is the footer of the page </p>
+            <p>This is the footer of the pagee </p>
             <div classname="linksColumn">
                 <div classname= "row">
                     <h3> Fast Links </h3>
