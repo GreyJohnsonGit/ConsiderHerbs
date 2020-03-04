@@ -24,11 +24,12 @@
     margin-left: auto;
     margin-right: 5%;
     align-items: center;
+    font: ubuntu;
 }
 
 .nav-link {
-    background-color: #d7eee9;
-    color: black;
+    background-color: none;
+    color: #363636;
     padding: 14px 25px;
     text-align: center;
     text-decoration: none;
