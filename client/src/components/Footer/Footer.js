@@ -6,8 +6,11 @@ import './Footer.css';
 const Footer=()=>{
     return(
         <div className = "footer">
-            <p>This is the footer of the page</p>
+            <p>This is the footer of the page </p>
             <div classname="linksColumn">
+                <div classname= "row">
+                    <h3> Fast Links </h3>
+                </div>
                 <div classname= "row">
                     <Link className = "foot-link" to='/Home'>HOME</Link>
                 </div>
