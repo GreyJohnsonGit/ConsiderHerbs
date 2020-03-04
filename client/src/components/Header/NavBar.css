@@ -30,12 +30,23 @@
 .nav-link {
     background-color: none;
     color: #363636;
-    padding: 14px 25px;
+    padding: 14px 20px;
     text-align: center;
     text-decoration: none;
 }
 
 .nav-link:hover {
-    background-color: #08bd9a;
+    background-color: #d0f7e2;
+}
+
+.nav-link-sign-in {
+    background-color: #b1b1b1;
+    color: #363636;
+    padding: 14px 40px;
+    text-align: right;
+    text-decoration: none;
+}
+.nav-link-sign-in:hover {
+    background-color: #898a8a;
 }
 
