@@ -3,7 +3,14 @@ const path = require('path'),
     mongoose = require('mongoose'),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
-    exampleRouter = require('../routes/examples.server.routes');
+    aboutRouter = require('../routes/aboutRouter');
+    diduknowRouter = require('../routes/diduknowRouter');
+    forumRouter = require('../routes/forumRouter');
+    glossaryRouter = require('../routes/glossaryRouter');
+    homeRouter = require('../routes/homeRouter');
+    scheduleRouter = require('../routes/scheduleRouter');
+    signinRouter = require('../routes/signinRouter');
+
 
 module.exports.init = () => {
     /* 
@@ -27,6 +34,13 @@ module.exports.init = () => {
 
     // add a router
     app.use('/api/example', exampleRouter);
+    app.use('/api/About', aboutRouter);
+    app.use('/api/DidYouKnow', diduknowRouter);
+    app.use('/api/Forum', forumRouter);
+    app.use('/api/Glossary', glossaryRouter);
+    app.use('/api/Home', homeRouter);
+    app.use('/api/Schedule', scheduleRouter);
+    app.use('/api/SignIn', signinRouter);
 
     if (process.env.NODE_ENV === 'production') {
         // Serve any static files
