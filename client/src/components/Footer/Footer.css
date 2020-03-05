@@ -4,6 +4,7 @@
     flex-direction: row;
     justify-content: flex-start;
     padding: 1%;
+    bottom: 0px;
 }
 .foot-link {
     color: black;

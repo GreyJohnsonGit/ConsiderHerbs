@@ -1,9 +1,6 @@
-.intro-imgage{
+.intro-image{
     position: absolute;
-    width: 1393px;
-    height: 71px;
-    left: 23px;
-    top: 113px;
+    width: 100%;
 }
 
 .letter{
@@ -12,4 +9,8 @@
 
 .entry{
     color: #363636
+}
+
+.blank {
+    height: 100%;
 }
