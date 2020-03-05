@@ -1,6 +1,8 @@
 .intro-image{
     position: absolute;
     width: 100%;
+    /*height: 98px; //by doing this the picture looks too stretched */
+    top:100px;
 }
 
 .letter{
@@ -14,8 +16,16 @@
 .blank {
     height: 100%;
 }
-
-.scale {
-    height: 300px;
-    width: 100%;
- }
+.column1 {
+	float: left;
+    width: 92%;
+    padding: 15px;
+    top:0px;
+	background-color: #a4f7e225;
+}
+.column2 {
+	float: left;
+    width: 8%;
+    padding: 20px;
+	background-color: #a4f7e225;
+}
