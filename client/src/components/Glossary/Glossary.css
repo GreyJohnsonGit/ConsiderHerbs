@@ -1,0 +1,42 @@
+.intro-image{
+    width: 100%;
+}
+
+.letter{
+    color: #363636
+}
+
+.entry{
+    color: #363636
+}
+
+.blank {
+    height: 100%;
+}
+.column1 {
+	float: left;
+    width: 92%;
+    padding: 15px;
+    top:0px;
+	background-color: #FFFFFF;
+}
+.column2 {
+	float: left;
+    width: 8%;
+    padding: 20px;
+	background-color: #FFFFFF;
+}
+
+.form
+{
+    display: block;
+    text-align: center;
+}
+
+form
+{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}

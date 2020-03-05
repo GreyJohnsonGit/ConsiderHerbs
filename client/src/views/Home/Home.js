@@ -5,8 +5,7 @@ import './Home.css';
 const Home = ()=> {
     return (
         <div className="App">
-            <p> This is the home page, not sure how to make its backgroud start right bellow the header </p>
-            
+            <h2>HOME page</h2>
             {/*<header className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
                 <p>

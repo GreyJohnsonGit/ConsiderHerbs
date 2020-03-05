@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import './NavBar.css';
+import ConsiderLogo from './ConsiderLogo.png';
 
 const NavBar = () => {
     return (
@@ -9,7 +10,7 @@ const NavBar = () => {
             {/* Logo */}
             {/*CANT SEEM TO FIGURE OUT HOW THAT WORKS JUST YET*/}
             <Link className = "nav-title" to="/">
-                <img className = "nav-logo" src={ "/logo192.png" } alt="logo" />
+               <img className = "nav-logo" src={ ConsiderLogo } alt="logo" />
             </Link>
 
             {/* Page Links */}
@@ -19,7 +20,8 @@ const NavBar = () => {
                 <Link className = "nav-link" to='/DidYouKnow'>DID YOU KNOW</Link>
                 <Link className = "nav-link" to='/Glossary'>GLOSSARY</Link>
                 <Link className = "nav-link" to='/About'>ABOUT</Link>
-                <Link className = "nav-link" to='/Schedule'>SCHEDULE</Link>
+                <Link className = "nav-link-last" to='/Schedule'>SCHEDULE</Link>
+                <Link className = "nav-link-sign-in" to='/SignIn'>SIGN IN</Link>
                 {/*<Link className = "nav-link" to='/Register'>Forum</Link> */}
             </div>
 

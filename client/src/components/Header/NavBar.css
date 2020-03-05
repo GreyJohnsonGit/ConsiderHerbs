@@ -1,17 +1,27 @@
+@font-face {
+    font-family: Ubuntu-Th;
+    src: url(/assets/ubuntu-font-family-0.83/Ubuntu-B.ttf);
+}
+
 .header {
-    background: #f3f5f8;
+    position: fixed;
+    background: #FFFFFF;
     display: flex;
+    width: 100%;
     flex-direction: row;
     justify-content: flex-start;
-    padding: 1%;
+    font-size: 18px;
+    font-weight: 50;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .nav-logo {
-    position: absolute;
     width: 219px;
     height: 71px;
-    left: 0px;
-    top: 0px;
+    left: 5px;
+    vertical-align: middle;
+    padding-left: 5px;
 }
 
 .nav-logo:hover {
@@ -22,19 +32,45 @@
 .nav-items {
     display:flex;
     margin-left: auto;
-    margin-right: 5%;
+    margin-right: 1.5%;
     align-items: center;
 }
 
 .nav-link {
-    background-color: #d7eee9;
-    color: black;
-    padding: 14px 25px;
+    background-color: none;
+    color: #363636;
+    padding: 14px 15px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.nav-link-last {
+    background-color: none;
+    color: #363636;
+    padding-left: 20px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-right: 8%;
     text-align: center;
     text-decoration: none;
 }
 
 .nav-link:hover {
-    background-color: #08bd9a;
+    font-weight: bold;
+}
+
+.nav-link-last:hover {
+    font-weight: bold;
+}
+
+.nav-link-sign-in {
+    background-color: #636363;
+    color: #FFFFFF;
+    padding: 16px 20px;
+    text-align: right;
+    text-decoration: none;
+}
+.nav-link-sign-in:hover {
+    background-color: #898a8a;
 }
 
