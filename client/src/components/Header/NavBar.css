@@ -10,20 +10,15 @@
     width: 100%;
     flex-direction: row;
     justify-content: flex-start;
-    padding-top: 1.5%;
-    padding-bottom: 1.5%;
     font-size: 18px;
     font-weight: 50;
 }
 
 .nav-logo {
-    position: absolute;
     width: 219px;
     height: 71px;
     left: 5px;
-    top: 0px;
-    padding-left: 1%;
-    padding-top: .75%;
+    vertical-align: middle;
 }
 
 .nav-logo:hover {

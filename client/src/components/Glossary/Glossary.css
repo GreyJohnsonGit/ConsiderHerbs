@@ -1,8 +1,5 @@
 .intro-image{
-    position: absolute;
     width: 100%;
-    /*height: 98px; //by doing this the picture looks too stretched */
-    top:100px;
 }
 
 .letter{
@@ -30,6 +27,3 @@
 	background-color: #FFFFFF;
 }
 
-.expand {
-    height: 340px;
-}

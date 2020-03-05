@@ -8,30 +8,27 @@ import Col from 'react-bootstrap/Col'
 const Glossary =()=>{
     return(
         <div>
-            <div className = "expand">
-                <img className = "intro-image" src={ IntroBar } alt="intro" />
-            </div>
+            <img className = "intro-image" src={ IntroBar } alt="intro" />
+
             
-            <div >
-                <form>
-                    <input type="text" placeholder="Search Terms..."/>
-                </form>
-                { Terms.map((glossaryEntry)=>{
-                    return(
-                        <div className="column1" >
-                            <p>{glossaryEntry.title}</p>
-                            <div>
-                                <p> Definition: {glossaryEntry.definition}</p>
-                            </div>
-                            <div>
-                                <p> Usage: {glossaryEntry.usage}</p>
-                            </div>
-                            
+            <form>
+                <input type="text" placeholder="Search Terms..."/>
+            </form>
+
+            { Terms.map((glossaryEntry)=>{
+                return(
+                    <div className="column1" >
+                        <p>{glossaryEntry.title}</p>
+                        <div>
+                            <p> Definition: {glossaryEntry.definition}</p>
                         </div>
-                    
-                    )
-                })}
-            </div>
+                        <div>
+                            <p> Usage: {glossaryEntry.usage}</p>
+                        </div>
+                        
+                    </div>
+                )
+            })}
         </div>
         
         ////search bar 

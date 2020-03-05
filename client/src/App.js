@@ -15,8 +15,9 @@ import NavBar from "./components/Header/NavBar";
 
 const App = () => {
   return (
-    <div>
+    <body>
       <NavBar />
+      <div className = "spacer" > &nbsp; </div>
       <Switch>
         <Route exact path="/Home" component={Home} />
         <Route exact path="/Glossary" component={Glossary} />
@@ -32,7 +33,7 @@ const App = () => {
         <Route component={NotFound}/>
       </Switch>
       <Footer />
-    </div>
+    </body>
   );
 }
 

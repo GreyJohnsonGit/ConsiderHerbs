@@ -24,3 +24,8 @@ footer{
     bottom: 0px;
     background: #D97F5B;
 }
+
+.spacer {
+    width: 100%;
+    height: 71px;
+}
