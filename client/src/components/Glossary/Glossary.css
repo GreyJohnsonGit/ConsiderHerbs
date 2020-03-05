@@ -21,11 +21,15 @@
     width: 92%;
     padding: 15px;
     top:0px;
-	background-color: #a4f7e225;
+	background-color: #FFFFFF;
 }
 .column2 {
 	float: left;
     width: 8%;
     padding: 20px;
-	background-color: #a4f7e225;
+	background-color: #FFFFFF;
+}
+
+.expand {
+    height: 340px;
 }

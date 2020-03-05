@@ -8,11 +8,14 @@ import Col from 'react-bootstrap/Col'
 const Glossary =()=>{
     return(
         <div>
-            <div >
+            <div className = "expand">
                 <img className = "intro-image" src={ IntroBar } alt="intro" />
             </div>
+            
             <div >
-            <h1>THIS IS THE GLOSSARY PAGE</h1>
+                <form>
+                    <input type="text" placeholder="Search Terms..."/>
+                </form>
                 { Terms.map((glossaryEntry)=>{
                     return(
                         <div className="column1" >
