@@ -12,7 +12,7 @@ const Glossary =()=>{
                 <img className = "intro-image" src={ IntroBar } alt="intro" />
             </div>
             <div >
-                <h1>THIS IS THE GLOSSARY PAGE</h1>
+            <h1>THIS IS THE GLOSSARY PAGE</h1>
                 { Terms.map((glossaryEntry)=>{
                     return(
                         <div className="column1" >
