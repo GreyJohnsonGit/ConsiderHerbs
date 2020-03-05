@@ -11,7 +11,6 @@ const NavBar = () => {
             {/*CANT SEEM TO FIGURE OUT HOW THAT WORKS JUST YET*/}
             <Link className = "nav-title" to="/">
                <img className = "nav-logo" src={ ConsiderLogo } alt="logo" />
-                
             </Link>
 
             {/* Page Links */}
