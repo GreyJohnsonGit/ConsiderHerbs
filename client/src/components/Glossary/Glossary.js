@@ -1,34 +1,24 @@
 import React from 'react';
-import './Glossary.css'
-import IntroBar from './intro.png'
-import Terms from './terms.json'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
+import './Glossary.css';
+import IntroBar from './intro.png';
+import TermInfo from "./glossary_components/TermInfo";
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const Glossary =()=>{
     return(
         <div>
             <img className = "intro-image" src={ IntroBar } alt="intro" />
 
+            <div className = "form">
+                <form>
+                    <input type="text" placeholder="Search Terms..."/>
+                </form>
+            </div>
             
-            <form>
-                <input type="text" placeholder="Search Terms..."/>
-            </form>
 
-            { Terms.map((glossaryEntry)=>{
-                return(
-                    <div className="column1" >
-                        <p>{glossaryEntry.title}</p>
-                        <div>
-                            <p> Definition: {glossaryEntry.definition}</p>
-                        </div>
-                        <div>
-                            <p> Usage: {glossaryEntry.usage}</p>
-                        </div>
-                        
-                    </div>
-                )
-            })}
+            <TermInfo/>
+
         </div>
         
         ////search bar 
