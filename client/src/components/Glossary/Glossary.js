@@ -12,8 +12,10 @@ fs.readFile('terms.json', 'utf8',(data, err)=>{
 const Glossary =()=>{
     return(
         <div>
-            <img className = "intro-image" src={ IntroBar } alt="intro" />
-            <h1>THIS IS THE GLOSSARY PAGE</h1>
+            <div className = "scale">            
+                <img className = "intro-image" src={ IntroBar } alt="intro" />
+            </div>
+
             { Terms.map((glossaryEntry)=>{
                 return(
                     <div>
