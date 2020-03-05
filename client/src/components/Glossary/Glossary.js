@@ -5,9 +5,8 @@ import IntroBar from './intro.png'
 
 const Glossary =()=>{
     return(
-        <div >
+        <div>
             <img className = "intro-image" src={ IntroBar } alt="intro" />
-            <h1>THIS IS THE GLOSSARY PAGE</h1>
         </div>
         ////image here 
         ////search bar 
