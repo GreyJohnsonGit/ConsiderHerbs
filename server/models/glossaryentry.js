@@ -4,4 +4,5 @@ const GlossarySchema = new mongoose.Schema({
   definition: String, 
   usage: String
 });
+
 export default mongoose.model('GlossaryEntry', GlossarySchema);
