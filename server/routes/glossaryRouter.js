@@ -1,5 +1,5 @@
-import * as GlossaryController from '../controllers/GlossaryController.js';
-import express from 'express'; 
+GlossaryController = require('../controllers/GlossaryController.js');
+express = require('express'); 
 const glossaryRouter = express.Router()
 
 
@@ -25,4 +25,4 @@ glossaryRouter.get('/:title', GlossaryController.read);
 glossaryRouter.delete('/:title', GlossaryController.remove);
 
   
-export default glossaryRouter;
+module.exports = glossaryRouter;
