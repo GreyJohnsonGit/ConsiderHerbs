@@ -16,9 +16,10 @@ const Glossary =()=>{
                 </div>
             </div>
 
-            <div className = "form">
+            <div className = "search">
                 <form>
                     <input type="text" placeholder="Search Terms..."/>
+                    <button type="submit">Search</button>
                 </form>
             </div>
             

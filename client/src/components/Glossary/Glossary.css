@@ -32,18 +32,51 @@
 	background-color: #FFFFFF;
 }
 
-.form
+.search
 {
     display: block;
     text-align: center;
+    margin: 20px 0px;
 }
 
-form
+.search form
 {
-    display: inline-block;
+    display: flex;
     margin-left: auto;
     margin-right: auto;
-    text-align: left;
+    width: 700px;
+}
+
+.search button, input
+{
+    border: none;
+    height: 45px;
+    vertical-align: top;
+}
+
+.search button
+{
+    width: 150px;
+    padding: 0px;
+    margin-left: 8px;
+    background: #636363;
+    color: white;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.search button:hover
+{
+    background: #898a8a;
+}
+
+.search input
+{
+    flex: 1;
+    padding: 0px 25px;
+    background: #F4F4F4;
+    color: #636363;
+    font-size: 24px;
 }
 
 .image {
