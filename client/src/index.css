@@ -9,7 +9,7 @@ body {
 	padding: 0;
     background: #FFFFFF;
     font-family: ubuntu;
-
+    color: #636363;
 }
 header {  /*menu bar maybe?*/
     position: absolute;
