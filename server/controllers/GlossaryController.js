@@ -1,7 +1,7 @@
 const glossaryModel = require('../models/glossaryentry.js');
 
 //assumes request has req.body ==> the object to be created in the db
-export const create = (req, res) => {
+exports.create = function(req, res) {
     var model = glossaryModel;
     let glossaryItem = new model(req.body);
     //if succesfully saves, the response returns the saved item, otherwise log error
@@ -17,7 +17,7 @@ export const create = (req, res) => {
 }
 
 //this returns from a POST request, the url should give a :title param
-export const read = (req, res) => {
+exports.read = function(req, res) {
     var model = glossaryModel;
     model.find({title: req.params.title}).exec().then(function(docs, err){
         if(err){
@@ -34,7 +34,7 @@ export const read = (req, res) => {
 
 //updated glossary entry, expects req.body to contain updated entry fields
 //expects url param :title to denote which entry to update
-export const update = (req, res) => {
+exports.update = function(req, res) {
     var model = glossaryModel;
     let item = req.body;
     model.findOneAndUpdate({title: req.params.title}, item).exec();
@@ -44,7 +44,7 @@ export const update = (req, res) => {
 }
 
 //removes glossary entry, expects url param :title to denote which entry to remove
-export const remove = (req, res) => {
+exports.remove = function(req, res) {
     var model = glossaryModel;
     //trick to get some responsive feedback as 'remove()' does not return anything
     model.find({title: req.params.title}).exec().then(function(docs, err){
@@ -62,7 +62,7 @@ export const remove = (req, res) => {
 }
 
 //returns all entries in the glossary, sorted alphabetically by title
-export const getAll = (req, res) => {
+exports.getAll = function(req, res) {
     var model = glossaryModel;
     model.find({}).exec().then(function(docs, err){
         docs.sort((a,b) => (a.title > b.title) ? 1 : -1);
