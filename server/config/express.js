@@ -1,8 +1,8 @@
-const path = require('path'),
-    express = require('express'),
-    mongoose = require('mongoose'),
-    morgan = require('morgan'),
-    bodyParser = require('body-parser'),
+const path = require('path');
+    express = require('express');
+    mongoose = require('mongoose');
+    morgan = require('morgan');
+    bodyParser = require('body-parser');
     aboutRouter = require('../routes/aboutRouter');
     diduknowRouter = require('../routes/diduknowRouter');
     forumRouter = require('../routes/forumRouter');
@@ -10,6 +10,7 @@ const path = require('path'),
     homeRouter = require('../routes/homeRouter');
     scheduleRouter = require('../routes/scheduleRouter');
     signinRouter = require('../routes/signinRouter');
+    exampleRouter = require('../routes/examples.server.routes');
 
 
 module.exports.init = () => {
