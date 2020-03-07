@@ -1,8 +1,9 @@
 const express = require('./config/express.js')
-import glossaryRouter from './routes/glossaryRouter.js';
-import bodyParser from 'body-parser';
-import mongoose from 'mongoose';
-import config from '../config/config.js';
+ glossaryRouter = require('./routes/glossaryRouter.js');
+bodyParser = require('body-parser');
+mongoose = require('mongoose');
+config = require('./config/config.js');
+pathComp= require("express-static");
  
 // Use env port or default
 const port = process.env.PORT || 5000;
@@ -19,7 +20,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 //serve static files
-app.use('/', express.static('./../client'));
+app.use('/', pathComp('./../client'));
 
 //set up api path for the glossary - this URL will be used to route requests for the glossary
 //urls within this are routed in glossaryRouter
