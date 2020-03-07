@@ -3,6 +3,7 @@ import './Glossary.css';
 import IntroBar from './intro.png';
 import Weebs from './Rosemarys.JPG';
 import TermInfo from "./glossary_components/TermInfo";
+import AlphabetList from "./glossary_components/AlphabetList";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
@@ -23,14 +24,21 @@ const Glossary =()=>{
                 </form>
             </div>
             
+            <div className="column2">
+                <TermInfo/>
+            </div>
 
-            <TermInfo/>
+            <div className="column3">
+                <AlphabetList />
+            </div>
 
         </div>
         
         ////search bar 
         ////terms components, big letters, plus each term starting wiht that letter, plus definition
         ///letters nav bar to the side 
+
+        // make search bar or alphabet list sticky?
 
     );
 

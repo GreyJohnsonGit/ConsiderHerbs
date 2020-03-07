@@ -18,18 +18,22 @@
 .blank {
     height: 100%;
 }
-.column1 {
+.term-container {
 	float: left;
-    width: 92%;
     padding: 15px;
     top:0px;
     background-color: #FFFFFF;
 }
 .column2 {
+    float: left;
+    width: 92%;
+    top:0px;
+    background-color: #FFFFFF;
+}
+.column3 {
 	float: left;
     width: 8%;
-    padding: 20px;
-	background-color: #FFFFFF;
+    background-color: #FFFFFF;
 }
 
 .search
@@ -38,7 +42,6 @@
     text-align: center;
     margin: 20px 0px;
 }
-
 .search form
 {
     display: flex;
@@ -46,14 +49,12 @@
     margin-right: auto;
     width: 700px;
 }
-
 .search button, input
 {
     border: none;
     height: 45px;
     vertical-align: top;
 }
-
 .search button
 {
     width: 150px;
@@ -64,12 +65,10 @@
     text-transform: uppercase;
     font-size: 20px;
 }
-
 .search button:hover
 {
     background: #898a8a;
 }
-
 .search input
 {
     flex: 1;
@@ -77,6 +76,16 @@
     background: #F4F4F4;
     color: #636363;
     font-size: 24px;
+}
+
+.alphabet-list-container {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 18px;
+    line-height: 150%;
+}
+.alphabet-list-container > div:first-child, .alphabet-list-container > div:last-child {
+    margin: 30px 0; /* this is an arbitrary value. margin-bottom is relative to width not height */
 }
 
 .image {

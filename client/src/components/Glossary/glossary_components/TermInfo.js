@@ -7,7 +7,7 @@ const TermInfo =()=>{
         <div>
             { Terms.map((glossaryEntry)=>{
                 return(
-                    <div className="column1" >
+                    <div className="term-container" >
                         <p>{glossaryEntry.title}</p>
                         <div>
                             <p> Definition: {glossaryEntry.definition}</p>
