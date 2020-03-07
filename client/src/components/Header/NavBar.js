@@ -1,24 +1,28 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
 import './NavBar.css';
+import ConsiderLogo from './ConsiderLogo.png';
 
 const NavBar = () => {
     return (
         <div className = "header">
             {/* Logo */}
+            {/*CANT SEEM TO FIGURE OUT HOW THAT WORKS JUST YET*/}
             <Link className = "nav-title" to="/">
-                <img className = "nav-logo" src={ "/logo192.png" } alt="React logo" />
+               <img className = "nav-logo" src={ ConsiderLogo } alt="logo" />
             </Link>
 
             {/* Page Links */}
             <div className = "nav-items">
-                <Link className = "nav-link" to='/Home'>Home</Link>
-                <Link className = "nav-link" to='/Register'>Extra Page</Link>
-                <a className = "nav-link" target='_blank' rel="noopener noreferrer" href="https://reactjs.org/docs/getting-started.html">
-                    React Docs
-                </a>
-                <a className = "nav-link" target="_blank" rel="noopener noreferrer" href="https://reactjs.org/tutorial/tutorial.html">React Tutorial</a>
-                <a className = "nav-link" target="_blank" rel="noopener norefferer" href="https://nodejs.org/en/docs/">Node Docs</a>
+                <Link className = "nav-link" to='/Home'>HOME</Link>
+                <Link className = "nav-link" to='/Forum'>FORUM</Link> 
+                <Link className = "nav-link" to='/DidYouKnow'>DID YOU KNOW</Link>
+                <Link className = "nav-link" to='/Glossary'>GLOSSARY</Link>
+                <Link className = "nav-link" to='/About'>ABOUT</Link>
+                <Link className = "nav-link-last" to='/Schedule'>SCHEDULE</Link>
+                <Link className = "nav-link-sign-in" to='/SignIn'>SIGN IN</Link>
+                {/*<Link className = "nav-link" to='/Register'>Forum</Link> */}
             </div>
 
         </div>
