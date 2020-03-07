@@ -18,18 +18,38 @@
 .blank {
     height: 100%;
 }
-.term-container {
-	float: left;
-    padding: 15px;
-    top:0px;
-    background-color: #FFFFFF;
-}
+
 .column2 {
     float: left;
     width: 92%;
     top:0px;
     background-color: #FFFFFF;
 }
+.term-container {
+	float: left;
+    padding: 15px;
+    top:0px;
+    background-color: #FFFFFF;
+}
+.term-container h1 {
+    font-size: 24px;
+    border-bottom: 1px solid #363636;
+}
+.term-container table {
+    display: grid;
+    grid-template-columns: /* probably a better way to do column-sizing relative to text size, these are arbitrary values */
+        125px
+        minmax(100px, 1fr);
+}
+.term-container tr {
+    vertical-align: top;
+    text-align: left;
+    display: contents;
+}
+.term-container td {
+    padding-bottom: 15px;
+}
+
 .column3 {
 	float: left;
     width: 8%;

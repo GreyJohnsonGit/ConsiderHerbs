@@ -8,14 +8,17 @@ const TermInfo =()=>{
             { Terms.map((glossaryEntry)=>{
                 return(
                     <div className="term-container" >
-                        <p>{glossaryEntry.title}</p>
-                        <div>
-                            <p> Definition: {glossaryEntry.definition}</p>
-                        </div>
-                        <div>
-                            <p> Usage: {glossaryEntry.usage}</p>
-                        </div>
-                        
+                        <h1>{glossaryEntry.title}</h1>
+                        <table>
+                            <tr>
+                                <th>Definition</th>
+                                <td>{glossaryEntry.definition}</td>
+                            </tr>
+                            <tr>
+                                <th>Usage</th>
+                                <td>{glossaryEntry.usage}</td>
+                            </tr>
+                        </table>
                     </div>
                 )
             })}
