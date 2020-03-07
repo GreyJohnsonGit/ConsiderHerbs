@@ -1,4 +1,4 @@
-const Example = require('../models/examples.server.model.js')
+const Example = require('../models/glossaryentry.js')
 
 exports.hello = function(req, res) {
     res.send('world')
