@@ -1,7 +1,7 @@
 import React from 'react';
 import Terms from '../terms.json';
 
-const alphabet = '#abcdefghijklmnopqrstuvwxyz'.split('');
+const alphabet = '#abcdefghijklmnopqrstuvwxyz'.toUpperCase().split('');
 
 const AlphabetList =()=>{
     return(
