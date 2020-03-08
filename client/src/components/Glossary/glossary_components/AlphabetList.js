@@ -7,7 +7,8 @@ const alphabet = '#abcdefghijklmnopqrstuvwxyz'.toUpperCase().split('');
 const scrollToId = (id,block) => {
     console.log(id + " was clicked");
     let element = document.getElementById(id);
-    element.scrollIntoView({behavior: "smooth" , block: block});
+    if(element!=null)
+    {    element.scrollIntoView({behavior: "smooth" , block: block});}
 }
 const AlphabetList =()=>{
     return(
