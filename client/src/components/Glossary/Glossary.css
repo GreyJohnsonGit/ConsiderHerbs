@@ -32,12 +32,17 @@
     width: 92%;
     top:0px;
     background-color: #FFFFFF;
+    display: flex;
 }
 .term-container {
-	float: left;
+    flex-grow: 1;
     padding: 15px;
-    top:0px;
-    background-color: #FFFFFF;
+    display: grid;
+    grid-template-columns: 125px auto;
+}
+.large-letter {
+    font-size: 96px;
+    text-align: center;
 }
 .term-container h1 {
     font-size: 24px;
@@ -48,14 +53,12 @@
     grid-template-columns: /* probably a better way to do column-sizing relative to text size, these are arbitrary values */
         125px
         minmax(100px, 1fr);
+    grid-row-gap: 15px;
 }
 .term-container tr {
     vertical-align: top;
     text-align: left;
     display: contents;
-}
-.term-container td {
-    padding-bottom: 15px;
 }
 
 .column3 {

@@ -4,7 +4,7 @@ import { Button } from 'react-bootstrap';
 import $ from "jquery"
 import scrollto from "jquery.scrollto"
 
-const alphabet = '#abcdefghijklmnopqrstuvwxyz'.split('');
+const alphabet = '#abcdefghijklmnopqrstuvwxyz'.toUpperCase().split('');
 
 //const $ = window.$;
 
