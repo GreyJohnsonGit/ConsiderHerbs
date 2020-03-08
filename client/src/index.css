@@ -1,13 +1,15 @@
 @font-face {
-    font-family: ubuntu-r;
+    font-family: ubuntu;
     src: url(./assets/ubuntu-font-family-0.83/ubuntu-r.ttf);
 }
+
 
 body {
 	margin: 0;
 	padding: 0;
     background: #FFFFFF;
-    font-family: ubuntu-r;
+    font-family: ubuntu;
+    color: #636363;
 }
 header {  /*menu bar maybe?*/
     position: absolute;
@@ -27,5 +29,5 @@ footer{
 
 .spacer {
     width: 100%;
-    height: 71px;
+    height: 81px;
 }

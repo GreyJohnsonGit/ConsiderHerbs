@@ -6,7 +6,7 @@ import './Footer.css';
 
 const Footer=()=>{
     return(
-        <div className = "footer">
+        <div className = "footer" id= "footer">
             <Row>
                 <div>
                     <b> Fast Links </b>
