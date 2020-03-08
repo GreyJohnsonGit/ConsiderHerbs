@@ -6,7 +6,7 @@ import ConsiderLogo from './ConsiderLogo.png';
 
 const NavBar = () => {
     return (
-        <div className = "header">
+        <div className = "header" >
             {/* Logo */}
             {/*CANT SEEM TO FIGURE OUT HOW THAT WORKS JUST YET*/}
             <Link className = "nav-title" to="/">

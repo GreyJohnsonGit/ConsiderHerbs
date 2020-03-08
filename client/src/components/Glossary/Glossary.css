@@ -8,9 +8,17 @@
 }
 
 .letter{
-    color: #363636
+    color: #2c2c2c;
+    padding: 2px 20px;
+    border: none;
+    background-color: #FFFFFF;
+    font-family: UbuntuTh;
+    text-transform: uppercase;
+    text-align: center;
 }
-
+.letter:hover{
+    background-color: rgba(196, 212, 176, 0.486);
+}
 .entry{
     color: #363636
 }

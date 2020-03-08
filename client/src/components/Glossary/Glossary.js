@@ -17,7 +17,7 @@ const Glossary =()=>{
                 </div>
             </div>
 
-            <div className = "search">
+            <div className = "search" id="search_bar">
                 <form>
                     <input type="text" placeholder="Search Terms..."/>
                     <button type="submit">Search</button>
