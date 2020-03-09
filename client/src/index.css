@@ -3,8 +3,13 @@
     src: url(./assets/ubuntu-font-family-0.83/ubuntu-r.ttf);
 }
 
-
+html, #root, #page-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
 body {
+    height: 100vh;
 	margin: 0;
 	padding: 0;
     background: #FFFFFF;
@@ -18,15 +23,9 @@ header {  /*menu bar maybe?*/
     left: 23px;
     top: 0px;
 }
-footer{
-    position: absolute;
-    width: 1441px;
-    height: 357px;
-    left: -1px;
-    bottom: 0px;
-    background: #D97F5B;
+.content {
+    flex: 1 0 auto;
 }
-
 .spacer {
     width: 100%;
     height: 81px;
