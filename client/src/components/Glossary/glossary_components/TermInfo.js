@@ -5,7 +5,6 @@ import React from 'react';
 const loadTermInfo = () => {
     return Axios.get("http://localhost:5000/api/glossary")//Needs to be domain of the server
         .then(res => {
-            console.log(res.data);
             return res.data;
         })
         .catch(err => {
