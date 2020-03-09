@@ -1,11 +1,36 @@
-.footer {
-    background: #A6CC78;
-    display: flex;
+footer {
+    flex-shrink: 0;
+    background-color: #A6CC78;
+    background-image: url('./temp_logo.png');
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
+    background-size: 200px;
     width: 98%;
-    flex-direction: row;
-    justify-content: flex-start;
-    padding: 1%;
-    bottom: 0px;
+    padding: 0 1%;
+}
+.footer-container {
+    display: grid;
+    grid-template-areas:
+        "text text links"
+        ". icons links"
+        "disclaim disclaim disclaim";
+    grid-template-columns: 125px auto 125px;
+    grid-template-rows: 125px auto auto;
+}
+.text-container {
+    grid-area: text;
+    text-transform: uppercase;
+}
+.link-container {
+    grid-area: links;
+}
+.icon-container {
+    grid-area: icons;
+    text-align: center;
+}
+.disclaim-container {
+    grid-area: disclaim;
+    text-align: center;
 }
 .foot-link {
     color: black;
