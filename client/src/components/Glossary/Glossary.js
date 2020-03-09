@@ -5,7 +5,7 @@ import React from 'react';
 import AlphabetList from "./glossary_components/AlphabetList";
 //import IntroBar from './intro.png';
 import TermInfo from "./glossary_components/TermInfo";
-import Weebs from './Rosemarys.JPG';
+import Rosemarys from "./Rosemary.JPG";
 
 import './Glossary.css';
 
@@ -14,7 +14,7 @@ const Glossary =()=>{
     return(
         <div>            
             <div className = "container">
-                <img alt = "Plants" src = { Weebs } width = "100%"/>
+                <img alt = "Plants" src = { Rosemarys } width = "100%"/>
                 <div class = "text-block">
                     <div> LET'S TALK ABOUT HERBS! </div>
                 </div>
