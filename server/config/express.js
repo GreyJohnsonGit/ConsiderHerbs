@@ -1,16 +1,17 @@
+const bodyParser = require('body-parser');
+const express = require('express');
+const mongoose = require('mongoose');
+const morgan = require('morgan');
 const path = require('path');
-    express = require('express');
-    mongoose = require('mongoose');
-    morgan = require('morgan');
-    bodyParser = require('body-parser');
-    aboutRouter = require('../routes/aboutRouter');
-    diduknowRouter = require('../routes/diduknowRouter');
-    forumRouter = require('../routes/forumRouter');
-    glossaryRouter = require('../routes/glossaryRouter');
-    homeRouter = require('../routes/homeRouter');
-    scheduleRouter = require('../routes/scheduleRouter');
-    signinRouter = require('../routes/signinRouter');
-    exampleRouter = require('../routes/examples.server.routes');
+
+const aboutRouter = require('../routes/aboutRouter');
+const diduknowRouter = require('../routes/diduknowRouter');
+const forumRouter = require('../routes/forumRouter');
+const glossaryRouter = require('../routes/glossaryRouter');
+const homeRouter = require('../routes/homeRouter');
+const scheduleRouter = require('../routes/scheduleRouter');
+const signinRouter = require('../routes/signinRouter');
+const exampleRouter = require('../routes/examples.server.routes');
 
 
 module.exports.init = () => {
@@ -18,11 +19,13 @@ module.exports.init = () => {
         connect to database
         - reference README for db uri
     */
+    mongoose.set('useCreateIndex', true);
+    mongoose.set('useFindAndModify', false);
+    mongoose.set('useNewUrlParser', true);
+    mongoose.set('useUnifiedTopology', true);
     mongoose.connect(process.env.DB_URI || require('./config').db.uri, {
         useNewUrlParser: true
     });
-    mongoose.set('useCreateIndex', true);
-    mongoose.set('useFindAndModify', false);
 
     // initialize app
     const app = express();
