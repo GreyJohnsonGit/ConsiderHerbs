@@ -24,14 +24,15 @@ const Glossary =()=>{
                 </form>
             </div>
             
-            <div className="column2">
-                <TermInfo/>
-            </div>
+            <div className="column-container">
+                <div className="column1">
+                    <TermInfo/>
+                </div>
 
-            <div className="column3">
-                <AlphabetList />
+                <div className="column2">
+                    <AlphabetList />
+                </div>
             </div>
-
         </div>
         
         ////search bar 
