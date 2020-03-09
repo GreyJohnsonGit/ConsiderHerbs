@@ -1,8 +1,10 @@
+//import $ from "jquery"
+//import { Button } from 'react-bootstrap';
 import React from 'react';
-import Terms from '../terms.json';
-import { Button } from 'react-bootstrap';
-import $ from "jquery"
-import scrollto from "jquery.scrollto"
+//import scrollto from "jquery.scrollto"
+
+//import Terms from '../terms.json';
+
 const alphabet = '#abcdefghijklmnopqrstuvwxyz'.toUpperCase().split('');
 const scrollToId = (id,block) => {
     console.log(id + " was clicked");

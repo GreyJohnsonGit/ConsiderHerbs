@@ -1,17 +1,20 @@
+//import Col from 'react-bootstrap/Col';
 import React from 'react';
-import './Glossary.css';
-import IntroBar from './intro.png';
-import Weebs from './Rosemarys.JPG';
-import TermInfo from "./glossary_components/TermInfo";
+//import Row from 'react-bootstrap/Row';
+
 import AlphabetList from "./glossary_components/AlphabetList";
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+//import IntroBar from './intro.png';
+import TermInfo from "./glossary_components/TermInfo";
+import Weebs from './Rosemarys.JPG';
+
+import './Glossary.css';
+
 
 const Glossary =()=>{
     return(
         <div>            
             <div className = "container">
-                <img src = { Weebs } width = "100%"/>
+                <img alt = "Plants" src = { Weebs } width = "100%"/>
                 <div class = "text-block">
                     <div> LET'S TALK ABOUT HERBS! </div>
                 </div>
