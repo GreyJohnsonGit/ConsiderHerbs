@@ -19,8 +19,9 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 //Allows for communication between this server and a client in a different url
-app.use('/', (res) => {
+app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
+    next();
 });
 
 //Serve static files
