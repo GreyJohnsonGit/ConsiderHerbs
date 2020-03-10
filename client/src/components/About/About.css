@@ -1,0 +1,132 @@
+.image-container {
+    position: relative;
+}
+
+#plant-icon-1 {
+    position: absolute;
+    top: 50px;
+    right: 5%;
+    mix-blend-mode: multiply;
+    z-index: 1;
+}
+
+.overlay-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: grid;
+    height: 100%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 10% auto 10%;
+    grid-template-areas:
+        ". spacer"
+        "title container"
+        ". .";
+    grid-row-gap: -5px;
+}
+
+#about-title {
+    grid-area: title;
+    font-size: 5em;
+    text-transform: uppercase;
+    text-align: right;
+    color: white;
+    margin-right: 1em;
+    align-self: center;
+}
+
+#about-description-container {
+    grid-area: container;
+    font-size: 1.5em;
+    margin-right: 20%;
+    background-color: #f3f3f3;
+    display: flex;
+    align-items: center;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+#about-description-spacer {
+    grid-area: spacer;
+    margin-right: 20%;
+    background-color: #f3f3f3;    
+}
+
+.email-container {
+    background-color: #A6CC78;
+    text-align: center;
+    padding: 25px;
+}
+
+.email-container h1 {
+    text-transform: uppercase;
+    color: white;
+    font-weight: normal;
+    margin: 0 0;
+}
+
+.email-container h3 {
+    text-transform: uppercase;
+    color: #39393980;
+    font-weight: normal;
+    margin: 10 0;
+}
+.email-container form
+{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 900px;
+}
+.email-container button, .email-container input
+{
+    border: none;
+    height: 45px;
+    vertical-align: top;
+}
+.email-container button
+{
+    width: 150px;
+    padding: 0px;
+    margin-left: 8px;
+    background: #636363;
+    color: white;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+.email-container button:hover
+{
+    background: #898a8a;
+}
+.email-container input
+{
+    flex: 1;
+    padding: 0px 25px;
+    background: #F4F4F4;
+    color: #63636380;
+    font-size: 24px;
+}
+
+.bottom-container {
+    padding: 10%;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+        "pic1 pic2 pic3";
+}
+.plant-icon-container {
+    margin: 0 20px;
+}
+#pic1 {
+    grid: pic1;
+}
+#pic2 {
+    grid: pic2;
+}
+#pic3 {
+    grid: pic3;
+}
+#plant-icon-2 {
+    width: 12vw;
+}
