@@ -6,19 +6,6 @@
 .intro-image{
     width: 100%;
 }
-
-.letter{
-    color: #2c2c2c;
-    padding: 2px 20px;
-    border: none;
-    background-color: rgba(255, 255, 255, 0.212);
-    font-family: UbuntuTh;
-    text-transform: uppercase;
-    text-align: center;
-}
-.letter:hover{
-    background-color: rgba(196, 212, 176, 0.486);
-}
 .entry{
     color: #363636
 }
@@ -27,21 +14,27 @@
     height: 100%;
 }
 
-.column2 {
-    float: left;
-    width: 92%;
-    top:0px;
-    background-color: #FFFFFF;
+.column-container {
+    display: grid;
+    grid-template-columns: auto min-content;
+    column-gap: 15px;
+    padding: 0px 15px;
+}
+.column1 {
     display: flex;
 }
+.column2 {
+    background-color: #FFFFFF;
+}
+
 .term-container {
     flex-grow: 1;
-    padding: 15px;
+    padding: 15px 0px;
     display: grid;
-    grid-template-columns: 125px auto;
+    grid-template-columns: min(125px,13vw) auto;
 }
 .large-letter {
-    font-size: 96px;
+    font-size: min(96px,10vw);
     text-align: center;
 }
 .term-container h1 {
@@ -59,12 +52,6 @@
     vertical-align: top;
     text-align: left;
     display: contents;
-}
-
-.column3 {
-    float: left;
-    width: 8%;
-    background-color: #FFFFFF;
 }
 
 .search
@@ -110,21 +97,34 @@
 }
 
 .alphabet-list-container {
+    display: flex;
+    flex-direction: column;
     text-transform: uppercase;
-    right: 0;
-    top: 0;
     text-align: center;
     font-size: 18px;
     line-height: 150%;
-    margin-top: 100px;
-    position: fixed;
-    float:right; 
-    
-    height:430px; 
-    overflow:auto;
+    float:left;
+    position: sticky;
+    top: 100px;
+    height: calc(100vh - 100px);
+    max-height: 750px;
+    overflow: auto;
 }
-.alphabet-list-container > div:first-child, .alphabet-list-container > div:last-child {
-    margin: 30px 0; /* this is an arbitrary value. margin-bottom is relative to width not height */
+.alphabet-list-container button {
+    flex-grow: 1;
+    padding: 0px;
+    color: #2c2c2c;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.212);
+    font-family: UbuntuTh;
+    text-transform: uppercase;
+    text-align: center;
+}
+.alphabet-list-container > :first-child, .alphabet-list-container > :last-child {
+    flex-grow: 3;
+}
+.alphabet-list-container button:hover{
+    background-color: rgba(196, 212, 176, 0.486);
 }
 
 .image {
