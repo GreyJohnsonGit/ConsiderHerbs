@@ -3,7 +3,7 @@ import Axios from 'axios'
 import React from 'react';
 
 const loadTermInfo = () => {
-    return Axios.get("http://localhost:5000/api/glossary")//Needs to be domain of the server
+    return Axios.get("https://consider-herbs.herokuapp.com/api/glossary")//If local testing: ("http://localhost:5000/api/glossary")
         .then(res => {
             return res.data;
         })
