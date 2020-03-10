@@ -25,7 +25,7 @@ const Footer=()=>{
                     <h1>Fast Links:</h1>
                     <a href='/Home'>Home</a>
                     <a href='/Forum'>Forum</a>
-                    <a href='/DidYouKnow'>Did you know?</a>
+                    {/* <a href='/DidYouKnow'>Did you know?</a> */}
                     <a href='/Glossary'>Glossary</a>
                     <a href='/About'>About</a>
                     <a href='/Schedule'>Schedule</a>
