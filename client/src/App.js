@@ -14,24 +14,6 @@ import NavBar from "./components/Header/NavBar";
 
 const App = () => {
   return (
-<<<<<<< HEAD
-    <body>
-      <NavBar />
-      <div className = "spacer" > &nbsp; </div>
-      <Switch>
-        <Route exact path="/Home" component={Home} />
-        <Route exact path="/Glossary" component={Glossary} />
-        <Route exact path="/About" component={About} />
-        <Route exact path="/Forum" component={Forum} />
-        <Route exact path="/Schedule" component={Schedule} />
-        <Route exact path="/SignIn" component={SignIn} />
-      
-        <Route exact path="/">
-          <Redirect to="/Home" />
-        </Route>
-        <Route component={NotFound}/>
-      </Switch>
-=======
     <div id="page-container">
       <div className="content">
         <NavBar />
@@ -40,7 +22,6 @@ const App = () => {
           <Route exact path="/Home" component={Home} />
           <Route exact path="/Glossary" component={Glossary} />
           <Route exact path="/About" component={About} />
-          <Route exact path="/DidYouKnow" component={DidYouKnow} />
           <Route exact path="/Forum" component={Forum} />
           <Route exact path="/Schedule" component={Schedule} />
           <Route exact path="/SignIn" component={SignIn} />
@@ -51,7 +32,6 @@ const App = () => {
           <Route component={NotFound}/>
         </Switch>
       </div>
->>>>>>> d0e0facc522d1597fa6b1bc6cd3c53485ba7c7f7
       <Footer />
     </div>
   );
