@@ -5,7 +5,6 @@ import React from 'react';
 const loadTermInfo = () => {
     return Axios.get("https://consider-herbs.herokuapp.com/api/glossary")//If local testing: ("http://localhost:5000/api/glossary")
         .then(res => {
-            console.log(res.data);
             return res.data;
         })
         .catch(err => {
