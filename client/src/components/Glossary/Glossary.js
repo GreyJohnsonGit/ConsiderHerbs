@@ -15,7 +15,8 @@ const Glossary =()=>{
         <div>            
             <div className = "container">
                 <img alt = "Plants" src = { Rosemarys } width = "100%"/>
-                <div class = "text-block">
+                <div className = "green-bar"></div>
+                <div className = "text-block">
                     <div> LET'S TALK ABOUT HERBS! </div>
                 </div>
             </div>

@@ -4,10 +4,11 @@
 
 .letter{
     color: #2c2c2c;
-    padding: 2px 20px;
+    padding: 2px 50px;
+    padding-right: 30%;
     border: none;
     background-color: rgba(255, 255, 255, 0.212);
-    font-family: Ubuntu-Th;
+    font-family: Ubuntu-R;
     text-transform: uppercase;
     text-align: center;
 }
@@ -15,7 +16,7 @@
     background-color: rgba(196, 212, 176, 0.486);
 }
 .entry{
-    color: #363636
+    color: #363636;
 }
 
 .blank {
@@ -24,7 +25,7 @@
 
 .column2 {
     float: left;
-    width: 92%;
+    width: 88.5%;
     top:0px;
     background-color: #FFFFFF;
     display: flex;
@@ -33,11 +34,13 @@
     flex-grow: 1;
     padding: 15px;
     display: grid;
-    grid-template-columns: 125px auto;
+    grid-template-columns: 13% auto;
+    color: #363636;
 }
 .large-letter {
     font-size: 96px;
     text-align: center;
+    padding-right: 15%;
 }
 .term-container h1 {
     font-size: 24px;
@@ -73,7 +76,7 @@
     display: flex;
     margin-left: auto;
     margin-right: auto;
-    max-width: 700px;
+    width: 75%;
 }
 .search button, input
 {
@@ -114,8 +117,7 @@
     margin-top: 100px;
     position: fixed;
     float:right; 
-    
-    height:430px; 
+    height:800px; 
     overflow:auto;
 }
 .alphabet-list-container > div:first-child, .alphabet-list-container > div:last-child {
@@ -135,6 +137,14 @@
 
 .container {
     position: relative;
+}
+
+.green-bar {
+    position: absolute;
+    top: 0px;
+    background-color: #A6CC78;
+    height: 20px;
+    width: 100%;
 }
 
 .text-block {
