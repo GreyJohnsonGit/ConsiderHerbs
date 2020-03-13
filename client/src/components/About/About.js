@@ -1,6 +1,5 @@
 import React from 'react';
 import './About.css';
-
 import PlantIcon from './plant-icon.png'
 
 
@@ -8,7 +7,7 @@ const About =()=>{
     return(
         <div>
             <div className="image-container">
-                <img src='image.jpg' style={{width:'100%',height:'auto'}}/>
+                <img src='src/components/About/image.jpg' style={{width:'100%',height:'auto'}}/>
                 <img src={PlantIcon} className='plant-icon' id="plant-icon-1" />
                 <div className="overlay-container">
                     <div id='about-description-spacer'></div>

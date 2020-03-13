@@ -3,7 +3,6 @@
     src: url(./assets/ubuntu-font-family-0.83/ubuntu-r.ttf);
 }
 
-<<<<<<< HEAD
 @font-face {
     font-family: Ubuntu-C;
     src: url(./assets/ubuntu-font-family-0.83/Ubuntu-C.ttf);
@@ -14,13 +13,11 @@
     src: url(./assets/ubuntu-font-family-0.83/Ubuntu-Th.ttf);
 }
 
-=======
 html, #root, #page-container {
     height: 100%;
     display: flex;
     flex-direction: column;
 }
->>>>>>> d0e0facc522d1597fa6b1bc6cd3c53485ba7c7f7
 body {
     height: 100vh;
 	margin: 0;
