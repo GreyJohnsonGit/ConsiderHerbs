@@ -20,7 +20,8 @@ const SignIn =()=>{
                     <div> OR </div>
                     <hr size = "3"/>
                 </div>
-
+            </form>
+            <div className = "blank-container">
                 <div className = "detail"> Login with your social media account </div>
 
                 <div className = "button-container">
@@ -28,7 +29,7 @@ const SignIn =()=>{
                     <button type = "submit" className = "google"> Google </button>
                 </div>
 
-            </form>
+            </div>
             <div className = "redirect"> Don't have an account? Sign up here! </div>
         </div>
     );
