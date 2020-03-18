@@ -109,6 +109,7 @@
     height: calc(100vh - 100px);
     max-height: 750px;
     overflow: auto;
+
 }
 .alphabet-list-container button {
     flex-grow: 1;
@@ -116,7 +117,7 @@
     color: #2c2c2c;
     border: none;
     background-color: rgba(255, 255, 255, 0.212);
-    font-family: UbuntuTh;
+    font-family: ubuntu;
     text-transform: uppercase;
     text-align: center;
 }

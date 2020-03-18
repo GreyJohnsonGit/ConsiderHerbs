@@ -18,6 +18,7 @@ const App = () => {
     <div id="page-container">
       <div className="content">
         <NavBar />
+
         <div className = "spacer" > &nbsp; </div>
         <Switch>
           <Route exact path="/Home" component={Home} />
