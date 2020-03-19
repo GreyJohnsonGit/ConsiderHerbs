@@ -6,15 +6,6 @@ import Weebs from './Rosemarys.JPG';
 import TermInfo from "./glossary_components/TermInfo";
 import AlphabetList from "./glossary_components/AlphabetList";
 
-//import Row from 'react-bootstrap/Row';
-
-import AlphabetList from "./glossary_components/AlphabetList";
-//import IntroBar from './intro.png';
-import TermInfo from "./glossary_components/TermInfo";
-import Weebs from './Rosemarys.JPG';
-
-import './Glossary.css';
-
 
 
 const Glossary =()=>{
