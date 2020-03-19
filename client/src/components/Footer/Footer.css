@@ -1,24 +1,68 @@
-.footer {
-    background: #D97F5B;
-    display: flex;
-    width: 100%;
-    flex-direction: row;
-    justify-content: flex-start;
-    padding: 1%;
-    bottom: 0px;
+footer {
+    flex-shrink: 0;
+    background-color: #A6CC78;
+    background-image: url('./temp_logo.png');
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
+    background-size: 300px; /* maybe shouldnt hardcode this? */
+    background-position: left bottom;
+    width: 98%;
+    padding: 25px 1% 5px;
 }
-.foot-link {
+.footer-container {
+    display: grid;
+    grid-template-areas:
+        "text text links"
+        ". icons links"
+        "disclaim disclaim disclaim";
+    grid-template-columns: 125px auto 125px;
+    grid-template-rows: 1fr auto auto;
+}
+.text-container {
+    grid-area: text;
+    text-transform: uppercase;
+    font-size: 3.5em;
+    vertical-align: top;
+    padding-left: 30px;
+}
+.link-container {
+    grid-area: links;
+    line-height: 125%;
+    padding-left: auto;
+    padding-right: 0;
+}
+.link-container h1 {
+    margin: 0;
+    font-size: 1em;
+}
+.link-container a {
+    list-style-type: none;
+    display: block;
+}
+.link-container a, .link-container a:visited, .link-container a:hover, .link-container a:active {
     color: black;
-    padding: 2px 2px;
-    text-align: left;
+    opacity: 0.5;
     text-decoration: none;
 }
-.foot-link:hover{
+.link-container a:hover{
     background-color: #99ada6;
 }
-footer:any-link {
-	float: left;
-	width: 50%;
-	padding: 10px;
-	background-color: #a4f7e225;
+
+.icon-container {
+    grid-area: icons;
+    vertical-align: bottom;
+    display: flex;
+    justify-content: center;
+}
+.react-icons {
+    flex: 1;
+    max-width: 80px;
+}
+
+.disclaim-container {
+    grid-area: disclaim;
+    text-align: center;
+    vertical-align: bottom;
+    color: black;
+    opacity: 0.5;
 }

@@ -1,19 +1,17 @@
-@font-face {
-    font-family: Ubuntu-Th;
-    src: url(/assets/ubuntu-font-family-0.83/Ubuntu-B.ttf);
-}
-
 .header {
     position: fixed;
+    z-index: 99;
     background: #FFFFFF;
     display: flex;
     width: 100%;
     flex-direction: row;
     justify-content: flex-start;
     font-size: 18px;
-    font-weight: 50;
     padding-top: 5px;
     padding-bottom: 5px;
+    font-family: Ubuntu-Th;
+    font-weight: bold;
+    color: #363636;
 }
 
 .nav-logo {
@@ -56,11 +54,11 @@
 }
 
 .nav-link:hover {
-    font-weight: bold;
+    text-decoration: underline;
 }
 
 .nav-link-last:hover {
-    font-weight: bold;
+    text-decoration: underline;
 }
 
 .nav-link-sign-in {
@@ -73,4 +71,3 @@
 .nav-link-sign-in:hover {
     background-color: #898a8a;
 }
-

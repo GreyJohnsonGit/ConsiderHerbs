@@ -1,36 +1,34 @@
+const bodyParser = require('body-parser');
+const expressStatic = require('express-static');
+//const mongoose = require('mongoose');
+
+//const config = require('./config/config.js');
 const express = require('./config/express.js')
- glossaryRouter = require('./routes/glossaryRouter.js');
-bodyParser = require('body-parser');
-mongoose = require('mongoose');
-config = require('./config/config.js');
-pathComp= require("express-static");
+const glossaryRouter = require('./routes/glossaryRouter.js');
  
 // Use env port or default
 const port = process.env.PORT || 5000;
 
-//connect to db
-mongoose.connect(config.db.uri);
-
+//Initialize express lanes
 const app = express.init()
-//pulled from bootcamp for bodyParsing
+
+//Allows for http body parsing
 app.use(bodyParser.urlencoded({
     extended: true
 }));
-
 app.use(bodyParser.json());
 
-//serve static files
-app.use('/', pathComp('./../client'));
+//Allows for communication between this server and a client in a different url
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    next();
+});
 
-//set up api path for the glossary - this URL will be used to route requests for the glossary
-//urls within this are routed in glossaryRouter
+//Serve static files
+app.use('/', expressStatic('./client/'));
+
+//Routes for glossary API
 app.use('/api/glossary', glossaryRouter);
 
-
-
-
-
-
-
-
+//Listen for requests on 'port'
 app.listen(port, () => console.log(`Server now running on port ${port}!`));
