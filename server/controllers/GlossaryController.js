@@ -66,6 +66,7 @@ exports.getAll = function(req, res) {
     var model = glossaryModel;
     model.find({}).exec().then(function(docs, err){
         docs.sort((a,b) => (a.title > b.title) ? 1 : -1);
+        res.header('Access-Control-Allow-Origin', '*');
         res.send(docs);
     })
 }

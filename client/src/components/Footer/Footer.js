@@ -1,7 +1,8 @@
-import React from 'react';
+//import Col from 'react-bootstrap/Col';
 import { Link } from 'react-router-dom';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import React from 'react';
+
 import './Footer.css';
 
 import TempLogo from "./temp_logo.png";
