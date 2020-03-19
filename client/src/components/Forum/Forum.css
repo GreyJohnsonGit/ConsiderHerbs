@@ -1,0 +1,47 @@
+.image-container {
+    position: relative;
+}
+
+.forum-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    font-size: 4em;
+    text-transform: capitalize;
+    text-align: right;
+    color: white;
+    text-align: center;
+}
+
+.forum-title span {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.forum-content {
+    display: grid;
+    width: 92%;
+    grid-template-columns: 0.7fr 0.3fr;
+    grid-column-gap: 30px;
+    padding: 0 4%;
+}
+
+/* Threads */
+
+.forum-column-1 {
+    padding-bottom: 40px;
+}
+
+.thread-block-container {
+    background-color: #ededed;
+    padding: 10px;
+}
+
+#thread-likes-replies {
+    float: right;
+}
+
+/* Did You Know? */
+
