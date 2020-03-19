@@ -1,11 +1,8 @@
 import React from 'react';
 import './Glossary.css';
-import IntroBar from './intro.png';
 import Weebs from './Rosemarys.JPG';
 import TermInfo from "./glossary_components/TermInfo";
 import AlphabetList from "./glossary_components/AlphabetList";
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 
 const Glossary =()=>{
     return(
