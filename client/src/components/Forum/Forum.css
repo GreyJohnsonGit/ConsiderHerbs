@@ -34,14 +34,43 @@
     padding-bottom: 40px;
 }
 
-.thread-block-container {
+.thread-preview-block-container {
     background-color: #ededed;
     padding: 10px;
 }
 
-#thread-likes-replies {
+#thread-preview-likes-replies {
     float: right;
+}
+
+.thread-preview-body {
+    display: -webkit-box; 
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 /* Did You Know? */
 
+.post-container {
+    margin-bottom: 15px;
+}
+
+.post-spacer {
+    background-color: #A6CC78;
+    height: 15px;
+}
+
+.post-content {
+    background-color: #ededed;
+    padding: 10px;
+}
+
+.post-content p {
+    display: -webkit-box; 
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
