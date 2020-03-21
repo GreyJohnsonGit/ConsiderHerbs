@@ -82,13 +82,13 @@
     padding: 10px;
 }
 
-.thread-preview-name {
+.thread-preview-title {
     font-weight: bold;
     text-decoration: none;
     color: #636363;
 }
 
-.thread-preview-name:hover {
+.thread-preview-title:hover {
     text-decoration: underline;
 }
 

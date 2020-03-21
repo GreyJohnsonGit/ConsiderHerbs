@@ -14,12 +14,6 @@ const Forum =()=>{
             </div>
             <div className="forum-content">
                 <div className="forum-column-1">
-                    <div className = "search" id="search_bar">
-                        <form>
-                            <input type="text" placeholder="Search Threads..."/>
-                            <button type="submit">Search</button>
-                        </form>
-                    </div>
                     <Switch>
                         <Route exact path='/Forum' component={ForumPreview} />
                         <Route path={`/Forum/:threadId`} component={Thread} />

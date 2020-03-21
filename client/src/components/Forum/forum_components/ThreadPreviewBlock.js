@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 const dummyThread = {
     threadId: 'threadId',
     userId: 'userId',
-    name: 'Some Thread',
+    title: 'Some Thread',
     user: '@JaneDoe',
     body: 'Lorem ipsum dolor sit amet, \
             consectetur adipiscing elit, \
@@ -27,7 +27,7 @@ const ThreadPreviewBlock = () => {
                 return (
                     <div>
                         <div>
-                            <a className='thread-preview-name' href={`/Forum/${thread.threadId}`}>{thread.name}</a> - <i>posted by <b>{thread.user}</b> n units of time ago -</i>
+                            <a className='thread-preview-title' href={`/Forum/${thread.threadId}`}>{thread.title}</a> - <i>posted by <b>{thread.user}</b> n units of time ago -</i>
                             <span id='thread-preview-likes-replies'>
                                 Likes: {thread.likes} Replies: {thread.replies.length}
                             </span>
