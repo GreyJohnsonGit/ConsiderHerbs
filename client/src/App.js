@@ -25,10 +25,9 @@ const App = () => {
           <Route exact path="/Glossary" component={Glossary} />
           <Route exact path="/About" component={About} />
           <Route exact path="/DidYouKnow" component={DidYouKnow} />
-          <Route exact path="/Forum" component={Forum} />
+          <Route path="/Forum" component={Forum} />
           <Route exact path="/Schedule" component={Schedule} />
           <Route exact path="/SignIn" component={SignIn} />
-        
           <Route exact path="/">
             <Redirect to="/Home" />
           </Route>

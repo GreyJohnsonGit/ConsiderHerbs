@@ -82,6 +82,16 @@
     padding: 10px;
 }
 
+.thread-preview-name {
+    font-weight: bold;
+    text-decoration: none;
+    color: #636363;
+}
+
+.thread-preview-name:hover {
+    text-decoration: underline;
+}
+
 #thread-preview-likes-replies {
     float: right;
 }

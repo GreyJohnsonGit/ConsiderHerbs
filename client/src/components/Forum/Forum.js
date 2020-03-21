@@ -1,5 +1,7 @@
 import React from 'react';
-import ThreadPreviewBlock from './forum_components/ThreadPreviewBlock.js';
+import { Route, Switch } from 'react-router-dom';
+import ForumPreview from './forum_components/ForumPreview.js';
+import Thread from './forum_components/Thread.js';
 import DidYouKnow from './forum_components/DidYouKnow.js';
 import './Forum.css';
 
@@ -18,12 +20,10 @@ const Forum =()=>{
                             <button type="submit">Search</button>
                         </form>
                     </div>
-                    <h1>Pinned Threads</h1>
-                    <ThreadPreviewBlock />
-                    <h1>Popular</h1>
-                    <ThreadPreviewBlock />
-                    <h1>Latest</h1>
-                    <ThreadPreviewBlock />
+                    <Switch>
+                        <Route exact path='/Forum' component={ForumPreview} />
+                        <Route path={`/Forum/:threadId`} component={Thread} />
+                    </Switch>
                 </div>
                 <div className="forum-column-2">
                     <h1>Did You Know?</h1>

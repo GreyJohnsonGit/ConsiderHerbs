@@ -1,9 +1,8 @@
 import React, {useState} from 'react';
-import ThreadPreview from './ThreadPreview.js'
 
 const dummyThread = {
-    threadId: 'id',
-    userId: 'id',
+    threadId: 'threadId',
+    userId: 'userId',
     name: 'Some Thread',
     user: '@JaneDoe',
     body: 'Lorem ipsum dolor sit amet, \
@@ -26,7 +25,17 @@ const ThreadPreviewBlock = () => {
         <div className='thread-preview-block-container'>
             { ThreadList.map((thread) => {
                 return (
-                    <ThreadPreview Thread={thread} />
+                    <div>
+                        <div>
+                            <a className='thread-preview-name' href={`/Forum/${thread.threadId}`}>{thread.name}</a> - <i>posted by <b>{thread.user}</b> n units of time ago -</i>
+                            <span id='thread-preview-likes-replies'>
+                                Likes: {thread.likes} Replies: {thread.replies.length}
+                            </span>
+                        </div>
+                        <p className='thread-preview-body'>
+                            {thread.body}
+                        </p>
+                    </div>
                 )
             })}
             <a onClick={() => setCount(count + 2)} className='thread-preview-block-link'>See More...</a>
