@@ -13,7 +13,7 @@ const loadTermInfo = () => {
         });
 }
 
-const TermInfo = () => {
+const TermInfo = (props) => {
     let firstLetter = '';
     let id = '';
 
@@ -25,7 +25,12 @@ const TermInfo = () => {
                     if (err) return `Oops, something went wrong: ${err.message}`
                     if (data) {
                         return (
-                            data.map((glossaryEntry) => {
+                            data.filter(term=>term.title.toLowerCase().includes(props.lookingFor.toLowerCase()))
+                            .map((glossaryEntry) => {
+                                //if(data.length <= 0){
+                                  //  <b> Sorry we couldn't find the term you were looking for</b>
+                                //}
+                                props.foundUp("true")
                                 if (glossaryEntry.title.charAt(0) >= '0' && glossaryEntry.title.charAt(0) <= '9')
                                 {
                                     if (firstLetter ===  '')
@@ -65,7 +70,9 @@ const TermInfo = () => {
                                     </div>
                                 );
                             })
+                            
                         );
+                        
                     }
                 }}
             </Async>
