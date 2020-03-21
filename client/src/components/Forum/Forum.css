@@ -33,6 +33,49 @@
 .forum-column-1 {
     padding-bottom: 40px;
 }
+.search
+{
+    display: block;
+    text-align: center;
+    margin: 20px 0px;
+}
+.search form
+{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    padding: 0px;
+}
+
+.search button, .search input
+{
+    border: none;
+    height: 45px;
+    vertical-align: top;
+}
+.search button
+{
+    width: 150px;
+    padding: 0px;
+    margin-left: 8px;
+    background: #636363;
+    color: white;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+.search button:hover
+{
+    background: #898a8a;
+}
+.search input
+{
+    flex: 1;
+    padding: 0px 25px;
+    background: #F4F4F4;
+    color: #636363;
+    font-size: 24px;
+}
 
 .thread-preview-block-container {
     background-color: #ededed;
@@ -49,6 +92,16 @@
     -webkit-box-orient: vertical;
     text-overflow: ellipsis;
     overflow: hidden;
+}
+
+.thread-preview-block-link {
+    font-weight: bold;
+    font-size: 0.8em;
+}
+
+.thread-preview-block-link:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 /* Did You Know? */

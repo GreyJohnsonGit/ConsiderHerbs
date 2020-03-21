@@ -12,7 +12,12 @@ const Forum =()=>{
             </div>
             <div className="forum-content">
                 <div className="forum-column-1">
-                    <div>Search bar</div>
+                    <div className = "search" id="search_bar">
+                        <form>
+                            <input type="text" placeholder="Search Threads..."/>
+                            <button type="submit">Search</button>
+                        </form>
+                    </div>
                     <h1>Pinned Threads</h1>
                     <ThreadPreviewBlock />
                     <h1>Popular</h1>

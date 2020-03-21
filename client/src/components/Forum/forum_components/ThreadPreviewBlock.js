@@ -29,7 +29,7 @@ const ThreadPreviewBlock = () => {
                     <ThreadPreview Thread={thread} />
                 )
             })}
-            <a onClick={() => setCount(count + 2)}>See More...</a>
+            <a onClick={() => setCount(count + 2)} className='thread-preview-block-link'>See More...</a>
         </div>
     )
 }
