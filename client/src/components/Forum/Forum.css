@@ -137,3 +137,78 @@
     text-overflow: ellipsis;
     overflow: hidden;
 }
+
+/* New Thread */
+.new-thread-popup {
+    position: fixed;  
+    width: 100%;  
+    height: 100%;  
+    top: 0;  
+    left: 0;  
+    right: 0;  
+    bottom: 0;  
+    margin: auto;  
+    background-color: rgba(0,0,0, 0.5);  
+}
+
+.new-thread-inner {
+    position: absolute;  
+    left: 25%;  
+    right: 25%;  
+    top: 25%;  
+    bottom: 25%;  
+    margin: auto;  
+    border-radius: 20px;  
+    background: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.new-thread-close-icon {
+    float: right;
+    margin: 7px;
+    align-self: flex-end;
+}
+
+.new-thread-close-icon:hover {
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    cursor: pointer;
+}
+
+.new-thread-inner form {
+    padding: 0 10px 10px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+.new-thread-inner form label {
+    font-size: 1.2em;
+}
+.new-thread-inner input[type=text]#title{
+    background: #ededed;
+    font-size: 1.2em;
+    padding-left: 10px;
+}
+
+.new-thread-inner textarea#body {
+    background: #ededed;
+    flex-grow: 1;
+    resize: none;
+    padding: 10px;
+}
+
+.new-thread-inner form button {
+    align-self: center;
+    margin-top: 5px;
+    border: none;
+    height: 45px;
+    width: 150px;
+    background: #636363;
+    color: white;
+    text-transform: uppercase;
+    font-size: 1.3em;
+}
+.new-thread-inner form button:hover
+{
+    background: #898a8a;
+}
