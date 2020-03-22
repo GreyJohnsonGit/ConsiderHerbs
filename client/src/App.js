@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Route, Switch, Redirect  } from 'react-router-dom';
 import Home from "./views/Home/Home";
 import Glossary from "./components/Glossary/Glossary"
@@ -12,7 +12,12 @@ import SignIn from "./components/SignIn/SignIn"
 import NotFound from "./views/NotFound";
 import NavBar from "./components/Header/NavBar";
 
+
+
 const App = () => {
+  const [SignedIn, SignInUpdate] = useState(false);
+ 
+
   return (
     <div id="page-container">
       <div className="content">
@@ -24,7 +29,7 @@ const App = () => {
           <Route exact path="/About" component={About} />
           <Route exact path="/Forum" component={Forum} />
           <Route exact path="/Schedule" component={Schedule} />
-          <Route exact path="/SignIn" component={SignIn} />
+          <Route exact path="/SignIn" render={(routeProps) => (<SignIn SignedIn={SignedIn} SignInUpdate={SignInUpdate}/>)} />
         
           <Route exact path="/">
             <Redirect to="/Home" />
