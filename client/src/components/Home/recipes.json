@@ -1,0 +1,2543 @@
+[
+    {
+        "description": "Apply the Oils to the cotton ball and apply to affected area.  Re-apply as needed", 
+        "ingredients": [
+            {
+                "amount": "10", 
+                "unit": "drops", 
+                "ingredient": "Clove Oil"
+            }, 
+            {
+                "amount": "5", 
+                "unit": "drops", 
+                "ingredient": "Tea Tree Oil"
+            }, 
+            {
+                "amount": "1", 
+                "unit": "", 
+                "ingredient": "Cotton Ball"
+            }
+        ], 
+        "ailment": "Pain", 
+        "bodypart": "Mouth", 
+        "id": "1", 
+        "name": "Pain in the mouth"
+    }, 
+    {
+        "description": "Apply the oils to the cotton ball and apply to affected tooth.  Re-apply as needed", 
+        "ingredients": [
+            {
+                "amount": "10", 
+                "unit": "drops", 
+                "ingredient": "Peppermint Oil"
+            }, 
+            {
+                "amount": "5", 
+                "unit": "drops", 
+                "ingredient": "Clove Oil"
+            }
+        ], 
+        "ailment": "Pain", 
+        "bodypart": "Mouth", 
+        "id": "2", 
+        "name": "Tooth Ache Relief"
+    }, 
+    {
+        "description": "Apply 1-3 drops on your throat and chest as needed.", 
+        "ingredients": [
+            {
+                "amount": "1-3", 
+                "unit": "drops", 
+                "ingredient": "Eucalyptus Oil"
+            }
+        ], 
+        "ailment": "Pain", 
+        "bodypart": "Throat", 
+        "id": "3", 
+        "name": "Sore throat(A)"
+    }, 
+    {
+        "description": "In a small container add the Oils along with the carrier oil of your choice. Lay on your left side and rub it  into to your abdomen for 5-10 minutes. A few suggestion for the many carrier oils available: Olive, Avocado, Almond, Jojoba, Apricot Kernel and Coconut oil", 
+        "ingredients": [
+            {
+                "amount": "6", 
+                "unit": "drops", 
+                "ingredient": "Carrier Oil"
+            }, 
+            {
+                "amount": "2", 
+                "unit": "drops", 
+                "ingredient": "Lemon Oil"
+            }, 
+            {
+                "amount": "2", 
+                "unit": "drops", 
+                "ingredient": "Peppermint Oil"
+            }, 
+            {
+                "amount": "2", 
+                "unit": "drops", 
+                "ingredient": "Rosemary Oil"
+            }
+        ], 
+        "ailment": "Bloated Stomach", 
+        "bodypart": "Stomach", 
+        "id": "4", 
+        "name": "Bloated belly"
+    }, 
+    {
+        "description": "Add 1-2 drops to your favorite cup of tea or hot water.  You may also inhale the mixture.", 
+        "ingredients": [
+            {
+                "amount": "1-2", 
+                "unit": "drops", 
+                "ingredient": "Lemon Oil"
+            }, 
+            {
+                "amount": "8", 
+                "unit": "oz", 
+                "ingredient": "Water"
+            }, 
+            {
+                "amount": "8", 
+                "unit": "oz", 
+                "ingredient": "Tea"
+            }
+        ], 
+        "ailment": "Sore Throat", 
+        "bodypart": "Throat", 
+        "id": "5", 
+        "name": "Sore throat(B)"
+    }, 
+    {
+        "description": "Message the drop into your stomach area.  Also inhaling the oil will help.", 
+        "ingredients": [
+            {
+                "amount": "1-3", 
+                "unit": "drops", 
+                "ingredient": "Peppermint Oil"
+            }
+        ], 
+        "ailment": "Mild Stomach Ache", 
+        "bodypart": "Stomach", 
+        "id": "6", 
+        "name": "Mild stomach  ache"
+    }, 
+    {
+        "description": "Mix the oil and the honey and take by mouth. As needed", 
+        "ingredients": [
+            {
+                "amount": "1", 
+                "unit": "drop", 
+                "ingredient": "Dill Oil"
+            }, 
+            {
+                "amount": "1", 
+                "unit": "tsp", 
+                "ingredient": "Honey"
+            }
+        ], 
+        "ailment": "Gas", 
+        "bodypart": "Stomach", 
+        "id": "7", 
+        "name": "Gas(A)"
+    }, 
+    {
+        "description": "Put ingredients in a 8oz cup of boiling water and let sit covered for 6 minutes.  Strain and enjoy.", 
+        "ingredients": [
+            {
+                "amount": "1", 
+                "unit": "tsp", 
+                "ingredient": "Oregano Leaf"
+            }, 
+            {
+                "amount": "1", 
+                "unit": "tsp", 
+                "ingredient": "Lemon Verbena leaf"
+            }, 
+            {
+                "amount": "8", 
+                "unit": "oz", 
+                "ingredient": "Water"
+            }
+        ], 
+        "ailment": "Gas", 
+        "bodypart": "Stomach", 
+        "id": "8", 
+        "name": "Gas(B)"
+    }, 
+    {
+        "description": "Simmer 3/4 teaspoon  of chopped fresh ginger in 1 cup of hot water for five minutes in a closed teapot or covered container. Strain and serve.", 
+        "ingredients": [
+            {
+                "amount": "3/4", 
+                "unit": "tsp", 
+                "ingredient": "Ginger Root"
+            }, 
+            {
+                "amount": "8", 
+                "unit": "oz", 
+                "ingredient": "Water"
+            }
+        ], 
+        "ailment": "Sour Stomach", 
+        "bodypart": "Stomach", 
+        "id": "9", 
+        "name": "Upset Stomach"
+    }, 
+    {
+        "description": "Finely grate garlic add to water . Add honey if needed", 
+        "ingredients": [
+            {
+                "amount": "1-2", 
+                "unit": "cloves", 
+                "ingredient": "Garlic"
+            }, 
+            {
+                "amount": "4-8", 
+                "unit": "oz", 
+                "ingredient": "Water"
+            }
+        ], 
+        "ailment": "Chest Cold Congestion", 
+        "bodypart": "Chest", 
+        "id": "10", 
+        "name": "Cough and Congestion(A)"
+    }, 
+    {
+        "description": "Boil water mixed ingredients to make a hot spicy tea.  Sweeten if needed.", 
+        "ingredients": [
+            {
+                "amount": "1", 
+                "unit": "tbsp", 
+                "ingredient": "Cinnamon"
+            }, 
+            {
+                "amount": "1", 
+                "unit": "tsp", 
+                "ingredient": "Honey"
+            }, 
+            {
+                "amount": "4-8", 
+                "unit": "oz", 
+                "ingredient": "Water"
+            }
+        ], 
+        "ailment": "Congestion with Cough", 
+        "bodypart": "Chest", 
+        "id": "11", 
+        "name": "Cough and Congestion(B)"
+    }, 
+    {
+        "description": "Boil water add dried leaves and cover for 3-5 minutes.. Strain and enjoy. You may use a tea bag or 6-7 fresh leave that you rip up or take a spoon and press the leaves to release the oils", 
+        "ingredients": [
+            {
+                "amount": "1", 
+                "unit": "tbsp", 
+                "ingredient": "Peppermint leaves"
+            }, 
+            {
+                "amount": "8", 
+                "unit": "oz", 
+                "ingredient": "Water"
+            }
+        ], 
+        "ailment": "Mild Fever", 
+        "bodypart": "Head", 
+        "id": "12", 
+        "name": "Mild fever"
+    }, 
+    {
+        "description": "Mixes together in a container with a lid. Apply as needed this will sooth and heal.", 
+        "ingredients": [
+            {
+                "amount": "1/4", 
+                "unit": "cup", 
+                "ingredient": "Coconut Oil"
+            }, 
+            {
+                "amount": "6", 
+                "unit": "drops", 
+                "ingredient": "Camphor Oil"
+            }
+        ], 
+        "ailment": "Dry Lips", 
+        "bodypart": "lips", 
+        "id": "13", 
+        "name": "Chapped Lips"
+    }, 
+    {
+        "description": "Mix mixture together and apply to feet", 
+        "ingredients": [
+            {
+                "amount": "1", 
+                "unit": "tbsp", 
+                "ingredient": "Baking Soda"
+            }, 
+            {
+                "amount": "10", 
+                "unit": "drops", 
+                "ingredient": "Tea Tree Oil"
+            }, 
+            {
+                "amount": "3", 
+                "unit": "drops", 
+                "ingredient": "Lemon Oil"
+            }
+        ], 
+        "ailment": "Foot Odor", 
+        "bodypart": "Feet", 
+        "id": "14", 
+        "name": "Stink Feet"
+    }, 
+    {
+        "description": "Mix, swish around and rinse", 
+        "ingredients": [
+            {
+                "amount": "1-2", 
+                "unit": "", 
+                "ingredient": "Water"
+            }, 
+            {
+                "amount": "6", 
+                "unit": "", 
+                "ingredient": "Spearmint Oil"
+            }
+        ], 
+        "ailment": "Bad Breath", 
+        "bodypart": "Mouth", 
+        "id": "15", 
+        "name": "Bad breath"
+    }, 
+    {
+        "description": "Rub onto area as needed.   Store in dark container and or cool dark dry place.", 
+        "ingredients": [
+            {
+                "amount": "1/4", 
+                "unit": "cup", 
+                "ingredient": "Coconut Oil"
+            }, 
+            {
+                "amount": "20", 
+                "unit": "drops", 
+                "ingredient": "Tea tree Oil"
+            }, 
+            {
+                "amount": "1/2", 
+                "unit": "cup", 
+                "ingredient": "Argon Oil"
+            }
+        ], 
+        "ailment": "Infected Skin Rash", 
+        "bodypart": "Back", 
+        "id": "16", 
+        "name": "Infected Skin"
+    }, 
+    {
+        "description": "", 
+        "ingredients": [
+            {
+                "amount": "20", 
+                "unit": "drops", 
+                "ingredient": "Rosemary Oil"
+            }, 
+            {
+                "amount": "5", 
+                "unit": "drops", 
+                "ingredient": "Tea tree Oil"
+            }
+        ], 
+        "ailment": "General Mild Skin Rash", 
+        "bodypart": "Legs", 
+        "id": "17", 
+        "name": ""
+    }, 
+    {
+        "description": "Mix the oils together with the carrier oil and massage the blend into the chest, morning and evening .A few suggestion for the many carrier oils available: Olive, Avocado, Almond, Jojoba, Apricot Kernel and Coconut oil", 
+        "ingredients": [
+            {
+                "amount": "4", 
+                "unit": "tsp", 
+                "ingredient": "Carrier Oil"
+            }, 
+            {
+                "amount": "4", 
+                "unit": "drops", 
+                "ingredient": "Myrrh Oil"
+            }, 
+            {
+                "amount": "2", 
+                "unit": "drops", 
+                "ingredient": "Cedarwood Oil"
+            }, 
+            {
+                "amount": "4", 
+                "unit": "drops", 
+                "ingredient": "Eucalyptus Oil"
+            }
+        ], 
+        "ailment": "Chest Congestion", 
+        "bodypart": "Chest", 
+        "id": "18", 
+        "name": "Chest Congestion"
+    }, 
+    {
+        "description": "Mix carrier oil and  other oils together in container and message into area as needed A few suggestion for the many carrier oils available: Olive, Avocado, Almond, Jojoba, Apricot Kernel and Coconut oil.", 
+        "ingredients": [
+            {
+                "amount": "4", 
+                "unit": "tsp", 
+                "ingredient": "Carrier Oil"
+            }, 
+            {
+                "amount": "4", 
+                "unit": "drops", 
+                "ingredient": "Eucalyptus Oil"
+            }, 
+            {
+                "amount": "2", 
+                "unit": "drops", 
+                "ingredient": "Ginger Oil"
+            }, 
+            {
+                "amount": "4", 
+                "unit": "drops", 
+                "ingredient": "Rosemary Oil"
+            }
+        ], 
+        "ailment": "Body Aches", 
+        "bodypart": "Back", 
+        "id": "19", 
+        "name": "Aching Body"
+    }, 
+    {
+        "description": "Mix carrier oil and  other oils together in container and message into knee as needed A few suggestion for the many carrier oils available: Olive, Avocado, Almond, Jojoba, Apricot Kernel and Coconut oil.", 
+        "ingredients": [
+            {
+                "amount": "2", 
+                "unit": "drops", 
+                "ingredient": "Peppermint Oil"
+            }, 
+            {
+                "amount": "2", 
+                "unit": "drops", 
+                "ingredient": "Lemon Oil"
+            }, 
+            {
+                "amount": "5", 
+                "unit": "drops", 
+                "ingredient": "Eucalyptus Oil"
+            }, 
+            {
+                "amount": "5", 
+                "unit": "drops", 
+                "ingredient": "Rosemary Oil"
+            }, 
+            {
+                "amount": "6", 
+                "unit": "drops", 
+                "ingredient": "Lavender Oil"
+            }, 
+            {
+                "amount": "1", 
+                "unit": "oz", 
+                "ingredient": "Carrier Oil"
+            }
+        ], 
+        "ailment": "Knee pain", 
+        "bodypart": "Knee", 
+        "id": "20", 
+        "name": "Knee inflammation(A)"
+    }, 
+    {
+        "description": "Add oils to relaxing bath and soak. You can also add this to 4tsp of an carrier oil", 
+        "ingredients": [
+            {
+                "amount": "5", 
+                "unit": "drops", 
+                "ingredient": "Lavender Oil"
+            }, 
+            {
+                "amount": "5", 
+                "unit": "drops", 
+                "ingredient": "Cypress Oil"
+            }, 
+            {
+                "amount": "2", 
+                "unit": "drops", 
+                "ingredient": "Ginger root Oil"
+            }
+        ], 
+        "ailment": "Knee Pain", 
+        "bodypart": "Knee", 
+        "id": "21", 
+        "name": "Knee inflammation(B)"
+    }, 
+    {
+        "description": "Blends the following oils with your choice of carrier oil. Apply to lower body  Keep mixture in a dark bottle and out of the light. If this is to strong you can cut the Peppermint and Sweet birdh oils down to half.", 
+        "ingredients": [
+            {
+                "amount": "30", 
+                "unit": "drops", 
+                "ingredient": "Helichrysum Oil"
+            }, 
+            {
+                "amount": "30", 
+                "unit": "drops", 
+                "ingredient": "Sweet Birch Oil"
+            }, 
+            {
+                "amount": "30", 
+                "unit": "drops", 
+                "ingredient": "Peppermint Oil"
+            }, 
+            {
+                "amount": "10", 
+                "unit": "drops", 
+                "ingredient": "Ginger Root Oil"
+            }, 
+            {
+                "amount": "3.4", 
+                "unit": "oz", 
+                "ingredient": "Carrier Oil"
+            }
+        ], 
+        "ailment": "Joint Pain General", 
+        "bodypart": "Wrist", 
+        "id": "22", 
+        "name": "Arthritic Pain"
+    }, 
+    {
+        "description": "Add the oils to a small foot tub of warm water and soak for 15-30 minuets and repeat twice a day.", 
+        "ingredients": [
+            {
+                "amount": "6", 
+                "unit": "drops", 
+                "ingredient": "Eucalyptus Oil"
+            }, 
+            {
+                "amount": "6", 
+                "unit": "drops", 
+                "ingredient": "Rosemary Oil"
+            }, 
+            {
+                "amount": "3", 
+                "unit": "drops", 
+                "ingredient": "Peppermint Oil"
+            }
+        ], 
+        "ailment": "Foot Pain", 
+        "bodypart": "feet", 
+        "id": "23", 
+        "name": "Sore feet"
+    }, 
+    {
+        "description": "Mix carrier oil and other oils together in dark glass bottle and message into a feet as twice a day. A few suggestion for the many carrier oils available: Olive, Avocado, Almond, Jojoba, Apricot Kernel and Coconut oil.", 
+        "ingredients": [
+            {
+                "amount": "12", 
+                "unit": "drops", 
+                "ingredient": "Tea Tree Oil"
+            }, 
+            {
+                "amount": "8", 
+                "unit": "drops", 
+                "ingredient": "Lavender Oil"
+            }, 
+            {
+                "amount": "1", 
+                "unit": "oz", 
+                "ingredient": "Carrier Oil"
+            }
+        ], 
+        "ailment": "Foot Fungus", 
+        "bodypart": "feet", 
+        "id": "24", 
+        "name": "Fungus Feet"
+    }, 
+    {
+        "description": "Combine mixture, shake and spray on feet and inside of shoes to keep area infection free.", 
+        "ingredients": [
+            {
+                "amount": "1", 
+                "unit": "tsp", 
+                "ingredient": "Eucalyptus Oil"
+            }, 
+            {
+                "amount": "2", 
+                "unit": "cups", 
+                "ingredient": "Water"
+            }, 
+            {
+                "amount": "1", 
+                "unit": "each", 
+                "ingredient": "Spray bottle"
+            }
+        ], 
+        "ailment": "Foot Fungus", 
+        "bodypart": "feet", 
+        "id": "25", 
+        "name": "Fungal foot spray"
+    }, 
+    {
+        "description": "Mix carrier oil and other oils together in container and message into a entire scalp  A few suggestion for the many carrier oils available: Olive, Avocado, Almond, Jojoba, Apricot Kernel and Coconut oil.", 
+        "ingredients": [
+            {
+                "amount": "6", 
+                "unit": "drops", 
+                "ingredient": "Chamomile Oil"
+            }, 
+            {
+                "amount": "6", 
+                "unit": "drops", 
+                "ingredient": "Lavender Oil"
+            }, 
+            {
+                "amount": "6", 
+                "unit": "drops", 
+                "ingredient": "Peppermint Oil"
+            }, 
+            {
+                "amount": "2", 
+                "unit": "tbsp", 
+                "ingredient": "Carrier Oil"
+            }
+        ], 
+        "ailment": "Itchy Scalp", 
+        "bodypart": "Head", 
+        "id": "26", 
+        "name": "Head dandruff (itchy scalp)"
+    }, 
+    {
+        "description": "Add the oil to you shampoo and use as normal", 
+        "ingredients": [
+            {
+                "amount": "8", 
+                "unit": "oz", 
+                "ingredient": "Your shampoo"
+            }, 
+            {
+                "amount": "12", 
+                "unit": "drops", 
+                "ingredient": "Chamomile Oil"
+            }
+        ], 
+        "ailment": "Dandruff", 
+        "bodypart": "Head", 
+        "id": "27", 
+        "name": "Head dandruff"
+    }, 
+    {
+        "description": "Fill a spray bottle with 1/2 cup of a carrier oil, and add 15 drops of eucalyptus oil. Spritz it over feverish skin.   A few suggestion for the many carrier oils available: Olive, Avocado, Almond, Jojoba, Apricot Kernel and Coconut oil.", 
+        "ingredients": [
+            {
+                "amount": "15", 
+                "unit": "drops", 
+                "ingredient": "Eucalyptus Oil"
+            }, 
+            {
+                "amount": "1/2", 
+                "unit": "cup", 
+                "ingredient": "Carrier Oil"
+            }
+        ], 
+        "ailment": "Body Fever", 
+        "bodypart": "Head", 
+        "id": "28", 
+        "name": "Fever"
+    }, 
+    {
+        "description": "Mix carrier oil and other oils together in dark glass bottle shake well.  Apply 1 tsp and massage into skin.  Cover with a soft cloth to help with penetration.  Repeat treatment up to 3 times a day until symptoms subside\n", 
+        "ingredients": [
+            {
+                "amount": "10", 
+                "unit": "2 1/2", 
+                "ingredient": "Eucalyptus Oil"
+            }, 
+            {
+                "amount": "10", 
+                "unit": "drops", 
+                "ingredient": "Pine Oil"
+            }, 
+            {
+                "amount": "2 1/2", 
+                "unit": "oz", 
+                "ingredient": "Carrier Oil"
+            }
+        ], 
+        "ailment": "Chest cold", 
+        "bodypart": "Chest", 
+        "id": "29", 
+        "name": "Cold Liniment"
+    }, 
+    {
+        "description": "Massage the blend into the chest, morning and evening", 
+        "ingredients": [
+            {
+                "amount": "4", 
+                "unit": "drops", 
+                "ingredient": "Eucalyptus Oil"
+            }, 
+            {
+                "amount": "2", 
+                "unit": "drops", 
+                "ingredient": "Myrrh Oil\n"
+            }, 
+            {
+                "amount": "4", 
+                "unit": "drops", 
+                "ingredient": "Cedarwood Oil"
+            }, 
+            {
+                "amount": "4", 
+                "unit": "tsp", 
+                "ingredient": "Carrier Oil"
+            }
+        ], 
+        "ailment": "Cough", 
+        "bodypart": "Chest", 
+        "id": "30", 
+        "name": "Chest Cough"
+    }, 
+    {
+        "description": " You may use this combination in a hot bath, with a hot or cold compress, or with a carrier oil as a body massage blend .  A few suggestion for the many carrier oils available: Olive, Avocado, Almond, Jojoba, Apricot Kernel and Coconut oil.", 
+        "ingredients": [
+            {
+                "amount": "4", 
+                "unit": "drops", 
+                "ingredient": "Eucalyptus Oil\n\n\n"
+            }, 
+            {
+                "amount": "2", 
+                "unit": "drops", 
+                "ingredient": "Ginger Oil"
+            }, 
+            {
+                "amount": "4", 
+                "unit": "drops", 
+                "ingredient": "Rosemary Oil"
+            }, 
+            {
+                "amount": "4", 
+                "unit": "tsp", 
+                "ingredient": "Carrier Oil"
+            }
+        ], 
+        "ailment": "General Soreness", 
+        "bodypart": "Back", 
+        "id": "31", 
+        "name": "Aching body"
+    }, 
+    {
+        "description": "Apply drop 1-2 drop  a few times a day", 
+        "ingredients": [
+            {
+                "amount": "2", 
+                "unit": "drops", 
+                "ingredient": "Lavender Oil"
+            }
+        ], 
+        "ailment": "Water Blisters", 
+        "bodypart": "hands", 
+        "id": "32", 
+        "name": "Water blister Hand"
+    }, 
+    {
+        "description": "Apply drop 1-2 drop  a few times a day", 
+        "ingredients": [
+            {
+                "amount": "2", 
+                "unit": "drops", 
+                "ingredient": "Lavender Oil"
+            }
+        ], 
+        "ailment": "Water Blisters", 
+        "bodypart": "feet", 
+        "id": "33", 
+        "name": "Water blister Foot"
+    }, 
+    {
+        "description": "Apply 1 drop off the Lavender OR Tea Tree oil and 1 drop of Chamomile 2-3 times a day", 
+        "ingredients": [
+            {
+                "amount": "1", 
+                "unit": "drops", 
+                "ingredient": "Lavender Oil"
+            }, 
+            {
+                "amount": "1", 
+                "unit": "drops", 
+                "ingredient": "Tea Tree Oil"
+            }, 
+            {
+                "amount": "1", 
+                "unit": "drops", 
+                "ingredient": "Chamomile Oil"
+            }
+        ], 
+        "ailment": "Heat Blisters", 
+        "bodypart": "hands", 
+        "id": "34", 
+        "name": "Burn Blisters"
+    }, 
+    {
+        "description": "Mix carrier oil and other oils together in dark glass bottle shake well.  Apply to area and deeply message in.", 
+        "ingredients": [
+            {
+                "amount": "15", 
+                "unit": "drops", 
+                "ingredient": "Lavender Oil"
+            }, 
+            {
+                "amount": "8", 
+                "unit": "drops", 
+                "ingredient": "Marjoram Oil"
+            }, 
+            {
+                "amount": "8", 
+                "unit": "drops", 
+                "ingredient": "Peppermint Oil"
+            }, 
+            {
+                "amount": "15", 
+                "unit": "drops", 
+                "ingredient": "Rosemary Oil"
+            }, 
+            {
+                "amount": "1/2", 
+                "unit": "oz", 
+                "ingredient": "Carrier Oil"
+            }
+        ], 
+        "ailment": "Back Pain", 
+        "bodypart": "Back", 
+        "id": "35", 
+        "name": "Back pain"
+    }, 
+    {
+        "description": "Rub 2-3 drops in your palm and take several deep breaths.", 
+        "ingredients": [
+            {
+                "amount": "2-3", 
+                "unit": "drops", 
+                "ingredient": "Lavender Oil"
+            }
+        ], 
+        "ailment": "Stress", 
+        "bodypart": "Head", 
+        "id": "36", 
+        "name": "Stress"
+    }, 
+    {
+        "description": "Dab a few drops on your temples and inhale", 
+        "ingredients": [
+            {
+                "amount": "2-3", 
+                "unit": "", 
+                "ingredient": "Peppermint Oil"
+            }
+        ], 
+        "ailment": "Bad mood", 
+        "bodypart": "Head", 
+        "id": "37", 
+        "name": "Mood booster"
+    }, 
+    {
+        "description": "Mixed 1-2 drops of the oil with with 1/2-1tspof carrier oil. Rub over the large arteries along the sides of the neck before bed time to help relieve nightmares", 
+        "ingredients": [
+            {
+                "amount": "1-2", 
+                "unit": "", 
+                "ingredient": "Frankincense  Oil"
+            }, 
+            {
+                "amount": "1/2", 
+                "unit": "tsp", 
+                "ingredient": "Carrier Oil"
+            }
+        ], 
+        "ailment": "Anxiety from Nightmares", 
+        "bodypart": "Head", 
+        "id": "38", 
+        "name": "To calm nightmares"
+    }, 
+    {
+        "description": "Breathe in grapefruit oil from the bottle just prior to eating, going to the coffee shop, doing the grocery shopping, or whenever you feel tempted to have sugar. It will help curb cravings.", 
+        "ingredients": [
+            {
+                "amount": "inhale", 
+                "unit": "bottle", 
+                "ingredient": "Grapefruit  Oil"
+            }
+        ], 
+        "ailment": "Sugar Cravings", 
+        "bodypart": "Head", 
+        "id": "39", 
+        "name": "Helps to overcome sugar cravings"
+    }, 
+    {
+        "description": "In your drinking water. Add a one or two of grapefruit oil and drink", 
+        "ingredients": [
+            {
+                "amount": "1-2", 
+                "unit": "drops", 
+                "ingredient": "Grapefruit  Oil"
+            }, 
+            {
+                "amount": "8-16", 
+                "unit": "oz", 
+                "ingredient": "Water"
+            }
+        ], 
+        "ailment": "Slow Metabolism", 
+        "bodypart": "Throat", 
+        "id": "40", 
+        "name": " Boost metabolism"
+    }, 
+    {
+        "description": "", 
+        "ingredients": [
+            {
+                "amount": "", 
+                "unit": "", 
+                "ingredient": ""
+            }
+        ], 
+        "ailment": "Anxiety", 
+        "bodypart": "Head", 
+        "id": "41", 
+        "name": "Banish anxiety"
+    }, 
+    {
+        "description": "Diffuse it into the room where you intend to spend some time. For best results, use an ultrasonic cool mist diffuser. Never heat Oils because heating them diminishes their therapeutic effects you can also add the drops to a cotton ball and keep it close by.", 
+        "ingredients": [
+            {
+                "amount": "Per instruction", 
+                "unit": "drops", 
+                "ingredient": "Grapefruit  Oil"
+            }, 
+            {
+                "amount": "", 
+                "unit": "", 
+                "ingredient": "Cold mist diffuser"
+            }
+        ], 
+        "ailment": "Lack of Focus", 
+        "bodypart": "Head", 
+        "id": "42", 
+        "name": "Focus Aid"
+    }, 
+    {
+        "description": "Wear it like a perfume. ", 
+        "ingredients": [
+            {
+                "amount": "1-2", 
+                "unit": "drops", 
+                "ingredient": "Grapefruit  Oil"
+            }
+        ], 
+        "ailment": "Lack of Focus", 
+        "bodypart": "Head", 
+        "id": "43", 
+        "name": "Focus Aid"
+    }, 
+    {
+        "description": " Put a drop or two in your drinking water and keep sipping at it all day when in the throes of a hangover. (Grapefruit oil\u0089\u00db\u00aas natural ability to stimulate the gall bladder and liver helps to detox after drinking alcohol.)", 
+        "ingredients": [
+            {
+                "amount": "1-2", 
+                "unit": "drops", 
+                "ingredient": "Grapefruit  Oil"
+            }
+        ], 
+        "ailment": "Hangover", 
+        "bodypart": "Head", 
+        "id": "44", 
+        "name": "Eases a hangover"
+    }, 
+    {
+        "description": "At the first sign of a hot flash developing, place a drop at the back of the neck, at the base of the skull, or on the collarbones. You can also breathe it in.", 
+        "ingredients": [
+            {
+                "amount": "1-2", 
+                "unit": "drops", 
+                "ingredient": "Peppermint Oil"
+            }
+        ], 
+        "ailment": "Hot Flashes", 
+        "bodypart": "Head", 
+        "id": "45", 
+        "name": "Cool a hot flash"
+    }, 
+    {
+        "description": "Add several drops of peppermint oil to a spray bottle containing distilled water, shake it and spray it lightly on their clothes before studying to increase concentration and clarity of thought.", 
+        "ingredients": [
+            {
+                "amount": "4-8", 
+                "unit": "drops", 
+                "ingredient": "Peppermint Oil"
+            }, 
+            {
+                "amount": "2-4", 
+                "unit": "oz", 
+                "ingredient": "Water"
+            }
+        ], 
+        "ailment": "Lack of Focus", 
+        "bodypart": "Head", 
+        "id": "46", 
+        "name": "Study concentration help"
+    }, 
+    {
+        "description": " In hale the Oils several times a day and or as needed. It stimulates the central nervous system, and helps to promote clearer thinking.", 
+        "ingredients": [
+            {
+                "amount": "inhale", 
+                "unit": "bottle", 
+                "ingredient": "Rosemary Oil"
+            }
+        ], 
+        "ailment": "Mental Cloudiness", 
+        "bodypart": "Head", 
+        "id": "47", 
+        "name": "Help clear brain fog"
+    }, 
+    {
+        "description": "Inhale both oils they help to decreases your cortisol levels. (The hormone released when you are stressed.)", 
+        "ingredients": [
+            {
+                "amount": "inhale", 
+                "unit": "bottle", 
+                "ingredient": "Rosemary Oil"
+            }, 
+            {
+                "amount": "inhale", 
+                "unit": "bottle", 
+                "ingredient": "Lavender Oil"
+            }
+        ], 
+        "ailment": "Stress", 
+        "bodypart": "Head", 
+        "id": "48", 
+        "name": "Weaken stress"
+    }, 
+    {
+        "description": "Mixed the oils together and rub on your temples, and or behind the ears and or your  wrist.  A few suggestion for the many carrier oils available: Olive, Avocado, Almond, Jojoba, Apricot Kernel and Coconut oil.", 
+        "ingredients": [
+            {
+                "amount": "4", 
+                "unit": "drops", 
+                "ingredient": "Frankincense Oil"
+            }, 
+            {
+                "amount": "4", 
+                "unit": "drops", 
+                "ingredient": "Orange Oil"
+            }, 
+            {
+                "amount": "10", 
+                "unit": "ml", 
+                "ingredient": "Carrier Oil"
+            }
+        ], 
+        "ailment": "Depression", 
+        "bodypart": "Head", 
+        "id": "49", 
+        "name": "Enhances mood"
+    }, 
+    {
+        "description": "Mixed ingredients together shake and spray on your pillow for a long-lasting effect, and relaxed sleep all night long.", 
+        "ingredients": [
+            {
+                "amount": "20", 
+                "unit": "drops", 
+                "ingredient": "Eucalyptus Oil"
+            }, 
+            {
+                "amount": "6", 
+                "unit": "tsp", 
+                "ingredient": "Distilled water"
+            }, 
+            {
+                "amount": "4", 
+                "unit": "oz", 
+                "ingredient": "Mist spray bottle"
+            }
+        ], 
+        "ailment": "Stress", 
+        "bodypart": "Head", 
+        "id": "50", 
+        "name": "Stress relief air freshener"
+    }, 
+    {
+        "description": "Rub in a few drops directly in your temples, wrists, feet and aching muscles and let the cooling, tingling effect calm your muscles.", 
+        "ingredients": [
+            {
+                "amount": "2-3", 
+                "unit": "drops", 
+                "ingredient": "Eucalyptus Oil"
+            }
+        ], 
+        "ailment": "Depression", 
+        "bodypart": "Head", 
+        "id": "51", 
+        "name": "Uplift your mood (topically)"
+    }, 
+    {
+        "description": " Breath in directly from the bottle or by rubbing onto the palms or putting 1-2 drops on your wrists, handkerchief or cotton ball.", 
+        "ingredients": [
+            {
+                "amount": "Inhale", 
+                "unit": "bottle", 
+                "ingredient": "Rose Oil"
+            }
+        ], 
+        "ailment": "Anxiety", 
+        "bodypart": "Head", 
+        "id": "52", 
+        "name": " Stress and anxiety(inhale)"
+    }, 
+    {
+        "description": "Rub 1-2 drops on your wrists and your neck for an instant pick-me-up.", 
+        "ingredients": [
+            {
+                "amount": "1-2", 
+                "unit": "drops", 
+                "ingredient": "Rose Oil"
+            }
+        ], 
+        "ailment": "Tension", 
+        "bodypart": "Head", 
+        "id": "53", 
+        "name": " Stress and anxiety(A)"
+    }, 
+    {
+        "description": "Message into your body. Use a neutral carrier oil like jojoba oil or fractionated coconut oil (remains a liquid at room temperature).  Oils that balances well with the strong aroma.", 
+        "ingredients": [
+            {
+                "amount": "6", 
+                "unit": "drops", 
+                "ingredient": "Orange Oil"
+            }, 
+            {
+                "amount": "2", 
+                "unit": "drops", 
+                "ingredient": "Lavender Oil"
+            }, 
+            {
+                "amount": "4", 
+                "unit": "tsp", 
+                "ingredient": "Carrier Oil"
+            }
+        ], 
+        "ailment": "Tension", 
+        "bodypart": "Head", 
+        "id": "54", 
+        "name": " Stress and anxiety(B)"
+    }, 
+    {
+        "description": "Inhale directly from the bottle or by rubbing onto the palms or putting 1-2 drops on your wrists or a cotton ball", 
+        "ingredients": [
+            {
+                "amount": "Inhale", 
+                "unit": "bottle", 
+                "ingredient": "Sandlewood Oil"
+            }
+        ], 
+        "ailment": "Mental Dullness", 
+        "bodypart": "Head", 
+        "id": "55", 
+        "name": "Mental clarity and focus(inhale)"
+    }, 
+    {
+        "description": "Rub a couple of drops directly on the wrists and ankles", 
+        "ingredients": [
+            {
+                "amount": "2-3", 
+                "unit": "drops", 
+                "ingredient": "Sandlewood Oil"
+            }
+        ], 
+        "ailment": "Mental Dullness", 
+        "bodypart": "Head", 
+        "id": "56", 
+        "name": "Mental clarity and focus(topically)"
+    }, 
+    {
+        "description": "Mix oil with a carrier oil such as cold-pressed extra virgin olive oil or sweet almond oil, which is laden with protein, absorbs quickly and most importantly is odorless, enhancing the incredible woody fragrance of sandalwood oil.", 
+        "ingredients": [
+            {
+                "amount": "6", 
+                "unit": "drops", 
+                "ingredient": "Sandlewood Oil"
+            }, 
+            {
+                "amount": "2", 
+                "unit": "drops", 
+                "ingredient": "Rose Oil"
+            }, 
+            {
+                "amount": "4", 
+                "unit": "tsp", 
+                "ingredient": "Carrier Oil"
+            }
+        ], 
+        "ailment": "Mental Dullness", 
+        "bodypart": "Head", 
+        "id": "57", 
+        "name": "Mental clarity and focus(body message)"
+    }, 
+    {
+        "description": "Inhale directly from the bottle or by rubbing onto the palms or putting 1-2 drops on your wrists or a cotton ball", 
+        "ingredients": [
+            {
+                "amount": "Inhale", 
+                "unit": "bottle", 
+                "ingredient": "Ylang Ylang Oil"
+            }
+        ], 
+        "ailment": "Tension", 
+        "bodypart": "Head", 
+        "id": "58", 
+        "name": "Anger Stress(inhale)"
+    }, 
+    {
+        "description": "Rub a couple of drops directly on the wrists and ankles", 
+        "ingredients": [
+            {
+                "amount": "2-3", 
+                "unit": "drops", 
+                "ingredient": "Ylang Ylang Oil"
+            }
+        ], 
+        "ailment": "Tension", 
+        "bodypart": "Head", 
+        "id": "59", 
+        "name": "Anger Stress(topically)"
+    }, 
+    {
+        "description": " Mix oil with a carrier oil such as coconut, rapeseed or olive oil to use as a massage blend.", 
+        "ingredients": [
+            {
+                "amount": "1", 
+                "unit": "drops", 
+                "ingredient": "Ylang Ylang Oil"
+            }, 
+            {
+                "amount": "2", 
+                "unit": "drops", 
+                "ingredient": "Clary Sage Oil"
+            }, 
+            {
+                "amount": "1", 
+                "unit": "drops", 
+                "ingredient": "Lavender Oil"
+            }, 
+            {
+                "amount": "4", 
+                "unit": "tsp", 
+                "ingredient": "Carrier Oil"
+            }
+        ], 
+        "ailment": "Tension", 
+        "bodypart": "Head", 
+        "id": "60", 
+        "name": "Anger Stress(body message)"
+    }, 
+    {
+        "description": "Inhale directly from the bottle or by rubbing onto the palms or putting 1-2 drops on your wrists or a cotton ball", 
+        "ingredients": [
+            {
+                "amount": "Inhale", 
+                "unit": "bottle", 
+                "ingredient": "Clary Sage Oil"
+            }
+        ], 
+        "ailment": "Sadness", 
+        "bodypart": "Head", 
+        "id": "61", 
+        "name": "Calm anti-sadness(inhale)"
+    }, 
+    {
+        "description": "Diffuse 6 drops of clary sage oil with 2 drops of orange oil .", 
+        "ingredients": [
+            {
+                "amount": "6", 
+                "unit": "drops", 
+                "ingredient": "Clary Sage Oil"
+            }, 
+            {
+                "amount": "2", 
+                "unit": "drops", 
+                "ingredient": "Orange Oil"
+            }
+        ], 
+        "ailment": "Sadness", 
+        "bodypart": "Head", 
+        "id": "62", 
+        "name": "Calm anti-sadness(diffuse)"
+    }, 
+    {
+        "description": "Inhale directly from the bottle or by rubbing onto the palms or putting 1-2 drops on your wrists or a cotton ball", 
+        "ingredients": [
+            {
+                "amount": "Inhale", 
+                "unit": "bottle", 
+                "ingredient": "Jasmine Oil"
+            }
+        ], 
+        "ailment": "Nervousness", 
+        "bodypart": "Head", 
+        "id": "63", 
+        "name": " Calming the nerves(inhale)"
+    }, 
+    {
+        "description": "Rub a couple of drops directly on the wrists and ankles to subdue feelings of anxiousness.", 
+        "ingredients": [
+            {
+                "amount": "", 
+                "unit": "", 
+                "ingredient": "Jasmine Oil"
+            }
+        ], 
+        "ailment": "Nervousness", 
+        "bodypart": "Wrist", 
+        "id": "64", 
+        "name": "Calming the nerves(topically)"
+    }, 
+    {
+        "description": "Diffuse oils", 
+        "ingredients": [
+            {
+                "amount": "1", 
+                "unit": "drops", 
+                "ingredient": "Jasmine Oil"
+            }, 
+            {
+                "amount": "3", 
+                "unit": "drops", 
+                "ingredient": "Grapefruit Oil"
+            }, 
+            {
+                "amount": "1", 
+                "unit": "drops", 
+                "ingredient": "Ylang Ylang Oil"
+            }
+        ], 
+        "ailment": "Nervousness", 
+        "bodypart": "Stomach", 
+        "id": "65", 
+        "name": "Calming the nerves(diffuse)"
+    }, 
+    {
+        "description": "Mixed oils as a stress relief message blend", 
+        "ingredients": [
+            {
+                "amount": "4", 
+                "unit": "drops", 
+                "ingredient": "Frankincense Oil"
+            }, 
+            {
+                "amount": "4", 
+                "unit": "drops", 
+                "ingredient": "Jasmine Oil"
+            }, 
+            {
+                "amount": "2", 
+                "unit": "drops", 
+                "ingredient": "Lemon Oil"
+            }, 
+            {
+                "amount": "4", 
+                "unit": "tsp", 
+                "ingredient": "Carrier Oil"
+            }
+        ], 
+        "ailment": "Anxiety", 
+        "bodypart": "Head", 
+        "id": "66", 
+        "name": "Helps anxiety and depression."
+    }, 
+    {
+        "description": "Diffuse a few drops of frankincense oil in the air to experience complete relaxation after a long, tiring day", 
+        "ingredients": [
+            {
+                "amount": "2-3", 
+                "unit": "drops", 
+                "ingredient": "Frankincense Oil"
+            }
+        ], 
+        "ailment": "", 
+        "bodypart": "", 
+        "id": "67", 
+        "name": "Helps anxiety and depression(diffuse)"
+    }, 
+    {
+        "description": "Inhale directly from the bottle or by rubbing onto the palms or putting 1-2 drops on your wrists, a cotton ball or pillow.", 
+        "ingredients": [
+            {
+                "amount": "2-3", 
+                "unit": "drops", 
+                "ingredient": "Lemon grass Oil"
+            }
+        ], 
+        "ailment": "Stress", 
+        "bodypart": "Head", 
+        "id": "68", 
+        "name": "Relax and reduce stress(A)"
+    }, 
+    {
+        "description": "Mixes oils as a message blends with such carriers oils as jojoba oil or fractionated coconut oil.  They balance well with the aromatic fragrance of lemon grass oil works best.", 
+        "ingredients": [
+            {
+                "amount": "8", 
+                "unit": "drops", 
+                "ingredient": "Lemon grass Oil"
+            }, 
+            {
+                "amount": "2", 
+                "unit": "drops", 
+                "ingredient": "Lavender Oil"
+            }, 
+            {
+                "amount": "4", 
+                "unit": "tsp", 
+                "ingredient": "Carrier Oil"
+            }
+        ], 
+        "ailment": "Stress", 
+        "bodypart": "Head", 
+        "id": "69", 
+        "name": "Relax and reduce stress(B)"
+    }, 
+    {
+        "description": "To  help alleviate mental and physical fatigue rub a few drops on the back of the neck and shoulders, for a cool, refreshing, invigorating feeling", 
+        "ingredients": [
+            {
+                "amount": "2-3", 
+                "unit": "drops", 
+                "ingredient": "Peppermint Oil"
+            }
+        ], 
+        "ailment": "Mental Fatigue", 
+        "bodypart": "Head", 
+        "id": "70", 
+        "name": "Alert mind(topically)"
+    }, 
+    {
+        "description": "Inhale directly from the bottle, rub on a cotton ball or rub a drop under your nose for a quick pick-me-up.", 
+        "ingredients": [
+            {
+                "amount": "inhale", 
+                "unit": "bottle", 
+                "ingredient": "Peppermint Oil"
+            }
+        ], 
+        "ailment": "Mental Dullness", 
+        "bodypart": "Head", 
+        "id": "71", 
+        "name": "Alert mind(inhale)"
+    }, 
+    {
+        "description": "Mixed ingredients together in a mister bottle.  Shake gently and spray in your area and enjoy.", 
+        "ingredients": [
+            {
+                "amount": "10", 
+                "unit": "drops", 
+                "ingredient": "Tea tree Oil"
+            }, 
+            {
+                "amount": "6", 
+                "unit": "drops", 
+                "ingredient": "Eucalyptus Oil"
+            }, 
+            {
+                "amount": "4", 
+                "unit": "drops", 
+                "ingredient": "Lavender Oil"
+            }, 
+            {
+                "amount": "6", 
+                "unit": "tbl", 
+                "ingredient": "Distilled water"
+            }, 
+            {
+                "amount": "4", 
+                "unit": "oz", 
+                "ingredient": "Bottle"
+            }
+        ], 
+        "ailment": "Stress", 
+        "bodypart": "Head", 
+        "id": "72", 
+        "name": " Melt stress(air freshener)"
+    }, 
+    {
+        "description": "Mix together in a warm bath and let the worries of the day melt away", 
+        "ingredients": [
+            {
+                "amount": "2-3", 
+                "unit": "drops", 
+                "ingredient": "Tea tree Oil"
+            }, 
+            {
+                "amount": "2-3", 
+                "unit": "drops", 
+                "ingredient": "Eucalyptus Oil"
+            }, 
+            {
+                "amount": "1/4", 
+                "unit": "cup", 
+                "ingredient": "Epsom Salt"
+            }
+        ], 
+        "ailment": "Stress", 
+        "bodypart": "Head", 
+        "id": "73", 
+        "name": " Melt stress(bath)"
+    }, 
+    {
+        "description": "Rub one drop onto the area as needed .  It will help with pain and itching.  If applied quickly enough it can stop swelling.", 
+        "ingredients": [
+            {
+                "amount": "2-3", 
+                "unit": "drop", 
+                "ingredient": "Lavender Oil"
+            }
+        ], 
+        "ailment": "Insect Bites", 
+        "bodypart": "Arm", 
+        "id": "74", 
+        "name": "Sooths bug bites or stings"
+    }, 
+    {
+        "description": "Apply 1 drop of each oil to a cotton ball, q-tip and gently apply to pimple.", 
+        "ingredients": [
+            {
+                "amount": "1", 
+                "unit": "drops", 
+                "ingredient": "Lavender Oil"
+            }, 
+            {
+                "amount": "1", 
+                "unit": "drops", 
+                "ingredient": "Tea tree Oil"
+            }
+        ], 
+        "ailment": "Acne", 
+        "bodypart": "Face", 
+        "id": "75", 
+        "name": "Pimples problems(A)"
+    }, 
+    {
+        "description": "Apply 2 drop of each oil to a cotton ball, q-tip and gently apply to pimple.", 
+        "ingredients": [
+            {
+                "amount": "2", 
+                "unit": "drops", 
+                "ingredient": "Tea tree Oil"
+            }
+        ], 
+        "ailment": "Acne", 
+        "bodypart": "Face", 
+        "id": "76", 
+        "name": "Pimples problems(B)"
+    }, 
+    {
+        "description": "Blend ingredients together thoroughly and apply 2-3 times per day.", 
+        "ingredients": [
+            {
+                "amount": "2", 
+                "unit": "drops", 
+                "ingredient": "Eucalyptus Oil"
+            }, 
+            {
+                "amount": "2", 
+                "unit": "drops", 
+                "ingredient": "Chamomile Oil"
+            }, 
+            {
+                "amount": "1", 
+                "unit": "tsp", 
+                "ingredient": "Aloe Vera gel"
+            }
+        ], 
+        "ailment": "Dry Lips", 
+        "bodypart": "lips", 
+        "id": "77", 
+        "name": "Chapped lips (A)"
+    }, 
+    {
+        "description": "Blend ingredients together thoroughly and apply 2-3 times per day.", 
+        "ingredients": [
+            {
+                "amount": "3", 
+                "unit": "drops", 
+                "ingredient": "Peppermint Oil"
+            }, 
+            {
+                "amount": "1", 
+                "unit": "drops", 
+                "ingredient": "Geranium Oil"
+            }, 
+            {
+                "amount": "1", 
+                "unit": "tsp", 
+                "ingredient": "Aloe Vera gel"
+            }
+        ], 
+        "ailment": "Dry Lips", 
+        "bodypart": "lips", 
+        "id": "78", 
+        "name": "Chapped lips (B)"
+    }, 
+    {
+        "description": "Blend ingredients together thoroughly and apply 2-3 times per day.", 
+        "ingredients": [
+            {
+                "amount": "2", 
+                "unit": "drops", 
+                "ingredient": "Lavender Oil"
+            }, 
+            {
+                "amount": "2", 
+                "unit": "drops", 
+                "ingredient": "Geranium Oil"
+            }, 
+            {
+                "amount": "1", 
+                "unit": "tbl", 
+                "ingredient": "Extra virgin olive Oil"
+            }
+        ], 
+        "ailment": "Dry Lips", 
+        "bodypart": "lips", 
+        "id": "79", 
+        "name": "Chapped lips (C)"
+    }, 
+    {
+        "description": "Blend ingredients together message gently but thoroughly and apply daily.  Do not wash off.", 
+        "ingredients": [
+            {
+                "amount": "10", 
+                "unit": "drops", 
+                "ingredient": "Chamomile Oil"
+            }, 
+            {
+                "amount": "5", 
+                "unit": "drops", 
+                "ingredient": "Rose Oil"
+            }, 
+            {
+                "amount": "1", 
+                "unit": "tbl", 
+                "ingredient": "Argan Oil"
+            }, 
+            {
+                "amount": "1", 
+                "unit": "tsp", 
+                "ingredient": "Evening Primrose Oil"
+            }
+        ], 
+        "ailment": "Bruises", 
+        "bodypart": "Legs", 
+        "id": "80", 
+        "name": "Broken capillaries(A)"
+    }, 
+    {
+        "description": "Blend ingredients together message gently but thoroughly and apply daily.  Do not wash off.", 
+        "ingredients": [
+            {
+                "amount": "5", 
+                "unit": "drops", 
+                "ingredient": "Cypress Oil"
+            }, 
+            {
+                "amount": "5", 
+                "unit": "drops", 
+                "ingredient": "Neroli Oil"
+            }, 
+            {
+                "amount": "5", 
+                "unit": "drops", 
+                "ingredient": "Geranium Oil"
+            }, 
+            {
+                "amount": "1", 
+                "unit": "tbl", 
+                "ingredient": "Coconut Oil"
+            }
+        ], 
+        "ailment": "Bruises", 
+        "bodypart": "Legs", 
+        "id": "81", 
+        "name": "Broken capillaries(B)"
+    }, 
+    {
+        "description": "Blend ingredients together message gently but thoroughly and apply daily.  Do not wash off.", 
+        "ingredients": [
+            {
+                "amount": "1", 
+                "unit": "tbl", 
+                "ingredient": "Sweet Almond Oil"
+            }, 
+            {
+                "amount": "8", 
+                "unit": "drops", 
+                "ingredient": "Rosemary Oil"
+            }, 
+            {
+                "amount": "7", 
+                "unit": "drops", 
+                "ingredient": "Chamomile Oil"
+            }
+        ], 
+        "ailment": "Bruise", 
+        "bodypart": "Arm", 
+        "id": "82", 
+        "name": "Broken capilliaries(C)"
+    }, 
+    {
+        "description": "Shampoo hair (add  2-4 drops of tea tree oil to shampoo to help results). Blend ingredients together message and comb vigorously into scalp ensure complete coverage. Leave on for 2-3 hours than RINSE.  Apply nightly until problem is eliminated..  Melt coconut in container with boiling water.  This is one treatment", 
+        "ingredients": [
+            {
+                "amount": "10", 
+                "unit": "drops", 
+                "ingredient": "Lemon Oil"
+            }, 
+            {
+                "amount": "10", 
+                "unit": "drops", 
+                "ingredient": "Tea tree Oil"
+            }, 
+            {
+                "amount": "10", 
+                "unit": "drops", 
+                "ingredient": "Thyme Oil"
+            }, 
+            {
+                "amount": "3", 
+                "unit": "tbl", 
+                "ingredient": "Coconut Oil"
+            }
+        ], 
+        "ailment": "Bug Infestation", 
+        "bodypart": "Head", 
+        "id": "83", 
+        "name": "Head lice(A)"
+    }, 
+    {
+        "description": "Shampoo hair (add  2-4 drops of tea tree oil to shampoo to help results). Blend ingredients together message and comb vigorously into scalp ensure complete coverage. Leave on for 2-3 hours than RINSE.  Apply nightly until problem is eliminated..  Melt coconut in container with boiling water.  This is one treatment", 
+        "ingredients": [
+            {
+                "amount": "10", 
+                "unit": "drops", 
+                "ingredient": "Eucalyptus Oil"
+            }, 
+            {
+                "amount": "10", 
+                "unit": "drops", 
+                "ingredient": "Rosemary Oil"
+            }, 
+            {
+                "amount": "5", 
+                "unit": "drops", 
+                "ingredient": "Lavender Oil"
+            }, 
+            {
+                "amount": "5", 
+                "unit": "drops", 
+                "ingredient": "Lemon Oil"
+            }, 
+            {
+                "amount": "3", 
+                "unit": "tbl", 
+                "ingredient": "Grapeseed Oil"
+            }
+        ], 
+        "ailment": "Bug Infestation", 
+        "bodypart": "Head", 
+        "id": "84", 
+        "name": "Head lice(B)"
+    }, 
+    {
+        "description": "Blend all ingredients together and mix thoroughly.  Message into fingers and hand with small circular motions. Let it absorb into skin and do not wash off.  Repeat daily.", 
+        "ingredients": [
+            {
+                "amount": "4", 
+                "unit": "drops", 
+                "ingredient": "Chamomile Oil"
+            }, 
+            {
+                "amount": "4", 
+                "unit": "drops", 
+                "ingredient": "Eucalyptus Oil"
+            }, 
+            {
+                "amount": "4", 
+                "unit": "drops", 
+                "ingredient": "Marjoram Oil"
+            }, 
+            {
+                "amount": "2", 
+                "unit": "tbl", 
+                "ingredient": "Jojoba Oil"
+            }, 
+            {
+                "amount": "4", 
+                "unit": "drops", 
+                "ingredient": "Ginger Oil"
+            }
+        ], 
+        "ailment": "Cramping", 
+        "bodypart": "hands", 
+        "id": "85", 
+        "name": "Sore Painful hands(A)"
+    }, 
+    {
+        "description": "Blend all ingredients together and mix thoroughly.  Message into fingers and hand with small circular motions. Let it absorb into skin and do not wash off.  Repeat daily.  Melt coconut oil in container with boiling water if needed.", 
+        "ingredients": [
+            {
+                "amount": "4", 
+                "unit": "drops", 
+                "ingredient": "Lemon grass Oil"
+            }, 
+            {
+                "amount": "4", 
+                "unit": "drops", 
+                "ingredient": "Rosemary Oil"
+            }, 
+            {
+                "amount": "4", 
+                "unit": "drops", 
+                "ingredient": "Thyme Oil"
+            }, 
+            {
+                "amount": "4", 
+                "unit": "drops", 
+                "ingredient": "Peppermint Oil"
+            }, 
+            {
+                "amount": "2", 
+                "unit": "tbl", 
+                "ingredient": "Coconut Oil"
+            }
+        ], 
+        "ailment": "Cramping", 
+        "bodypart": "hands", 
+        "id": "86", 
+        "name": "Sore Painful hands(B)"
+    }, 
+    {
+        "description": "Mix ingredients together and message into nail and cuticle 1-2 times daily.", 
+        "ingredients": [
+            {
+                "amount": "4", 
+                "unit": "drops", 
+                "ingredient": "Lavender Oil"
+            }, 
+            {
+                "amount": "1", 
+                "unit": "tsp", 
+                "ingredient": "Jojoba Oil"
+            }
+        ], 
+        "ailment": "Weak Nails", 
+        "bodypart": "Fingers", 
+        "id": "87", 
+        "name": "Strengthen Nails(A)"
+    }, 
+    {
+        "description": "Mix ingredients together and message into nail and cuticle 1-2 times daily.", 
+        "ingredients": [
+            {
+                "amount": "2", 
+                "unit": "drops", 
+                "ingredient": "Lemon Oil"
+            }, 
+            {
+                "amount": "2", 
+                "unit": "drops", 
+                "ingredient": "Myrrh Oil"
+            }, 
+            {
+                "amount": "1", 
+                "unit": "tsp", 
+                "ingredient": "Olive Oil"
+            }
+        ], 
+        "ailment": "Weak Nails", 
+        "bodypart": "Fingers", 
+        "id": "88", 
+        "name": "Strengthen Nails(B)"
+    }, 
+    {
+        "description": "Mix ingredients together and message into infected nail area 1-2 times daily.  Do not wash off.  Let adsorb into skin.", 
+        "ingredients": [
+            {
+                "amount": "2", 
+                "unit": "drops", 
+                "ingredient": "Tea tree Oil"
+            }, 
+            {
+                "amount": "1", 
+                "unit": "tsp", 
+                "ingredient": "Coconut Oil"
+            }
+        ], 
+        "ailment": "Discoloration", 
+        "bodypart": "hands", 
+        "id": "89", 
+        "name": "Nail infection"
+    }, 
+    {
+        "description": "Mix ingredients together and message the foot and between each toes before bed time.  Do not wash off.  Let adsorb into skin.", 
+        "ingredients": [
+            {
+                "amount": "8", 
+                "unit": "drops", 
+                "ingredient": "Tea tree Oil"
+            }, 
+            {
+                "amount": "2", 
+                "unit": "drops", 
+                "ingredient": "Peppermint Oil"
+            }, 
+            {
+                "amount": "1", 
+                "unit": "tbl", 
+                "ingredient": "Coconut Oil"
+            }, 
+            {
+                "amount": "1", 
+                "unit": "tsp", 
+                "ingredient": "Apple cider vinegar"
+            }
+        ], 
+        "ailment": "Itchy Infection", 
+        "bodypart": "Feet", 
+        "id": "90", 
+        "name": "Athlete's feet(A)"
+    }, 
+    {
+        "description": "Mix ingredients together and message the foot and between each toes before bed time.  Do not wash off.  Let adsorb into skin.", 
+        "ingredients": [
+            {
+                "amount": "6", 
+                "unit": "drops", 
+                "ingredient": "Lemon Oil"
+            }, 
+            {
+                "amount": "2", 
+                "unit": "drops", 
+                "ingredient": "Geranium Oil"
+            }, 
+            {
+                "amount": "2", 
+                "unit": "drops", 
+                "ingredient": "Peppermint Oil"
+            }, 
+            {
+                "amount": "1", 
+                "unit": "tbl", 
+                "ingredient": "Grapeseed Oil"
+            }
+        ], 
+        "ailment": "Itchy Infection", 
+        "bodypart": "Feet", 
+        "id": "91", 
+        "name": "Athlete's feet(B)"
+    }, 
+    {
+        "description": "Mix ingredients together and apply with cotton ball or q-tip directly to cold sore..  Reapply several times daily until sore is gone. Do not contaminate the mixture by re dipping used swab.", 
+        "ingredients": [
+            {
+                "amount": "5", 
+                "unit": "drops", 
+                "ingredient": "Tea tree Oil"
+            }, 
+            {
+                "amount": "1", 
+                "unit": "tsp", 
+                "ingredient": "Olive Oil"
+            }
+        ], 
+        "ailment": "Cold Sore", 
+        "bodypart": "lips", 
+        "id": "92", 
+        "name": "Cold sore(A)"
+    }, 
+    {
+        "description": "Mix ingredients together and apply with cotton ball or q-tip directly to cold sore..  Reapply several times daily until sore is gone. Do not contaminate the mixture by re dipping used swab.", 
+        "ingredients": [
+            {
+                "amount": "5", 
+                "unit": "drops", 
+                "ingredient": "Geranium Oil"
+            }, 
+            {
+                "amount": "1", 
+                "unit": "tsp", 
+                "ingredient": "Coconut Oil"
+            }
+        ], 
+        "ailment": "Cold Sore", 
+        "bodypart": "lips", 
+        "id": "93", 
+        "name": "Cold sore(B)"
+    }, 
+    {
+        "description": "Mix ingredients together and message into throat, chest and back of neck. Let oils adsorb into the skin. Use treatments several times a day until cough subsides.", 
+        "ingredients": [
+            {
+                "amount": "6", 
+                "unit": "drops", 
+                "ingredient": "Eucalyptus Oil"
+            }, 
+            {
+                "amount": "6", 
+                "unit": "drops", 
+                "ingredient": "Lavender Oil"
+            }, 
+            {
+                "amount": "1", 
+                "unit": "tsp", 
+                "ingredient": "Olive Oil"
+            }
+        ], 
+        "ailment": "Cold/Cough", 
+        "bodypart": "Chest", 
+        "id": "94", 
+        "name": "Cough & Cold(message)"
+    }, 
+    {
+        "description": "Mix ingredients together and message into throat, chest and back of neck. Let oils adsorb into the skin. Use treatments several times a day until cough subsides.", 
+        "ingredients": [
+            {
+                "amount": "2", 
+                "unit": "drops", 
+                "ingredient": "Thyme Oil"
+            }, 
+            {
+                "amount": "5", 
+                "unit": "drops", 
+                "ingredient": "Peppermint Oil"
+            }, 
+            {
+                "amount": "5", 
+                "unit": "drops", 
+                "ingredient": "Eucalyptus Oil"
+            }, 
+            {
+                "amount": "1", 
+                "unit": "tbl", 
+                "ingredient": "Coconut Oil"
+            }
+        ], 
+        "ailment": "Cold/Cough", 
+        "bodypart": "Chest", 
+        "id": "95", 
+        "name": "Cough & Cold(message)"
+    }, 
+    {
+        "description": "Blend all ingredients together in a spray bottle. Shake well  and spray throughout the day when you feel the need.  Hold bottle 3-4 inches away from your face and close your eyes", 
+        "ingredients": [
+            {
+                "amount": "10", 
+                "unit": "drops", 
+                "ingredient": "Grapefruit Oil"
+            }, 
+            {
+                "amount": "4", 
+                "unit": "drops", 
+                "ingredient": "Bergamot Oil"
+            }, 
+            {
+                "amount": "4", 
+                "unit": "drops", 
+                "ingredient": "Lemon Oil"
+            }, 
+            {
+                "amount": "2", 
+                "unit": "drops", 
+                "ingredient": "Rosemary Oil"
+            }, 
+            {
+                "amount": "50", 
+                "unit": "ml", 
+                "ingredient": "Distilled Water"
+            }
+        ], 
+        "ailment": "Physiological", 
+        "bodypart": "Head", 
+        "id": "96", 
+        "name": "Uplifting Spritz(A)"
+    }, 
+    {
+        "description": "Blend all ingredients together in a spray bottle. Shake well  and spray throughout the day when you feel the need.  Hold bottle 3-4 inches away from your face and close your eyes", 
+        "ingredients": [
+            {
+                "amount": "10", 
+                "unit": "drops", 
+                "ingredient": "Peppermint Oil"
+            }, 
+            {
+                "amount": "10", 
+                "unit": "drops", 
+                "ingredient": "Basil Oil"
+            }, 
+            {
+                "amount": "50", 
+                "unit": "ml", 
+                "ingredient": "Distilled Water"
+            }
+        ], 
+        "ailment": "Physiological", 
+        "bodypart": "Head", 
+        "id": "97", 
+        "name": "Mental Uplifting Spritz(B)"
+    }, 
+    {
+        "description": "Message the formula in a clockwise motion around the abdomen. Start this as soon as you have diarrhea.  Do this once per day until the symptoms ease. Most attack will clear up in a few days. If this condition continues consult a doctor", 
+        "ingredients": [
+            {
+                "amount": "5", 
+                "unit": "drops", 
+                "ingredient": "Peppermint Oil"
+            }, 
+            {
+                "amount": "5", 
+                "unit": "drops", 
+                "ingredient": "Chamomile Oil"
+            }, 
+            {
+                "amount": "1", 
+                "unit": "tbl", 
+                "ingredient": "Sweet Almond Oil"
+            }
+        ], 
+        "ailment": "Inflammation", 
+        "bodypart": "Stomach", 
+        "id": "98", 
+        "name": "Liquids bowels"
+    }, 
+    {
+        "description": "Message the formula in a clockwise motion around the abdomen. Start this as soon as you have diarrhea.  Do this once per day until the symptoms ease. Most attack will clear up in a few days. If this condition continues consult a doctor", 
+        "ingredients": [
+            {
+                "amount": "3", 
+                "unit": "drops", 
+                "ingredient": "Cypress Oil"
+            }, 
+            {
+                "amount": "3", 
+                "unit": "drops", 
+                "ingredient": "Geranium Oil"
+            }, 
+            {
+                "amount": "2", 
+                "unit": "drops", 
+                "ingredient": "Chamomile Oil"
+            }, 
+            {
+                "amount": "2", 
+                "unit": "drops", 
+                "ingredient": "Orange Oil"
+            }, 
+            {
+                "amount": "1", 
+                "unit": "tbl", 
+                "ingredient": "Grapeseed Oil "
+            }
+        ], 
+        "ailment": "Inflammation", 
+        "bodypart": "Stomach", 
+        "id": "99", 
+        "name": "Diarrhea(message B)"
+    }, 
+    {
+        "description": "Blend all ingredients together and gently massage around the outside, front and back of ear and down the lymph nodes at the side of the neck.  Message both ears 3-4 time a day to include bedtime", 
+        "ingredients": [
+            {
+                "amount": "4", 
+                "unit": "drops", 
+                "ingredient": "Lavender Oil"
+            }, 
+            {
+                "amount": "2", 
+                "unit": "drops", 
+                "ingredient": "Eucalyptus Oil"
+            }, 
+            {
+                "amount": "1", 
+                "unit": "tbl", 
+                "ingredient": "Melted Coconut Oil"
+            }
+        ], 
+        "ailment": "Infection", 
+        "bodypart": "ears", 
+        "id": "100", 
+        "name": "Ear Infection(A)"
+    }, 
+    {
+        "description": "Blend all ingredients together and gently massage around the outside, front and back of ear and down the lymph nodes at the side of the neck.  Message both ears 3-4 time a day to include bedtime", 
+        "ingredients": [
+            {
+                "amount": "3", 
+                "unit": "drops", 
+                "ingredient": "Rosemary Oil"
+            }, 
+            {
+                "amount": "3", 
+                "unit": "drops", 
+                "ingredient": "Tea tree Oil"
+            }, 
+            {
+                "amount": "1", 
+                "unit": "tbl", 
+                "ingredient": "Olive Oil"
+            }
+        ], 
+        "ailment": "Infection", 
+        "bodypart": "ears", 
+        "id": "101", 
+        "name": "Ear Infection(B)"
+    }, 
+    {
+        "description": "Mix the same amount of vinegar and water.  Soak cotton ball in mixture and  place cotton ball in infected ear for 5 minutes and do the same for the other ear.  Tilt head for each ear and let extra vinegar drain out.", 
+        "ingredients": [
+            {
+                "amount": "1", 
+                "unit": "part", 
+                "ingredient": "Apple cider vinegar"
+            }, 
+            {
+                "amount": "1", 
+                "unit": "part", 
+                "ingredient": "Water"
+            }
+        ], 
+        "ailment": "Infection", 
+        "bodypart": "ears", 
+        "id": "102", 
+        "name": "Ear infection(C)"
+    }, 
+    {
+        "description": "Blend the mixture together and warm slightly. Fill a clean dropper with the mixture and drop into the infected ear. Lay on your side with the oil in your ear for about three minutes. Turn your head to drain the oil out. Re-apply twice a day or as needed until condition is better.", 
+        "ingredients": [
+            {
+                "amount": "2", 
+                "unit": "drops", 
+                "ingredient": "Tea tree Oil"
+            }, 
+            {
+                "amount": "1", 
+                "unit": "tbl", 
+                "ingredient": "Olive Oil"
+            }
+        ], 
+        "ailment": "Infection", 
+        "bodypart": "ears", 
+        "id": "103", 
+        "name": "Ear infection(D)"
+    }, 
+    {
+        "description": "Dip the cloth in warm water(not to hot) apply warm compress to infected area for 5-10 minutes.  After that message the area gently.  Do this 3-4 or 4 times daily.  This will help quicken healing and release of pus. All ways use a clean cloth and wash your hand to avoid spreading infection.", 
+        "ingredients": [
+            {
+                "amount": "1", 
+                "unit": "unit", 
+                "ingredient": "Cloth"
+            }, 
+            {
+                "amount": "2", 
+                "unit": "cups", 
+                "ingredient": "Water"
+            }
+        ], 
+        "ailment": "Infection", 
+        "bodypart": "eyes", 
+        "id": "104", 
+        "name": "Stye(A)"
+    }, 
+    {
+        "description": "Blend the oils together in a small container and apply following the contour of the eye(you do not have to apply it directly on the stye).  Do this twice a day once in the morning and once at night. Do this until the condition is better.", 
+        "ingredients": [
+            {
+                "amount": "2", 
+                "unit": "drops", 
+                "ingredient": "Tea tree Oil"
+            }, 
+            {
+                "amount": "2", 
+                "unit": "drops", 
+                "ingredient": "Lavender Oil"
+            }, 
+            {
+                "amount": "4", 
+                "unit": "drops", 
+                "ingredient": "Fractionated Coconut Oil"
+            }
+        ], 
+        "ailment": "Infection", 
+        "bodypart": "eyes", 
+        "id": "105", 
+        "name": "Stye(B)"
+    }, 
+    {
+        "description": "Warm the water to a comfortable temperature(not to hot). Moisten the tea bags and apply to eye lids for 2-5 minutes.  Repeat several times a day.", 
+        "ingredients": [
+            {
+                "amount": "2", 
+                "unit": "bags", 
+                "ingredient": "Chamomile tea bags"
+            }, 
+            {
+                "amount": "8", 
+                "unit": "oz", 
+                "ingredient": "Water"
+            }
+        ], 
+        "ailment": "Swelling", 
+        "bodypart": "eyes", 
+        "id": "106", 
+        "name": "Irritated eyes"
+    }, 
+    {
+        "description": "Warm the water to a comfortable temperature(not to hot). Moisten the tea bags and apply to eye lids for 2-5 minutes.  Repeat several times a day.", 
+        "ingredients": [
+            {
+                "amount": "2", 
+                "unit": "bags", 
+                "ingredient": "Chamomile tea bags"
+            }, 
+            {
+                "amount": "8", 
+                "unit": "oz", 
+                "ingredient": "Water"
+            }
+        ], 
+        "ailment": "Swelling", 
+        "bodypart": "eyes", 
+        "id": "106", 
+        "name": "Irritated eyes"
+    }, 
+    {
+        "description": "Dip tea bags into cold water until moist.  Apply to eyes 2-3 minutes.  This can help relieve inflammation. ", 
+        "ingredients": [
+            {
+                "amount": "2", 
+                "unit": "bags", 
+                "ingredient": "Black or green tea"
+            }, 
+            {
+                "amount": "4", 
+                "unit": "oz", 
+                "ingredient": "Cold water"
+            }
+        ], 
+        "ailment": "Swelling/redness", 
+        "bodypart": "eyes", 
+        "id": "107", 
+        "name": "Swollen eyes"
+    }, 
+    {
+        "description": "Apply 2-3 drops of the oil on the back of the neck and the bottom of the feet. For a children and babies dilute 1-2 drops in 1 tsp of an carrier oil. ", 
+        "ingredients": [
+            {
+                "amount": "2-3", 
+                "unit": "drops", 
+                "ingredient": "Peppermint Oil"
+            }
+        ], 
+        "ailment": "Fever", 
+        "bodypart": "Head", 
+        "id": "108", 
+        "name": "Fever(A)"
+    }, 
+    {
+        "description": "Place an ice pack or cool compress on the back of the neck.  This is where the body cooling center is located", 
+        "ingredients": [
+            {
+                "amount": "1", 
+                "unit": "small bag", 
+                "ingredient": "Ice pack"
+            }
+        ], 
+        "ailment": "Fever", 
+        "bodypart": "Head", 
+        "id": "109", 
+        "name": "Fever(B)"
+    }, 
+    {
+        "description": "Combined the carrier oil and the essential in a container.  Message oils in a clock wise direction into your abdomen as needed.", 
+        "ingredients": [
+            {
+                "amount": "4", 
+                "unit": "drops", 
+                "ingredient": "Ginger Oil"
+            }, 
+            {
+                "amount": "4", 
+                "unit": "drops", 
+                "ingredient": "Lavender Oil"
+            }, 
+            {
+                "amount": "3", 
+                "unit": "drops", 
+                "ingredient": "Peppermint Oil"
+            }, 
+            {
+                "amount": "5", 
+                "unit": "tsp", 
+                "ingredient": "Carrier Oil"
+            }
+        ], 
+        "ailment": "Nausea", 
+        "bodypart": "Stomach", 
+        "id": "110", 
+        "name": "Nausea Stomach(message blend)"
+    }, 
+    {
+        "description": "Combine ingredients and drink . You can leave out or substitute sweetener. Repeat as needed.", 
+        "ingredients": [
+            {
+                "amount": "1", 
+                "unit": "drop", 
+                "ingredient": "Peppermint Oil"
+            }, 
+            {
+                "amount": "1", 
+                "unit": "tsp", 
+                "ingredient": "Raw Honey"
+            }, 
+            {
+                "amount": "8", 
+                "unit": "oz", 
+                "ingredient": "Water"
+            }
+        ], 
+        "ailment": "Nausea", 
+        "bodypart": "Stomach", 
+        "id": "111", 
+        "name": "Nausea Stomach(soothing liquid)"
+    }, 
+    {
+        "description": "In your cup pour boiling water over your tea bag and cover for 3-5 minutes  sweeten to taste(optional).  If you are using fresh ginger cut up about 1/2 inch piece into thin slices and do the above action for 5-10 minutes.", 
+        "ingredients": [
+            {
+                "amount": "1", 
+                "unit": "bag", 
+                "ingredient": "Ginger Tea/Fresh"
+            }, 
+            {
+                "amount": "8", 
+                "unit": "oz", 
+                "ingredient": "Water"
+            }
+        ], 
+        "ailment": "Nausea", 
+        "bodypart": "Stomach", 
+        "id": "112", 
+        "name": "Nausea Stomach(soothing tea)"
+    }, 
+    {
+        "description": "Add 1-2 drops to a hot cups of tea add raw honey if needed.  Doing this everyday will help reduce cravings. Best taken before meals or when you get a late night food craving.", 
+        "ingredients": [
+            {
+                "amount": "1-2", 
+                "unit": "drops", 
+                "ingredient": "Cinnamon Oil"
+            }
+        ], 
+        "ailment": "Digestion", 
+        "bodypart": "Stomach", 
+        "id": "113", 
+        "name": "Helps food craving"
+    }, 
+    {
+        "description": "When a sudden craving tempts, or to prevent overeating before a meal take a few deep breaths of cinnamon oil straight out of the bottle.", 
+        "ingredients": [
+            {
+                "amount": "0", 
+                "unit": "bottle", 
+                "ingredient": "Cinnamon Oil"
+            }
+        ], 
+        "ailment": "Digestion", 
+        "bodypart": "Stomach", 
+        "id": "114", 
+        "name": "Helps food craving( Inhale)"
+    }, 
+    {
+        "description": "Combine 1-2 drops of cinnamon oil with a carrier oil and rub it on your wrists and chest as needed.", 
+        "ingredients": [
+            {
+                "amount": "1-2", 
+                "unit": "drops", 
+                "ingredient": "Cinnamon Oil"
+            }, 
+            {
+                "amount": "1/2", 
+                "unit": "tsp", 
+                "ingredient": "Carrier Oil"
+            }
+        ], 
+        "ailment": "Digestion", 
+        "bodypart": "Stomach", 
+        "id": "115", 
+        "name": "Helps craving(Topical)"
+    }, 
+    {
+        "description": " Inhaling the spicy aroma of ginger oil straight from the bottle can be a great pick-me-up and can help reduce appetite and cravings.", 
+        "ingredients": [
+            {
+                "amount": "1-2", 
+                "unit": "drops", 
+                "ingredient": "Ginger Oil"
+            }
+        ], 
+        "ailment": "Digestion", 
+        "bodypart": "Stomach", 
+        "id": "116", 
+        "name": "Helps food craving( Inhale)"
+    }, 
+    {
+        "description": " Inhaling the spicy aroma of ginger oil straight from the bottle can be a great pick-me-up and can help reduce appetite and cravings.", 
+        "ingredients": [
+            {
+                "amount": "1-2", 
+                "unit": "drops", 
+                "ingredient": "Ginger Oil"
+            }
+        ], 
+        "ailment": "Digestion", 
+        "bodypart": "Stomach", 
+        "id": "116", 
+        "name": "Helps food craving( Inhale)"
+    }, 
+    {
+        "description": "You can add 1-2 drops of ginger oil to a glass of warm water with a squeeze of fresh lemon juice  raw and a sweetener.(optional).   It helps improve overall absorption of vital nutrients  If you're trying to lose weight, ginger oil will help you absorb the vitamins and minerals you need to boost cellular function and energy and support your weight loss goals.  1-3 times a day.", 
+        "ingredients": [
+            {
+                "amount": "1-2", 
+                "unit": "drops", 
+                "ingredient": "Ginger Oil"
+            }, 
+            {
+                "amount": "2-8", 
+                "unit": "drops", 
+                "ingredient": "Fresh Lemon"
+            }, 
+            {
+                "amount": "4-8", 
+                "unit": "oz", 
+                "ingredient": "Water"
+            }
+        ], 
+        "ailment": "Digestion", 
+        "bodypart": "Stomach", 
+        "id": "117", 
+        "name": "Absorbing the good stuff"
+    }
+]
