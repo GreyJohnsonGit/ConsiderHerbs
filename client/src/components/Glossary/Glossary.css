@@ -1,20 +1,6 @@
 .intro-image{
     width: 100%;
 }
-
-.letter{
-    color: #2c2c2c;
-    padding: 2px 50px;
-    padding-right: 30%;
-    border: none;
-    background-color: rgba(255, 255, 255, 0.212);
-    font-family: Ubuntu-R;
-    text-transform: uppercase;
-    text-align: center;
-}
-.letter:hover{
-    background-color: rgba(196, 212, 176, 0.486);
-}
 .entry{
     color: #363636;
 }
@@ -23,24 +9,37 @@
     height: 100%;
 }
 
-.column2 {
-    float: left;
-    width: 90%;
-    top:0px;
-    background-color: #FFFFFF;
-    display: flex;
+.column-container {
+    display: grid;
+    grid-template-columns: auto min-content;
+    column-gap: 0px;
+    padding: 0px 15px;
+    padding-right: 50px;
 }
+.column1 {
+    display: flex;
+    background-color: #FFFFFF;
+
+}
+
+
+
+.column2 {
+    background-color: #FFFFFF;
+}
+
 .term-container {
     flex-grow: 1;
-    padding: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 20px;
+    padding-left: 45px;
     display: grid;
-    grid-template-columns: 13.25% auto;
-    color: #363636;
+    grid-template-columns: min(125px,13vw) 87.8%;
 }
 .large-letter {
-    font-size: 96px;
-    text-align: center;
-    padding-right: 15%;
+    font-size: min(96px,10vw);
+    text-align: left;
 }
 .term-container h1 {
     font-size: 24px;
@@ -59,12 +58,6 @@
     display: contents;
 }
 
-.column3 {
-    float: left;
-    width: 8%;
-    background-color: #FFFFFF;
-}
-
 .search
 {
     display: block;
@@ -79,6 +72,7 @@
     width: 76.5%;
     padding-left: 1.5%;
 }
+
 .search button, input
 {
     border: none;
@@ -109,20 +103,34 @@
 }
 
 .alphabet-list-container {
+    display: flex;
+    flex-direction: column;
     text-transform: uppercase;
-    right: 0;
-    top: 0;
     text-align: center;
     font-size: 18px;
     line-height: 150%;
-    margin-top: 100px;
-    position: fixed;
-    float:right; 
-    height:800px; 
-    overflow:auto;
+    float:left;
+    position: sticky;
+    top: 100px;
+    height: calc(100vh - 100px);
+    max-height: 750px;
+    overflow: auto;
 }
-.alphabet-list-container > div:first-child, .alphabet-list-container > div:last-child {
-    margin: 30px 0; /* this is an arbitrary value. margin-bottom is relative to width not height */
+.alphabet-list-container button {
+    flex-grow: 1;
+    padding: 0px;
+    color: #2c2c2c;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.212);
+    font-family: ubuntu;
+    text-transform: uppercase;
+    text-align: center;
+}
+.alphabet-list-container > :first-child, .alphabet-list-container > :last-child {
+    flex-grow: 3;
+}
+.alphabet-list-container button:hover{
+    background-color: rgba(196, 212, 176, 0.486);
 }
 
 .image {
@@ -153,7 +161,7 @@
     bottom: 10px;
     color: white;
     text-align: center;
-    font-size: 48px;
+    font-size: 90px;
     width: 100%;
     font-family: Ubuntu-C;
 }

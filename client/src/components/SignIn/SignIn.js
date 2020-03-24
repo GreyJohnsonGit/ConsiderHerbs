@@ -1,36 +1,42 @@
 import './SignIn.css';
-
-import React from 'react'
+import React, {useState} from 'react'
+import { Link } from 'react-router-dom'
 import GoogleLogin from 'react-google-login';
 
-
-
-
-const SignIn =(props)=>{
-
-    const responseGoogle = (response) => {
-        // console.log(response);
-        let profile = response.getBasicProfile();
-        console.log('Name: ' + profile.getName());
-        console.log("Email: " + profile.getEmail());
-        let id_token = response.getAuthResponse().id_token;
-        console.log("ID Token: " + id_token);
-        props.SignInUpdate(true);
-    }
-    if(props.SignedIn===false){
+const SignIn =()=>{
+   
     return(
-        <div className = "SignIn">
+        <div>
+           <div className = "green-bar"> &nbsp; </div>
+            <form className = "input-container"> 
+                <font size="7"> Sign In </font>
+                <input placeholder="Username" className="enter" required/>
+                <input type="password" placeholder="Password" className="enter" required/>
+
+                <button type = "submit" className = "sign-in"> Sign In </button>
+
+                <div className = "or">
+                    <hr size = "3"/>
+                    <div> OR </div>
+                    <hr size = "3"/>
+                </div>
+            </form>
+            <div className = "blank-container">
+                <div className = "detail"> Login with your social media account </div>
+
+                <div className = "button-container">
+                    <button type = "submit" className = "facebook"> Facebook </button>
+                    <button type = "submit" className = "google"> Google </button>
+                </div>
+
+            </div>
+            <div className="redirect">
+                <div className = "redirect-signup"> Don't have an account?  
+                    <Link className="sign-up" to="/SignIn/SignUp"> Sign up here!</Link> 
+                </div>
+                
             
-            <h2>Temporary Sign In pagge</h2>
-            {/* below is an alternate way, to implement google sign in. */}
-            {/* <div class="g-signin2" data-onsuccess= {responseGoogle}></div> */}
-            <GoogleLogin
-            buttonText="Sign In"
-            onSuccess={responseGoogle}
-            onFailure={responseGoogle}
-            />
-            
-            
+            </div>
         </div>
     );
     }else{
