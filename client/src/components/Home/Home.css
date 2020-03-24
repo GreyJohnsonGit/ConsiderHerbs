@@ -6,6 +6,7 @@
 .body-recipe-container {
     display: grid;
     grid-template-columns: min-content auto;
+    padding: 0 50px;
 }
 
 .recipe-list-container {
@@ -15,6 +16,13 @@
 
 .recipe-list-item {
     background-color: #ededed;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.recipe-list-item-spacer {
+    background-color: #A6CC78;
+    height: 10px;
 }
 
 /* Email sign-up form */

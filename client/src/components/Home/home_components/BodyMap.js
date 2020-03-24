@@ -2,7 +2,7 @@ import React from 'react';
 
 const BodyMap = () => {
     return (
-        <div>
+        <div style={{width: '400px'}}>
             Body
         </div>
     )

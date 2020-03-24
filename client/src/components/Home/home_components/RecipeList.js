@@ -7,9 +7,12 @@ const RecipeList = () => {
         <div className='recipe-list-container'>
             { Recipes.map((recipe) => {
                 return (
-                    <div className='recipe-list-item'>
-                        <b>{recipe.bodypart} - {recipe.name}</b>
-                        <p>{recipe.description}</p>
+                    <div>
+                        <div className='recipe-list-item-spacer'></div>
+                        <div className='recipe-list-item'>
+                            <b>{recipe.bodypart} - {recipe.name}</b>
+                            <p>{recipe.description}</p>
+                        </div>
                     </div>
                 )
             })}
