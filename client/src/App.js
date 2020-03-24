@@ -3,7 +3,6 @@ import { Route, Switch, Redirect  } from 'react-router-dom';
 import Home from "./components/Home/Home";
 import Glossary from "./components/Glossary/Glossary"
 import About from "./components/About/About"
-import DidYouKnow from "./components/DidYouKnow/DidYouKnow"
 import Schedule from "./components/Schedule/Schedule"
 import Forum from "./components/Forum/Forum"
 import Footer from "./components/Footer/Footer"
