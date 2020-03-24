@@ -31,7 +31,7 @@ const SignUp = () =>{
                 <input placeholder="Username" className="enter" required/>
                 <input placeholder="Email" className="enter" required/>
                 <input type="password" placeholder="Password" className="enter" required/>
-                <input type="password" placeholder="Corfirm Password" className="enter" required/>
+                <input type="password" placeholder="Confirm Password" className="enter" required/>
 
                 <button type = "submit" className = "sign-in" onClick={SigndUpUser}> Sign Up </button>
 
