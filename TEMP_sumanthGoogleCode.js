@@ -21,3 +21,18 @@ const SignIn =(props)=>{
             onSuccess={responseGoogle}
             onFailure={responseGoogle}
             />
+        </div>
+    );
+    }else{
+        return(
+            <div className = "SignIn">
+                
+                <h2>Already signed in</h2>
+              
+                
+                
+            </div>
+        );
+    }
+}
+export default SignIn;
