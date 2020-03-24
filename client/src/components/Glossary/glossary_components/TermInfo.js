@@ -30,7 +30,7 @@ const TermInfo = (props) => {
                                 //if(data.length <= 0){
                                   //  <b> Sorry we couldn't find the term you were looking for</b>
                                 //}
-                                props.foundUp("true")
+                                //props.foundUp()
                                 if (glossaryEntry.title.charAt(0) >= '0' && glossaryEntry.title.charAt(0) <= '9')
                                 {
                                     if (firstLetter ===  '')

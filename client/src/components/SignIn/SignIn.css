@@ -10,7 +10,7 @@
   .input-container {
     background-color: #F3F3F3;
     width: 35%;
-    height: 300px;
+    height: auto;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -66,6 +66,30 @@
       padding-bottom: 60px;
       text-align: center;
       font-size: 18px;
+
+  }
+
+  .redirect-signup {
+    padding-top: 10px;
+    padding-bottom: 20px;
+    text-align: center;
+    font-size: 18px;
+  }  
+  
+  .sign-up {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 18px;
+    color: #363636;
+    font-family: ubuntu;
+    background-color: none;
+
+  }  
+  .sign-up:hover {
+    text-decoration: underline;
+    cursor: pointer;
   }
 
   .or {
@@ -130,6 +154,38 @@
   ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: #636363;
     opacity: 40%; /* Firefox */
+  }
+
+  /*Pop up Message*/
+
+  .message-popup {
+    position: fixed;  
+    width: 100%;  
+    height: 100%;  
+    top: 0;  
+    left: 0;  
+    right: 0;  
+    bottom: 0;  
+    margin: auto;  
+    background-color: rgba(0,0,0, 0.5);  
+  }
+
+  .message-inner {
+    position: fixed;  
+    left: 43%;  
+    right: 43%;  
+    top: 43%;  
+    bottom: 43%;  
+    margin: auto;  
+    border-radius: 10px;  
+    color: white;
+    background: rgba(155, 179, 155, 0.76);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-family: ubuntu;
+    font-size: 30px;
+    text-shadow: #636363;
   }
   
   

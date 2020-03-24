@@ -8,6 +8,7 @@ import Schedule from "./components/Schedule/Schedule"
 import Forum from "./components/Forum/Forum"
 import Footer from "./components/Footer/Footer"
 import SignIn from "./components/SignIn/SignIn"
+import SignUp from "./components/SignIn/SignUp"
 
 
 import NotFound from "./views/NotFound";
@@ -28,6 +29,7 @@ const App = () => {
           <Route path="/Forum" component={Forum} />
           <Route exact path="/Schedule" component={Schedule} />
           <Route exact path="/SignIn" component={SignIn} />
+          <Route exact path="/SignIn/SignUp" component={SignUp} />
           <Route exact path="/">
             <Redirect to="/Home" />
           </Route>

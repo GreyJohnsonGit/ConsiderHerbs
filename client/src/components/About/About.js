@@ -1,6 +1,6 @@
 import React from 'react';
 import './About.css';
-
+import { Link } from 'react-router-dom'
 import PlantIcon from './plant-icon.png'
 import Forest from './rosemary-forest.jpg'
 
@@ -25,7 +25,9 @@ const About =()=>{
                 <h3>Subscribe to view exclusive content</h3>
                 <form>
                     <input type='text' placeholder='Enter your email here...' />
-                    <button type='submit'>Sign Up</button>
+                    {/*<button type='submit'>Sign Up</button>*/}
+                    <Link className="sign-up-about" to="../SignIn/SignUp"> Sign Up </Link>
+                    
                 </form>
             </div>
             <div className="bottom-container">
