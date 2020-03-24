@@ -29,6 +29,7 @@ const SignUp = () =>{
             <form className = "input-container"> 
                 <font size="7"> Sign Up </font>
                 <input placeholder="Username" className="enter" required/>
+                <input placeholder="Email" className="enter" required/>
                 <input type="password" placeholder="Password" className="enter" required/>
                 <input type="password" placeholder="Corfirm Password" className="enter" required/>
 
