@@ -15,12 +15,10 @@ const scrollToId = (id,block) => {
 const AlphabetList =()=>{
     return(
         <div className="alphabet-list-container">
-               <button className="letter" onClick={() => {scrollToId('search_bar','end')}}> Top </button>
+            <button className="letter" onClick={() => {scrollToId('search_bar','end')}}> Top </button>
             { alphabet.map((letter) => {
                 return(
-                    <div>
-                        <button className="letter" onClick={() => {scrollToId(`${letter}`,'center')}}> {letter} </button>
-                    </div>
+                    <button className="letter" onClick={() => {scrollToId(`${letter}`,'center')}}> {letter} </button>
                 )
             })}
             <button className="letter" onClick={() => {scrollToId('footer','end')}}>Bottom</button>

@@ -1,41 +1,54 @@
 //import Col from 'react-bootstrap/Col';
-import React from 'react';
-//import Row from 'react-bootstrap/Row';
-
-import AlphabetList from "./glossary_components/AlphabetList";
-//import IntroBar from './intro.png';
-import TermInfo from "./glossary_components/TermInfo";
-import Rosemarys from "./Rosemary.JPG";
+import React, {useState} from 'react';
+import { MdClose } from 'react-icons/md';
 
 import './Glossary.css';
+import Weebs from './Rosemarys.JPG';
+import TermInfo from "./glossary_components/TermInfo";
+import AlphabetList from "./glossary_components/AlphabetList";
+import { not } from 'should';
+
 
 
 const Glossary =()=>{
+    let [typed, typedUpdate]=useState('')
+    let [found, foundUpdate]=useState(1) //true
+    //let [notFound,notFoundUpdate]=useState(0) //false
+    
+    const searchTerm=(prop)=>{
+        prop.preventDefault()
+    }
+  
     return(
         <div>            
             <div className = "container">
-                <img alt = "Plants" src = { Rosemarys } width = "100%"/>
-                <div className = "green-bar"></div>
-                <div className = "text-block">
-                    <div> LET'S TALK ABOUT HERBS! </div>
+                <img alt = "Plants" src = { Weebs } width = "100%"/>
+                <div class = "text-block">
+                    <div>  Glossary Page   </div>
                 </div>
             </div>
 
             <div className = "search" id="search_bar">
                 <form>
-                    <input type="text" placeholder="Search Terms..."/>
-                    <button type="submit">Search</button>
+                    <input type="text" placeholder="Search Terms..." 
+                    onChange={(event)=>{typedUpdate(event.target.value)}}
+                    />
+                    {console.log(typed)}
+                    <button type="submit" onClick={searchTerm}>Search </button>
+                    
                 </form>
             </div>
             
-            <div className="column2">
-                <TermInfo/>
-            </div>
+            <div className="column-container">
+                <div className="column1">
+                    <TermInfo lookingFor={typed} foundUp={foundUpdate} />
+                </div>
+                { /*found ? condition : null*/}
 
-            <div className="column3">
-                <AlphabetList />
+                <div className="column2">
+                    <AlphabetList />
+                </div>
             </div>
-
         </div>
         
         ////search bar 

@@ -1,13 +1,15 @@
 import React from 'react';
 import './About.css';
+import { Link } from 'react-router-dom'
 import PlantIcon from './plant-icon.png'
+import Forest from './rosemary-forest.jpg'
 
 
 const About =()=>{
     return(
         <div>
             <div className="image-container">
-                <img src='src/components/About/image.jpg' style={{width:'100%',height:'auto'}}/>
+                <img src={Forest} style={{width:'100%',height:'auto'}}/>
                 <img src={PlantIcon} className='plant-icon' id="plant-icon-1" />
                 <div className="overlay-container">
                     <div id='about-description-spacer'></div>
@@ -23,7 +25,9 @@ const About =()=>{
                 <h3>Subscribe to view exclusive content</h3>
                 <form>
                     <input type='text' placeholder='Enter your email here...' />
-                    <button type='submit'>Sign Up</button>
+                    {/*<button type='submit'>Sign Up</button>*/}
+                    <Link className="sign-up-about" to="../SignIn/SignUp"> Sign Up </Link>
+                    
                 </form>
             </div>
             <div className="bottom-container">
