@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Route, Switch, Redirect  } from 'react-router-dom';
 import Home from "./components/Home/Home";
 import Glossary from "./components/Glossary/Glossary"
@@ -13,7 +13,12 @@ import SignUp from "./components/SignIn/SignUp"
 import NotFound from "./views/NotFound";
 import NavBar from "./components/Header/NavBar";
 
+
+
 const App = () => {
+  const [SignedIn, SignInUpdate] = useState(false);
+ 
+
   return (
     <div id="page-container">
       <div className="content">

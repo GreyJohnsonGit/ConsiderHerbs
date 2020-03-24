@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './NavBar.css';
 import ConsiderLogo from './ConsiderLogo.png';
 
-import { IoIosMenu } from 'react-icons/io';
+// import { IoIosMenu } from 'react-icons/iSo';
 
 const NavBar = () => {
     return (
