@@ -1,17 +1,17 @@
 import './SignIn.css';
+import React, {useState} from 'react'
+import { Link } from 'react-router-dom'
 
-import React from 'react'
 
 const SignIn =()=>{
+   
     return(
         <div>
            <div className = "green-bar"> &nbsp; </div>
             <form className = "input-container"> 
                 <font size="7"> Sign In </font>
-
-
                 <input placeholder="Username" className="enter" required/>
-                <input placeholder="Password" className="enter" required/>
+                <input type="password" placeholder="Password" className="enter" required/>
 
                 <button type = "submit" className = "sign-in"> Sign In </button>
 
@@ -30,7 +30,14 @@ const SignIn =()=>{
                 </div>
 
             </div>
-            <div className = "redirect"> Don't have an account? Sign up here! </div>
+            <div className="redirect">
+                <div className = "redirect-signup"> Don't have an account?  
+                    <Link className="sign-up" to="/SignIn/SignUp"> Sign up here!</Link> 
+                </div>
+                
+            
+            </div>
+            
         </div>
     );
 }
