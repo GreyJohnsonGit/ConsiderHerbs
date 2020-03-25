@@ -1,6 +1,6 @@
 //import Col from 'react-bootstrap/Col';
-import { Link } from 'react-router-dom';
-import Row from 'react-bootstrap/Row';
+//import { Link } from 'react-router-dom';
+//import Row from 'react-bootstrap/Row';
 import React from 'react';
 
 import './Footer.css';
@@ -13,7 +13,7 @@ import TempLogo from "./temp_logo.png";
 // import { IoIosGlobe } from 'react-icons/io';
 // import { IconContext } from 'react-icons/lib/cjs';
 
-const iconSize = '1.75em'
+//const iconSize = '1.75em'
 
 const Footer=()=>{
     return(

@@ -1,7 +1,7 @@
 import './SignIn.css';
-import React, {useState} from 'react'
+import React/*, {useState}*/ from 'react'
 import { Link } from 'react-router-dom'
-import GoogleLogin from 'react-google-login';
+//import GoogleLogin from 'react-google-login';
 
 const SignIn =()=>{
    
@@ -39,16 +39,6 @@ const SignIn =()=>{
             </div>
         </div>
     );
-    }else{
-        return(
-            <div className = "SignIn">
-                
-                <h2>Already signed in</h2>
-              
-                
-                
-            </div>
-        );
-    }
+
 }
 export default SignIn;
