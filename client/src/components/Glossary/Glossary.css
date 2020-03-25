@@ -163,3 +163,84 @@
     width: 100%;
     font-family: Ucondensed;
 }
+
+/* Admin Tools */
+
+.glossary-popup {
+    position: fixed;  
+    width: 100%;  
+    height: 100%;  
+    top: 0;  
+    left: 0;  
+    right: 0;  
+    bottom: 0;  
+    margin: auto;  
+    background-color: rgba(0,0,0, 0.5);  
+}
+
+.glossary-popup-inner {
+    position: absolute;  
+    left: 25%;  
+    right: 25%;  
+    top: 25%;  
+    bottom: 25%;  
+    margin: auto;  
+    border-radius: 20px;  
+    background: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.glossary-popup-close-icon {
+    float: right;
+    margin: 7px;
+    align-self: flex-end;
+    flex-shrink: 0;
+}
+
+.glossary-popup-close-icon:hover {
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    cursor: pointer;
+}
+
+.glossary-popup-inner form {
+    padding: 0 10px 10px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+.glossary-popup form label {
+    font-size: 1.2em;
+}
+.glossary-popup input[type=text]#title{
+    background: #ededed;
+    font-size: 1.2em;
+    padding-left: 10px;
+}
+
+.glossary-popup textarea {
+    background: #ededed;
+    flex-grow: 1;
+    resize: none;
+    padding: 10px;
+}
+
+.glossary-popup form button {
+    align-self: center;
+    margin-top: 5px;
+    border: none;
+    height: 45px;
+    width: 150px;
+    background: #636363;
+    color: white;
+    text-transform: uppercase;
+    font-size: 1.3em;
+}
+.glossary-popup form button:hover
+{
+    background: #898a8a;
+}
+
+/* .admin-button {
+
+} */
