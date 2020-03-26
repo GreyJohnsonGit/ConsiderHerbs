@@ -28,6 +28,19 @@
     padding: 0 4%;
 }
 
+.image-div {
+    position: relative;
+    height:90px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.forum-image {
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+}
+
 /* Threads */
 
 .forum-column-1 {
@@ -153,20 +166,43 @@
 
 .new-thread-inner {
     position: absolute;  
-    left: 25%;  
-    right: 25%;  
-    top: 25%;  
-    bottom: 25%;  
+    left: 16%;  
+    right: 16%;  
+    top: 15%;  
+    height: auto; 
     margin: auto;  
-    border-radius: 20px;  
     background: white;
     display: flex;
     flex-direction: column;
 }
 
+.new-thread-inner #title-container {
+    display: grid;
+    grid-template-columns: 75px auto 38px;
+    width: 100%;    
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.new-thread-inner #dot {
+    height: 66px;
+    width: 66px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.new-thread-inner #create_title {
+    font-family: ubuntu;
+    font-size: 24px;
+    padding-top: 21px;
+    padding-left: 10px;
+}
+
 .new-thread-close-icon {
     float: right;
     margin: 7px;
+    margin-bottom: 25px;
     align-self: flex-end;
 }
 
@@ -176,18 +212,22 @@
 }
 
 .new-thread-inner form {
-    padding: 0 10px 10px;
+    padding: 0 20px 20px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
 }
+
 .new-thread-inner form label {
     font-size: 1.2em;
 }
+
 .new-thread-inner input[type=text]#title{
     background: #ededed;
     font-size: 1.2em;
     padding-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .new-thread-inner textarea#body {
@@ -195,10 +235,13 @@
     flex-grow: 1;
     resize: none;
     padding: 10px;
+    font-family: ubuntu;
+    font-size: 18px;
+    height: 300px;
 }
 
 .new-thread-inner form button {
-    align-self: center;
+    align-self: flex-end;
     margin-top: 5px;
     border: none;
     height: 45px;
@@ -211,4 +254,35 @@
 .new-thread-inner form button:hover
 {
     background: #898a8a;
+}
+
+.new-thread-inner #tag {
+    background: #D3E5BB;
+    border-radius: 10px;
+    color: #9FAC8C;
+    font-size: 14px;
+}
+
+.new-thread-inner #tag-form {
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+}
+
+/* Tags */
+
+#tag-text {
+    display:inline;
+    font-size: 14px;
+    background-color: #D3E5BB;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-right: 5px;
+}
+
+#tag-text:hover {
+    background-color: #A6CC78;
 }

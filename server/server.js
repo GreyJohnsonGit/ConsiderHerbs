@@ -1,5 +1,7 @@
 const bodyParser = require('body-parser');
 const expressStatic = require('express-static');
+const cors = require('cors');
+
 //const mongoose = require('mongoose');
 
 //const config = require('./config/config.js');
@@ -18,11 +20,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
-//Allows for communication between this server and a client in a different url
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    next();
-});
+app.use(cors());
 
 //Serve static files
 app.use('/', expressStatic('./client/'));
