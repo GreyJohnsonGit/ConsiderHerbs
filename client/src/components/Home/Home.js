@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'
 import Carousel from 'react-bootstrap/Carousel';
 import BodyMap from './home_components/BodyMap.js';
 import RecipeList from './home_components/RecipeList.js';
@@ -82,7 +83,7 @@ const Home = ()=> {
                 <h3>Subscribe to view exclusive content</h3>
                 <form>
                     <input type='text' placeholder='Enter your email here...' />
-                    <button type='submit'>Sign Up</button>
+                    <Link className="sign-up-about" to="../SignIn/SignUp">Sign Up</Link>
                 </form>
             </div>
             <div>
