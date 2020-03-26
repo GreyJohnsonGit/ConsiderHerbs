@@ -16,11 +16,10 @@ import NavBar from "./components/Header/NavBar";
 
 
 const App = () => {
-//  const [SignedIn, SignInUpdate] = useState(false);
- 
-
+//const [SignedIn, SignInUpdate] = useState(false);
   return (
     <div id="page-container">
+      
       <div className="content">
         <NavBar />
 
