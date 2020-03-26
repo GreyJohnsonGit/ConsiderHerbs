@@ -1,7 +1,11 @@
 import React from 'react';
 
-const RecipeList = () => {
-    let Recipes = require('../recipes.json');
+const RecipeList = (props) => {
+    let Recipes = require('../recipes.json').filter(entry => (
+        entry.name.toLowerCase().includes(props.filterText.toLowerCase()) || 
+        entry.description.toLowerCase().includes(props.filterText.toLowerCase()) ||
+        entry.bodypart.toLowerCase().includes(props.filterText.toLowerCase())
+    ));
 
     return (
         <div className='recipe-list-container'>

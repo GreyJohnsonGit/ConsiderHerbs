@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import BodyMap from './home_components/BodyMap.js';
 import RecipeList from './home_components/RecipeList.js';
 import './Home.css';
 
 const Home = ()=> {
+    let searchInput = React.createRef();
+
+    const [ filterText,setFilterText ] = useState('');
+
+    const filterUpdate = (value) => {
+        setFilterText(value);
+    }
+
     return (
         <div>
             <div>
@@ -57,7 +65,16 @@ const Home = ()=> {
                     <BodyMap />
                 </div>
                 <div className='recipe-column'>
-                    <RecipeList />
+                    <form>
+                        <input 
+                            type='text'
+                            placeholder='Search Recipes'
+                            ref={searchInput}
+                            onChange={() => filterUpdate(searchInput.current.value)}
+                        />
+                        <button type='submit'>Search</button>
+                    </form>
+                    <RecipeList filterText={filterText} />
                 </div>
             </div>
             <div className="email-container">
