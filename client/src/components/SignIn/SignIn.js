@@ -1,10 +1,41 @@
-import './SignIn.css';
-import React/*, {useState}*/ from 'react'
+import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
+import Axios from 'axios';
 
-const SignIn =(props)=>{
+import './SignIn.css';
+
+const SignIn = () => {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    //const [signedUp, setSignedUp] = useState(false);
+
+    const usernameHandleChange = (event) => {
+        setUsername(event.target.value);
+    }
+    const passwordHandleChange = event => {
+        setPassword(event.target.value);
+    }
+    const attemptLogin = event => {
+        Axios.post(
+            'https://consider-herbs.herokuapp.com/api/Authentication/SignIn',
+            {
+                username: username,
+                password: password,
+                method: 'email',
+            },
+            {}
+        )
+        .then(res => {
+            console.log(res.data);
+        })
+        .catch(err => {
+            console.error(err)
+        });
+        event.preventDefault();
+    }
+
     const responseGoogle = (response) => {
         console.log(response);
         let profile = response.getBasicProfile();
@@ -21,17 +52,17 @@ const SignIn =(props)=>{
         console.log("Email: " + profile.email);
         //console.log("ID Token: " + profile.id);
         //props.SignInUpdate(true);
-      }
-
+    }
+    
     return(
         <div>
             <div id="fb-root"></div>
         <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0&appId=282495236070074"></script> 
            <div className = "green-bar"> &nbsp; </div>
-            <form className = "input-container"> 
+            <form className="input-container" onSubmit={attemptLogin}> 
                 <font size="7"> Sign In </font>
-                <input placeholder="Username" className="enter" required/>
-                <input type="password" placeholder="Password" className="enter" required/>
+                <input placeholder="Username" className="enter" value={username} onChange={usernameHandleChange} type="text" required/>
+                <input placeholder="Password" className="enter" value={password} onChange={passwordHandleChange} type="password" required/>
 
                 <button type = "submit" className = "sign-in"> Sign In </button>
 
@@ -68,10 +99,8 @@ const SignIn =(props)=>{
             </div>
             <div className="redirect">
                 <div className = "redirect-signup"> Don't have an account?  
-                    <Link className="sign-up" to="/SignIn/SignUp"> Sign up here!</Link> 
+                    <Link className="sign-up" to="/SignUp"> Sign up here!</Link> 
                 </div>
-                
-            
             </div>
         </div>
     );

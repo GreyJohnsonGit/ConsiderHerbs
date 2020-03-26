@@ -1,4 +1,4 @@
-const glossaryModel = require('../models/glossaryentry.js');
+const glossaryModel = require('../models/GlossaryEntry.js');
 
 //assumes request has req.body ==> the object to be created in the db
 exports.create = function(req, res) {
@@ -66,7 +66,6 @@ exports.getAll = function(req, res) {
     var model = glossaryModel;
     model.find({}).exec().then(function(docs, err){
         docs.sort((a,b) => (a.title > b.title) ? 1 : -1);
-        res.header('Access-Control-Allow-Origin', '*');
         res.send(docs);
     })
 }
