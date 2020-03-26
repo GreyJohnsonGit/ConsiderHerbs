@@ -7,25 +7,25 @@ import './Footer.css';
 
 import TempLogo from "./temp_logo.png";
 
-import { FaMobileAlt } from 'react-icons/fa';
-import { FiPhoneCall, FiMapPin } from 'react-icons/fi';
-import { AiOutlineMail } from 'react-icons/ai';
-import { IoIosGlobe } from 'react-icons/io';
-import { IconContext } from 'react-icons/lib/cjs';
+// import { FaMobileAlt } from 'react-icons/fa';
+// import { FiPhoneCall, FiMapPin } from 'react-icons/fi';
+// import { AiOutlineMail } from 'react-icons/ai';
+// import { IoIosGlobe } from 'react-icons/io';
+// import { IconContext } from 'react-icons/lib/cjs';
 
 const iconSize = '1.75em'
 
 const Footer=()=>{
     return(
         <footer id= "footer">
-            {/* <img className = "footer-logo" src={ TempLogo } alt="logo" /> */}
-            <div className="footer-container">
+            <img className = "footer-logo" src={ TempLogo } alt="logo" />
+            {/* <div className="footer-container">
                 <div className="text-container">Consider Herbs</div>
                 <div className="link-container">
                     <h1>Fast Links:</h1>
                     <a href='/Home'>Home</a>
                     <a href='/Forum'>Forum</a>
-                    {/* <a href='/DidYouKnow'>Did you know?</a> */}
+                    <a href='/DidYouKnow'>Did you know?</a> 
                     <a href='/Glossary'>Glossary</a>
                     <a href='/About'>About</a>
                     <a href='/Schedule'>Schedule</a>
@@ -45,7 +45,7 @@ const Footer=()=>{
                     </p>
                     Consider Herbs © 2019
                 </div>
-            </div>
+            </div> */}
         </footer>
 
     );

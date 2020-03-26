@@ -3,16 +3,6 @@
     src: url(./assets/ubuntu-font-family-0.83/ubuntu-r.ttf);
 }
 
-@font-face {
-    font-family: Ubuntu-C;
-    src: url(./assets/ubuntu-font-family-0.83/Ubuntu-C.ttf);
-}
-
-@font-face {
-    font-family: Ubuntu-Th;
-    src: url(./assets/ubuntu-font-family-0.83/Ubuntu-Th.ttf);
-}
-
 html, #root, #page-container {
     height: 100%;
     display: flex;
