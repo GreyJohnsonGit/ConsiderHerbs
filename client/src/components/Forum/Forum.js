@@ -16,7 +16,7 @@ const Forum =()=>{
     return(
         <div>        
             <div className="image-container">
-                <img src='http://picsum.photos/1440/91' style={{width:'100%',height:'auto'}}/>
+                <img alt="photos" src='http://picsum.photos/1440/91' style={{width:'100%',height:'auto'}}/>
                 <div className='forum-title'><span>Connect With The Community!</span></div>
             </div>
             { showPopup ? <NewThread closeFn={toggleShowPopup}/> : null}

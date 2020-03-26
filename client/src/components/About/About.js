@@ -9,8 +9,8 @@ const About =()=>{
     return(
         <div>
             <div className="image-container">
-                <img src={Forest} style={{width:'100%',height:'auto'}}/>
-                <img src={PlantIcon} className='plant-icon' id="plant-icon-1" />
+                <img alt="Forest" src={Forest} style={{width:'100%',height:'auto'}}/>
+                <img alt="PlantIcon" src={PlantIcon} className='plant-icon' id="plant-icon-1" />
                 <div className="overlay-container">
                     <div id='about-description-spacer'></div>
                     <div id='about-title'>About Us</div>
@@ -32,17 +32,17 @@ const About =()=>{
             </div>
             <div className="bottom-container">
                 <div className="plant-icon-container" id='pic1'>
-                    <img src={PlantIcon} className='plant-icon' id='plant-icon-2' />
+                    <img alt="PlantIcon" src={PlantIcon} className='plant-icon' id='plant-icon-2' />
                     <p>Our intentions are to educate and to show you no matter where you
                      are in your life's journey you can and should connect with mother nature.</p>
                 </div>
                 <div className="plant-icon-container" id='pic2'>
-                    <img src={PlantIcon} className='plant-icon' id='plant-icon-2' />
+                    <img alt="PlantIcon" src={PlantIcon} className='plant-icon' id='plant-icon-2' />
                     <p>These thoughtful actions will ensure the wellbeing of your mind,
                      body and spirit. You will realize the amazing plant allies nature has provided for us.</p>
                 </div>
                 <div className="plant-icon-container" id='pic3'>
-                    <img src={PlantIcon} className='plant-icon' id='plant-icon-2' />
+                    <img alt="PlantIcon" src={PlantIcon} className='plant-icon' id='plant-icon-2' />
                     <p>You can incorporate them in your daily life in many forms such as
                      herbs, oils, teas, food and tinctures to name a few.</p>
                 </div>

@@ -5,13 +5,7 @@ const dummyThread = {
     userId: 'userId',
     title: 'Some Thread',
     user: '@JaneDoe',
-    body: 'Lorem ipsum dolor sit amet, \
-            consectetur adipiscing elit, \
-            sed do eiusmod tempor incididunt \
-            ut labore et dolore magna aliqua. \
-            Ut enim ad minim veniam, quis \
-            nostrud exercitation ullamco \
-            laboris nisi ut aliquip ex ea commodo consequat...',
+    body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat...',
     likes: 0,
     replies: []
 }
@@ -38,6 +32,7 @@ const ThreadPreviewBlock = () => {
                     </div>
                 )
             })}
+            {/*eslint-disable-next-line*/}
             <a onClick={() => setCount(count + 2)} className='thread-preview-block-link'>See More...</a>
         </div>
     )
