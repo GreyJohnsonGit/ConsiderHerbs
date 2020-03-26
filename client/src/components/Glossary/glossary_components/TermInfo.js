@@ -58,6 +58,8 @@ const TermInfo = (props) => {
                                         </div>
                                         <div>
                                             <h1>{glossaryEntry.title}</h1>
+                                            <button className='admin-button' onClick={() => props.editFn(glossaryEntry)}>Edit</button>
+                                            <button className='admin-button'>Delete</button>
                                             <table>
                                                 <tr>
                                                     <th>Definition</th>
