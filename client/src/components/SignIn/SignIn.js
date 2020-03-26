@@ -1,12 +1,32 @@
 import './SignIn.css';
 import React/*, {useState}*/ from 'react'
 import { Link } from 'react-router-dom'
-//import GoogleLogin from 'react-google-login';
+import GoogleLogin from 'react-google-login';
+import FacebookLogin from 'react-facebook-login';
 
-const SignIn =()=>{
-   
+const SignIn =(props)=>{
+    const responseGoogle = (response) => {
+        console.log(response);
+        let profile = response.getBasicProfile();
+        console.log('Name: ' + profile.getName());
+        console.log("Email: " + profile.getEmail());
+        let id_token = response.getAuthResponse().id_token;
+        //console.log("ID Token: " + id_token);
+        //props.SignInUpdate(true);
+    }
+
+    const responseFacebook = (profile) => {
+        console.log(profile);
+        console.log('Name: ' + profile.name);
+        console.log("Email: " + profile.email);
+        //console.log("ID Token: " + profile.id);
+        //props.SignInUpdate(true);
+      }
+
     return(
         <div>
+            <div id="fb-root"></div>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0&appId=282495236070074"></script> 
            <div className = "green-bar"> &nbsp; </div>
             <form className = "input-container"> 
                 <font size="7"> Sign In </font>
@@ -25,8 +45,24 @@ const SignIn =()=>{
                 <div className = "detail"> Login with your social media account </div>
 
                 <div className = "button-container">
-                    <button type = "submit" className = "facebook"> Facebook </button>
-                    <button type = "submit" className = "google"> Google </button>
+                    {/* <div class="fb-login-button" data-width="" data-size="medium" data-button-type="login_with" data-layout="default" data-auto-logout-link="true" data-use-continue-as="ftrue"></div>*/}
+                    <FacebookLogin
+                            
+                            type = "submit" className = "facebook"
+                            appId="282495236070074"
+                            fields="name,email,picture"
+                            callback={responseFacebook}
+                            textButton= "Facebook"
+                            icon="fa-facebook"
+                            version = "6.0"
+                        />
+
+                    <GoogleLogin type = "submit" className="google"
+                        buttonText="Google"
+                        onSuccess={responseGoogle}
+                        onFailure={responseGoogle}
+                        />
+                       
                 </div>
 
             </div>
