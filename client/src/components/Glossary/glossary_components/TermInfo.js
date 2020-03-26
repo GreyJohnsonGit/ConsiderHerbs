@@ -4,7 +4,7 @@ import React from 'react';
 
 const loadTermInfo = () => {
     return Axios.get(
-        "http://consider-herbs.herokuapp.com/api/glossary" //DEBUG ADDRESS
+        "https://consider-herbs.herokuapp.com/api/glossary" //DEBUG ADDRESS
     )
     .then(res => {
         return res.data;

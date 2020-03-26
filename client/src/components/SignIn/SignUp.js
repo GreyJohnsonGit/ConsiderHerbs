@@ -29,7 +29,7 @@ const SignUp = () =>{
 
     const attemptLogin = event => {
         Axios.post(
-            'http://consider-herbs.herokuapp.com/api/Authentication/SignUp', //DEBUG ADDRESS
+            'https://consider-herbs.herokuapp.com/api/Authentication/SignUp', //DEBUG ADDRESS
             {
                 username: username,
                 email: email,
