@@ -4,9 +4,26 @@ import { useForm } from 'react-hook-form';
 import TagList from './TagList.js';
 
 
+const dummyThread = {
+    threadId: 'threadId',
+    userId: 'userId',
+    title: 'Some Thread',
+    user: '@JaneDoe',
+    body: 'Lorem ipsum dolor sit amet, \
+            consectetur adipiscing elit, \
+            sed do eiusmod tempor incididunt \
+            ut labore et dolore magna aliqua. \
+            Ut enim ad minim veniam, quis \
+            nostrud exercitation ullamco \
+            laboris nisi ut aliquip ex ea commodo consequat...',
+    likes: 0,
+    replies: []
+}
+
+
 const NewThread = (props) => {
 
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, reset } = useForm();
     const [ tags, setTags ] = useState([]);
 
 
@@ -15,6 +32,7 @@ const NewThread = (props) => {
         temp.push(data.tag);
         setTags(temp);
         
+        reset();
     };
 
     return (

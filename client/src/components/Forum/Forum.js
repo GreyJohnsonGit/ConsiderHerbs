@@ -37,10 +37,12 @@ const Forum =()=>{
                         <Route path={`/Forum/:threadId`} component={Thread} />
                     </Switch>
                 </div>
-                <div className="forum-column-2">
-                    <h1>Did You Know?</h1>
-                    <p><i>Check out some of the links picked by our team!</i></p>
-                    <DidYouKnow />
+                <div>
+                    <div className="forum-column-2">
+                        <h1>Did You Know?</h1>
+                        <p><i>Check out some of the links picked by our team!</i></p>
+                        <DidYouKnow />
+                    </div>
                 </div>
             </div>
         </div>

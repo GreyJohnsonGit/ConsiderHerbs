@@ -47,6 +47,8 @@
     text-align: left;
 }
 .term-container h1 {
+    top: 0px;
+    position: sticky;
     font-size: 24px;
     border-bottom: 1px solid #363636;
 }
