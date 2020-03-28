@@ -8,6 +8,14 @@ import TermInfo from "./glossary_components/TermInfo";
 import AlphabetList from "./glossary_components/AlphabetList";
 import { not } from 'should';
 
+<<<<<<< Updated upstream
+=======
+let entryToEdit = { 
+    title: '',
+    definition: '',
+    usage: ''
+};
+>>>>>>> Stashed changes
 
 
 const Glossary =()=>{
