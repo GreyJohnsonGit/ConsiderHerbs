@@ -1,12 +1,40 @@
 .home-text-container-1 {
     text-align: center;
+    padding: 30px;
 }
 
 /* Body/recipe section */
+.body-column {
+    width: 400px;
+    position: relative;
+}
+
+.body-button-container #view{
+    display: inline-block;
+    background-color: #ACACAC;
+    color: white;
+    border: none;
+}
+
+.body-button-container #sex-button{
+    display: inline-block;
+    background-color: #636363;
+    color: white;
+    border: none;
+}
+
+.body-button-container #sex {
+    position: absolute;
+    right: 0;
+    display: inline-block;
+}
+
 .body-recipe-container {
     display: grid;
     grid-template-columns: min-content auto;
+    grid-column-gap: 30px;
     padding: 0 50px;
+    margin-bottom: 20px;
 }
 
 .recipe-column form {
@@ -38,7 +66,7 @@
 }
 
 .recipe-list-container {
-    height: 500px;
+    height: 587px;
     overflow: scroll;
 }
 
