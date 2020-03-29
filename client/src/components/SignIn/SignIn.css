@@ -188,4 +188,7 @@
     text-shadow: #636363;
   }
   
+  .error {
+    color: red;
+  }
   

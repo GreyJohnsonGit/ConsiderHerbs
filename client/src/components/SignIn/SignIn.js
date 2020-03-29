@@ -9,6 +9,7 @@ import './SignIn.css';
 const SignIn = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [problem, setProblem] = useState('');
     //const [signedUp, setSignedUp] = useState(false);
 
     const usernameHandleChange = (event) => {
@@ -20,8 +21,8 @@ const SignIn = () => {
     const attemptLogin = (event)  => {
         event.preventDefault();
         Axios.post(
-            'https://consider-herbs.herokuapp.com/api/Authentication/SignIn',
-            //'http://localhost:5000/api/Authentication/SignIn', ///////For running locally
+            //'https://consider-herbs.herokuapp.com/api/Authentication/SignIn',
+            'http://localhost:5000/api/Authentication/SignIn', ///////For running locally
             {
                 username: username,
                 password: password,
@@ -30,7 +31,10 @@ const SignIn = () => {
             {}
         )
         .then(res => {
-            console.log(res.data);
+            console.log("Axios respones: ", res.data);
+            if(!res.data.success){
+                setProblem(res.data.reason)
+            }            
         })
         .catch(err => {
             console.error(err)
@@ -47,8 +51,8 @@ const SignIn = () => {
         setPassword(profile.getEmail());
         let id_token = response.getAuthResponse().id_token;
         Axios.post(
-            'https://consider-herbs.herokuapp.com/api/Authentication/SignIn',
-            //'http://localhost:5000/api/Authentication/SignIn', ///////For running locally
+            //'https://consider-herbs.herokuapp.com/api/Authentication/SignIn',
+            'http://localhost:5000/api/Authentication/SignIn', ///////For running locally
             {
                 username: username,
                 password: password,
@@ -65,8 +69,8 @@ const SignIn = () => {
         console.log("Email: " + profile.email);
         setPassword(profile.email)
         Axios.post(
-            'https://consider-herbs.herokuapp.com/api/Authentication/SignIn',
-            //'http://localhost:5000/api/Authentication/SignIn', ///////For running locally
+            //'https://consider-herbs.herokuapp.com/api/Authentication/SignIn',
+            'http://localhost:5000/api/Authentication/SignIn', ///////For running locally
             {
                 username: username,
                 password: password,
@@ -87,7 +91,9 @@ const SignIn = () => {
                 <input placeholder="Password" className="enter" value={password} onChange={passwordHandleChange} type="password" required/>
 
                 <button type = "submit" className = "sign-in"> Sign In </button>
-
+                <div className = "error">
+                    {problem}
+                </div>
                 <div className = "or">
                     <hr size = "3"/>
                     <div> OR </div>

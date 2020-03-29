@@ -30,8 +30,8 @@ const SignUp = () =>{
 
     const attemptLogin = event => {
         Axios.post(
-            'https://consider-herbs.herokuapp.com/api/Authentication/SignUp', //DEBUG ADDRESS
-            //'http://localhost:5000/api/Authentication/SignUp', ///////For running locally
+            //'https://consider-herbs.herokuapp.com/api/Authentication/SignUp', //DEBUG ADDRESS
+            'http://localhost:5000/api/Authentication/SignUp', ///////For running locally
             {
                 username: username,
                 email: email,
@@ -58,8 +58,8 @@ const SignUp = () =>{
         setPassword(profile.getEmail());
         let id_token = response.getAuthResponse().id_token;
         Axios.post(
-            'https://consider-herbs.herokuapp.com/api/Authentication/SignUp', //DEBUG ADDRESS
-            //'http://localhost:5000/api/Authentication/SignUp', ///////For running locally
+            //'https://consider-herbs.herokuapp.com/api/Authentication/SignUp', //DEBUG ADDRESS
+            'http://localhost:5000/api/Authentication/SignUp', ///////For running locally
             {
                 username: username,
                 email: password,
@@ -77,8 +77,8 @@ const SignUp = () =>{
         console.log("Email: " + profile.email);
         setPassword(profile.email)
         Axios.post(
-            'https://consider-herbs.herokuapp.com/api/Authentication/SignUp', //DEBUG ADDRESS
-            //'http://localhost:5000/api/Authentication/SignUp', ///////For running locally
+            //'https://consider-herbs.herokuapp.com/api/Authentication/SignUp', //DEBUG ADDRESS
+            'http://localhost:5000/api/Authentication/SignUp', ///////For running locally
             {
                 username: username,
                 email: password,

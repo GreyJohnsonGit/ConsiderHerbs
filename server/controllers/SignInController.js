@@ -4,6 +4,7 @@ exports.signIn = (req, res) => {
     let unverifiedUser = new User(req.body);
 
     User.find({username: unverifiedUser.username}, (err, docs) => {
+        console.log(docs[0]);
         if(err) {
             res.send({
                 success: false,
@@ -13,7 +14,7 @@ exports.signIn = (req, res) => {
         else if (docs.length === 0) {
             res.send({
                 success: false,
-                reason: 'Invalid username'
+                reason: 'Invalid username or password'
             });
         }
         else {
@@ -27,7 +28,7 @@ exports.signIn = (req, res) => {
             else {
                 res.send({
                     success: false,
-                    reason: 'Invalid password'
+                    reason: 'Invalid username or password'
                 });
             }
         }
