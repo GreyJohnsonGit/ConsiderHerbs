@@ -7,6 +7,7 @@ const ThreadSchema = new mongoose.Schema({
   date  : {type: Date, default: Date.now},
   body  : {type: String, default: "Insert text here"},
   likes : mongoose.Number,
+  tags  : [{ tag : String }],
   replies: [{
     id  : String,
     text: {type: String, default: "Reply here"}, 
