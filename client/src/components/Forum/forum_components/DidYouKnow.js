@@ -15,8 +15,10 @@ const DidYouKnow = () => {
                     <div className='post-container'>
                         <div className='post-spacer'></div>
                         <div className='post-content'>
-                            <img alt="photos" src='http://picsum.photos/330/100' style={{width:'100%',height:'auto'}}/>
-                            <h2>{post.title}</h2>
+
+                            <img src='http://picsum.photos/330/100' style={{width:'100%',height:'auto'}}/>
+                            <h3>{post.title}</h3>
+
                             <p>{post.body}</p>
                         </div>
                     </div>

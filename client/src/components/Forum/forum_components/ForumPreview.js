@@ -3,12 +3,12 @@ import ThreadPreviewBlock from './ThreadPreviewBlock.js';
 
 const ForumPreview = () => {
     return (
-        <div>
-            <h1>Pinned Threads</h1>
+        <div className='forum-preview'>
+            <h3>Pinned Threads</h3>
             <ThreadPreviewBlock />
-            <h1>Popular</h1>
+            <h3>Popular</h3>
             <ThreadPreviewBlock />
-            <h1>Latest</h1>
+            <h3>Latest</h3>
             <ThreadPreviewBlock />
         </div>
     )

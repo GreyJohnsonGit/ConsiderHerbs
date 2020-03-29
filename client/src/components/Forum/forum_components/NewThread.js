@@ -1,17 +1,59 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { MdClose } from 'react-icons/md';
+import { useForm } from 'react-hook-form';
+import TagList from './TagList.js';
+
+
+const dummyThread = {
+    threadId: 'threadId',
+    userId: 'userId',
+    title: 'Some Thread',
+    user: '@JaneDoe',
+    body: 'Lorem ipsum dolor sit amet, \
+            consectetur adipiscing elit, \
+            sed do eiusmod tempor incididunt \
+            ut labore et dolore magna aliqua. \
+            Ut enim ad minim veniam, quis \
+            nostrud exercitation ullamco \
+            laboris nisi ut aliquip ex ea commodo consequat...',
+    likes: 0,
+    replies: []
+}
+
 
 const NewThread = (props) => {
+
+    const { register, handleSubmit, reset } = useForm();
+    const [ tags, setTags ] = useState([]);
+
+
+    const onSubmit = data => {
+        var temp = tags;
+        temp.push(data.tag);
+        setTags(temp);
+        
+        reset();
+    };
+
     return (
         <div className='new-thread-popup'>
             <div className='new-thread-inner'>
-                <MdClose className='new-thread-close-icon' size='2em' onClick={props.closeFn} />
                 <form action='/Forum/threadId'>
-                    <label for='title'>Title</label>
-                    <input type='text' id='title'/>
-                    <label for='body'>Body</label>
-                    <textarea rows='5' id='body'/>
-                    <button type='submit'>Submit</button>
+                    <div id='title-container'>
+                        <span id="dot"></span>
+                        <div id='create_title'> Hello User, Create Your Thread </div>
+                        <MdClose className='new-thread-close-icon' size='2em' onClick={props.closeFn} />
+                    </div>
+                    <input type='text' id='title' placeholder='Title...' required='true'/>
+                    <textarea rows='5' id='body' placeholder='Type post here...' required='true'/>
+
+                    <form id='tag-form' onSubmit={handleSubmit(onSubmit)}>
+                        <input type='text' name='tag' id='title' ref={register} placeholder='Add tags to make your thread more discoverable...'/>
+                    </form>
+
+                    <TagList tags={tags} setTags={setTags}/>
+
+                    <button type='submit'>Post</button>
                 </form>
             </div>
         </div>

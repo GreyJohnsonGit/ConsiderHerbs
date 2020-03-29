@@ -1,6 +1,7 @@
 const bodyParser = require('body-parser');
 const expressStatic = require('express-static');
 const cors = require('cors');
+
 //const mongoose = require('mongoose');
 
 const express = require('./config/express.js')
@@ -20,12 +21,14 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
+
 //Handles CORS policy
 app.use(cors());
 
 //Routes for glossary API
 app.use('/api/Glossary', glossaryRouter);
 app.use('/api/Authentication', signinRouter);
+
 
 //Serve static files
 app.use('/', expressStatic('./client/'));
