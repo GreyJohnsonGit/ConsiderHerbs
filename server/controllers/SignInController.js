@@ -40,26 +40,28 @@ exports.signUp = (req, res) => {
 
     newUser.save(err => {
         if(err) {
+            console.log(err)
             switch(err.code) {
 
             case 11000:
                 res.send({
                     success: false,
-                    reason: 'Username or email already in use'
+                    reason: 'Username or email already in use',
                 });
                 break;
             default:
                 res.send({
                     success: false,
-                    reason: 'Database Error'
+                    reason: 'Database Error',
                 });
             }
         }
         else {
+            console.log("New User created: ", newUser)
             res.send({
                 success: true,
                 reason: 'New User Created',
-                cookie: unverifiedUser.username //**DEBUG**
+                cookie: newUser.username //**DEBUG**
             });
         }
     });

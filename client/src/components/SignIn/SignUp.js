@@ -11,6 +11,7 @@ const SignUp = () =>{
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [problem, setProblem] = useState('');
 
     const usernameHandleChange = event => {
         setUsername(event.target.value);
@@ -42,6 +43,11 @@ const SignUp = () =>{
         )
         .then(res => {
             console.log(res.data);
+            if(!res.data.success){
+                setProblem(res.data.reason)
+            }else{
+                setProblem("")
+            }
         })
         .catch(err => {
             console.error(err)
@@ -115,7 +121,9 @@ const SignUp = () =>{
 
 
                 <button type = "submit" className = "sign-in" onClick={attemptLogin}> Sign Up </button>
-
+                <div className = "error">
+                    {problem}
+                </div>
                 <div className = "or">
                     <hr size = "3"/>
                     <div> OR </div>
