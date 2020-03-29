@@ -30,6 +30,8 @@ const SignUp = () =>{
     }
 
     const attemptLogin = event => {
+        event.preventDefault();
+        if(password===confirmPassword){
         Axios.post(
             //'https://consider-herbs.herokuapp.com/api/Authentication/SignUp', //DEBUG ADDRESS
             'http://localhost:5000/api/Authentication/SignUp', ///////For running locally
@@ -52,24 +54,24 @@ const SignUp = () =>{
         .catch(err => {
             console.error(err)
         });
-        event.preventDefault();
+    }else{
+        setProblem("Password does not match")
+    }
     }
 
     const responseGoogle = (response) => {
         console.log(response);
         let profile = response.getBasicProfile();
         console.log('Name: ' + profile.getName());
-        setUsername(profile.getName());
         console.log("Email: " + profile.getEmail());
-        setPassword(profile.getEmail());
         let id_token = response.getAuthResponse().id_token;
         Axios.post(
             //'https://consider-herbs.herokuapp.com/api/Authentication/SignUp', //DEBUG ADDRESS
             'http://localhost:5000/api/Authentication/SignUp', ///////For running locally
             {
-                username: username,
-                email: password,
-                password: password,
+                username: profile.getName(),
+                email: profile.getEmail(),
+                password: profile.getEmail(),
                 method: 'Gmail'
             },
             {}
@@ -79,16 +81,14 @@ const SignUp = () =>{
     const responseFacebook = (profile) => {
         console.log(profile);
         console.log('Name: ' + profile.name);
-        setUsername(profile.name)
         console.log("Email: " + profile.email);
-        setPassword(profile.email)
         Axios.post(
             //'https://consider-herbs.herokuapp.com/api/Authentication/SignUp', //DEBUG ADDRESS
             'http://localhost:5000/api/Authentication/SignUp', ///////For running locally
             {
-                username: username,
-                email: password,
-                password: password,
+                username: profile.name,
+                email: profile.email,
+                password: profile.email,
                 method: 'Facebook'
             },
             {}

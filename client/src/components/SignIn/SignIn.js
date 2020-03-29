@@ -34,6 +34,8 @@ const SignIn = () => {
             console.log("Axios respones: ", res.data);
             if(!res.data.success){
                 setProblem(res.data.reason)
+            }else{
+                setProblem("")
             }            
         })
         .catch(err => {
@@ -46,38 +48,55 @@ const SignIn = () => {
         console.log(response);
         let profile = response.getBasicProfile();
         console.log('Name: ' + profile.getName());
-        setUsername(profile.getName());
         console.log("Email: " + profile.getEmail());
-        setPassword(profile.getEmail());
         let id_token = response.getAuthResponse().id_token;
         Axios.post(
             //'https://consider-herbs.herokuapp.com/api/Authentication/SignIn',
             'http://localhost:5000/api/Authentication/SignIn', ///////For running locally
             {
-                username: username,
-                password: password,
+                username: profile.getName(),
+                password: profile.getEmail(),
                 method: 'Gmail',
             },
             {}
-        )
+        ).then(res => {
+            console.log("Axios respones: ", res.data);
+            if(!res.data.success){
+                setProblem(res.data.reason)
+            }else{
+                setProblem("")
+            }            
+        })
+        .catch(err => {
+            console.error(err)
+        });
     }
 
     const responseFacebook = (profile) => {
         console.log(profile);
         console.log('Name: ' + profile.name);
-        setUsername(profile.name)
         console.log("Email: " + profile.email);
-        setPassword(profile.email)
         Axios.post(
             //'https://consider-herbs.herokuapp.com/api/Authentication/SignIn',
             'http://localhost:5000/api/Authentication/SignIn', ///////For running locally
             {
-                username: username,
-                password: password,
+                username: profile.name,
+                password: profile.email,
                 method: 'Facebook',
             },
             {}
         )
+        .then(res => {
+            console.log("Axios respones: ", res.data);
+            if(!res.data.success){
+                setProblem(res.data.reason)
+            }else{
+                setProblem("")
+            }            
+        })
+        .catch(err => {
+            console.error(err)
+        });
     }
     
     return(
