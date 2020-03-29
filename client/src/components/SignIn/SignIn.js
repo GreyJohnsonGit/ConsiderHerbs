@@ -1,17 +1,68 @@
-import './SignIn.css';
 import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
 import GoogleLogin from 'react-google-login';
+import FacebookLogin from 'react-facebook-login';
+import Axios from 'axios';
 
-const SignIn =()=>{
-   
+import './SignIn.css';
+
+const SignIn = () => {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    //const [signedUp, setSignedUp] = useState(false);
+
+    const usernameHandleChange = (event) => {
+        setUsername(event.target.value);
+    }
+    const passwordHandleChange = event => {
+        setPassword(event.target.value);
+    }
+    const attemptLogin = event => {
+        Axios.post(
+            'https://consider-herbs.herokuapp.com/api/Authentication/SignIn',
+            {
+                username: username,
+                password: password,
+                method: 'email',
+            },
+            {}
+        )
+        .then(res => {
+            console.log(res.data);
+        })
+        .catch(err => {
+            console.error(err)
+        });
+        event.preventDefault();
+    }
+
+    const responseGoogle = (response) => {
+        console.log(response);
+        let profile = response.getBasicProfile();
+        console.log('Name: ' + profile.getName());
+        console.log("Email: " + profile.getEmail());
+        let id_token = response.getAuthResponse().id_token;
+        //console.log("ID Token: " + id_token);
+        //props.SignInUpdate(true);
+    }
+
+    const responseFacebook = (profile) => {
+        console.log(profile);
+        console.log('Name: ' + profile.name);
+        console.log("Email: " + profile.email);
+        //console.log("ID Token: " + profile.id);
+        //props.SignInUpdate(true);
+    }
+    
     return(
         <div>
+            <div id="fb-root"></div>
+        <script async defer crossOrigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0&appId=282495236070074"></script> 
            <div className = "green-bar"> &nbsp; </div>
-            <form className = "input-container"> 
+            <form className="input-container" onSubmit={attemptLogin}> 
                 <font size="7"> Sign In </font>
-                <input placeholder="Username" className="enter" required/>
-                <input type="password" placeholder="Password" className="enter" required/>
+                <input placeholder="Username" className="enter" value={username} onChange={usernameHandleChange} type="text" required/>
+                <input placeholder="Password" className="enter" value={password} onChange={passwordHandleChange} type="password" required/>
 
                 <button type = "submit" className = "sign-in"> Sign In </button>
 
@@ -25,30 +76,34 @@ const SignIn =()=>{
                 <div className = "detail"> Login with your social media account </div>
 
                 <div className = "button-container">
-                    <button type = "submit" className = "facebook"> Facebook </button>
-                    <button type = "submit" className = "google"> Google </button>
+                    {/* <div class="fb-login-button" data-width="" data-size="medium" data-button-type="login_with" data-layout="default" data-auto-logout-link="true" data-use-continue-as="ftrue"></div>*/}
+                    <FacebookLogin
+                            
+                            type = "submit" className = "facebook"
+                            appId="282495236070074"
+                            fields="name,email,picture"
+                            callback={responseFacebook}
+                            textButton= "Facebook"
+                            icon="fa-facebook"
+                            version = "6.0"
+                        />
+
+                    <GoogleLogin type = "submit" className="google"
+                        buttonText="Google"
+                        onSuccess={responseGoogle}
+                        onFailure={responseGoogle}
+                        />
+                       
                 </div>
 
             </div>
             <div className="redirect">
                 <div className = "redirect-signup"> Don't have an account?  
-                    <Link className="sign-up" to="/SignIn/SignUp"> Sign up here!</Link> 
+                    <Link className="sign-up" to="/SignUp"> Sign up here!</Link> 
                 </div>
-                
-            
             </div>
         </div>
     );
-    }else{
-        return(
-            <div className = "SignIn">
-                
-                <h2>Already signed in</h2>
-              
-                
-                
-            </div>
-        );
-    }
+
 }
 export default SignIn;

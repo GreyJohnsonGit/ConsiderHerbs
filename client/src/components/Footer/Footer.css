@@ -6,7 +6,7 @@ footer {
     background-blend-mode: multiply;
     background-size: 300px; /* maybe shouldnt hardcode this? */
     background-position: left bottom;
-    width: 98%;
+    width: 100%;
     padding: 25px 1% 5px;
 }
 .footer-container {

@@ -1,29 +1,138 @@
-body {
-    margin: 0;
-    
-}
-
-.App {
+.home-text-container-1 {
     text-align: center;
-    background: #f0e4cd;    
+    padding: 30px;
 }
 
-.App-logo {
-    height: 40vmin;
+/* Body/recipe section */
+.body-column {
+    width: 400px;
+    position: relative;
 }
 
-.App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
+.body-button-container #view{
+    display: inline-block;
+    background-color: #ACACAC;
     color: white;
-
+    border: none;
 }
 
-.App-link {
-    color: #cf6861c4;
+.body-button-container #sex-button{
+    display: inline-block;
+    background-color: #636363;
+    color: white;
+    border: none;
+}
+
+.body-button-container #sex {
+    position: absolute;
+    right: 0;
+    display: inline-block;
+}
+
+.body-recipe-container {
+    display: grid;
+    grid-template-columns: min-content auto;
+    grid-column-gap: 30px;
+    padding: 0 50px;
+    margin-bottom: 20px;
+}
+
+.recipe-column form {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+.recipe-column input[type='text'] {
+    flex-grow: 1;
+    padding: 0px 25px;
+    background: #F4F4F4;
+    color: #63636380;
+    font-size: 24px;
+}
+.recipe-column button {
+    width: 150px;
+    padding: 0px;
+    margin-left: 8px;
+    background: #636363;
+    color: white;
+    text-transform: uppercase;
+    font-size: 20px;
+    border: none;
+}
+.recipe-column button:hover
+{
+    background: #898a8a;
+}
+
+.recipe-list-container {
+    height: 587px;
+    overflow: scroll;
+}
+
+.recipe-list-item {
+    background-color: #ededed;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.recipe-list-item-spacer {
+    background-color: #A6CC78;
+    height: 10px;
+}
+
+/* Email sign-up form */
+.email-container {
+    background-color: #A6CC78;
+    text-align: center;
+    padding: 25px;
+}
+
+.email-container h1 {
+    text-transform: uppercase;
+    color: white;
+    font-weight: normal;
+    margin: 0 0;
+}
+
+.email-container h3 {
+    text-transform: uppercase;
+    color: #39393980;
+    font-weight: normal;
+    margin: 10 0;
+}
+.email-container form
+{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 900px;
+}
+.email-container button, .email-container input
+{
+    border: none;
+    height: 45px;
+    vertical-align: top;
+}
+.email-container button
+{
+    width: 150px;
+    padding: 0px;
+    margin-left: 8px;
+    background: #636363;
+    color: white;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+.email-container button:hover
+{
+    background: #898a8a;
+}
+.email-container input
+{
+    flex: 1;
+    padding: 0px 25px;
+    background: #F4F4F4;
+    color: #63636380;
+    font-size: 24px;
 }

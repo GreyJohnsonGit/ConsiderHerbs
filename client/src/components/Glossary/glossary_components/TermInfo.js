@@ -1,16 +1,18 @@
 import Async from 'react-async';
-import Axios from 'axios'
+import Axios from 'axios';
 import React from 'react';
 
 const loadTermInfo = () => {
-    return Axios.get("https://consider-herbs.herokuapp.com/api/glossary")//If local testing: ("http://localhost:5000/api/glossary")
-        .then(res => {
-            return res.data;
-        })
-        .catch(err => {
-            console.error(err);
-            return err;
-        });
+    return Axios.get(
+        "https://consider-herbs.herokuapp.com/api/glossary" //DEBUG ADDRESS
+    )
+    .then(res => {
+        return res.data;
+    })
+    .catch(err => {
+        console.error(err);
+        return err;
+    });
 }
 
 const TermInfo = (props) => {
@@ -56,6 +58,8 @@ const TermInfo = (props) => {
                                         </div>
                                         <div>
                                             <h1>{glossaryEntry.title}</h1>
+                                            <button className='admin-button' onClick={() => props.editFn(glossaryEntry)}>Edit</button>
+                                            <button className='admin-button'>Delete</button>
                                             <table>
                                                 <tr>
                                                     <th>Definition</th>

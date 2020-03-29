@@ -1,8 +1,6 @@
-GlossaryController = require('../controllers/GlossaryController.js');
-express = require('express'); 
+const GlossaryController = require('../controllers/GlossaryController.js');
+const express = require('express'); 
 const glossaryRouter = express.Router()
-
-
 
 //returns all entries, vanilla get request
 // GET: /api/glossary/

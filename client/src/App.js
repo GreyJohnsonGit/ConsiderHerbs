@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React/*, {useState}*/ from 'react';
 import { Route, Switch, Redirect  } from 'react-router-dom';
 import Home from "./components/Home/Home";
 import Glossary from "./components/Glossary/Glossary"
@@ -16,11 +16,10 @@ import NavBar from "./components/Header/NavBar";
 
 
 const App = () => {
-  const [SignedIn, SignInUpdate] = useState(false);
- 
-
+//const [SignedIn, SignInUpdate] = useState(false);
   return (
     <div id="page-container">
+      
       <div className="content">
         <NavBar />
 
@@ -29,11 +28,10 @@ const App = () => {
           <Route exact path="/Home" component={Home} />
           <Route exact path="/Glossary" component={Glossary} />
           <Route exact path="/About" component={About} />
-          <Route exact path="/DidYouKnow" component={DidYouKnow} />
           <Route path="/Forum" component={Forum} />
           <Route exact path="/Schedule" component={Schedule} />
           <Route exact path="/SignIn" component={SignIn} />
-          <Route exact path="/SignIn/SignUp" component={SignUp} />
+          <Route exact path="/SignUp" component={SignUp} />
           <Route exact path="/">
             <Redirect to="/Home" />
           </Route>
