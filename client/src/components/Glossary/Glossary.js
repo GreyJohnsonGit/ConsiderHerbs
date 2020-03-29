@@ -1,13 +1,12 @@
 //import Col from 'react-bootstrap/Col';
 import React, {useState} from 'react';
-import { MdClose } from 'react-icons/md';
+//import { MdClose } from 'react-icons/md';
 
 import './Glossary.css';
-import Weebs from './Rosemarys.JPG';
+import Weebs from './Rosemary.JPG';
 import TermInfo from "./glossary_components/TermInfo";
 import AlphabetList from "./glossary_components/AlphabetList";
 import GlossaryPopUp from "./glossary_components/GlossaryPopUp";
-import { not } from 'should';
 
 let entryToEdit = {
     title: '',
@@ -21,7 +20,7 @@ const Glossary = (props) =>{
     const [ showPopup, setShowPopup ] = useState(0);
 
     let [typed, typedUpdate]=useState('')
-    let [found, foundUpdate]=useState(1) //true
+    let [/*found*/, foundUpdate]=useState(1) //true
     //let [notFound,notFoundUpdate]=useState(0) //false
     
     const searchTerm=(prop)=>{

@@ -1,8 +1,3 @@
-@font-face {
-    font-family: UbuntuTh;
-    src: url(Ubuntu-Th.ttf);
-}
-
 .header {
     position: fixed;
     z-index: 99;
@@ -14,7 +9,7 @@
     font-size: 18px;
     padding-top: 5px;
     padding-bottom: 5px;
-    font-family: UbuntuTh;
+    font-family: Ubuntu-Th;
     font-weight: bold;
     color: #363636;
 }

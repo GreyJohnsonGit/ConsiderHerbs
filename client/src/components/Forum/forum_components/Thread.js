@@ -1,11 +1,12 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+//import { useParams } from 'react-router-dom';
 
 const dummyThread = {
     threadId: 'threadId',
     userId: 'userId',
     title: 'Some Thread',
     user: '@JaneDoe',
+
     body: 'Lorem ipsum dolor sit amet, \
             consectetur adipiscing elit, sed \
             do eiusmod tempor incididunt ut \
@@ -34,11 +35,11 @@ const dummyComment = {
             Ut enim ad minim veniam, quis \
             nostrud exercitation ullamco \
             laboris nisi ut aliquip ex ea commodo consequat...',
-    replies: []
+
 }
 
 const Thread = () => {
-    let {threadId} = useParams();
+    //let {threadId} = useParams();
 
     return (
         <div>

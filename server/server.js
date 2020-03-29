@@ -4,10 +4,11 @@ const cors = require('cors');
 
 //const mongoose = require('mongoose');
 
-//const config = require('./config/config.js');
 const express = require('./config/express.js')
 const glossaryRouter = require('./routes/glossaryRouter.js');
- 
+const signinRouter = require('./routes/signinRouter.js');
+//const config = require('./config/config.js');
+
 // Use env port or default
 const port = process.env.PORT || 5000;
 
@@ -20,13 +21,17 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
+
+//Handles CORS policy
 app.use(cors());
+
+//Routes for glossary API
+app.use('/api/Glossary', glossaryRouter);
+app.use('/api/Authentication', signinRouter);
+
 
 //Serve static files
 app.use('/', expressStatic('./client/'));
-
-//Routes for glossary API
-app.use('/api/glossary', glossaryRouter);
 
 //Listen for requests on 'port'
 app.listen(port, () => console.log(`Server now running on port ${port}!`));

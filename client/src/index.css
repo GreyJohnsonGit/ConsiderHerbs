@@ -1,8 +1,7 @@
 @font-face {
-    font-family: ubuntu;
+    font-family: Ubuntu-R;
     src: url(./assets/ubuntu-font-family-0.83/ubuntu-r.ttf);
 }
-
 
 html, #root, #page-container {
     height: 100%;
@@ -14,7 +13,7 @@ body {
 	margin: 0;
 	padding: 0;
     background: #FFFFFF;
-    font-family: ubuntu;
+    font-family: Ubuntu-R;
     color: #636363;
 }
 header {  /*menu bar maybe?*/

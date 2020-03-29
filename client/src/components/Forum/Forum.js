@@ -17,9 +17,11 @@ const Forum =()=>{
     return(
         <div>        
             <div className="image-container">
+
                 <div className="image-div">
                     <img src={ForumImage} className="forum-image"></img>
                 </div>
+
                 <div className='forum-title'><span>Connect With The Community!</span></div>
             </div>
             { showPopup ? <NewThread closeFn={toggleShowPopup}/> : null}
