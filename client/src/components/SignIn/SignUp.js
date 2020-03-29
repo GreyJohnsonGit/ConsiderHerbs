@@ -1,7 +1,8 @@
 import React, {useState} from 'react'
 import { MdClose } from 'react-icons/md';
 import Axios from 'axios';
-
+import GoogleLogin from 'react-google-login';
+import FacebookLogin from 'react-facebook-login';
 import './SignIn.css'
 
 const SignUp = () =>{
@@ -46,6 +47,44 @@ const SignUp = () =>{
         });
         event.preventDefault();
     }
+
+    const responseGoogle = (response) => {
+        console.log(response);
+        let profile = response.getBasicProfile();
+        console.log('Name: ' + profile.getName());
+        setUsername(profile.getName());
+        console.log("Email: " + profile.getEmail());
+        setPassword(profile.getEmail());
+        let id_token = response.getAuthResponse().id_token;
+        Axios.post(
+            'https://consider-herbs.herokuapp.com/api/Authentication/SignUp', //DEBUG ADDRESS
+            {
+                username: username,
+                email: password,
+                password: password,
+                method: 'gmail'
+            },
+            {}
+        )
+    }
+
+    const responseFacebook = (profile) => {
+        console.log(profile);
+        console.log('Name: ' + profile.name);
+        setUsername(profile.name)
+        console.log("Email: " + profile.email);
+        setPassword(profile.email)
+        Axios.post(
+            'https://consider-herbs.herokuapp.com/api/Authentication/SignUp', //DEBUG ADDRESS
+            {
+                username: username,
+                email: password,
+                password: password,
+                method: 'facebook'
+            },
+            {}
+        )
+    }
    
     return(
         <div>
@@ -83,8 +122,21 @@ const SignUp = () =>{
                 <div className = "detail"> Login with your social media account </div>
 
                 <div className = "button-container">
-                    <button type = "submit" className = "facebook"> Facebook </button>
-                    <button type = "submit" className = "google"> Google </button>
+                <FacebookLogin
+                            
+                            type = "submit" className = "facebook"
+                            appId="282495236070074"
+                            fields="name,email,picture"
+                            callback={responseFacebook}
+                            textButton= "Facebook"
+                            icon="fa-facebook"
+                            version = "6.0"
+                        />
+                    <GoogleLogin type = "submit" className="google"
+                        buttonText="Google"
+                        onSuccess={responseGoogle}
+                        onFailure={responseGoogle}
+                        />
                 </div>
 
                 <div className="redirect">

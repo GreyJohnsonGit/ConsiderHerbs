@@ -17,9 +17,11 @@ const SignIn = () => {
     const passwordHandleChange = event => {
         setPassword(event.target.value);
     }
-    const attemptLogin = event => {
+    const attemptLogin = (event)  => {
+        event.preventDefault();
         Axios.post(
-            'https://consider-herbs.herokuapp.com/api/Authentication/SignIn',
+            //'https://consider-herbs.herokuapp.com/api/Authentication/SignIn',
+            'https:localhost/api/Authentication/SignIn',
             {
                 username: username,
                 password: password,
@@ -33,25 +35,43 @@ const SignIn = () => {
         .catch(err => {
             console.error(err)
         });
-        event.preventDefault();
+        
     }
 
     const responseGoogle = (response) => {
         console.log(response);
         let profile = response.getBasicProfile();
         console.log('Name: ' + profile.getName());
+        setUsername(profile.getName());
         console.log("Email: " + profile.getEmail());
+        setPassword(profile.getEmail());
         let id_token = response.getAuthResponse().id_token;
-        //console.log("ID Token: " + id_token);
-        //props.SignInUpdate(true);
+        Axios.post(
+            'https://consider-herbs.herokuapp.com/api/Authentication/SignIn',
+            {
+                username: username,
+                password: password,
+                method: 'gmail',
+            },
+            {}
+        )
     }
 
     const responseFacebook = (profile) => {
         console.log(profile);
         console.log('Name: ' + profile.name);
+        setUsername(profile.name)
         console.log("Email: " + profile.email);
-        //console.log("ID Token: " + profile.id);
-        //props.SignInUpdate(true);
+        setPassword(profile.email)
+        Axios.post(
+            'https://consider-herbs.herokuapp.com/api/Authentication/SignIn',
+            {
+                username: username,
+                password: password,
+                method: 'facebook',
+            },
+            {}
+        )
     }
     
     return(
