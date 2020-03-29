@@ -31,6 +31,7 @@ const SignUp = () =>{
     const attemptLogin = event => {
         Axios.post(
             'https://consider-herbs.herokuapp.com/api/Authentication/SignUp', //DEBUG ADDRESS
+            //'http://localhost:5000/api/Authentication/SignUp', ///////For running locally
             {
                 username: username,
                 email: email,
@@ -58,11 +59,12 @@ const SignUp = () =>{
         let id_token = response.getAuthResponse().id_token;
         Axios.post(
             'https://consider-herbs.herokuapp.com/api/Authentication/SignUp', //DEBUG ADDRESS
+            //'http://localhost:5000/api/Authentication/SignUp', ///////For running locally
             {
                 username: username,
                 email: password,
                 password: password,
-                method: 'gmail'
+                method: 'Gmail'
             },
             {}
         )
@@ -76,11 +78,12 @@ const SignUp = () =>{
         setPassword(profile.email)
         Axios.post(
             'https://consider-herbs.herokuapp.com/api/Authentication/SignUp', //DEBUG ADDRESS
+            //'http://localhost:5000/api/Authentication/SignUp', ///////For running locally
             {
                 username: username,
                 email: password,
                 password: password,
-                method: 'facebook'
+                method: 'Facebook'
             },
             {}
         )
@@ -109,6 +112,7 @@ const SignUp = () =>{
                 <input placeholder="Email" className="enter" value={email} onChange={emailHandleChange} type="text" required/>
                 <input placeholder="Password" className="enter" value={password} onChange={passwordHandleChange} type="password" required/>
                 <input placeholder="Confirm Password" className="enter" value={confirmPassword} onChange={confirmPasswordHandleChange} type="password" required/>
+
 
                 <button type = "submit" className = "sign-in" onClick={attemptLogin}> Sign Up </button>
 

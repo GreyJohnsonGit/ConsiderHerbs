@@ -20,12 +20,12 @@ const SignIn = () => {
     const attemptLogin = (event)  => {
         event.preventDefault();
         Axios.post(
-            //'https://consider-herbs.herokuapp.com/api/Authentication/SignIn',
-            'https:localhost/api/Authentication/SignIn',
+            'https://consider-herbs.herokuapp.com/api/Authentication/SignIn',
+            //'http://localhost:5000/api/Authentication/SignIn', ///////For running locally
             {
                 username: username,
                 password: password,
-                method: 'email',
+                method: 'Email',
             },
             {}
         )
@@ -48,10 +48,11 @@ const SignIn = () => {
         let id_token = response.getAuthResponse().id_token;
         Axios.post(
             'https://consider-herbs.herokuapp.com/api/Authentication/SignIn',
+            //'http://localhost:5000/api/Authentication/SignIn', ///////For running locally
             {
                 username: username,
                 password: password,
-                method: 'gmail',
+                method: 'Gmail',
             },
             {}
         )
@@ -65,10 +66,11 @@ const SignIn = () => {
         setPassword(profile.email)
         Axios.post(
             'https://consider-herbs.herokuapp.com/api/Authentication/SignIn',
+            //'http://localhost:5000/api/Authentication/SignIn', ///////For running locally
             {
                 username: username,
                 password: password,
-                method: 'facebook',
+                method: 'Facebook',
             },
             {}
         )
