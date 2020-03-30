@@ -4,7 +4,7 @@ exports.signIn = (req, res) => {
     let unverifiedUser = new User(req.body);
 
     User.find({username: unverifiedUser.username}, (err, docs) => {
-        console.log(docs[0]);
+        console.log(docs);
         if(err) {
             res.send({
                 success: false,
@@ -19,11 +19,18 @@ exports.signIn = (req, res) => {
         }
         else {
             if(User.comparePasswordSync(unverifiedUser.password, docs[0].password)) {
-                res.send({
-                    success: true,
-                    reason: 'Valid username and password',
-                    cookie: unverifiedUser.username //**DEBUG**
-                });
+                if(unverifiedUser.method===docs[0].method){
+                    res.send({
+                        success: true,
+                        reason: 'Valid username and password',
+                        cookie: unverifiedUser.username //**DEBUG**
+                    });
+                }else{
+                    res.send({
+                        success: false,
+                        reason: 'Invalid login method'
+                    });
+                }
             }
             else {
                 res.send({
@@ -40,14 +47,22 @@ exports.signUp = (req, res) => {
 
     newUser.save(err => {
         if(err) {
-            console.log(err)
+            console.log("error: ", err)
             switch(err.code) {
 
             case 11000:
-                res.send({
-                    success: false,
-                    reason: 'Username or email already in use',
-                });
+                console.log("duplicate: ", err.keyPattern.username)
+                if (err.keyPattern.username=== 1){
+                    res.send({
+                        success: false,
+                        reason: 'Username already in use',
+                    });
+                }else{
+                    res.send({
+                        success: false,
+                        reason: 'Email already in use',
+                    });
+                }
                 break;
             default:
                 res.send({

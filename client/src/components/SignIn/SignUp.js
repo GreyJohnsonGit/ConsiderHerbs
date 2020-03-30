@@ -83,6 +83,17 @@ const SignUp = () =>{
             },
             {}
         )
+        .then(res => {
+            console.log(res.data);
+            if(!res.data.success){
+                setProblem(res.data.reason)
+            }else{
+                history.push('home')
+            }
+        })
+        .catch(err => {
+            console.error(err)
+        });
     }
 
     const responseFacebook = (profile) => {
@@ -100,6 +111,17 @@ const SignUp = () =>{
             },
             {}
         )
+        .then(res => {
+            console.log(res.data);
+            if(!res.data.success){
+                setProblem(res.data.reason)
+            }else{
+                history.push('home')
+            }
+        })
+        .catch(err => {
+            console.error(err)
+        });
     }
    
     return(
