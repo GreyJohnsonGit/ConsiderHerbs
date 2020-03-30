@@ -25,7 +25,7 @@ const TermInfo = (props) => {
                 {({data, err, isLoading}) => {
                     if (isLoading) return "Loading...";
                     if (err) return `Oops, something went wrong: ${err.message}`
-                    if (data) {
+                    if (data && Array.isArray(data)) {
                         return (
                             data.filter(term=>term.title.toLowerCase().includes(props.lookingFor.toLowerCase()))
                             .map((glossaryEntry) => {
