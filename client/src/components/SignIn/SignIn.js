@@ -3,12 +3,15 @@ import { Link } from 'react-router-dom'
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
 import Axios from 'axios';
+import {useHistory} from 'react-router-dom';
 
 import './SignIn.css';
 
-const SignIn = () => {
+const SignIn = (props) => {
+    const history = useHistory();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [problem, setProblem] = useState('');
     //const [signedUp, setSignedUp] = useState(false);
 
     const usernameHandleChange = (event) => {
@@ -17,23 +20,33 @@ const SignIn = () => {
     const passwordHandleChange = event => {
         setPassword(event.target.value);
     }
-    const attemptLogin = event => {
+    const attemptLogin = (event)  => {
+        event.preventDefault();
         Axios.post(
-            'https://consider-herbs.herokuapp.com/api/Authentication/SignIn',
+            //'https://consider-herbs.herokuapp.com/api/Authentication/SignIn',
+            'http://localhost:5000/api/Authentication/SignIn', ///////For running locally
             {
                 username: username,
                 password: password,
-                method: 'email',
+                method: 'Email',
             },
             {}
         )
         .then(res => {
-            console.log(res.data);
+            console.log("Axios respones: ", res.data);
+            if(!res.data.success){
+                setProblem(res.data.reason)
+            }else{
+                setProblem("")
+                setPassword("")
+                setUsername("")
+                history.push('home')
+            }            
         })
         .catch(err => {
             console.error(err)
         });
-        event.preventDefault();
+        
     }
 
     const responseGoogle = (response) => {
@@ -42,16 +55,53 @@ const SignIn = () => {
         console.log('Name: ' + profile.getName());
         console.log("Email: " + profile.getEmail());
         let id_token = response.getAuthResponse().id_token;
-        //console.log("ID Token: " + id_token);
-        //props.SignInUpdate(true);
+        Axios.post(
+            //'https://consider-herbs.herokuapp.com/api/Authentication/SignIn',
+            'http://localhost:5000/api/Authentication/SignIn', ///////For running locally
+            {
+                username: profile.getName(),
+                password: profile.getEmail(),
+                method: 'Gmail',
+            },
+            {}
+        ).then(res => {
+            console.log("Axios respones: ", res.data);
+            if(!res.data.success){
+                setProblem(res.data.reason)
+            }else{
+                setProblem("")
+            }            
+        })
+        .catch(err => {
+            console.error(err)
+        });
     }
 
     const responseFacebook = (profile) => {
         console.log(profile);
         console.log('Name: ' + profile.name);
         console.log("Email: " + profile.email);
-        //console.log("ID Token: " + profile.id);
-        //props.SignInUpdate(true);
+        Axios.post(
+            //'https://consider-herbs.herokuapp.com/api/Authentication/SignIn',
+            'http://localhost:5000/api/Authentication/SignIn', ///////For running locally
+            {
+                username: profile.name,
+                password: profile.email,
+                method: 'Facebook',
+            },
+            {}
+        )
+        .then(res => {
+            console.log("Axios respones: ", res.data);
+            if(!res.data.success){
+                setProblem(res.data.reason)
+            }else{
+                setProblem("")
+            }            
+        })
+        .catch(err => {
+            console.error(err)
+        });
     }
     
     return(
@@ -65,7 +115,9 @@ const SignIn = () => {
                 <input placeholder="Password" className="enter" value={password} onChange={passwordHandleChange} type="password" required/>
 
                 <button type = "submit" className = "sign-in"> Sign In </button>
-
+                <div className = "error">
+                    {problem}
+                </div>
                 <div className = "or">
                     <hr size = "3"/>
                     <div> OR </div>

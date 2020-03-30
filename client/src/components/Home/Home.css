@@ -136,3 +136,92 @@
     color: #63636380;
     font-size: 24px;
 }
+
+/* Admin Tools */
+.recipe-popup {
+    position: fixed;  
+    width: 100%;  
+    height: 100%;  
+    top: 0;  
+    left: 0;  
+    right: 0;  
+    bottom: 0;  
+    margin: auto;  
+    background-color: rgba(0,0,0, 0.5);  
+}
+
+.recipe-popup-inner {
+    position: absolute;  
+    left: 25%;  
+    right: 25%;  
+    top: 25%;
+    margin: auto;  
+    border-radius: 20px;  
+    background: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.recipe-popup-close-icon {
+    float: right;
+    margin: 7px;
+    align-self: flex-end;
+    flex-shrink: 0;
+}
+
+.recipe-popup-close-icon:hover {
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    cursor: pointer;
+}
+
+.recipe-popup-inner form {
+    padding: 0 10px 10px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+.recipe-popup form label {
+    font-size: 1.2em;
+}
+.recipe-popup input[type=text]#name {
+    font-size: 1.2em;
+}
+.recipe-popup input[type=text] {
+    background: #ededed;
+    padding-left: 10px;
+}
+
+.recipe-popup textarea {
+    background: #ededed;
+    flex-grow: 1;
+    resize: none;
+    padding: 10px;
+}
+
+.recipe-popup form button {
+    align-self: center;
+    margin-top: 5px;
+    border: none;
+    height: 45px;
+    width: 150px;
+    background: #636363;
+    color: white;
+    text-transform: uppercase;
+    font-size: 1.3em;
+}
+.recipe-popup form button:hover {
+    background: #898a8a;
+}
+
+.recipe-popup-top-row {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 0.5fr 0.5fr;
+    grid-column-gap: 10px;
+}
+
+.recipe-popup-ingredients {
+    display: grid;
+    grid-template-columns: 1fr 0.5fr 0.5fr 0.5fr;
+    grid-column-gap: 10px;
+}
