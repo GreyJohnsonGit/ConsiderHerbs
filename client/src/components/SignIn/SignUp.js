@@ -3,9 +3,11 @@ import { MdClose } from 'react-icons/md';
 import Axios from 'axios';
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
+import {useHistory} from 'react-router-dom';
 import './SignIn.css'
 
 const SignUp = () =>{
+    const history = useHistory();
     const [signedUp, setSignedUp] = useState(false);
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
@@ -49,6 +51,11 @@ const SignUp = () =>{
                 setProblem(res.data.reason)
             }else{
                 setProblem("")
+                setEmail("")
+                setPassword("")
+                setUsername("")
+                setConfirmPassword("")
+                history.push('home')
             }
         })
         .catch(err => {

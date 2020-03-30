@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom'
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
 import Axios from 'axios';
+import {useHistory} from 'react-router-dom';
 
 import './SignIn.css';
 
-const SignIn = () => {
+const SignIn = (props) => {
+    const history = useHistory();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [problem, setProblem] = useState('');
@@ -36,6 +38,9 @@ const SignIn = () => {
                 setProblem(res.data.reason)
             }else{
                 setProblem("")
+                setPassword("")
+                setUsername("")
+                history.push('home')
             }            
         })
         .catch(err => {
