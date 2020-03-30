@@ -3,16 +3,48 @@ import { Link } from 'react-router-dom'
 import Carousel from 'react-bootstrap/Carousel';
 import BodyMap from './home_components/BodyMap.js';
 import RecipeList from './home_components/RecipeList.js';
+import RecipePopUp from './home_components/RecipePopup.js';
 import './Home.css';
+
+let entryToEdit = {
+    name: '',
+    bodypart: '',
+    ailment: '',
+    ingredients: [],
+    description: ''
+};
+
+let mode = 'edit';
 
 const Home = ()=> {
     let searchInput = React.createRef();
 
+    const [ showPopup, setShowPopup ] = useState(0);
     const [ filterText,setFilterText ] = useState('');
 
     const filterUpdate = (value) => {
         setFilterText(value);
     }
+
+    const toggleShowPopup = () => {
+        setShowPopup(!showPopup);
+    };
+    const toggleEdit = (entry) => {
+        entryToEdit = Object.assign({},entry);
+        mode = 'edit';
+        toggleShowPopup();
+    };
+    const toggleNewEntry = () => {
+        entryToEdit = {
+            name: '',
+            bodypart: '',
+            ailment: '',
+            ingredients: [],
+            description: ''
+        };
+        mode = 'new';
+        toggleShowPopup();
+    };
 
     return (
         <div>
@@ -38,6 +70,11 @@ const Home = ()=> {
                     </Carousel.Item>
                 </Carousel>
             </div>
+            { showPopup ? <RecipePopUp
+                closeFn={toggleShowPopup}
+                entry={entryToEdit}
+                mode={mode}
+                /> : null}            
             <div className='home-text-container-1'>
                 <p>
                 You are looking at an amazing tool call H.O.W (Herbs, Oils , Wellbeing) 
@@ -75,8 +112,12 @@ const Home = ()=> {
                             onChange={() => filterUpdate(searchInput.current.value)}
                         />
                         <button type='submit'>Search</button>
+                        <button type='button' onClick={toggleNewEntry}>New Recipe</button>
                     </form>
-                    <RecipeList filterText={filterText} />
+                    <RecipeList
+                        editFn={toggleEdit}
+                        filterText={filterText}
+                    />
                 </div>
             </div>
             <div className="email-container">

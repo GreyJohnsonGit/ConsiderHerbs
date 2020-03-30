@@ -16,6 +16,8 @@ const RecipeList = (props) => {
                         <div className='recipe-list-item'>
                             <b>{recipe.bodypart} - {recipe.name}</b>
                             <p>{recipe.description}</p>
+                            <button onClick={() => props.editFn(recipe)}>Edit</button>
+                            <button>Delete</button>
                         </div>
                     </div>
                 )
