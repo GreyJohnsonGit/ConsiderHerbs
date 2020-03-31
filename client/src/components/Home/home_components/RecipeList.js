@@ -14,7 +14,9 @@ const RecipeList = (props) => {
                     <div>
                         <div className='recipe-list-item-spacer'></div>
                         <div className='recipe-list-item'>
-                            <b>{recipe.bodypart} - {recipe.name}</b>
+                            <b onClick={() => props.viewFn(recipe)}>
+                                {recipe.bodypart} - {recipe.name}
+                            </b>
                             <p>{recipe.description}</p>
                             <button onClick={() => props.editFn(recipe)}>Edit</button>
                             <button>Delete</button>
