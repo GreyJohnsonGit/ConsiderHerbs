@@ -4,7 +4,8 @@ import Axios from 'axios';
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
 import {useHistory} from 'react-router-dom';
-import './SignIn.css'
+import './SignIn.css';
+import config from '../../config.js';
 
 const SignUp = () =>{
     const history = useHistory();
@@ -35,8 +36,7 @@ const SignUp = () =>{
         event.preventDefault();
         if(password===confirmPassword){
         Axios.post(
-            //'https://consider-herbs.herokuapp.com/api/Authentication/SignUp', //DEBUG ADDRESS
-            'http://localhost:5000/api/Authentication/SignUp', ///////For running locally
+            config.address + '/api/Authentication/SignUp',
             {
                 username: username,
                 email: email,

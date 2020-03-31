@@ -1,10 +1,11 @@
 import Async from 'react-async';
 import Axios from 'axios';
 import React from 'react';
+import config from '../../../config.js'
 
 const loadTermInfo = () => {
     return Axios.get(
-        "https://consider-herbs.herokuapp.com/api/glossary" //DEBUG ADDRESS
+        config.address + '/api/glossary'
     )
     .then(res => {
         return res.data;

@@ -4,6 +4,7 @@ import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
 import Axios from 'axios';
 import {useHistory} from 'react-router-dom';
+import config from '../../config.js'
 
 import './SignIn.css';
 
@@ -23,8 +24,7 @@ const SignIn = (props) => {
     const attemptLogin = (event)  => {
         event.preventDefault();
         Axios.post(
-            //'https://consider-herbs.herokuapp.com/api/Authentication/SignIn',
-            'http://localhost:5000/api/Authentication/SignIn', ///////For running locally
+            config.address + '/api/Authentication/SignIn',
             {
                 username: username,
                 password: password,
