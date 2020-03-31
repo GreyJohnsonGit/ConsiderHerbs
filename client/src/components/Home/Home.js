@@ -29,6 +29,11 @@ const Home = ()=> {
     const toggleShowPopup = () => {
         setShowPopup(!showPopup);
     };
+    const toggleView = (entry) => {
+        entryToEdit = Object.assign({},entry);
+        mode = 'view';
+        toggleShowPopup();
+    };
     const toggleEdit = (entry) => {
         entryToEdit = Object.assign({},entry);
         mode = 'edit';
@@ -53,19 +58,19 @@ const Home = ()=> {
                     <Carousel.Item>
                         <img
                             src='http://picsum.photos/id/1023/1440/400'
-                            style={{width:'100%',height:'auto'}}
+                            style={{width:'100%',height:'100%'}}
                         />
                     </Carousel.Item>
                     <Carousel.Item>
                         <img
                             src='http://picsum.photos/id/189/1440/400'
-                            style={{width:'100%',height:'auto'}}
+                            style={{width:'100%',height:'100%'}}
                         />
                     </Carousel.Item>
                     <Carousel.Item>
                         <img
                             src='http://picsum.photos/id/159/1440/400'
-                            style={{width:'100%',height:'auto'}}
+                            style={{width:'100%',height:'100%'}}
                         />
                     </Carousel.Item>
                 </Carousel>
@@ -115,6 +120,7 @@ const Home = ()=> {
                         <button type='button' onClick={toggleNewEntry}>New Recipe</button>
                     </form>
                     <RecipeList
+                        viewFn={toggleView}
                         editFn={toggleEdit}
                         filterText={filterText}
                     />
