@@ -29,6 +29,11 @@ const Home = ()=> {
     const toggleShowPopup = () => {
         setShowPopup(!showPopup);
     };
+    const toggleView = (entry) => {
+        entryToEdit = Object.assign({},entry);
+        mode = 'view';
+        toggleShowPopup();
+    };
     const toggleEdit = (entry) => {
         entryToEdit = Object.assign({},entry);
         mode = 'edit';
@@ -115,6 +120,7 @@ const Home = ()=> {
                         <button type='button' onClick={toggleNewEntry}>New Recipe</button>
                     </form>
                     <RecipeList
+                        viewFn={toggleView}
                         editFn={toggleEdit}
                         filterText={filterText}
                     />

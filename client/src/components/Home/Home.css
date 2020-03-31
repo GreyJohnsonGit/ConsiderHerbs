@@ -75,6 +75,10 @@
     padding: 10px;
     margin-bottom: 10px;
 }
+.recipe-list-item b:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
 
 .recipe-list-item-spacer {
     background-color: #A6CC78;
@@ -164,10 +168,9 @@
 }
 
 .recipe-popup-close-icon {
-    float: right;
+    position: absolute;
+    left: 95%;
     margin: 7px;
-    align-self: flex-end;
-    flex-shrink: 0;
 }
 
 .recipe-popup-close-icon:hover {
@@ -214,15 +217,25 @@
     background: #898a8a;
 }
 
-.recipe-popup-top-row {
+.recipe-popup-edit-top-row {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 0.5fr 0.5fr;
     grid-column-gap: 10px;
 }
 
-.recipe-popup-ingredients {
+.recipe-popup-edit-ingredients {
     display: grid;
     grid-template-columns: 1fr 0.5fr 0.5fr 0.5fr;
     grid-column-gap: 10px;
+}
+
+.recipe-popup-title {
+    margin: 15px 10px 0;
+    font-size: 1.7em;
+    padding-left: 20px;
+    border-bottom: solid 1px #636363;
+}
+.recipe-popup-description {
+    padding: 15px;
 }
