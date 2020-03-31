@@ -194,14 +194,14 @@
 
 .thread-post p {
     color: #363636;
-    font-family: UbuntuTh;
+    font-family: Ubuntu-Th;
     font-weight: bold;
     font-size: 14px;
     margin-bottom: 5px;
 }
 
 .thread-post h3 {
-    font-family: ubuntu;
+    font-family: Ubuntu-R;
     font-size: 13px;
     color: black;
     text-align: right;
@@ -242,7 +242,7 @@
 }
 
 .thread-comment p {
-    font-family: UbuntuTh;
+    font-family: Ubuntu-Th;
     font-weight: bold;
     font-size: 14px;
     padding-bottom: 10px;
@@ -324,7 +324,7 @@
 }
 
 .new-thread-inner #create_title {
-    font-family: ubuntu;
+    font-family: Ubuntu-R;
     font-size: 24px;
     padding-top: 21px;
     padding-left: 10px;
@@ -366,7 +366,7 @@
     flex-grow: 1;
     resize: none;
     padding: 10px;
-    font-family: ubuntu;
+    font-family: Ubuntu-R;
     font-size: 18px;
     height: 300px;
 }

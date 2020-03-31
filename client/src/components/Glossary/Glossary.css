@@ -124,7 +124,7 @@
     color: #2c2c2c;
     border: none;
     background-color: rgba(255, 255, 255, 0.212);
-    font-family: ubuntu;
+    font-family: Ubuntu-R;
     text-transform: uppercase;
     text-align: center;
 }
@@ -245,6 +245,8 @@
     background: #898a8a;
 }
 
-/* .admin-button {
-
-} */
+.admin-button {
+    border: none;
+    background-color: #636363;
+    color: #FFFFFF;
+} 
