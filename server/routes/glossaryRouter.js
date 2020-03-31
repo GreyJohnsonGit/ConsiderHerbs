@@ -2,6 +2,12 @@ const GlossaryController = require('../controllers/GlossaryController.js');
 const express = require('express'); 
 const glossaryRouter = express.Router()
 
+//Allows for Cross Domain Requests CORS
+glossaryRouter.options('/', (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    next();
+})
+
 //returns all entries, vanilla get request
 // GET: /api/glossary/
 glossaryRouter.get('/', GlossaryController.getAll)

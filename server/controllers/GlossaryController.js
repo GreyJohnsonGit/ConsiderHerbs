@@ -63,6 +63,7 @@ exports.remove = function(req, res) {
 
 //returns all entries in the glossary, sorted alphabetically by title
 exports.getAll = function(req, res) {
+    res.header('Access-Control-Allow-Origin', '*');
     var model = glossaryModel;
     model.find({}).exec().then(function(docs, err){
         docs.sort((a,b) => (a.title > b.title) ? 1 : -1);
