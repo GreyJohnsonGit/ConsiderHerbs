@@ -53,19 +53,19 @@ const Home = ()=> {
                     <Carousel.Item>
                         <img
                             src='http://picsum.photos/id/1023/1440/400'
-                            style={{width:'100%',height:'auto'}}
+                            style={{width:'100%',height:'100%'}}
                         />
                     </Carousel.Item>
                     <Carousel.Item>
                         <img
                             src='http://picsum.photos/id/189/1440/400'
-                            style={{width:'100%',height:'auto'}}
+                            style={{width:'100%',height:'100%'}}
                         />
                     </Carousel.Item>
                     <Carousel.Item>
                         <img
                             src='http://picsum.photos/id/159/1440/400'
-                            style={{width:'100%',height:'auto'}}
+                            style={{width:'100%',height:'100%'}}
                         />
                     </Carousel.Item>
                 </Carousel>
