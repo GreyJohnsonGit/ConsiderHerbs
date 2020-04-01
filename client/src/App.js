@@ -8,6 +8,7 @@ import Forum from "./components/Forum/Forum"
 import Footer from "./components/Footer/Footer"
 import SignIn from "./components/SignIn/SignIn"
 import SignUp from "./components/SignIn/SignUp"
+import DidYouKnow from './components/Forum/forum_components/DidYouKnow.js';
 
 
 import NotFound from "./views/NotFound";
@@ -29,6 +30,9 @@ const App = () => {
           <Route exact path="/Glossary" component={Glossary} />
           <Route exact path="/About" component={About} />
           <Route path="/Forum" component={Forum} />
+
+          <Route path="/DidYouKnow" component={DidYouKnow} />
+
           <Route exact path="/Schedule" component={Schedule} />
           <Route exact path="/SignIn" component={SignIn} />
           <Route exact path="/SignUp" component={SignUp} />
