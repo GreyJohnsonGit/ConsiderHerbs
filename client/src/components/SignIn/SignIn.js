@@ -5,7 +5,7 @@ import FacebookLogin from 'react-facebook-login';
 import Axios from 'axios';
 import config from '../../config.js'
 import {useHistory} from 'react-router-dom';
-import { useCookies } from 'react-cookie';
+import {useCookies} from 'react-cookie';
 
 import './SignIn.css';
 
@@ -20,8 +20,8 @@ const SignIn = (props) => {
     }
 
     const history = useHistory();
+    const [, setCookie, ] = useCookies([]);
     const [problem, setProblem] = useState('');
-    const [/*cookie*/, setCookies] = useCookies([]);
     const attemptLogin = (_username, _password, _method) => {
         Axios.post(
             config.address + '/api/Authentication/SignIn',
@@ -33,10 +33,11 @@ const SignIn = (props) => {
         )
         .then(res => {
             if(res.data.success) {
-                setCookies('session', res.data.session, {
+                setCookie('session', res.data.session, {
                     path: '/',
                     expires: new Date(res.data.session.expireTime) 
                 });
+                props.setLoggedIn(true);
                 history.push('home');
             }
             else {

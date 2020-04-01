@@ -1,13 +1,13 @@
 import React, {useState} from 'react'
-import { MdClose } from 'react-icons/md';
+//import { MdClose } from 'react-icons/md';
 import Axios from 'axios';
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
 import './SignIn.css';
 import config from '../../config.js';
-import { useCookies } from 'react-cookie';
+import {useCookies} from 'react-cookie';
 
-const SignUp = () =>{
+const SignUp = (props) =>{
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -25,7 +25,7 @@ const SignUp = () =>{
         setConfirmPassword(event.target.value);
     }
 
-    const [/*cookie*/, setCookies] = useCookies([]);
+    const [, setCookie, ] = useCookies([]);
     const [problem, setProblem] = useState('');
     const attemptLogin = (_username, _email, _password, _confirmPassword, _method) => {
         if(_password === _confirmPassword){
@@ -40,10 +40,11 @@ const SignUp = () =>{
             )
             .then(res => {
                 if(res.data.success) {
-                    setCookies('session', res.data.session, {
+                    setCookie('session', res.data.session, {
                         path: '/',
                         expires: new Date(res.data.session.expireTime) 
                     });
+                    props.setLoggedIn(true);
                 }
                 else {
                     setProblem(res.data.reason);
