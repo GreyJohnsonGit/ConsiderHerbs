@@ -7,7 +7,7 @@ const Schedule =()=>{
     return(
         <div classname='image-container'> 
             
-            <div className="sch-image-div">   <img src={ScheduleImage} className="background-image"></img></div>
+            <div className="sch-image-div">   <img alt="Schedule" src={ScheduleImage} className="background-image"></img></div>
 
             <div className="sch-centered-title"><span>Because We Value Human Connection.</span></div>
 

@@ -54,10 +54,9 @@ const SignIn = (props) => {
         let profile = response.getBasicProfile();
         console.log('Name: ' + profile.getName());
         console.log("Email: " + profile.getEmail());
-        let id_token = response.getAuthResponse().id_token;
+        //let id_token = response.getAuthResponse().id_token;
         Axios.post(
-            //'https://consider-herbs.herokuapp.com/api/Authentication/SignIn',
-            'http://localhost:5000/api/Authentication/SignIn', ///////For running locally
+            config.address + '/api/Authentication/SignIn',
             {
                 username: profile.getName(),
                 password: profile.getEmail(),

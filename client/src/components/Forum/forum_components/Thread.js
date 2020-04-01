@@ -7,6 +7,7 @@ const dummyThread = {
     title: 'Some Thread',
     user: '@JaneDoe',
 
+    // eslint-disable-next-line
     body: 'Lorem ipsum dolor sit amet, \
             consectetur adipiscing elit, sed \
             do eiusmod tempor incididunt ut \
@@ -28,6 +29,7 @@ const dummyComment = {
     threadId: 'threadId',
     userId: 'userId',
     user: '@some_user',
+    // eslint-disable-next-line
     body: 'Lorem ipsum dolor sit amet, \
             consectetur adipiscing elit, \
             sed do eiusmod tempor incididunt \

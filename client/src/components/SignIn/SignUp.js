@@ -71,10 +71,9 @@ const SignUp = () =>{
         let profile = response.getBasicProfile();
         console.log('Name: ' + profile.getName());
         console.log("Email: " + profile.getEmail());
-        let id_token = response.getAuthResponse().id_token;
+        //let id_token = response.getAuthResponse().id_token;
         Axios.post(
-            //'https://consider-herbs.herokuapp.com/api/Authentication/SignUp', //DEBUG ADDRESS
-            'http://localhost:5000/api/Authentication/SignUp', ///////For running locally
+            config.address + '/api/Authentication/SignUp',
             {
                 username: profile.getName(),
                 email: profile.getEmail(),
