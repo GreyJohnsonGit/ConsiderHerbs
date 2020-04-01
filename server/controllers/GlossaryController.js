@@ -35,19 +35,26 @@ exports.read = function(req, res) {
 //updated glossary entry, expects req.body to contain updated entry fields
 //expects url param :title to denote which entry to update
 exports.update = function(req, res) {
+    res.header('Access-Control-Allow-Origin', '*');
     var model = glossaryModel;
     let item = req.body;
-    model.findOneAndUpdate({title: req.params.title}, item).exec();
-    //make the response pretty
-    item.title = req.params.title;
-    res.send(item);
+    model.findOneAndUpdate({title: req.params.title}, item).exec().then((doc, err) => {
+        if(err){console.error(err)}
+        if(doc){
+            res.send(doc);
+        }
+        else {
+            res.send({});
+        }
+    });
 }
 
 //removes glossary entry, expects url param :title to denote which entry to remove
 exports.remove = function(req, res) {
+    res.header("Access-Control-Allow-Origin", "*");
     var model = glossaryModel;
     //trick to get some responsive feedback as 'remove()' does not return anything
-    model.find({title: req.params.title}).exec().then(function(docs, err){
+    model.remove({title: req.params.title}).exec().then(function(docs, err){
         if(err){
             res.send(err.message);
         }
