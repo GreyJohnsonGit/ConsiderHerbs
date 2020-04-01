@@ -65,17 +65,16 @@ exports.getAll = function(req, res) {
 
 exports.getAllReplies = function(req,res) {
     var model = threadModel;
-    model.find({replies: req.params.replies}).exec().then(function(docs, err){
-        docs.sort((a,b) => b.date - a.date);
-        res.send(docs);
+    model.find({title: req.params.title}).exec().then(function(docs, err){
+        res.send(docs[0].replies);
     })
 }
 
 exports.findMostLikedReply = function(req,res) {
     var model = threadModel;
-    model.find({replies: req.params.replies}).exec().then(function(docs, err){
-        docs.sort((a,b) => (a.replies.likes > b.replies.likes) ? 1 : -1);
-        res.send(docs[0]);
+    model.find({title: req.params.title}).exec().then(function(docs, err){
+        docs[0].replies.sort((a,b) => (a.replies.likes > b.replies.likes) ? 1 : -1);
+        res.send(docs[0].replies);
     })
 }
 
@@ -84,5 +83,12 @@ exports.FindMostLikedThread = function(req,res) {
     model.find({}).exec().then(function(docs, err){
         docs.sort((a,b) => (a.likes > b.likes) ? 1 : -1);
         res.send(docs[0]);
+    })
+}
+
+exports.getAllTags = function(req,res) {
+    var model = threadModel;
+    model.find({title: req.params.title}).exec().then(function(docs,err) {
+        res.send(docs[0].tags);
     })
 }

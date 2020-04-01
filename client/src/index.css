@@ -1,6 +1,16 @@
 @font-face {
     font-family: Ubuntu-R;
-    src: url(./assets/ubuntu-font-family-0.83/ubuntu-r.ttf);
+    src: url(./assets/ubuntu-font-family-0.83/Ubuntu-R.ttf);
+}
+
+@font-face {
+    font-family: Ubuntu-Th;
+    src: url(./assets/ubuntu-font-family-0.83/Ubuntu-Th.ttf);
+}
+
+@font-face {
+    font-family: Ubuntu-C;
+    src: url(./assets/ubuntu-font-family-0.83/Ubuntu-C.ttf);
 }
 
 html, #root, #page-container {

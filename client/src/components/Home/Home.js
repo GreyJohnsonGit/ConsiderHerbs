@@ -3,16 +3,55 @@ import { Link } from 'react-router-dom'
 import Carousel from 'react-bootstrap/Carousel';
 import BodyMap from './home_components/BodyMap.js';
 import RecipeList from './home_components/RecipeList.js';
+import RecipePopUp from './home_components/RecipePopup.js';
 import './Home.css';
 
-const Home = ()=> {
-    let searchInput = React.createRef();
+let entryToEdit = {
+    name: '',
+    bodypart: '',
+    ailment: '',
+    ingredients: [],
+    description: ''
+};
 
+let mode = 'edit';
+
+const Home = (props) => {
+    let searchInput = React.createRef();
+    let userLevelSelect = React.createRef();
+
+    const [ showPopup, setShowPopup ] = useState(0);
     const [ filterText,setFilterText ] = useState('');
+    const [ userLevel, setUserLevel ] = useState(0);
 
     const filterUpdate = (value) => {
         setFilterText(value);
     }
+
+    const toggleShowPopup = () => {
+        setShowPopup(!showPopup);
+    };
+    const toggleView = (entry) => {
+        entryToEdit = Object.assign({},entry);
+        mode = 'view';
+        toggleShowPopup();
+    };
+    const toggleEdit = (entry) => {
+        entryToEdit = Object.assign({},entry);
+        mode = 'edit';
+        toggleShowPopup();
+    };
+    const toggleNewEntry = () => {
+        entryToEdit = {
+            name: '',
+            bodypart: '',
+            ailment: '',
+            ingredients: [],
+            description: ''
+        };
+        mode = 'new';
+        toggleShowPopup();
+    };
 
     return (
         <div>
@@ -20,24 +59,33 @@ const Home = ()=> {
                 <Carousel>
                     <Carousel.Item>
                         <img
+                            alt="Picsum"
                             src='http://picsum.photos/id/1023/1440/400'
-                            style={{width:'100%',height:'auto'}}
+                            style={{width:'100%',height:'100%'}}
                         />
                     </Carousel.Item>
                     <Carousel.Item>
                         <img
+                            alt="Picsum"
                             src='http://picsum.photos/id/189/1440/400'
-                            style={{width:'100%',height:'auto'}}
+                            style={{width:'100%',height:'100%'}}
                         />
                     </Carousel.Item>
                     <Carousel.Item>
                         <img
+                            alt="Picsum"
                             src='http://picsum.photos/id/159/1440/400'
-                            style={{width:'100%',height:'auto'}}
+                            style={{width:'100%',height:'100%'}}
                         />
                     </Carousel.Item>
                 </Carousel>
             </div>
+            { showPopup ? <RecipePopUp
+                userLevel={userLevel}
+                closeFn={toggleShowPopup}
+                entry={entryToEdit}
+                mode={mode}
+                /> : null}            
             <div className='home-text-container-1'>
                 <p>
                 You are looking at an amazing tool call H.O.W (Herbs, Oils , Wellbeing) 
@@ -66,6 +114,19 @@ const Home = ()=> {
                     <BodyMap />
                 </div>
                 <div className='recipe-column'>
+                    <div style={{position: 'relative'}}>
+                        <h2>Select Your Area of Discomfort</h2>
+                        <select
+                            onChange={() => setUserLevel(userLevelSelect.current.value)}
+                            ref={userLevelSelect} 
+                            style={{position: 'absolute', left: '95%', top: '0%'}} 
+                            id='user-level'>
+                            <option value='0'>0</option>
+                            <option value='1'>1</option>
+                            <option value='2'>2</option>
+                            <option value='3'>3</option>
+                        </select>
+                    </div>
                     <form>
                         <input 
                             type='text'
@@ -74,8 +135,14 @@ const Home = ()=> {
                             onChange={() => filterUpdate(searchInput.current.value)}
                         />
                         <button type='submit'>Search</button>
+                        <button type='button' onClick={toggleNewEntry}>New Recipe</button>
                     </form>
-                    <RecipeList filterText={filterText} />
+                    <RecipeList
+                        userLevel={userLevel}
+                        viewFn={toggleView}
+                        editFn={toggleEdit}
+                        filterText={filterText}
+                    />
                 </div>
             </div>
             <div className="email-container">
@@ -83,11 +150,26 @@ const Home = ()=> {
                 <h3>Subscribe to view exclusive content</h3>
                 <form>
                     <input type='text' placeholder='Enter your email here...' />
-                    <Link className="sign-up-about" to="../SignIn/SignUp">Sign Up</Link>
+                    <Link className="sign-up-about" to="../SignUp">Sign Up</Link>
                 </form>
             </div>
-            <div>
-                Text
+            <div className='home-text-container-1'>
+                <p>
+                Welcome to my site. My intentions are to present the information in 
+                a fun, inviting easy digestible format. One that will reignite that 
+                natural innate desire to return to a more holistic earth based approach 
+                to our health and well being. 
+                </p>
+                <p> 
+                <b>Do you remember your first introduction?</b>
+                </p>
+                <p>
+                Some people started with an oil, other with teas or a fresh herb in a 
+                dish. I remember how a few sniffs of a peppermint oil suggested by a 
+                friend relieved an headache almost instantly. I was hooked and the desire 
+                and passion was born to learn , share and help people experience the joy of 
+                listening to our body and healing with nature.
+                </p>            
             </div>
         </div>
     );

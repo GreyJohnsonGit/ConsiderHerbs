@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import ForumPreview from './forum_components/ForumPreview.js';
 import Thread from './forum_components/Thread.js';
+import DidYouKnowPreview from './forum_components/DidYouKnowPreview.js';
 import DidYouKnow from './forum_components/DidYouKnow.js';
 import NewThread from './forum_components/NewThread.js';
+import ForumImage from './Forum_Image.jpg';
 import './Forum.css';
 
 const Forum =()=>{
@@ -16,7 +18,11 @@ const Forum =()=>{
     return(
         <div>        
             <div className="image-container">
-                <img alt="photos" src='http://picsum.photos/1440/91' style={{width:'100%',height:'auto'}}/>
+
+                <div className="image-div">
+                    <img alt="Forum" src={ForumImage} className="forum-image"></img>
+                </div>
+
                 <div className='forum-title'><span>Connect With The Community!</span></div>
             </div>
             { showPopup ? <NewThread closeFn={toggleShowPopup}/> : null}
@@ -34,10 +40,12 @@ const Forum =()=>{
                         <Route path={`/Forum/:threadId`} component={Thread} />
                     </Switch>
                 </div>
-                <div className="forum-column-2">
-                    <h1>Did You Know?</h1>
-                    <p><i>Check out some of the links picked by our team!</i></p>
-                    <DidYouKnow />
+                <div>
+                    <div className="forum-column-2">
+                        <h1>Did You Know?</h1>
+                        <p><i>Check out some of the links picked by our team!</i></p>
+                        <DidYouKnowPreview />
+                    </div>
                 </div>
             </div>
         </div>
