@@ -18,9 +18,11 @@ let mode = 'edit';
 
 const Home = (props) => {
     let searchInput = React.createRef();
+    let userLevelSelect = React.createRef();
 
     const [ showPopup, setShowPopup ] = useState(0);
     const [ filterText,setFilterText ] = useState('');
+    const [ userLevel, setUserLevel ] = useState(0);
 
     const filterUpdate = (value) => {
         setFilterText(value);
@@ -79,6 +81,7 @@ const Home = (props) => {
                 </Carousel>
             </div>
             { showPopup ? <RecipePopUp
+                userLevel={userLevel}
                 closeFn={toggleShowPopup}
                 entry={entryToEdit}
                 mode={mode}
@@ -111,7 +114,19 @@ const Home = (props) => {
                     <BodyMap />
                 </div>
                 <div className='recipe-column'>
-                    <h2>Select Your Area of Discomfort</h2>
+                    <div style={{position: 'relative'}}>
+                        <h2>Select Your Area of Discomfort</h2>
+                        <select
+                            onChange={() => setUserLevel(userLevelSelect.current.value)}
+                            ref={userLevelSelect} 
+                            style={{position: 'absolute', left: '95%', top: '0%'}} 
+                            id='user-level'>
+                            <option value='0'>0</option>
+                            <option value='1'>1</option>
+                            <option value='2'>2</option>
+                            <option value='3'>3</option>
+                        </select>
+                    </div>
                     <form>
                         <input 
                             type='text'
@@ -123,6 +138,7 @@ const Home = (props) => {
                         <button type='button' onClick={toggleNewEntry}>New Recipe</button>
                     </form>
                     <RecipeList
+                        userLevel={userLevel}
                         viewFn={toggleView}
                         editFn={toggleEdit}
                         filterText={filterText}
