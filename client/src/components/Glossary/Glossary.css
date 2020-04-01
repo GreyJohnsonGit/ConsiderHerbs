@@ -110,12 +110,11 @@
     text-transform: uppercase;
     text-align: center;
     font-size: 18px;
-    line-height: 150%;
+    line-height: 100%;
     float:left;
     position: sticky;
     top: 100px;
-    height: calc(100vh - 100px);
-    max-height: 750px;
+    height: calc(100vh - 150px);
     overflow: auto;
 }
 .alphabet-list-container button {
