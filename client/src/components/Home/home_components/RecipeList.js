@@ -22,12 +22,12 @@ const RecipeList = (props) => {
 
     const priviledgeSwitch = (priviledge) => {
         switch(priviledge) {
+            //case 1:
+            //    return <IoMdStar size='1.2em' color='#cd7f32' />;   // bronze
             case 1:
-                return <IoMdStar size='1.2em' color='#cd7f32' />;
+                return <IoMdStar size='1.2em' color='#858585' />;   // silver
             case 2:
-                return <IoMdStar size='1.2em' color='#858585' />;
-            case 3:
-                return <IoMdStar size='1.2em' color='#d4af37' />;
+                return <IoMdStar size='1.2em' color='#d4af37' />;   // gold
             default:
                return null;
         }
@@ -56,13 +56,9 @@ const RecipeList = (props) => {
                                     {
                                         entry.priviledge = 1;
                                     }
-                                    else if (i < 6)
-                                    {
-                                        entry.priviledge = 2;
-                                    }
                                     else
                                     {
-                                        entry.priviledge = 3;
+                                        entry.priviledge = 2;
                                     }
         
                                     return (
