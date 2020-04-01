@@ -61,8 +61,8 @@ const TermInfo = (props) => {
                                         <div>
                                             <h1>{glossaryEntry.title}</h1>
                                             <form>
-                                                <button className='admin-button' onClick={() => props.editFn(glossaryEntry)}>Edit</button>
-                                                <button className='admin-button' onClick={(event) => {
+                                                <button type='button' className='admin-button' onClick={() => props.editFn(glossaryEntry)}>Edit</button>
+                                                <button type='button' className='admin-button' onClick={(event) => {
                                                     Axios.delete(
                                                         config.address + '/api/Glossary/' + glossaryEntry.title
                                                     )
