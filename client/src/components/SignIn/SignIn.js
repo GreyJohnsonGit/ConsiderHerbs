@@ -64,7 +64,7 @@ const SignIn = (props) => {
     
     return(
         <div>
-            <div id="fb-root"></div>
+        <div id="fb-root"></div>
         <script async defer crossOrigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0&appId=282495236070074"></script> 
            <div className = "green-bar"> &nbsp; </div>
             <form className="input-container" onSubmit={responseLoginForm}> 

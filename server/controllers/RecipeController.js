@@ -4,7 +4,7 @@ exports.create = function(req,res) {
     var model = recipeModel;
     let recipeItem = new model(req.body);
 
-    recipeItem.save(function(err, doc){
+    recipeItem.save(function(doc, err){
         if (err) {
             console.log(err);
         }
@@ -55,12 +55,17 @@ exports.remove = function(req, res) {
 
 //returns all recipes in the database, sorted alphabetically by name
 exports.getAll = function(req, res) {
+    //console.log(req)
+    res.header("Access-Control-Allow-Origin", "*");
     var model = recipeModel;
     model.find({}).exec().then(function(docs, err){
+        if(err){
+            res.send(err)
+        }
         docs.sort((a,b) => (a.name > b.name) ? 1 : -1);
-        res.header('Access-Control-Allow-Origin', '*');
         res.send(docs);
     })
+
 }
 
 exports.getAllIngredients = function(req,res) {

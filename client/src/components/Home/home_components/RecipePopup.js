@@ -38,9 +38,9 @@ const RecipePopUp = (props) => {
                             <label for='name'>Name</label>
                             <label for='bodypart'>Body Part</label>
                             <label for='ailment'>Ailment</label>
-                            <input type='text' id='name' value={props.entry.name} />
-                            <input type='text' id='bodypart' value={props.entry.bodypart} />
-                            <input type='text' id='ailment' value={props.entry.ailment} />
+                            <input type='text' id='name' defaultValue={props.entry.name} />
+                            <input type='text' id='bodypart' defaultValue={props.entry.bodypart} />
+                            <input type='text' id='ailment' defaultValue={props.entry.ailment} />
                         </div>
                         <div className='recipe-popup-edit-ingredients'>
                             <span>Ingredient</span>
@@ -51,9 +51,9 @@ const RecipePopUp = (props) => {
                         { props.entry.ingredients.map((ingredient,i) => {
                             return (
                                 <div className='recipe-popup-edit-ingredients'>
-                                    <input type='text' value={ingredient.ingredient} />
-                                    <input type='text' value={ingredient.amount} />
-                                    <input type='text' value={ingredient.unit} />
+                                    <input type='text' defaultValue={ingredient.ingredient} />
+                                    <input type='text' defaultValue={ingredient.amount} />
+                                    <input type='text' defaultValue={ingredient.unit} />
                                     <FaTrashAlt
                                         size='1.7em'
                                         color='red'
