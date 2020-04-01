@@ -24,10 +24,10 @@
 .blank-container {
   background-color: #F3F3F3;
   width: 35%;
-  height: 150px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+  padding-bottom: 20px;
 }
 
 .sign-in {
@@ -115,7 +115,6 @@ hr {
   display: grid;
   grid-template-columns: 50% 50%;
   padding-top: 20px;
-
 }
 
 .facebook {
@@ -124,10 +123,10 @@ hr {
   color: #ffffff;
   font-family: ubuntu;
   font-size: 24px;
-  margin-left: 6%;
-  margin-right: 2%;
   padding-top: 12px;
   padding-bottom: 12px;
+  width: 75%;
+  margin: 0 auto;
 }
 
 .facebook:hover {
@@ -140,10 +139,10 @@ hr {
   color: #ffffff;
   font-family: ubuntu;
   font-size: 24px;
-  margin-right: 6%;
-  margin-left: 2%;
   padding-top: 12px;
   padding-bottom: 12px;
+  width: 176px;
+  margin: 0 auto;
 }
 
 .google:hover {
