@@ -1,31 +1,24 @@
 import React from 'react';
 import { IoMdStar } from 'react-icons/io';
+import Axios from 'axios';
+import config from '../../../config.js'
+import Async from 'react-async';
+
 
 // remove the .map when priviledges get implemented
+const LoadRecipeList = () => {
+    return Axios.get(
+        config.address + '/api/Recipe'
+    )
+    .then(res => {
+        return res.data;
+    })
+    .catch(err => {
+        console.error(err);
+        return err;
+    });
+}
 const RecipeList = (props) => {
-    let Recipes = require('../recipes.json')
-        .map((entry,i) => {
-            if (i < 2)
-            {
-                entry.priviledge = 0;
-            }
-            else if (i < 4)
-            {
-                entry.priviledge = 1;
-            }
-            else if (i < 6)
-            {
-                entry.priviledge = 2;
-            }
-            else
-            {
-                entry.priviledge = 3;
-            }
-            return entry;})
-        .filter(entry => (
-            entry.name.toLowerCase().includes(props.filterText.toLowerCase()) || 
-            entry.description.toLowerCase().includes(props.filterText.toLowerCase()) ||
-            entry.bodypart.toLowerCase().includes(props.filterText.toLowerCase())));
 
     const priviledgeSwitch = (priviledge) => {
         switch(priviledge) {
@@ -42,25 +35,58 @@ const RecipeList = (props) => {
 
     return (
         <div className='recipe-list-container'>
-            { Recipes.map((recipe) => {
-                return (
-                    <div>
-                        <div className='recipe-list-item-spacer'></div>
-                        <div className='recipe-list-item'>
-                            <b onClick={() => props.viewFn(recipe)}>
-                                {recipe.bodypart} - {recipe.name}
-                            </b>
-                            {priviledgeSwitch(recipe.priviledge)}
-                            <p>
-                                { props.userLevel >= recipe.priviledge ? 
-                                recipe.description : 'Subscribe to view this content'}
-                            </p>
-                            <button onClick={() => props.editFn(recipe)}>Edit</button>
-                            <button>Delete</button>
-                        </div>
-                    </div>
-                )
-            })}
+            <Async promiseFn={LoadRecipeList}>
+                {({data, err, isLoading}) => {
+                        if (isLoading) return "Loading...";
+                        if (err) return `Oops, something went wrong: ${err.message}`
+                        if (data && Array.isArray(data)) {
+                            return(
+                                data.filter(entry => (
+                                    entry.name.toLowerCase().includes(props.filterText.toLowerCase()) || 
+                                    entry.description.toLowerCase().includes(props.filterText.toLowerCase()) ||
+                                    entry.bodypart.toLowerCase().includes(props.filterText.toLowerCase())))
+                                .map((entry,i) => {
+                                    //entry.priviledge = 0;
+                                    console.log("Entry",entry)
+                                    if (i < 2)
+                                    {
+                                        entry.priviledge = 0;
+                                    }
+                                    else if (i < 4)
+                                    {
+                                        entry.priviledge = 1;
+                                    }
+                                    else if (i < 6)
+                                    {
+                                        entry.priviledge = 2;
+                                    }
+                                    else
+                                    {
+                                        entry.priviledge = 3;
+                                    }
+        
+                                    return (
+                                        <div>
+                                            <div className='recipe-list-item-spacer'></div>
+                                            <div className='recipe-list-item'>
+                                                <b onClick={() => props.viewFn(entry)}>
+                                                    {entry.bodypart} - {entry.name}
+                                                </b>
+                                                {priviledgeSwitch(entry.priviledge)}
+                                                <p>
+                                                    { props.userLevel >= entry.priviledge ? 
+                                                    entry.description : 'Subscribe to view this content'}
+                                                </p>
+                                                <button onClick={() => props.editFn(entry)}>Edit</button>
+                                                <button>Delete</button>
+                                            </div>
+                                        </div>
+                                    )
+                                })
+                            )                        
+                        }
+                }}
+            </Async>
         </div>
     )
 }
