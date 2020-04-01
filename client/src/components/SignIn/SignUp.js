@@ -73,7 +73,7 @@ const SignUp = (props) =>{
     }
 
     return(
-        <div>
+        <div className='sign-row-container'>
            <div className = "green-bar"> &nbsp; </div>
             <form className = "input-container"> 
                 <font size="7"> Sign Up </font>
