@@ -45,6 +45,7 @@ exports.signIn = (req, res) => {
 exports.signUp = (req, res) => {
     let newUser = new User(req.body);
     newUser.password = User.hashPasswordSync(newUser.password);
+    newUser.usertype = 'User';
 
     newUser.save(err => {
         if(err) {
@@ -77,8 +78,36 @@ exports.signUp = (req, res) => {
             res.send({
                 success: true,
                 reason: 'New User Created',
-                session: SessionTable.generateSession(unverifiedUser.username)
+                session: SessionTable.generateSession(newUser.username)
             });
         }
     });
 };
+
+exports.verify = (req, res) => {
+    res.send({
+        success: SessionTable.verify(req.body.sessionID)
+    });
+};
+
+exports.logout = (req, res) => {
+    res.send({
+        success: SessionTable.eliminateSession(req.body.sessionID)
+    });
+}
+
+exports.refresh = (req, res) => {
+    if(SessionTable.verify(req.body.sessionID)) {
+        res.send({
+            success: true,
+            reason: 'Session refreshed',
+            session: SessionTable.refreshSession(req.body.sessionID)
+        });
+    }
+    else {
+        res.send({
+            success: false,
+            reason: 'Stale session'
+        });
+    }
+}
