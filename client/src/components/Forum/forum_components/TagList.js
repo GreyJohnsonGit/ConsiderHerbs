@@ -4,7 +4,7 @@ const TagList = (props) => {
 
     const [clicked, setClicked] = useState('');
     
-    useEffect((props) => {
+    useEffect(() => {
         console.log('a tag was clicked!');
         console.log(clicked);
         var filteredArr = props.tags.filter(function(item) { return item !== clicked; });
