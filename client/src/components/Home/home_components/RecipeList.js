@@ -47,7 +47,7 @@ const RecipeList = (props) => {
                                     entry.bodypart.toLowerCase().includes(props.filterText.toLowerCase())))
                                 .map((entry,i) => {
                                     //entry.priviledge = 0;
-                                    console.log("Entry",entry)
+                                    //console.log("Entry",entry)
                                     if (i < 2)
                                     {
                                         entry.priviledge = 0;
@@ -77,8 +77,26 @@ const RecipeList = (props) => {
                                                     { props.userLevel >= entry.priviledge ? 
                                                     entry.description : 'Subscribe to view this content'}
                                                 </p>
-                                                <button onClick={() => props.editFn(entry)}>Edit</button>
-                                                <button>Delete</button>
+                                                <button onClick={() => {props.editFn(entry)
+                                                
+                                                console.log(entry.id)
+                                                }
+                                                }>Edit</button>
+
+                                                <button type='button' className='admin-button' onClick={(event) => {
+                                                    console.log("Id sent:", entry._id)
+                                                    console.log("Entry:", entry)
+                                                    Axios.delete(
+                                                        config.address + '/api/Recipe/' + entry.id
+                                                    )
+                                                    .then((res) => {
+                                                    })
+                                                    .catch((err) => {
+                                                        console.error(err);
+                                                    })
+                                                }}>
+                                                Delete
+                                                </button>
                                             </div>
                                         </div>
                                     )

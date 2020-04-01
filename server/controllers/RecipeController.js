@@ -1,9 +1,10 @@
 const recipeModel = require('../models/Recipes.js');
 
 exports.create = function(req,res) {
+    res.header("Access-Control-Allow-Origin", "*");
     var model = recipeModel;
     let recipeItem = new model(req.body);
-
+    console.log("REcipe created", recipeItem)
     recipeItem.save(function(doc, err){
         if (err) {
             console.log(err);
@@ -38,16 +39,23 @@ exports.update = function(req, res) {
 
 //removes recipe entry, expects url param :name to denote which entry to remove
 exports.remove = function(req, res) {
+    res.header("Access-Control-Allow-Origin", "*");
     var model = recipeModel;
-    model.find({name: req.params.name}).exec().then(function(docs, err){
+    console.log("ID:", req.params)
+    model.remove({id: req.params.id}).exec().then(function(docs, err){
         if(err){
+            console.log("delete failed")
             res.send(err.message);
         }
-        else if(!docs.length){
+        else if(docs.deletedCount === 0){
+            console.log("delete failed, thing not found")
             res.send('error: Entry not found');
         }
         else{
+            console.log("deleted: ", docs.deletedCount)
+            console.log("successful delete")=
             model.find({name: req.params.name}).remove().exec();
+
             res.send(docs[0]);
         }
     })

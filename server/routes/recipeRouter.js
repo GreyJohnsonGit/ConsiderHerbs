@@ -35,7 +35,7 @@ RecipeRouter.get('/:name', RecipeController.read);
 
 //calls remove, request should include url param :name for entry to remove
 // DELETE: /api/Recipe/:name
-RecipeRouter.delete('/:name', RecipeController.remove);
+RecipeRouter.delete('/:id', RecipeController.remove);
 
 // returns all ingredients of a given recipe's name
 // GET: /api/Recipe/:name/ingredients
