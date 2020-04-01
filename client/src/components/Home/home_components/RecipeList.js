@@ -76,9 +76,17 @@ const RecipeList = (props) => {
                                                 <p>
                                                     { props.userLevel >= entry.priviledge ? 
                                                     entry.description : 'Subscribe to view this content'}
-                                                </p>
-                                                <button onClick={() => props.editFn(entry)}>Edit</button>
-                                                <button>Delete</button>
+                                                </p>  
+
+                                                { props.userLevel == 3 ? 
+                                                    <div>
+                                                    <button onClick={() => props.editFn(entry)}>Edit</button>
+                                                    <button>Delete</button> 
+                                                    </div>
+                                                    :
+                                                    null
+                                                }
+                                            
                                             </div>
                                         </div>
                                     )
