@@ -73,7 +73,7 @@ const SignUp = (props) =>{
     }
 
     return(
-        <div>
+        <div className='sign-row-container'>
            <div className = "green-bar"> &nbsp; </div>
             <form className = "input-container"> 
                 <font size="7"> Sign Up </font>
@@ -94,23 +94,21 @@ const SignUp = (props) =>{
             <div className = "blank-container">
                 <div className = "detail"> Sign up with an external account </div>
                 <div className = "button-container">
-                <FacebookLogin
-                            
-                            type = "submit" className = "facebook"
-                            appId="282495236070074"
-                            fields="name,email,picture"
-                            callback={responseFacebook}
-                            textButton= "Facebook"
-                            icon="fa-facebook"
-                            version = "6.0"
-                        />
+                    <FacebookLogin
+                        type = "submit" className = "facebook"
+                        appId="282495236070074"
+                        fields="name,email,picture"
+                        callback={responseFacebook}
+                        textButton= "Facebook"
+                        icon="fa-facebook"
+                        version = "6.0"
+                    />
                     <GoogleLogin type = "submit" className="google"
                         buttonText="Google"
                         onSuccess={responseGoogle}
                         onFailure={responseGoogle}
-                        />
+                    />
                 </div>
-                <div className="redirect"></div>
             </div>
         </div>
     )
