@@ -1,4 +1,5 @@
 const User = require('../models/User.js');
+const SessionTable = require('../SessionTable.js');
 
 exports.signIn = (req, res) => {
     let unverifiedUser = new User(req.body);
@@ -19,11 +20,11 @@ exports.signIn = (req, res) => {
         }
         else {
             if(User.comparePasswordSync(unverifiedUser.password, docs[0].password)) {
-                if(unverifiedUser.method===docs[0].method){
+                if(unverifiedUser.method === docs[0].method){
                     res.send({
                         success: true,
                         reason: 'Valid username and password',
-                        cookie: unverifiedUser.username //**DEBUG**
+                        session: SessionTable.generateSession(unverifiedUser.username)
                     });
                 }else{
                     res.send({
@@ -52,7 +53,7 @@ exports.signUp = (req, res) => {
 
             case 11000:
                 console.log("duplicate: ", err.keyPattern.username)
-                if (err.keyPattern.username=== 1){
+                if (err.keyPattern.username === 1){
                     res.send({
                         success: false,
                         reason: 'Username already in use',
@@ -76,7 +77,7 @@ exports.signUp = (req, res) => {
             res.send({
                 success: true,
                 reason: 'New User Created',
-                cookie: newUser.username //**DEBUG**
+                session: SessionTable.generateSession(unverifiedUser.username)
             });
         }
     });
