@@ -1,6 +1,6 @@
 var crypto = require('crypto');
 
-const sessionDuration = 5 * 60 * 1000;
+const sessionDuration = 20 * 60 * 1000;// 20mins
 
 const SessionTable = {};
 
@@ -45,7 +45,10 @@ const isSessionValid = (sessionID) => {
 }
 
 const refreshSession = (oldSessionID) => {
-    let newSessionID = crypto.randomBytes(32).toString('base64');
+	if(!isSessionValid(oldSessionID))
+		return {};
+
+	let newSessionID = crypto.randomBytes(32).toString('base64');
     while(SessionTable[newSessionID]) {
         newSessionID = crypto.randomBytes(32).toString('base64');
     }
@@ -55,7 +58,9 @@ const refreshSession = (oldSessionID) => {
         username: SessionTable[oldSessionID].username,
         expireTime: Date.now() + sessionDuration
     };
-    eliminateSession(oldSessionID);
+	eliminateSession(oldSessionID);
+	
+	return SessionTable[newSessionID];
 }
 
 exports.generateSession = generateSession;
