@@ -1,7 +1,6 @@
 //import Col from 'react-bootstrap/Col';
 import React, {useState} from 'react';
 //import { MdClose } from 'react-icons/md';
-
 import './Glossary.css';
 import Weebs from './Rosemary.JPG';
 import TermInfo from "./glossary_components/TermInfo";
@@ -14,14 +13,11 @@ let entryToEdit = {
     usage: ''
 };
 
-let mode = 'edit';
-
 const Glossary = (props) =>{
-    const [ showPopup, setShowPopup ] = useState(0);
-
+    const [showPopup, setShowPopup] = useState(0);
+    const [mode, setMode] = useState('');
     let [typed, typedUpdate]=useState('')
     let [/*found*/, foundUpdate]=useState(1) //true
-    //let [notFound,notFoundUpdate]=useState(0) //false
     
     const searchTerm=(prop)=>{
         prop.preventDefault()
@@ -32,7 +28,7 @@ const Glossary = (props) =>{
     };
     const toggleEdit = (entry) => {
         entryToEdit = entry;
-        mode = 'edit';
+        setMode('edit');
         toggleShowPopup();
     };
     const toggleNewEntry = () => {
@@ -41,10 +37,10 @@ const Glossary = (props) =>{
             definition: '',
             usage: ''
         };
-        mode = 'new';
+        setMode('new');
         toggleShowPopup();
     }
-  
+
     return(
         <div>
             <div className = "container">
@@ -61,7 +57,6 @@ const Glossary = (props) =>{
                     <input type="text" placeholder="Search Terms..." 
                     onChange={(event)=>{typedUpdate(event.target.value)}}
                     />
-                    {console.log(typed)}
                     <button type="submit" onClick={searchTerm}>Search </button>
                 </form>
             </div>
@@ -72,7 +67,6 @@ const Glossary = (props) =>{
                 <div className="column1">
                     <TermInfo editFn={toggleEdit} lookingFor={typed} foundUp={foundUpdate} />
                 </div>
-                { /*found ? condition : null*/}
 
                 <div className="column2">
                     <AlphabetList />

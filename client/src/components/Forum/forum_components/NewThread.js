@@ -3,7 +3,7 @@ import { MdClose } from 'react-icons/md';
 import { useForm } from 'react-hook-form';
 import TagList from './TagList.js';
 
-
+/*
 const dummyThread = {
     threadId: 'threadId',
     userId: 'userId',
@@ -19,7 +19,7 @@ const dummyThread = {
     likes: 0,
     replies: []
 }
-
+*/
 
 const NewThread = (props) => {
 

@@ -1,4 +1,4 @@
-import React/*, {useState}*/ from 'react';
+import React, { useState } from 'react';
 import { Route, Switch, Redirect  } from 'react-router-dom';
 import Home from "./components/Home/Home";
 import Glossary from "./components/Glossary/Glossary"
@@ -11,39 +11,39 @@ import SignUp from "./components/SignIn/SignUp"
 import DidYouKnow from './components/Forum/forum_components/DidYouKnow.js';
 
 
+import { CookiesProvider } from 'react-cookie';
 import NotFound from "./views/NotFound";
 import NavBar from "./components/Header/NavBar";
 
 
 
 const App = () => {
-//const [SignedIn, SignInUpdate] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
+
   return (
-    <div id="page-container">
-      
-      <div className="content">
-        <NavBar />
-
-        <div className = "spacer" > &nbsp; </div>
-        <Switch>
-          <Route exact path="/Home" component={Home} />
-          <Route exact path="/Glossary" component={Glossary} />
-          <Route exact path="/About" component={About} />
-          <Route path="/Forum" component={Forum} />
-
-          <Route path="/DidYouKnow" component={DidYouKnow} />
-
-          <Route exact path="/Schedule" component={Schedule} />
-          <Route exact path="/SignIn" component={SignIn} />
-          <Route exact path="/SignUp" component={SignUp} />
-          <Route exact path="/">
-            <Redirect to="/Home" />
-          </Route>
-          <Route component={NotFound}/>
-        </Switch>
+    <CookiesProvider>
+      <div id="page-container">  
+        <div className="content">
+          <NavBar loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
+          <div className = "spacer" > &nbsp; </div>
+          <Switch>
+            <Route exact path="/Home" render={(props) => <Home {...props} />} />
+            <Route exact path="/Glossary" render={(props) => <Glossary {...props} />} />
+            <Route exact path="/About" render={(props) => <About {...props} />} />
+            <Route path="/Forum" render={(props) => <Forum {...props} />} />
+            <Route path="/DidYouKnow" component={DidYouKnow} />
+            <Route exact path="/Schedule" render={(props) => <Schedule {...props} />} />
+            <Route exact path="/SignIn" render={(props) => <SignIn {...props} loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
+            <Route exact path="/SignUp" render={(props) => <SignUp {...props} loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
+            <Route exact path="/">
+              <Redirect to="/Home" />
+            </Route>
+            <Route component={NotFound}/>
+          </Switch>
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </CookiesProvider>
   );
 }
 

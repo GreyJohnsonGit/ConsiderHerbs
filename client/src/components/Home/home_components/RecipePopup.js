@@ -7,7 +7,7 @@ import { MdClose } from 'react-icons/md';
 // props.mode => 'view', 'edit' or 'new'
 
 const RecipePopUp = (props) => {
-    const [numIngredient,setNumIngredients ] = useState(0);
+    const [/*numIngredient*/,setNumIngredients ] = useState(0);
 
     return (
         <div className='recipe-popup'>
@@ -18,16 +18,19 @@ const RecipePopUp = (props) => {
                         <div className='recipe-popup-title'>
                             {props.entry.name}
                         </div>
-                        <div className='recipe-popup-description'>
-                            {props.entry.description}
-                        </div>
-                        <ul>
-                            { props.entry.ingredients.map((ingredient) => {
-                                return (
-                                    <li>{ingredient.ingredient} - {ingredient.amount} {ingredient.unit}</li>
-                                )
-                            })}
-                        </ul>
+                        { props.userLevel >= props.entry.priviledge ?
+                            <div> 
+                                <div className='recipe-popup-description'>
+                                    {props.entry.description}
+                                </div>
+                                <ul>
+                                    { props.entry.ingredients.map((ingredient) => {
+                                        return (
+                                            <li>{ingredient.ingredient} - {ingredient.amount} {ingredient.unit}</li>
+                                        )
+                                    })}
+                                </ul>
+                            </div> : <div className='recipe-popup-description'>Subscribe to view this content</div> }
                     </div>
                 :
                     <form action='/Recipe'>

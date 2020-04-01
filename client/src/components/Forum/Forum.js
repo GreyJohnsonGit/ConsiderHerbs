@@ -20,7 +20,7 @@ const Forum =()=>{
             <div className="image-container">
 
                 <div className="image-div">
-                    <img src={ForumImage} className="forum-image"></img>
+                    <img alt="Forum" src={ForumImage} className="forum-image"></img>
                 </div>
 
                 <div className='forum-title'><span>Connect With The Community!</span></div>

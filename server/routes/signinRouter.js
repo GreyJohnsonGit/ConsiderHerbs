@@ -12,4 +12,13 @@ signinRouter.post('/SignIn/', SignInController.signIn);
 //Sign Up Route
 signinRouter.post('/SignUp/', SignInController.signUp);
 
+//Verify SessionID
+signinRouter.post('/Verify/', SignInController.verify);
+
+//Logout
+signinRouter.post('/Logout/', SignInController.logout);
+
+//Refresh Session
+signinRouter.post('/Refresh/', SignInController.refresh);
+
 module.exports = signinRouter;
