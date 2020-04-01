@@ -52,19 +52,19 @@ const Glossary = (props) =>{
             
             { showPopup ? <GlossaryPopUp closeFn={toggleShowPopup} entry={entryToEdit} mode={mode} /> : null}
             
-            <div className = "search" id="search_bar">
+            <div className = "glossary-search" id="search_bar">
                 <form>
                     <input type="text" placeholder="Search Terms..." 
-                    onChange={(event)=>{typedUpdate(event.target.value)}}
+                        onChange={(event)=>{typedUpdate(event.target.value)}}
                     />
                     <button type="submit" onClick={searchTerm}>Search </button>
+                    <button type='button' className='admin-button' onClick={toggleNewEntry}>New</button>
                 </form>
             </div>
 
-            <button className='admin-button' onClick={toggleNewEntry}>New</button>
-
             <div className="column-container">
                 <div className="column1">
+                    
                     <TermInfo editFn={toggleEdit} lookingFor={typed} foundUp={foundUpdate} />
                 </div>
 
