@@ -43,7 +43,7 @@ const Glossary = (props) =>{
 
     return(
         <div>
-            <div className = "container">
+            <div className = "image-container">
                 <img alt = "Plants" src = { Weebs } width = "100%"/>
                 <div class = "text-block">
                     <div>  Glossary Page   </div>
