@@ -16,7 +16,7 @@ let entryToEdit = {
 
 let mode = 'edit';
 
-const Home = ()=> {
+const Home = (props) => {
     let searchInput = React.createRef();
 
     const [ showPopup, setShowPopup ] = useState(0);
@@ -134,7 +134,7 @@ const Home = ()=> {
                 <h3>Subscribe to view exclusive content</h3>
                 <form>
                     <input type='text' placeholder='Enter your email here...' />
-                    <Link className="sign-up-about" to="../SignIn/SignUp">Sign Up</Link>
+                    <Link className="sign-up-about" to="../SignUp">Sign Up</Link>
                 </form>
             </div>
             <div className='home-text-container-1'>
