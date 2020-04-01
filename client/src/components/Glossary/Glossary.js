@@ -64,7 +64,6 @@ const Glossary = (props) =>{
 
             <div className="column-container">
                 <div className="column1">
-                    
                     <TermInfo editFn={toggleEdit} lookingFor={typed} foundUp={foundUpdate} />
                 </div>
 
