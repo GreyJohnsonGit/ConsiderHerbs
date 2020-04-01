@@ -13,7 +13,7 @@ const Schedule =()=>{
 
             <div className="sch-below-title"><span>It's just natural!</span></div>
             
-            <div>Admin tools here (being able ot see the bookings)</div>
+            <div>Admin tools here (being able to see the bookings)</div>
 
            
         </div>
