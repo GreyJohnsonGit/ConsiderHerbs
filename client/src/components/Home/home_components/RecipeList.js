@@ -48,11 +48,11 @@ const RecipeList = (props) => {
                                 .map((entry,i) => {
                                     //entry.priviledge = 0;
                                     console.log("Entry",entry)
-                                    if (i < 6)
+                                    if (i < 3)
                                     {
                                         entry.priviledge = 0;
                                     }
-                                    else if (i < 8)
+                                    else if (i < 6)
                                     {
                                         entry.priviledge = 1;
                                     }

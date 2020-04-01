@@ -1,14 +1,14 @@
 import React, { useState, /*useEffect*/ } from 'react';
-import Male_Front from './Male_Front.png';
-import Female_Front from './Female_Front.png';
-import Neutral_Front from './Neutral_Front.png';
+import Male_Front from './images/Male_Front.png';
+import Female_Front from './images/Female_Front.png';
+import Neutral_Front from './images/Neutral_Front.png';
 
-//import F_Selected from './F_Selected.png';
-import F_Unselected from './F_Unselected.png';
-//import M_Selected from './M_Selected.png';
-import M_Unselected from './M_Unselected.png';
-import N_Selected from './N_Selected.png';
-//import N_Unselected from './N_Unselected.png';
+//import F_Selected from './images/F_Selected.png';
+import F_Unselected from './images/F_Unselected.png';
+//import M_Selected from './images/M_Selected.png';
+import M_Unselected from './images/M_Unselected.png';
+import N_Selected from './images/N_Selected.png';
+//import N_Unselected from './images/N_Unselected.png';
 //import { set } from 'mongoose';
 
 

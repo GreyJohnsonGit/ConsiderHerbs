@@ -1,5 +1,5 @@
 .green-bar {
-  width: 35%;
+  width: 520px;
   height: 30px;
   margin-left: auto;
   margin-right: auto;
@@ -13,7 +13,7 @@
 
 .input-container {
   background-color: #F3F3F3;
-  width: 35%;
+  width: 520px;
   height: auto;
   margin-left: auto;
   margin-right: auto;
@@ -33,7 +33,7 @@
 
 .blank-container {
   background-color: #F3F3F3;
-  width: 35%;
+  width: 520px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -48,12 +48,12 @@
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  width: 94%;
+  width: 90%;
   font-size: 24px;
   color: #ffffff;
   border: none;
   text-align: center;
-  font-family: ubuntu;
+  font-family: Ubuntu-R;
 }
 
 .SignIn:hover {
@@ -72,7 +72,7 @@
   width: 90%;
   font-size: 24px;
   color: #363636;
-  font-family: ubuntu;
+  font-family: Ubuntu-R;
 }
 
 .redirect {
@@ -97,7 +97,7 @@
   text-align: center;
   font-size: 18px;
   color: #363636;
-  font-family: ubuntu;
+  font-family: Ubuntu-R;
   background-color: none;
 
 }  
@@ -115,9 +115,8 @@
   padding-right: 6%;
 }
 
-hr {
-  border: none;
-  background-color: #B4B4B4;
+hr {  
+  color: #636363;
   width: 100%;
 }
 
@@ -131,7 +130,7 @@ hr {
   border: none;
   background-color: #337AB7;
   color: #ffffff;
-  font-family: ubuntu;
+  font-family: Ubuntu-R;
   font-size: 24px;
   padding-top: 12px;
   padding-bottom: 12px;
@@ -147,7 +146,7 @@ hr {
   border: none;
   background-color: #D9534F;
   color: #ffffff;
-  font-family: ubuntu;
+  font-family: Ubuntu-R;
   font-size: 24px;
   padding-top: 12px;
   padding-bottom: 12px;
@@ -160,7 +159,7 @@ hr {
 }
 
 .detail {
-    padding-top: 35px;
+    padding-top: 10px;
     font-size: 14px;
 }
 
@@ -196,7 +195,7 @@ hr {
   display: flex;
   flex-direction: column;
   text-align: center;
-  font-family: ubuntu;
+  font-family: Ubuntu-R;
   font-size: 30px;
   text-shadow: #636363;
 }

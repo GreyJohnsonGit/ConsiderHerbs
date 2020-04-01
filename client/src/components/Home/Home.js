@@ -127,7 +127,7 @@ const Home = (props) => {
                             <option value='3'>3</option>
                         </select>
                     </div>
-                    <form className='search'>
+                    <form className='search' style={{marginTop:"5px"}}>
                         <input 
                             type='text'
                             placeholder='Search Recipes'
