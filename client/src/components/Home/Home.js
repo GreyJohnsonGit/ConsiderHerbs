@@ -111,7 +111,8 @@ const Home = (props) => {
             </div>
             <div className='body-recipe-container'>
                 <div className='body-column'>
-                    <BodyMap />
+                    <BodyMap filterText= {filterText}
+                        setFilterText = {setFilterText} />
                 </div>
                 <div className='recipe-column'>
                     <div style={{position: 'relative'}}>

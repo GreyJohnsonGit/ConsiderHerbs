@@ -12,12 +12,24 @@ import N_Selected from './images/N_Selected.png';
 //import { set } from 'mongoose';
 
 
-const BodyMap = () => {
 
-    const [ gender, setGender ] = useState(Neutral_Front);
-    const [ f, /*setF*/ ] = useState(F_Unselected);
-    const [ m, /*setM*/ ] = useState(M_Unselected);
-    const [ n, /*setN*/ ] = useState(N_Selected);
+const BodyMap = (props) => {
+
+    let ChestArea = "197, 115, 246, 121, 248, 163, 246, 203, 148, 205, 145, 154, 152, 119"
+
+    let neutralFront = <div>
+        <img src={Neutral_Front} width="400" useMap='#NFmap'></img>
+        <map name="NFmap">
+            <area shape="poly" coords={ChestArea} onMouseOver={() => { console.log("Chest") }} onClick={()=>{props.setFilterText("chest")}} />
+        </map>
+    </div>
+
+    const [gender, setGender] = useState(neutralFront);
+    const [f, /*setF*/] = useState(F_Unselected);
+    const [m, /*setM*/] = useState(M_Unselected);
+    const [n, /*setN*/] = useState(N_Selected);
+
+    
 
     return (
         <div className="body-column">
@@ -26,28 +38,29 @@ const BodyMap = () => {
                 <button id="view">BACK</button>
                 <div id="gender-buttons">
                     <img id="female-button"
-                        alt="Female Button" 
-                        style={{width:'24px',height:'24px'}}
-                        src={f} 
+                        alt="Female Button"
+                        style={{ width: '24px', height: '24px' }}
+                        src={f}
                         onClick={() => setGender(Female_Front)}
                     />
 
                     <img id="male-button"
                         alt="Male Button"
-                        style={{width:'24px',height:'24px'}}
-                        src={m} 
+                        style={{ width: '24px', height: '24px' }}
+                        src={m}
                         onClick={() => setGender(Male_Front)}
                     />
 
                     <img id="neutral-button"
                         alt="Neutral Button"
-                        style={{width:'24px',height:'24px'}}
-                        src={n} 
+                        style={{ width: '24px', height: '24px' }}
+                        src={n}
                         onClick={() => setGender(Neutral_Front)}
                     />
                 </div>
             </span>
-            <img alt="Gender" src = { gender } width = "100%"/>
+            {gender}
+            {/* <img src={gender} width = "100%"></img> */}
         </div>
     )
 }
