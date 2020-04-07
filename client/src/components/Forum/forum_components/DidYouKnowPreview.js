@@ -1,4 +1,5 @@
 import React from 'react';
+import DidYouKnowImage from './assets/Did_You_Know_IMG.jpg';
 
 const dummyPost = {
     postId: 'postId',
@@ -17,8 +18,9 @@ const DidYouKnowPreview = () => {
                     <div className='post-container'>
                         <div className='post-spacer'></div>
                         <div className='post-content'>
-
-                            <img src='http://picsum.photos/330/100' style={{width:'100%',height:'auto'}}/>
+                            <div style={{position:'relative', overflow:'hidden', width:'100%', height:"110px"}}>
+                                <img src={DidYouKnowImage} style={{width:"100%"}} />
+                            </div>
                             <a href={`/DidYouKnow`}>{post.title}</a>
                             <p>{post.body}</p>
                         </div>

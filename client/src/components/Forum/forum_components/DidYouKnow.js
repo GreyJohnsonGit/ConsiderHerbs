@@ -1,7 +1,9 @@
 import React from 'react';
 import ForumImage from '../Forum_Image.jpg';
 import DidYouKnowImage from './assets/Did_You_Know_IMG.jpg';
-import Container from 'react-bootstrap/Container'
+import DidYouKnowContent from './DidYouKnowContent.js';
+import DidYouKnowComments from './DidYouKnowComments.js';
+import { Route, Switch, Link } from 'react-router-dom';
 
 const dummyPost = {
     postId: 'did i change?',
@@ -69,18 +71,19 @@ const DidYouKnow = () => {
 
                     <div>
                         <span>
-                            <button style={{background:"#636363"}}>CONTENT</button>
-                            <button>COMMENTS(3)</button>
+                            <button>
+                                    <Link style={{textDecoration:"none", color:"white"}} to="/DidYouKnow/">CONTENT</Link>
+                            </button>
+                            <button>
+                                <Link style={{textDecoration:"none", color:"white"}} to="/DidYouKnow/Comments/">COMMENTS(3)</Link>
+                            </button>
                         </span>
                     </div>
-                    <p>{dummyPost.body}</p>
-                    { dummyPost.sources.map((source) => {
-                        return (
-                            <div>
-                                <p id="source">{source}</p>
-                            </div>
-                        )
-                    })}
+                    <Switch>
+                        <Route exact path='/DidYouKnow/' component={DidYouKnowContent} />
+                        <Route path={`/DidYouKnow/Comments/`} component={DidYouKnowComments} />
+                    </Switch>
+                    
                 </div>
                 <h3>{'>'}</h3>
             </div>
