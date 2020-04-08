@@ -10,6 +10,7 @@ import {useCookies} from 'react-cookie';
 import './SignIn.css';
 
 const SignIn = (props) => {
+    
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const usernameHandleChange = (event) => {
@@ -37,7 +38,11 @@ const SignIn = (props) => {
                     path: '/',
                     expires: new Date(res.data.session.expireTime) 
                 });
-                props.setLoggedIn(true);
+                props.setUser({
+                    isLoggedIn: true,
+                    userLevel: 1,
+                    username: 'SignedIn'
+                });
                 history.push('home');
             }
             else {
@@ -53,11 +58,9 @@ const SignIn = (props) => {
         event.preventDefault();
         attemptLogin(username, password, 'Email');        
     }
-
     const responseGoogle = (response) => {
         attemptLogin(response.getBasicProfile().username, response.googleId, 'Google');
     }
-
     const responseFacebook = (profile) => {
         attemptLogin(profile.name, profile.email, 'Facebook');
     }

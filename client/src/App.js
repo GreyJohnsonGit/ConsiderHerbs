@@ -18,23 +18,27 @@ import NavBar from "./components/Header/NavBar";
 
 
 const App = () => {
-  const [loggedIn, setLoggedIn] = useState(false);
+	const [user, setUser] = useState({
+		isLoggedIn: false,
+		userLevel: 0,
+		username: 'Anon'
+	});
 
   return (
     <CookiesProvider>
       <div id="page-container">  
         <div className="content">
-          <NavBar loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
+          <NavBar user={user} setUser={setUser}/>
           <div className = "spacer" > &nbsp; </div>
           <Switch>
-            <Route exact path="/Home" render={(props) => <Home {...props} />} />
-            <Route exact path="/Glossary" render={(props) => <Glossary {...props} />} />
-            <Route exact path="/About" render={(props) => <About {...props} />} />
-            <Route path="/Forum" render={(props) => <Forum {...props} />} />
-            <Route path="/DidYouKnow" component={DidYouKnow} />
-            <Route exact path="/Schedule" render={(props) => <Schedule {...props} />} />
-            <Route exact path="/SignIn" render={(props) => <SignIn {...props} loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
-            <Route exact path="/SignUp" render={(props) => <SignUp {...props} loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
+            <Route exact path="/Home"     render={(props) => <Home {...props}       user={user} />} />
+            <Route exact path="/Glossary" render={(props) => <Glossary {...props}   user={user} />} />
+            <Route exact path="/About"    render={(props) => <About {...props}      user={user} />} />
+            <Route path="/Forum"          render={(props) => <Forum {...props}      user={user} />} />
+            <Route path="/DidYouKnow"     render={(props) => <DidYouKnow {...props} user={user} />} />
+            <Route exact path="/Schedule" render={(props) => <Schedule {...props}   user={user} />} />
+            <Route exact path="/SignIn"   render={(props) => <SignIn {...props}     user={user} setUser={setUser}/>} />
+            <Route exact path="/SignUp"   render={(props) => <SignUp {...props}     user={user} setUser={setUser}/>} />
             <Route exact path="/">
               <Redirect to="/Home" />
             </Route>

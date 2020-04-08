@@ -67,6 +67,7 @@ const TermInfo = (props) => {
                                                         config.address + '/api/Glossary/' + glossaryEntry.title
                                                     )
                                                     .then((res) => {
+                                                        window.location.reload();
                                                     })
                                                     .catch((err) => {
                                                         console.error(err);

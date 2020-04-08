@@ -11,13 +11,17 @@ const NavBar = (props) => {
     const [cookies,, removeCookie] = useCookies([]);
 
     const UserButton = () => {
-        if(cookies.session || props.loggedIn) {//Will eventually need to be replaced with an Async call
+        if(props.user.isLoggedIn) {
             return (
                 <div>
                     <a className = "nav-link-sign-in" href='/SignIn' onClick={(e) => {
                         console.log('link was clicked');
                         removeCookie('session');
-                        props.setLoggedIn(false);
+                        props.setUser({
+                            isLoggedIn: false,
+                            userLevel: 0,
+                            username: 'Anon'
+                        });
                     }}>
                     LOG OUT
                     </a>
