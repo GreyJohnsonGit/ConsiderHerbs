@@ -7,17 +7,14 @@ import Neutral_Front from './images/Neutral_Front.png';
 import F_Unselected from './images/F_Unselected.png';
 //import M_Selected from './images/M_Selected.png';
 import M_Unselected from './images/M_Unselected.png';
-import N_Selected from './images/N_Selected.png';
-//import N_Unselected from './images/N_Unselected.png';
 //import { set } from 'mongoose';
 
 
 const BodyMap = () => {
 
-    const [ gender, setGender ] = useState(Neutral_Front);
+    const [ gender, setGender ] = useState(Female_Front);
     const [ f, /*setF*/ ] = useState(F_Unselected);
     const [ m, /*setM*/ ] = useState(M_Unselected);
-    const [ n, /*setN*/ ] = useState(N_Selected);
 
     return (
         <div className="body-column">
@@ -37,13 +34,6 @@ const BodyMap = () => {
                         style={{width:'24px',height:'24px'}}
                         src={m} 
                         onClick={() => setGender(Male_Front)}
-                    />
-
-                    <img id="neutral-button"
-                        alt="Neutral Button"
-                        style={{width:'24px',height:'24px'}}
-                        src={n} 
-                        onClick={() => setGender(Neutral_Front)}
                     />
                 </div>
             </span>
