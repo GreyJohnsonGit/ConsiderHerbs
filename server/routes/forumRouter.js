@@ -28,6 +28,4 @@ forumRouter.delete('/:title', ThreadController.remove);
 //GET: /api/Forum/:title/replies
 forumRouter.get('/:title/replies',ThreadController.getAllReplies);
 
-//
-  
 module.exports = forumRouter;
