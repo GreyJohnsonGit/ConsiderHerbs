@@ -2,7 +2,26 @@ DidYouKnowController = require('../controllers/DidYouKnowController.js');
 express = require('express'); 
 const didyouknowRouter = express.Router()
 
+didyouknowRouter.options('/', (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header('Access-Control-Allow-Methods', '*');
+    res.header('Access-Control-Allow-Headers', '*');
+    next();
+})
 
+didyouknowRouter.options('/:title', (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header('Access-Control-Allow-Methods', '*');
+    res.header('Access-Control-Allow-Headers', '*');
+    next();
+})
+
+didyouknowRouter.options('/:title/replies', (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header('Access-Control-Allow-Methods', '*');
+    res.header('Access-Control-Allow-Headers', '*');
+    next();
+})
 
 //returns all entries, vanilla get request
 // GET: /api/DidYouKnow/
@@ -25,7 +44,7 @@ didyouknowRouter.get('/:title', DidYouKnowController.read);
 didyouknowRouter.delete('/:title', DidYouKnowController.remove);
 
 //returns all replies from the DidYouKnow
-//GET: /api/Forum/:title/replies
-forumRouter.get('/:title/replies',ThreadController.getAllReplies);
+//GET: /api/DidYouKnow/:title/replies
+didyouknowRouter.get('/:title/replies',DidYouKnowController.getAllReplies);
   
 module.exports = didyouknowRouter;
