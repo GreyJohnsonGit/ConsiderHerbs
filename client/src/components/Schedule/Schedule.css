@@ -7,7 +7,7 @@
 
 .sch-image-div {
     position: relative;
-    height:500px;
+    height:600px;
     width: 100%;
     overflow: hidden;
 }
@@ -18,15 +18,26 @@
     top: 25%;
     height: 100%;
     width: 100%;
-    font-size: 4em;
+    font-size: 3.7em;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle ;
+}
+.sch-below-title {
+    position: absolute;
+    top: 37%;
+    height: 100%;
+    width: 100%;
+    font-size: 3em;
     color: white;
     text-align: center;
     display: inline-block;
     vertical-align: middle;
 }
-.sch-below-title {
+.sch-below-2 {
     position: absolute;
-    top: 37%;
+    top: 51%;
     height: 100%;
     width: 100%;
     font-size: 3em;
