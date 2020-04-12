@@ -1,6 +1,6 @@
 import React, { useState, /*useEffect*/ } from 'react';
-import Male_Front from './images/Male_Front.png';
-import Female_Front from './images/Female_Front.png';
+import Male_Frontp from './MaleBody.js';
+import Female_Frontp from './FemaleBody.js';
 import Neutral_Front from './images/Neutral_Front.png';
 
 //import F_Selected from './images/F_Selected.png';
@@ -15,16 +15,10 @@ import N_Selected from './images/N_Selected.png';
 
 const BodyMap = (props) => {
 
-    let ChestArea = "197, 115, 246, 121, 248, 163, 246, 203, 148, 205, 145, 154, 152, 119"
+   let Male_Front = <Male_Frontp setFilterText = {props.setFilterText} />
+   let Female_Front = <Female_Frontp setFilterText = {props.setFilterText} />
 
-    let neutralFront = <div>
-        <img src={Neutral_Front} width="400" useMap='#NFmap'></img>
-        <map name="NFmap">
-            <area shape="poly" coords={ChestArea} onMouseOver={() => { console.log("Chest") }} onClick={()=>{props.setFilterText("chest")}} />
-        </map>
-    </div>
-
-    const [gender, setGender] = useState(neutralFront);
+    const [gender, setGender] = useState(Male_Front);
     const [f, /*setF*/] = useState(F_Unselected);
     const [m, /*setM*/] = useState(M_Unselected);
     const [n, /*setN*/] = useState(N_Selected);
