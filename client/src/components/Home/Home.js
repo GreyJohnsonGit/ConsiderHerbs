@@ -90,7 +90,7 @@ const Home = (props) => {
                         <div className='recipe-popup-title'>
                             {entryToEdit.name}
                         </div>
-                        { props.userLevel >= entryToEdit.priviledge ?
+                        { userLevel >= entryToEdit.priviledge ?
                             <div> 
                                 <div className='recipe-popup-description'>
                                     {entryToEdit.description}
