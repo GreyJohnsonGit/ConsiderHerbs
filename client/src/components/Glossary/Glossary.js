@@ -12,7 +12,7 @@ import AdminPopup from "../Admin/AdminPopup";
 const Glossary = (props) =>{
     const [showPopup, setShowPopup] = useState(0);
     const [mode, setMode] = useState('');
-    let [typed, typedUpdate]=useState('')
+    let [typed, typedUpdate]=useState(props.location.search.substring(1));
     let [/*found*/, foundUpdate]=useState(1) //true
 
     const [title, setTitle] = useState('');
@@ -90,6 +90,8 @@ const Glossary = (props) =>{
         }
     }
 
+    console.log(props.location)
+
     return(
         <div>
             <div className = "image-container">
@@ -118,6 +120,7 @@ const Glossary = (props) =>{
                 <form>
                     <input type="text" placeholder="Search Terms..." 
                         onChange={(event)=>{typedUpdate(event.target.value)}}
+                        defaultValue={typed}
                     />
                     <button type="submit" onClick={searchTerm}>Search </button>
                     <button type='button' className='admin-button' onClick={toggleNewEntry}>New</button>
