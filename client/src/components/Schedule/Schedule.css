@@ -82,4 +82,33 @@ color: #FFFFFF;
     overflow: hidden;
     width: 100%;
     height: auto;
+    text-align: center;
+}
+
+
+.calendar{
+    margin: auto;
+    width: 90%;
+    content: "";
+    display: table;
+    clear: both;
+    border: 3px solid ;
+}
+
+.CalandarTitle{
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    text-align: center;
+}
+
+.dayCol{
+    float: left;
+    width: calc(100%/7);
+    border: 3px solid green;
+    text-align: center;
+}
+.dayLabel{
+    border: 3px solid;
+    text-align: center;
 }
