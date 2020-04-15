@@ -2,7 +2,7 @@
 import React, {useState} from 'react';
 //import { MdClose } from 'react-icons/md';
 import './Glossary.css';
-import Weebs from './Rosemary.JPG';
+import Weeds from './Rosemary.JPG';
 import TermInfo from "./glossary_components/TermInfo";
 import AlphabetList from "./glossary_components/AlphabetList";
 import axios from 'axios';
@@ -93,7 +93,7 @@ const Glossary = (props) =>{
     return(
         <div>
             <div className = "image-container">
-                <img alt = "Plants" src = { Weebs } width = "100%"/>
+                <img alt = "Plants" src = { Weeds } width = "100%"/>
                 <div class = "text-block">
                     <div>  Glossary Page   </div>
                 </div>
