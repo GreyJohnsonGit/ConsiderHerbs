@@ -43,6 +43,7 @@
     "react-google-login": "^5.1.2",
     "react-hook-form": "^5.2.0",
     "react-icons": "^3.9.0",
+    "react-string-replace": "^0.4.4",
     "should": "^13.2.3",
     "supertest": "^4.0.2"
   },
