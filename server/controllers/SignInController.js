@@ -111,3 +111,30 @@ exports.refresh = (req, res) => {
         });
     }
 }
+
+exports.updatePassword = function(req, res) {
+    var model = User;
+    let item = req.body;
+    model.findOne({username: req.params.username}, item).exec().then(function(doc,err){
+        item.username = req.params.username;
+        item.pasword = model.hashPasswordSync(req.params.password);
+        res.send(item);
+    })
+}
+
+exports.getAll = function(req, res) {
+    var model = User;
+    model.find({}).exec().then(function(docs, err){
+        docs.sort((a,b) => (a.username > b.username) ? 1 : -1);
+        res.header('Access-Control-Allow-Origin', '*');
+        res.send(docs);
+    })
+}
+
+exports.getUser = function(req, res) {
+    var model = User;
+    model.find({username : req.params.username}).exec().then(function(docs, err){
+        res.send(docs);
+    })
+}
+
