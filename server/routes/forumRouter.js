@@ -48,4 +48,8 @@ forumRouter.delete('/:title', ThreadController.remove);
 //GET: /api/Forum/:title/replies
 forumRouter.get('/:title/replies',ThreadController.getAllReplies);
 
+// returns all threads created by a given user's username
+//GET: /api/Forum/:user
+forumRouter.get('/:user/posts', ThreadController.getAllThreadsfromOneUser);
+
 module.exports = forumRouter;
