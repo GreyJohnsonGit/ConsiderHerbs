@@ -60,8 +60,8 @@ const Thread = () => {
             <div className="thread-comment">
                 <div id="comment-side-bar">&nbsp;</div>
                 <div id="comment-container">
-                    <h2><b>{dummyComment.user}</b> commented n units of time ago </h2>
-                    <p>{dummyComment.body}</p>
+                    <div id="title"><b>{dummyComment.user}</b> commented n units of time ago </div>
+                    <div id="body">{dummyComment.body}</div>
                 </div>
             </div>
 

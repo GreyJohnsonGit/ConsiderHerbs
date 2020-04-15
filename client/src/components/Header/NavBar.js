@@ -46,7 +46,8 @@ const NavBar = (props) => {
                 <Link className = "nav-link" to='/Forum'>FORUM</Link> 
                 <Link className = "nav-link" to='/Glossary'>GLOSSARY</Link>
                 <Link className = "nav-link" to='/About'>ABOUT</Link>
-                <Link className = "nav-link-last" to='/Schedule'>SCHEDULE</Link>
+                <Link className = "nav-link" to='/Schedule'>SCHEDULE</Link>
+                <Link className = "nav-link-last" to='/Products'>PRODUCTS</Link>
                 <UserButton></UserButton>
             </div>
 

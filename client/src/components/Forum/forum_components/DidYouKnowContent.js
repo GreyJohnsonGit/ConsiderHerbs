@@ -22,11 +22,11 @@ const dummyPost = {
     replies: []
 }
 
-const DidYouKnowContent = () => {
+const DidYouKnowContent = (props) => {
     return (
         <div>
-            <p>{dummyPost.body}</p>
-            { dummyPost.sources.map((source) => {
+            <p>{props.didYouKnowEntry.body}</p>
+            { props.didYouKnowEntry.sources.map((source) => {
                 return (
                     <div>
                         <p id="source">{source}</p>
