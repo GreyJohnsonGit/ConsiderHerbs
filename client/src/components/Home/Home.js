@@ -136,7 +136,7 @@ const Home = (props) => {
                             onChange={() => filterUpdate(searchInput.current.value)}
                         />
 
-                        { userLevel == 3 ? 
+                        { userLevel === 3 ? 
                             <div>
                                 <button type='submit'>Search</button>
                                 <button type='button' onClick={toggleNewEntry}>New Recipe</button>

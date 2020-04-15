@@ -62,11 +62,12 @@ const TermInfo = (props) => {
                                             <h1>{glossaryEntry.title}</h1>
                                             <form>
                                                 <button type='button' className='admin-button' onClick={() => props.editFn(glossaryEntry)}>Edit</button>
-                                                <button type='button' className='admin-button' onClick={(event) => {
+                                                <button type='submit' className='admin-button' onClick={(event) => {
                                                     Axios.delete(
                                                         config.address + '/api/Glossary/' + glossaryEntry.title
                                                     )
                                                     .then((res) => {
+                                                        window.location.reload();
                                                     })
                                                     .catch((err) => {
                                                         console.error(err);

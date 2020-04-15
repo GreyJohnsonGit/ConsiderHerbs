@@ -6,6 +6,7 @@ import FacebookLogin from 'react-facebook-login';
 import './SignIn.css';
 import config from '../../config.js';
 import {useCookies} from 'react-cookie';
+import {useHistory} from 'react-router-dom';
 
 const SignUp = (props) =>{
     const [username, setUsername] = useState('');
@@ -25,6 +26,7 @@ const SignUp = (props) =>{
         setConfirmPassword(event.target.value);
     }
 
+    const history = useHistory();
     const [, setCookie, ] = useCookies([]);
     const [problem, setProblem] = useState('');
     const attemptLogin = (_username, _email, _password, _confirmPassword, _method) => {
@@ -44,7 +46,12 @@ const SignUp = (props) =>{
                         path: '/',
                         expires: new Date(res.data.session.expireTime) 
                     });
-                    props.setLoggedIn(true);
+                    props.setUser({
+                        isLoggedIn: true,
+                        userLevel: 1,
+                        username: 'SignedIn'
+                    });
+                    history.push('home');
                 }
                 else {
                     setProblem(res.data.reason);

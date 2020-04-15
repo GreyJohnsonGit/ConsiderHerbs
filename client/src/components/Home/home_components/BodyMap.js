@@ -7,9 +7,8 @@ import Neutral_Front from './images/Neutral_Front.png';
 import F_Unselected from './images/F_Unselected.png';
 //import M_Selected from './images/M_Selected.png';
 import M_Unselected from './images/M_Unselected.png';
-import N_Selected from './images/N_Selected.png';
-//import N_Unselected from './images/N_Unselected.png';
 //import { set } from 'mongoose';
+
 
 
 
@@ -18,13 +17,11 @@ const BodyMap = (props) => {
    let Male_Front = <Male_Frontp setFilterText = {props.setFilterText} />
    let Female_Front = <Female_Frontp setFilterText = {props.setFilterText} />
 
-    const [gender, setGender] = useState(Male_Front);
+    const [gender, setGender] = useState(Female_Front);
     const [f, /*setF*/] = useState(F_Unselected);
     const [m, /*setM*/] = useState(M_Unselected);
-    const [n, /*setN*/] = useState(N_Selected);
 
     
-
     return (
         <div className="body-column">
             <span className="body-button-container">
@@ -45,12 +42,6 @@ const BodyMap = (props) => {
                         onClick={() => setGender(Male_Front)}
                     />
 
-                    <img id="neutral-button"
-                        alt="Neutral Button"
-                        style={{ width: '24px', height: '24px' }}
-                        src={n}
-                        onClick={() => setGender(Neutral_Front)}
-                    />
                 </div>
             </span>
             {gender}
