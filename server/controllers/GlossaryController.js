@@ -2,6 +2,7 @@ const glossaryModel = require('../models/GlossaryEntry.js');
 
 //assumes request has req.body ==> the object to be created in the db
 exports.create = function(req, res) {
+    console.log(req.body);
     var model = glossaryModel;
     let glossaryItem = new model(req.body);
     //if succesfully saves, the response returns the saved item, otherwise log error
@@ -13,7 +14,6 @@ exports.create = function(req, res) {
             res.send(doc)
         }
     })
-
 }
 
 //this returns from a POST request, the url should give a :title param
@@ -28,8 +28,6 @@ exports.read = function(req, res) {
             res.send(docs[0])
         }
     })
-
-
 }
 
 //updated glossary entry, expects req.body to contain updated entry fields
