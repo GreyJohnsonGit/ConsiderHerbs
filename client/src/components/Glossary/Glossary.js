@@ -2,7 +2,7 @@
 import React, {useState} from 'react';
 //import { MdClose } from 'react-icons/md';
 import './Glossary.css';
-import Weebs from './Rosemary.JPG';
+import Weeds from './Rosemary.JPG';
 import TermInfo from "./glossary_components/TermInfo";
 import AlphabetList from "./glossary_components/AlphabetList";
 import axios from 'axios';
@@ -12,7 +12,7 @@ import AdminPopup from "../Admin/AdminPopup";
 const Glossary = (props) =>{
     const [showPopup, setShowPopup] = useState(0);
     const [mode, setMode] = useState('');
-    let [typed, typedUpdate]=useState('')
+    let [typed, typedUpdate]=useState(props.location.search.substring(1));
     let [/*found*/, foundUpdate]=useState(1) //true
 
     const [title, setTitle] = useState('');
@@ -90,15 +90,16 @@ const Glossary = (props) =>{
         }
     }
 
+    console.log(props.location)
+
     return(
         <div>
             <div className = "image-container">
-                <img alt = "Plants" src = { Weebs } width = "100%"/>
+                <img alt = "Plants" src = { Weeds } width = "100%"/>
                 <div class = "text-block">
                     <div>  Glossary Page   </div>
                 </div>
             </div>
-            
             <AdminPopup closeFn={toggleShowPopup} showPopup={showPopup}>
                 <form onSubmit={submitForm}>
                     <label htmlFor='title'>Title</label>
@@ -112,12 +113,12 @@ const Glossary = (props) =>{
 
                     <button type='submit'>Submit</button>
                 </form>
-            </AdminPopup>
-            
+            </AdminPopup>   
             <div className = "glossary-search" id="search_bar">
                 <form>
                     <input type="text" placeholder="Search Terms..." 
                         onChange={(event)=>{typedUpdate(event.target.value)}}
+                        defaultValue={typed}
                     />
                     <button type="submit" onClick={searchTerm}>Search </button>
                     <button type='button' className='admin-button' onClick={toggleNewEntry}>New</button>

@@ -13,12 +13,12 @@
 
 .admin-popup-inner {
     position: absolute;  
-    left: 25%;  
-    right: 25%;  
-    top: 25%;  
-    bottom: 25%;  
+    left: 50%;  
+    top: 50%;  
+    transform: translate(-50%,-50%);
+    width: 50%;
     margin: auto;  
-    border-radius: 20px;  
+    border-radius: 3px;  
     background: white;
     display: flex;
     flex-direction: column;
@@ -44,11 +44,15 @@
 }
 .admin-popup form label {
     font-size: 1.2em;
+    margin-top: 10px;
+    margin-bottom: 0px;
 }
 .admin-popup input[type=text]#title{
     background: #ededed;
     font-size: 1.2em;
     padding-left: 10px;
+    border: none;
+
 }
 
 .admin-popup textarea {
@@ -56,11 +60,13 @@
     flex-grow: 1;
     resize: none;
     padding: 10px;
+    border: none;
 }
 
 .admin-popup form button {
     align-self: center;
-    margin-top: 5px;
+    margin-top: 25px;
+    margin-bottom: 10px;
     border: none;
     height: 45px;
     width: 150px;
