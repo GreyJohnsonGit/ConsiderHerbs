@@ -29,7 +29,8 @@ const GlossaryPopUp = (props) => {
                 {
                     title: title,
                     definition: definition,
-                    usage: usage
+                    usage: usage,
+                    user: props.user
                 }
             )
             .then((res) => {
@@ -47,7 +48,8 @@ const GlossaryPopUp = (props) => {
                 {
                     title: title,
                     definition: definition,
-                    usage: usage
+                    usage: usage,
+                    user: props.user
                 }
             )
             .then((res) => {

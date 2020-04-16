@@ -50,7 +50,7 @@ const Glossary = (props) =>{
                 </div>
             </div>
             
-            { showPopup ? <GlossaryPopUp closeFn={toggleShowPopup} entry={entryToEdit} mode={mode} /> : null}
+            { showPopup ? <GlossaryPopUp closeFn={toggleShowPopup} entry={entryToEdit} mode={mode} user={props.user} setUser={props.setUser} /> : null}
             
             <div className = "glossary-search" id="search_bar">
                 <form>
