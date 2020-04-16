@@ -2,7 +2,15 @@ ThreadController = require('../controllers/ThreadController.js');
 express = require('express'); 
 const forumRouter = express.Router()
 
+forumRouter.get('/:thread_id', (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header('Access-Control-Allow-Methods', '*');
+    res.header('Access-Control-Allow-Headers', '*');
+    next();
+})
+
 forumRouter.options('/', (req, res, next) => {
+    console.log("REDEF")
     res.header("Access-Control-Allow-Origin", "*");
     res.header('Access-Control-Allow-Methods', '*');
     res.header('Access-Control-Allow-Headers', '*');
@@ -10,6 +18,7 @@ forumRouter.options('/', (req, res, next) => {
 })
 
 forumRouter.options('/:title', (req, res, next) => {
+    console.log("REOUTER")
     res.header("Access-Control-Allow-Origin", "*");
     res.header('Access-Control-Allow-Methods', '*');
     res.header('Access-Control-Allow-Headers', '*');
@@ -36,9 +45,9 @@ forumRouter.post('/', ThreadController.create);
 // PUT: /api/Forum/:title
 forumRouter.put('/:title', ThreadController.update);
 
-//calls read, request should include url param :title for entry to grab
-// GET: /api/Forum/:title
-forumRouter.get('/:title', ThreadController.read);
+//calls read, request should include url param :thread_id for entry to grab (thread_id refers to _id attribute of thread, named for clarity)
+// GET: /api/Forum/:thread_id
+forumRouter.get('/:thread_id', ThreadController.read);
 
 //calls remove, request should include url param :title for entry to remove
 // DELETE: /api/Forum/:title

@@ -5,11 +5,11 @@ const ForumPreview = () => {
     return (
         <div className='forum-preview'>
             <h3>Pinned Threads</h3>
-            <ThreadPreviewBlock />
+            <ThreadPreviewBlock type="pinned"/>
             <h3>Popular</h3>
-            <ThreadPreviewBlock />
+            <ThreadPreviewBlock type="popular"/>
             <h3>Latest</h3>
-            <ThreadPreviewBlock />
+            <ThreadPreviewBlock type="latest"/>
         </div>
     )
 }

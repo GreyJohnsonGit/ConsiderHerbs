@@ -7,13 +7,19 @@ import DidYouKnow from './forum_components/DidYouKnow.js';
 import NewThread from './forum_components/NewThread.js';
 import ForumImage from './Forum_Image.jpg';
 import './Forum.css';
+import ThreadPreviewBlock from './forum_components/ThreadPreviewBlock.js';
 
 const Forum =()=>{
     const [ showPopup, setShowPopup ] = useState(0);
+    const [ threadFilterText, setThreadFilterText ] = useState("");
 
     const toggleShowPopup = () => {
         setShowPopup(!showPopup);
     };
+
+    const searchForThread = () => {
+
+    }
 
     return(
         <div>        
@@ -30,11 +36,12 @@ const Forum =()=>{
                 <div className="forum-column-1">
                     <div className="search" id="search_bar">
                         <form>
-                            <input type="text" placeholder="Search Threads..."/>
-                            <button type="submit">Search</button>
+                            <input type="text" value={threadFilterText} onChange={ev => setThreadFilterText(ev.target.value)} placeholder="Search Threads..."/>
+                            <button type="submit" onClick={searchForThread}>Search</button>
                             <button type='button' onClick={toggleShowPopup}>New Thread</button>
                         </form>
                     </div>
+                    <ThreadPreviewBlock type="search" filterText={threadFilterText}></ThreadPreviewBlock>
                     <Switch>
                         <Route exact path='/Forum' component={ForumPreview} />
                         <Route path={`/Forum/:threadId`} component={Thread} />
