@@ -111,6 +111,9 @@ const Products =(props)=>{
                         <label htmlFor='title'>Title</label>
                         <input type='text' id='title' value={title} onChange={handleTitle} required/>
 
+                        <label htmlFor='image'>Image</label>
+                        <input type="file" rows='3' id='definition' value={image} onChange={handleImage}/>
+
                         <label htmlFor='description'>Description</label>
                         <textarea rows='3' id='definition' value={description} onChange={handleDescription} required/>
 
@@ -148,7 +151,7 @@ const Products =(props)=>{
                             <hr/>
                         </div>
                         <div id="grid-container">
-                            <ConsiderProducts />
+                            <ConsiderProducts typed={typed}/>
                         </div>
                     </div> 
 
@@ -158,7 +161,7 @@ const Products =(props)=>{
                             <hr/>
                         </div>
                         <div id="grid-container">
-                            <AffiliatedProducts />
+                            <AffiliatedProducts typed={typed}/>
                         </div>
                     </div>
 
@@ -168,7 +171,7 @@ const Products =(props)=>{
                             <hr/>
                         </div>
                         <div id="grid-container">
-                            <SuggestedProducts />
+                            <SuggestedProducts typed={typed}/>
                         </div>
                     </div>                
                 </div>

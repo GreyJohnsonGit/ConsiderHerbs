@@ -25,7 +25,11 @@ const ConsiderProducts = (props) => {
                             if (err) return `Oops, something went wrong: ${err.message}`
                             if (data && Array.isArray(data)) {
                                 return (
-                                    data.map((productEntry) => {
+                                    data.filter(entry => (
+                                        entry.name.toLowerCase().includes(props.typed.toLowerCase()) || 
+                                        entry.description.toLowerCase().includes(props.typed.toLowerCase()) ||
+                                        entry.type.includes("ConsiderHerbs")))
+                                    .map((productEntry) => {
                                     return (
                                             <div id="grid-item"> 
                                                 <div id="product-image">&nbsp;</div>

@@ -10,6 +10,9 @@ import './Home.css';
 import AdminPopup from '../Admin/AdminPopup';
 import { FaTrashAlt } from 'react-icons/fa';
 import { FaPlusSquare } from 'react-icons/fa';
+import carousel_1 from './home_components/images/yellow_flowers.png';
+import carousel_2 from './home_components/images/cutting_berries.png';
+import carousel_3 from './home_components/images/faded_flowers.png';
 
 import Axios from 'axios';
 import config from '../../config.js'
@@ -91,25 +94,25 @@ const Home = (props) => {
         <div>
             <div>
                 <Carousel>
-                    <Carousel.Item>
+                    <Carousel.Item style={{position:"relative", height:"300px", width:"100%", overflow:"hidden"}}>
                         <img
                             alt="Picsum"
-                            src='http://picsum.photos/id/1023/1440/400'
-                            style={{width:'100%',height:'100%'}}
+                            src={carousel_1}
+                            style={{width:'100%'}}
                         />
                     </Carousel.Item>
-                    <Carousel.Item>
+                    <Carousel.Item style={{position:"relative", height:"300px", width:"100%", overflow:"hidden"}}>
                         <img
                             alt="Picsum"
-                            src='http://picsum.photos/id/189/1440/400'
-                            style={{width:'100%',height:'100%'}}
+                            src={carousel_2}
+                            style={{width:'100%'}}
                         />
                     </Carousel.Item>
-                    <Carousel.Item>
+                    <Carousel.Item style={{position:"relative", height:"300px", width:"100%", overflow:"hidden"}}>
                         <img
                             alt="Picsum"
-                            src='http://picsum.photos/id/159/1440/400'
-                            style={{width:'100%',height:'100%'}}
+                            src={carousel_3}
+                            style={{width:'100%'}}
                         />
                     </Carousel.Item>
                 </Carousel>
@@ -242,7 +245,7 @@ const Home = (props) => {
                     <form className='search' style={{marginTop:"5px"}}>
                         <input 
                             type='text'
-                            placeholder='Search Recipes'
+                            placeholder='Search Recipes...'
                             ref={searchInput}
                             onChange={() => filterUpdate(searchInput.current.value)}
                         />
