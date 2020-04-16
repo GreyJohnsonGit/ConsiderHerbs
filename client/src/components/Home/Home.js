@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom'
 import Carousel from 'react-bootstrap/Carousel';
 import BodyMap from './home_components/BodyMap.js';
 import RecipeList from './home_components/RecipeList.js';
-import RecipePopUp from './home_components/RecipePopup.js';
 import './Home.css';
+import AdminPopup from '../Admin/AdminPopup';
+import { FaTrashAlt } from 'react-icons/fa';
+import { FaPlusSquare } from 'react-icons/fa';
 
 let entryToEdit = {
     name: '',
@@ -23,6 +25,7 @@ const Home = (props) => {
     const [ showPopup, setShowPopup ] = useState(0);
     const [ filterText,setFilterText ] = useState('');
     const [ userLevel, setUserLevel ] = useState(0);
+    const [/*numIngredient*/,setNumIngredients ] = useState(0);
 
     const filterUpdate = (value) => {
         setFilterText(value);
@@ -80,12 +83,76 @@ const Home = (props) => {
                     </Carousel.Item>
                 </Carousel>
             </div>
-            { showPopup ? <RecipePopUp
-                userLevel={userLevel}
-                closeFn={toggleShowPopup}
-                entry={entryToEdit}
-                mode={mode}
-                /> : null}            
+
+            <AdminPopup closeFn={toggleShowPopup} showPopup={showPopup}>
+                { mode === 'view' ?
+                    <div>
+                        <div className='recipe-popup-title'>
+                            {entryToEdit.name}
+                        </div>
+                        { userLevel >= entryToEdit.priviledge ?
+                            <div> 
+                                <div className='recipe-popup-description'>
+                                    {entryToEdit.description}
+                                </div>
+                                <ul>
+                                    { entryToEdit.ingredients.map((ingredient) => {
+                                        return (
+                                            <li>{ingredient.ingredient} - {ingredient.amount} {ingredient.unit}</li>
+                                        )
+                                    })}
+                                </ul>
+                            </div> : <div className='recipe-popup-description'>Subscribe to view this content</div> }
+                    </div>
+                :
+                    <form action='/Recipe'>
+                        <div className='recipe-popup-edit-top-row'>
+                            <label for='name'>Name</label>
+                            <label for='bodypart'>Body Part</label>
+                            <label for='ailment'>Ailment</label>
+                            <input type='text' id='name' defaultValue={entryToEdit.name} />
+                            <input type='text' id='bodypart' defaultValue={entryToEdit.bodypart} />
+                            <input type='text' id='ailment' defaultValue={entryToEdit.ailment} />
+                        </div>
+                        <div className='recipe-popup-edit-ingredients'>
+                            <span>Ingredient</span>
+                            <span>Amount</span>
+                            <span>Unit</span>
+                            <span></span>
+                        </div>
+                        { entryToEdit.ingredients.map((ingredient,i) => {
+                            return (
+                                <div className='recipe-popup-edit-ingredients'>
+                                    <input type='text' defaultValue={ingredient.ingredient} />
+                                    <input type='text' defaultValue={ingredient.amount} />
+                                    <input type='text' defaultValue={ingredient.unit} />
+                                    <FaTrashAlt
+                                        size='1.7em'
+                                        color='red'
+                                        onClick={() => {
+                                            entryToEdit.ingredients.splice(i,1);
+                                            setNumIngredients(entryToEdit.ingredients.length);
+                                        }}
+                                    />
+                                </div>
+                            )
+                        })}
+                        <FaPlusSquare
+                            size='1.7em'
+                            color='green'
+                            onClick={() => {
+                                entryToEdit.ingredients.push([]);
+                                setNumIngredients(entryToEdit.ingredients.length);
+                            }}
+                        />
+                        <label for='description'>Description</label>
+                        <textarea rows='3' id='description' value={entryToEdit.description}/>
+                        
+                        <button type='submit'>Submit</button>
+                    </form>
+                }
+            </AdminPopup>
+
             <div className='home-text-container-1'>
                 <p>
                 You are looking at an amazing tool call H.O.W (Herbs, Oils , Wellbeing) 

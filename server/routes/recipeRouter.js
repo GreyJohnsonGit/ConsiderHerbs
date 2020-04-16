@@ -17,6 +17,14 @@ RecipeRouter.options('/:name', (req, res, next) => {
     res.header('Access-Control-Allow-Headers', '*');
     next();
 })
+
+RecipeRouter.options('/:name/ingredients', (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header('Access-Control-Allow-Methods', '*');
+    res.header('Access-Control-Allow-Headers', '*');
+    next();
+})
+
 //returns all entries, vanilla get request
 // GET: /api/Recipe/
 RecipeRouter.get('/', RecipeController.getAll)
