@@ -58,7 +58,7 @@ const Products =(props)=>{
         setDescription('');
         setPrice('');
         setImage('');
-        setType('');
+        setType('ConsiderHerbs');
         setMode('new');
         toggleShowPopup();
     }
