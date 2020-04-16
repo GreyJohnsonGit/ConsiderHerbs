@@ -6,7 +6,6 @@ import DidYouKnowContent from './DidYouKnowContent.js';
 import DidYouKnowComments from './DidYouKnowComments.js';
 import { Route, Switch, Link } from 'react-router-dom';
 import DidYouKnowImage from './assets/Did_You_Know_IMG.jpg';
-import Carousel from 'react-bootstrap/Carousel';
 
 
 const loadPostInfo = () => {
@@ -21,8 +20,6 @@ const loadPostInfo = () => {
         return err;
     });
 }
-
-
 
 
 const PostInfo = (props) => {
@@ -73,7 +70,7 @@ const PostInfo = (props) => {
                                                     <h3>posted by Dee on {didYouKnowEntry.date}</h3>
 
                                                     <div id="image">
-                                                        <img src={didYouKnowEntry.image} style={{width:"100%"}} />
+                                                        <img src={didYouKnowEntry} style={{width:"100%"}} />
                                                     </div>
 
                                                     <div>

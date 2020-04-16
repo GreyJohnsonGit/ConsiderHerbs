@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Link } from 'react-router-dom';
 import ForumPreview from './forum_components/ForumPreview.js';
 import Thread from './forum_components/Thread.js';
 import DidYouKnowPreview from './forum_components/DidYouKnowPreview.js';
@@ -40,9 +40,9 @@ const Forum =()=>{
                         <Route path={`/Forum/:threadId`} component={Thread} />
                     </Switch>
                 </div>
-                <div>
+                <div className="column-2-container">
                     <div className="forum-column-2">
-                        <h1>Did You Know?</h1>
+                        <div id="title"><a href={'/DidYouKnow'} style={{color:"#363636"}}>Did You Know?</a></div>
                         <p><i>Check out some of the links picked by our team!</i></p>
                         <DidYouKnowPreview />
                     </div>
