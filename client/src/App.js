@@ -5,9 +5,11 @@ import Glossary from "./components/Glossary/Glossary"
 import About from "./components/About/About"
 import Schedule from "./components/Schedule/Schedule"
 import Forum from "./components/Forum/Forum"
+import Products from "./components/Products/Products"
 import Footer from "./components/Footer/Footer"
 import SignIn from "./components/SignIn/SignIn"
 import SignUp from "./components/SignIn/SignUp"
+import Profile from "./components/Profile/Profile"
 import DidYouKnow from './components/Forum/forum_components/DidYouKnow.js';
 
 
@@ -41,8 +43,10 @@ const App = () => {
             <Route path="/Forum"          render={(props) => <Forum {...props}      user={user} setUser={setUser}/>} />
             <Route path="/DidYouKnow"     render={(props) => <DidYouKnow {...props} user={user} setUser={setUser}/>} />
             <Route exact path="/Schedule" render={(props) => <Schedule {...props}   user={user} setUser={setUser}/>} />
+            <Route exact path="/Products" render={(props) => <Products {...props}   user={user} setUSer={setUser}/>} />
             <Route exact path="/SignIn"   render={(props) => <SignIn {...props}     user={user} setUser={setUser}/>} />
             <Route exact path="/SignUp"   render={(props) => <SignUp {...props}     user={user} setUser={setUser}/>} />
+            <Route exact path="/Profile"  render={(props) => <Profile {...props}    user={user} setUser={setUser}/>} />
             <Route exact path="/">
               <Redirect to="/Home" />
             </Route>

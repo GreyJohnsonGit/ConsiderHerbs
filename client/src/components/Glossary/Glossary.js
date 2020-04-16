@@ -2,22 +2,32 @@
 import React, {useState} from 'react';
 //import { MdClose } from 'react-icons/md';
 import './Glossary.css';
-import Weebs from './Rosemary.JPG';
+import Weeds from './Rosemary.JPG';
 import TermInfo from "./glossary_components/TermInfo";
 import AlphabetList from "./glossary_components/AlphabetList";
-import GlossaryPopUp from "./glossary_components/GlossaryPopUp";
-
-let entryToEdit = {
-    title: '',
-    definition: '',
-    usage: ''
-};
+import axios from 'axios';
+import config from '../../config.js'
+import AdminPopup from "../Admin/AdminPopup";
 
 const Glossary = (props) =>{
     const [showPopup, setShowPopup] = useState(0);
     const [mode, setMode] = useState('');
-    let [typed, typedUpdate]=useState('')
+    let [typed, typedUpdate]=useState(props.location.search.substring(1));
     let [/*found*/, foundUpdate]=useState(1) //true
+
+    const [title, setTitle] = useState('');
+    const [definition, setDefinition] = useState('');
+    const [usage, setUsage] = useState('');
+
+    const handleTitle = (event) => {
+        setTitle(event.target.value);
+    }
+    const handleDefinition = (event) => {
+        setDefinition(event.target.value);
+    }
+    const handleUsage = (event) => {
+        setUsage(event.target.value);
+    }
     
     const searchTerm=(prop)=>{
         prop.preventDefault()
@@ -27,35 +37,88 @@ const Glossary = (props) =>{
         setShowPopup(!showPopup);
     };
     const toggleEdit = (entry) => {
-        entryToEdit = entry;
+        setTitle(entry.title);
+        setDefinition(entry.definition);
+        setUsage(entry.usage);
         setMode('edit');
         toggleShowPopup();
     };
     const toggleNewEntry = () => {
-        entryToEdit = {
-            title: '',
-            definition: '',
-            usage: ''
-        };
+        setTitle('');
+        setDefinition('');
+        setUsage('');
         setMode('new');
         toggleShowPopup();
     }
+    
+    const submitForm = (event) => {
+        if(mode === 'edit') {
+            axios.put(
+                config.address + '/api/Glossary/' + title,
+                {
+                    title: title,
+                    definition: definition,
+                    usage: usage
+                }
+            )
+            .then((res) => {
+                console.log(res);
+                toggleShowPopup();
+            })
+            .catch((err) => {
+                console.error(err);
+                toggleShowPopup();
+            })
+        }
+        if(mode === 'new') {
+            axios.post(
+                config.address + '/api/Glossary/',
+                {
+                    title: title,
+                    definition: definition,
+                    usage: usage
+                }
+            )
+            .then((res) => {
+                console.log(res);
+                toggleShowPopup();
+            })
+            .catch((err) => {
+                console.error(err);
+                toggleShowPopup();
+            })
+        }
+    }
+
+    console.log(props.location)
 
     return(
         <div>
             <div className = "image-container">
-                <img alt = "Plants" src = { Weebs } width = "100%"/>
+                <img alt = "Plants" src = { Weeds } width = "100%"/>
                 <div class = "text-block">
                     <div>  Glossary Page   </div>
                 </div>
             </div>
-            
-            { showPopup ? <GlossaryPopUp closeFn={toggleShowPopup} entry={entryToEdit} mode={mode} user={props.user} setUser={props.setUser} /> : null}
-            
+            <AdminPopup closeFn={toggleShowPopup} showPopup={showPopup}>
+                <form onSubmit={submitForm}>
+                    <label htmlFor='title'>Title</label>
+                    <input type='text' id='title' value={title} onChange={handleTitle}/>
+
+                    <label htmlFor='definition'>Defintion</label>
+                    <textarea rows='3' id='definition' value={definition} onChange={handleDefinition}/>
+
+                    <label htmlFor='usage'>Usage</label>
+                    <textarea rows='3' id='usage' value={usage} onChange={handleUsage}/>
+
+                    <button type='submit'>Submit</button>
+                </form>
+            </AdminPopup>   
             <div className = "glossary-search" id="search_bar">
                 <form>
                     <input type="text" placeholder="Search Terms..." 
                         onChange={(event)=>{typedUpdate(event.target.value)}}
+                        defaultValue={typed}
                     />
                     <button type="submit" onClick={searchTerm}>Search </button>
                     <button type='button' className='admin-button' onClick={toggleNewEntry}>New</button>

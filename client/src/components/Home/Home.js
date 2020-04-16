@@ -1,10 +1,22 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
 import Carousel from 'react-bootstrap/Carousel';
+import reactStringReplace from 'react-string-replace';
+
 import BodyMap from './home_components/BodyMap.js';
 import RecipeList from './home_components/RecipeList.js';
-import RecipePopUp from './home_components/RecipePopup.js';
 import './Home.css';
+
+import AdminPopup from '../Admin/AdminPopup';
+import { FaTrashAlt } from 'react-icons/fa';
+import { FaPlusSquare } from 'react-icons/fa';
+import carousel_1 from './home_components/images/yellow_flowers.png';
+import carousel_2 from './home_components/images/cutting_berries.png';
+import carousel_3 from './home_components/images/faded_flowers.png';
+
+import Axios from 'axios';
+import config from '../../config.js'
+import Async from 'react-async';
 
 let entryToEdit = {
     name: '',
@@ -23,6 +35,7 @@ const Home = (props) => {
     const [ showPopup, setShowPopup ] = useState(0);
     const [ filterText,setFilterText ] = useState('');
     const [ userLevel, setUserLevel ] = useState(0);
+    const [/*numIngredient*/,setNumIngredients ] = useState(0);
 
     const filterUpdate = (value) => {
         setFilterText(value);
@@ -53,39 +66,140 @@ const Home = (props) => {
         toggleShowPopup();
     };
 
+    const LoadTerms = () => {
+        return Axios.get(
+            config.address + '/api/glossary'
+        )
+        .then(res => {
+            return res.data;
+        })
+        .catch(err => {
+            console.error(err);
+            return err;
+        });
+    };
+
+    const glossarizeText = (text,terms) => {
+        console.log(text);
+        let ret = text;
+        terms.forEach((term) => {
+            ret = reactStringReplace(ret, new RegExp('\\b(' + term.title + ')\\b','gi'), (match,i) => (
+                <Link to={{pathname:'/Glossary', search: term.title}}>{match}</Link>
+            ));
+        });
+        return ret;
+    };
+
     return (
         <div>
             <div>
                 <Carousel>
-                    <Carousel.Item>
+                    <Carousel.Item style={{position:"relative", height:"300px", width:"100%", overflow:"hidden"}}>
                         <img
                             alt="Picsum"
-                            src='http://picsum.photos/id/1023/1440/400'
-                            style={{width:'100%',height:'100%'}}
+                            src={carousel_1}
+                            style={{width:'100%'}}
                         />
                     </Carousel.Item>
-                    <Carousel.Item>
+                    <Carousel.Item style={{position:"relative", height:"300px", width:"100%", overflow:"hidden"}}>
                         <img
                             alt="Picsum"
-                            src='http://picsum.photos/id/189/1440/400'
-                            style={{width:'100%',height:'100%'}}
+                            src={carousel_2}
+                            style={{width:'100%'}}
                         />
                     </Carousel.Item>
-                    <Carousel.Item>
+                    <Carousel.Item style={{position:"relative", height:"300px", width:"100%", overflow:"hidden"}}>
                         <img
                             alt="Picsum"
-                            src='http://picsum.photos/id/159/1440/400'
-                            style={{width:'100%',height:'100%'}}
+                            src={carousel_3}
+                            style={{width:'100%'}}
                         />
                     </Carousel.Item>
                 </Carousel>
             </div>
-            { showPopup ? <RecipePopUp
-                userLevel={userLevel}
-                closeFn={toggleShowPopup}
-                entry={entryToEdit}
-                mode={mode}
-                /> : null}            
+
+            <AdminPopup closeFn={toggleShowPopup} showPopup={showPopup}>
+                { mode === 'view' ?
+                    <div>
+                        <div className='recipe-popup-title'>
+                            {entryToEdit.name}
+                        </div>
+                        { userLevel >= entryToEdit.priviledge ?
+                            <Async promiseFn={LoadTerms}>
+                                {({data,err,isLoading}) => {
+                                    console.log(data);
+                                    if (isLoading) return "Loading...";
+                                    if (err) return `Oops, something went wrong: ${err.message}`
+                                    if (data && Array.isArray(data)) 
+                                    {
+                                        return (
+                                            <div>
+                                                <div className='recipe-popup-description'>
+                                                    {glossarizeText(entryToEdit.description,data)}
+                                                </div>
+                                                <ul>
+                                                    { entryToEdit.ingredients.map((ingredient) => {
+                                                        return (
+                                                            <li>{glossarizeText(ingredient.ingredient,data)} - {ingredient.amount} {ingredient.unit}</li>
+                                                        )
+                                                    })}
+                                                </ul>
+                                            </div>
+                                        )
+                                    }
+                                }}
+                            </Async> 
+                            : <div className='recipe-popup-description'>Subscribe to view this content</div> }
+                    </div>
+                :
+                    <form action='/Recipe'>
+                        <div className='recipe-popup-edit-top-row'>
+                            <label for='name'>Name</label>
+                            <label for='bodypart'>Body Part</label>
+                            <label for='ailment'>Ailment</label>
+                            <input type='text' id='name' defaultValue={entryToEdit.name} />
+                            <input type='text' id='bodypart' defaultValue={entryToEdit.bodypart} />
+                            <input type='text' id='ailment' defaultValue={entryToEdit.ailment} />
+                        </div>
+                        <div className='recipe-popup-edit-ingredients'>
+                            <span>Ingredient</span>
+                            <span>Amount</span>
+                            <span>Unit</span>
+                            <span></span>
+                        </div>
+                        { entryToEdit.ingredients.map((ingredient,i) => {
+                            return (
+                                <div className='recipe-popup-edit-ingredients'>
+                                    <input type='text' defaultValue={ingredient.ingredient} />
+                                    <input type='text' defaultValue={ingredient.amount} />
+                                    <input type='text' defaultValue={ingredient.unit} />
+                                    <FaTrashAlt
+                                        size='1.7em'
+                                        color='red'
+                                        onClick={() => {
+                                            entryToEdit.ingredients.splice(i,1);
+                                            setNumIngredients(entryToEdit.ingredients.length);
+                                        }}
+                                    />
+                                </div>
+                            )
+                        })}
+                        <FaPlusSquare
+                            size='1.7em'
+                            color='green'
+                            onClick={() => {
+                                entryToEdit.ingredients.push([]);
+                                setNumIngredients(entryToEdit.ingredients.length);
+                            }}
+                        />
+                        <label for='description'>Description</label>
+                        <textarea rows='3' id='description' value={entryToEdit.description}/>
+                        
+                        <button type='submit'>Submit</button>
+                    </form>
+                }
+            </AdminPopup>
+
             <div className='home-text-container-1'>
                 <p>
                 You are looking at an amazing tool call H.O.W (Herbs, Oils , Wellbeing) 
@@ -111,7 +225,8 @@ const Home = (props) => {
             </div>
             <div className='body-recipe-container'>
                 <div className='body-column'>
-                    <BodyMap />
+                    <BodyMap filterText= {filterText}
+                        setFilterText = {setFilterText} />
                 </div>
                 <div className='recipe-column'>
                     <div style={{position: 'relative'}}>
@@ -130,7 +245,7 @@ const Home = (props) => {
                     <form className='search' style={{marginTop:"5px"}}>
                         <input 
                             type='text'
-                            placeholder='Search Recipes'
+                            placeholder='Search Recipes...'
                             ref={searchInput}
                             onChange={() => filterUpdate(searchInput.current.value)}
                         />
@@ -142,16 +257,16 @@ const Home = (props) => {
                             </div>
                             :
                             <button type='submit'>Search</button>
-                        }                        
-
-                        
+                        }
                     </form>
+
                     <RecipeList
                         userLevel={userLevel}
                         viewFn={toggleView}
                         editFn={toggleEdit}
                         filterText={filterText}
                     />
+
                 </div>
             </div>
             <div className="email-container">

@@ -5,7 +5,7 @@ const DidYouKnowSchema = new mongoose.Schema({
   title : {type: String, default: "Put title here"},
   date  : {type: Date, default: Date.now},
   body  : {type: String, default: "Insert text here"},
-  sources : [{type: String}],
+  sources : {type: String},
   image :{type: String},
   replies: [{
     threadId : {type: String},

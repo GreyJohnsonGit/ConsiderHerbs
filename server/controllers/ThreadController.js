@@ -92,3 +92,17 @@ exports.getAllTags = function(req,res) {
         res.send(docs[0].tags);
     })
 }
+
+exports.getAllThreadsfromOneUser = function(req,res) {
+    var model = threadModel;
+    model.find({user: req.params.user}).exec().then(function(docs, err){
+        if(err){
+            res.send('error: Thread not found')
+        }
+        else{
+            docs.sort((a,b) => (a.title > b.title) ? 1 : -1);
+            res.header('Access-Control-Allow-Origin', '*');
+            res.send(docs)
+        }
+    })
+}

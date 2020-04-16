@@ -93,4 +93,52 @@ exports.signUp = (req, res) => {
             });
         }
     });
-};
+}
+
+exports.logout = (req, res) => {
+    res.send({
+        success: SessionTable.eliminateSession(req.body.sessionID)
+    });
+}
+
+exports.refresh = (req, res) => {
+    if(SessionTable.verify(req.body.sessionID)) {
+        res.send({
+            success: true,
+            reason: 'Session refreshed',
+            session: SessionTable.refreshSession(req.body.sessionID)
+        });
+    }
+    else {
+        res.send({
+            success: false,
+            reason: 'Stale session'
+        });
+    }
+}
+
+exports.updatePassword = function(req, res) {
+    var model = User;
+    let item = req.body;
+    model.findOne({username: req.params.username}, item).exec().then(function(doc,err){
+        item.username = req.params.username;
+        item.pasword = model.hashPasswordSync(req.params.password);
+        res.send(item);
+    })
+}
+
+exports.getAll = function(req, res) {
+    var model = User;
+    model.find({}).exec().then(function(docs, err){
+        docs.sort((a,b) => (a.username > b.username) ? 1 : -1);
+        res.header('Access-Control-Allow-Origin', '*');
+        res.send(docs);
+    })
+}
+
+exports.getUser = function(req, res) {
+    var model = User;
+    model.find({username : req.params.username}).exec().then(function(docs, err){
+        res.send(docs);
+    })
+}

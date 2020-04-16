@@ -8,7 +8,7 @@ import {useCookies} from 'react-cookie';
 // import { IoIosMenu } from 'react-icons/iSo';
 
 const NavBar = (props) => {
-    const [cookies,, removeCookie] = useCookies([]);
+    const [cookies, removeCookie] = useCookies([]);
 
     const UserButton = () => {
         if(props.user.userLevel) {
@@ -22,7 +22,8 @@ const NavBar = (props) => {
                         });
                     }}>
                     LOG OUT
-                    </a>
+                    </a> */}
+                    <Link className="nav-link-sign-in" to="/Profile">PROFILE</Link>
                 </div>
             );
         }
@@ -44,7 +45,8 @@ const NavBar = (props) => {
                 <Link className = "nav-link" to='/Forum'>FORUM</Link> 
                 <Link className = "nav-link" to='/Glossary'>GLOSSARY</Link>
                 <Link className = "nav-link" to='/About'>ABOUT</Link>
-                <Link className = "nav-link-last" to='/Schedule'>SCHEDULE</Link>
+                <Link className = "nav-link" to='/Schedule'>SCHEDULE</Link>
+                <Link className = "nav-link-last" to='/Products'>PRODUCTS</Link>
                 <UserButton></UserButton>
             </div>
 

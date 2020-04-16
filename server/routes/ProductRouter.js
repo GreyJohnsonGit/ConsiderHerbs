@@ -1,6 +1,6 @@
 ProductController = require('../controllers/ProductController.js');
 express = require('express'); 
-const ProductRouter = express.Router()
+const ProductRouter = express.Router();
 
 ProductRouter.options('/', (req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");

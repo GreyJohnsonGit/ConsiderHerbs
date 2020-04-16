@@ -16,6 +16,7 @@ const loadTermInfo = () => {
     });
 }
 
+
 const TermInfo = (props) => {
 
     let firstLetter = '';
