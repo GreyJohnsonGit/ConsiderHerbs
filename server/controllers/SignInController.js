@@ -1,113 +1,96 @@
 const User = require('../models/User.js');
-const SessionTable = require('../SessionTable.js');
+const AuthenticationTools = require('../AuthenticationTools.js');
+
+const Error = {
+    dbError: {
+        success: false,
+        error: 'A database error has occured'
+    },
+    invalidUsernameOrPassword: {
+        success: false,
+        error: 'Invalid username or password'
+    },
+    invalidMethod: {
+        success: false,
+        error: 'Invalid login method'
+    },
+    usernameUsed: {
+        success: false,
+        error: 'Username already in use',
+    },
+    emailUsed: {
+        success: false,
+        error: 'Email already in use',
+    }
+}
 
 exports.signIn = (req, res) => {
-    let unverifiedUser = new User(req.body);
-
+    let unverifiedUser = req.body;
     User.find({username: unverifiedUser.username}, (err, docs) => {
-        console.log(docs);
         if(err) {
-            res.send({
-                success: false,
-                reason: 'A database error has occured'
-            });
+            res.send(Error.dbError);
         }
         else if (docs.length === 0) {
-            res.send({
-                success: false,
-                reason: 'Invalid username or password'
-            });
+            res.send(Error.invalidUsernameOrPassword);
         }
-        else {
-            if(User.comparePasswordSync(unverifiedUser.password, docs[0].password)) {
-                if(unverifiedUser.method === docs[0].method){
+        else if(unverifiedUser.method !== docs[0].method){
+            res.send(Error.invalidMethod);
+        }
+        else if(User.comparePasswordSync(unverifiedUser.password, docs[0].password) === false) {
+            res.send(Error.invalidUsernameOrPassword)
+        }
+        else{
+            AuthenticationTools.generateSession(docs[0].username, (sessionPkg) => {
+                if(sessionPkg.success === false){
+                    res.send({
+                        success: sessionPkg.success,
+                        error: sessionPkg.error
+                    });
+                }
+                else {
                     res.send({
                         success: true,
-                        reason: 'Valid username and password',
-                        session: SessionTable.generateSession(unverifiedUser.username)
+                        user: {
+                            userLevel: docs[0].userLevel,
+                            session: sessionPkg.session
+                        }
                     });
-                }else{
-                    res.send({
-                        success: false,
-                        reason: 'Invalid login method'
-                    });
+                }
+            });   
+        }
+    });
+}
+
+exports.signUp = (req, res) => {
+    let newUser = req.body;
+    newUser.password = User.hashPasswordSync(newUser.password);
+    newUser.userLevel = 1;
+
+    User.create(newUser, (err) => {
+        if(err) {
+            if(err.code === 11000) {
+                if (err.keyPattern.username === 1) {
+                    res.send(Error.usernameUsed);
+                }
+                else {
+                    res.send(Error.emailUsed);
                 }
             }
             else {
-                res.send({
-                    success: false,
-                    reason: 'Invalid username or password'
-                });
-            }
-        }
-    })
-};
-exports.signUp = (req, res) => {
-    let newUser = new User(req.body);
-    newUser.password = User.hashPasswordSync(newUser.password);
-    newUser.usertype = 'User';
-
-    newUser.save(err => {
-        if(err) {
-            console.log("error: ", err)
-            switch(err.code) {
-
-            case 11000:
-                console.log("duplicate: ", err.keyPattern.username)
-                if (err.keyPattern.username === 1){
-                    res.send({
-                        success: false,
-                        reason: 'Username already in use',
-                    });
-                }else{
-                    res.send({
-                        success: false,
-                        reason: 'Email already in use',
-                    });
-                }
-                break;
-            default:
-                res.send({
-                    success: false,
-                    reason: 'Database Error',
-                });
+                console.error(err)
+                res.send(Error.dbError);
             }
         }
         else {
-            console.log("New User created: ", newUser)
-            res.send({
-                success: true,
-                reason: 'New User Created',
-                session: SessionTable.generateSession(newUser.username)
+            AuthenticationTools.generateSession(newUser.username, (sessionPkg) => {
+                res.send({
+                    success: true,
+                    user: {
+                        userLevel: 0,
+                        session: sessionPkg.session 
+                    }
+                })
             });
         }
     });
 };
-
-exports.verify = (req, res) => {
-    res.send({
-        success: SessionTable.verify(req.body.sessionID)
-    });
-};
-
-exports.logout = (req, res) => {
-    res.send({
-        success: SessionTable.eliminateSession(req.body.sessionID)
-    });
-}
-
-exports.refresh = (req, res) => {
-    if(SessionTable.verify(req.body.sessionID)) {
-        res.send({
-            success: true,
-            reason: 'Session refreshed',
-            session: SessionTable.refreshSession(req.body.sessionID)
-        });
-    }
-    else {
-        res.send({
-            success: false,
-            reason: 'Stale session'
-        });
-    }
-}

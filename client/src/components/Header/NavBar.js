@@ -11,16 +11,14 @@ const NavBar = (props) => {
     const [cookies,, removeCookie] = useCookies([]);
 
     const UserButton = () => {
-        if(props.user.isLoggedIn) {
+        if(props.user.userLevel) {
             return (
                 <div>
                     <a className = "nav-link-sign-in" href='/SignIn' onClick={(e) => {
-                        console.log('link was clicked');
-                        removeCookie('session');
+                        removeCookie('user');
                         props.setUser({
-                            isLoggedIn: false,
                             userLevel: 0,
-                            username: 'Anon'
+                            session: {}
                         });
                     }}>
                     LOG OUT

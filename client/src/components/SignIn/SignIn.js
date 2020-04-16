@@ -10,7 +10,6 @@ import {useCookies} from 'react-cookie';
 import './SignIn.css';
 
 const SignIn = (props) => {
-    
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const usernameHandleChange = (event) => {
@@ -29,24 +28,20 @@ const SignIn = (props) => {
             {
                 username: _username,
                 password: _password,
-                method: _method,
+                method: _method
             }
         )
         .then(res => {
             if(res.data.success) {
-                setCookie('session', res.data.session, {
+                props.setUser(res.data.user);
+                setCookie('user', res.data.user, {
                     path: '/',
-                    expires: new Date(res.data.session.expireTime) 
-                });
-                props.setUser({
-                    isLoggedIn: true,
-                    userLevel: 1,
-                    username: 'SignedIn'
+                    expires: new Date(res.data.user.session.expireTime) 
                 });
                 history.push('home');
             }
             else {
-                setProblem(res.data.reason);
+                setProblem(res.data.error);
             }
         })
         .catch(err => {

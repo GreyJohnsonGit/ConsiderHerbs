@@ -42,23 +42,19 @@ const SignUp = (props) =>{
             )
             .then(res => {
                 if(res.data.success) {
-                    setCookie('session', res.data.session, {
+                    props.setUser(res.data.user);
+                    setCookie('user', res.data.user, {
                         path: '/',
-                        expires: new Date(res.data.session.expireTime) 
-                    });
-                    props.setUser({
-                        isLoggedIn: true,
-                        userLevel: 1,
-                        username: 'SignedIn'
+                        expires: new Date(res.data.user.session.expireTime) 
                     });
                     history.push('home');
                 }
                 else {
-                    setProblem(res.data.reason);
+                    setProblem(res.data.error);
                 }
             })
             .catch(err => {
-                console.error(err);
+                console.error(err)
             });
         }
         else{
