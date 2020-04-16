@@ -8,13 +8,13 @@ import {useCookies} from 'react-cookie';
 // import { IoIosMenu } from 'react-icons/iSo';
 
 const NavBar = (props) => {
-    const [cookies,, removeCookie] = useCookies([]);
+    const [cookies, removeCookie] = useCookies([]);
 
     const UserButton = () => {
         if(props.user.isLoggedIn) {
             return (
                 <div>
-                    <a className = "nav-link-sign-in" href='/SignIn' onClick={(e) => {
+                    {/* <a className = "nav-link-sign-in" href='/SignIn' onClick={(e) => {
                         console.log('link was clicked');
                         removeCookie('session');
                         props.setUser({
@@ -24,7 +24,8 @@ const NavBar = (props) => {
                         });
                     }}>
                     LOG OUT
-                    </a>
+                    </a> */}
+                    <Link className="nav-link-sign-in" to="/Profile">PROFILE</Link>
                 </div>
             );
         }
