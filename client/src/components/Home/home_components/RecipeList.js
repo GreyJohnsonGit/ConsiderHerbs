@@ -47,7 +47,6 @@ const RecipeList = (props) => {
                                     entry.bodypart.toLowerCase().includes(props.filterText.toLowerCase())))
                                 .map((entry,i) => {
                                     //entry.priviledge = 0;
-                                    console.log("Entry",entry)
                                     if (i < 3)
                                     {
                                         entry.priviledge = 0;
