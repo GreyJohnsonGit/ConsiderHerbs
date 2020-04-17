@@ -30,7 +30,6 @@ let mode = 'edit';
 
 const Home = (props) => {
     let searchInput = React.createRef();
-    let userLevelSelect = React.createRef();
 
     const [ showPopup, setShowPopup ] = useState(0);
     const [ filterText,setFilterText ] = useState('');
@@ -95,25 +94,27 @@ const Home = (props) => {
         return ret;
     };
 
+    console.log(props)
+
     return (
         <div>
             <div>
                 <Carousel>
-                    <Carousel.Item style={{position:"relative", height:"300px", width:"100%", overflow:"hidden"}}>
+                    <Carousel.Item style={{height:"300px", width:"100%", overflow:"hidden"}}>
                         <img
                             alt="Picsum"
                             src={carousel_1}
                             style={{width:'100%'}}
                         />
                     </Carousel.Item>
-                    <Carousel.Item style={{position:"relative", height:"300px", width:"100%", overflow:"hidden"}}>
+                    <Carousel.Item style={{height:"300px", width:"100%", overflow:"hidden"}}>
                         <img
                             alt="Picsum"
                             src={carousel_2}
                             style={{width:'100%'}}
                         />
                     </Carousel.Item>
-                    <Carousel.Item style={{position:"relative", height:"300px", width:"100%", overflow:"hidden"}}>
+                    <Carousel.Item style={{height:"300px", width:"100%", overflow:"hidden"}}>
                         <img
                             alt="Picsum"
                             src={carousel_3}
@@ -129,7 +130,7 @@ const Home = (props) => {
                         <div className='recipe-popup-title'>
                             {entryToEdit.name}
                         </div>
-                        { userLevel >= entryToEdit.priviledge ?
+                        { props.user.userLevel >= entryToEdit.priviledge ?
                             <Async promiseFn={LoadTerms}>
                                 {({data,err,isLoading}) => {
                                     console.log(data);
@@ -159,12 +160,18 @@ const Home = (props) => {
                 :
                     <form action='/Recipe'>
                         <div className='recipe-popup-edit-top-row'>
-                            <label for='name'>Name</label>
-                            <label for='bodypart'>Body Part</label>
-                            <label for='ailment'>Ailment</label>
+                            <label htmlFor='name'>Name</label>
+                            <label htmlFor='bodypart'>Body Part</label>
+                            <label htmlFor='ailment'>Ailment</label>
+                            <label htmlFor='tier'>Tier</label>
                             <input type='text' id='name' defaultValue={entryToEdit.name} />
                             <input type='text' id='bodypart' defaultValue={entryToEdit.bodypart} />
                             <input type='text' id='ailment' defaultValue={entryToEdit.ailment} />
+                            <select id='tier'>
+                                <option value='0' selected={entryToEdit.priviledge == 0}>Guest</option>
+                                <option value='1' selected={entryToEdit.priviledge == 1}>Subscriber</option>
+                                <option value='2' selected={entryToEdit.priviledge == 2}>Premium</option>
+                            </select>
                         </div>
                         <div className='recipe-popup-edit-ingredients'>
                             <span>Ingredient</span>
@@ -236,16 +243,6 @@ const Home = (props) => {
                 <div className='recipe-column'>
                     <div style={{position: 'relative'}}>
                         <h2>Select Your Area of Discomfort</h2>
-                        <select
-                            onChange={() => setUserLevel(userLevelSelect.current.value)}
-                            ref={userLevelSelect} 
-                            style={{position: 'absolute', left: '95%', top: '0%'}} 
-                            id='user-level'>
-                            <option value='0'>0</option>
-                            <option value='1'>1</option>
-                            <option value='2'>2</option>
-                            <option value='3'>3</option>
-                        </select>
                     </div>
                     <form className='search' style={{marginTop:"5px"}}>
                         <input 
@@ -255,7 +252,7 @@ const Home = (props) => {
                             onChange={() => filterUpdate(searchInput.current.value)}
                         />
 
-                        { userLevel === 3 ? 
+                        { props.user.userLevel === 3 ? 
                             <div>
                                 <button type='submit'>Search</button>
                                 <button type='button' onClick={toggleNewEntry}>New Recipe</button>
@@ -266,7 +263,7 @@ const Home = (props) => {
                     </form>
 
                     <RecipeList
-                        userLevel={userLevel}
+                        userLevel={props.user.userLevel}
                         viewFn={toggleView}
                         editFn={toggleEdit}
                         filterText={filterText}

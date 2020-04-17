@@ -14,7 +14,7 @@ const NavBar = (props) => {
         if(props.user.userLevel) {
             return (
                 <div>
-                    <a className = "nav-link-sign-in" href='/SignIn' onClick={(e) => {
+                    {/*<a className = "nav-link-sign-in" href='/SignIn' onClick={(e) => {
                         removeCookie('user');
                         props.setUser({
                             userLevel: 0,
