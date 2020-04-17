@@ -1,10 +1,11 @@
 import Async from 'react-async';
 import Axios from 'axios';
-import React from 'react';
+import React, {useState} from 'react';
+import config from '../../../config.js'
 
 const loadTermInfo = () => {
     return Axios.get(
-        "https://consider-herbs.herokuapp.com/api/glossary" //DEBUG ADDRESS
+        config.address + '/api/glossary'
     )
     .then(res => {
         return res.data;
@@ -15,7 +16,9 @@ const loadTermInfo = () => {
     });
 }
 
+
 const TermInfo = (props) => {
+
     let firstLetter = '';
     let id = '';
 
@@ -58,8 +61,22 @@ const TermInfo = (props) => {
                                         </div>
                                         <div>
                                             <h1>{glossaryEntry.title}</h1>
-                                            <button className='admin-button' onClick={() => props.editFn(glossaryEntry)}>Edit</button>
-                                            <button className='admin-button'>Delete</button>
+                                            <form>
+                                                <button type='button' className='admin-button' onClick={() => props.editFn(glossaryEntry)}>Edit</button>
+                                                <button type='submit' className='admin-button' onClick={(event) => {
+                                                    Axios.delete(
+                                                        config.address + '/api/Glossary/' + glossaryEntry.title
+                                                    )
+                                                    .then((res) => {
+                                                        window.location.reload();
+                                                    })
+                                                    .catch((err) => {
+                                                        console.error(err);
+                                                    })
+                                                }}>
+                                                Delete
+                                                </button>
+                                            </form>
                                             <table>
                                                 <tr>
                                                     <th>Definition</th>

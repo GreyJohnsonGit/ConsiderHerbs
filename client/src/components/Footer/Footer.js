@@ -17,7 +17,7 @@ const iconSize = '1.75em'
 
 const Footer=()=>{
     return(
-        <footer id= "footer">
+        <footer id= "footer" style={{zIndex:"98"}}>
             {/*<img className = "footer-logo" src={ TempLogo } alt="logo" />*/}
             <div className="footer-container">
                 <div className="text-container">Consider Herbs</div>
@@ -25,7 +25,6 @@ const Footer=()=>{
                     <h1>Fast Links:</h1>
                     <a href='/Home'>Home</a>
                     <a href='/Forum'>Forum</a>
-                    <a href='/DidYouKnow'>Did you know?</a> 
                     <a href='/Glossary'>Glossary</a>
                     <a href='/About'>About</a>
                     <a href='/Schedule'>Schedule</a>

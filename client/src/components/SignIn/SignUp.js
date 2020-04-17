@@ -1,20 +1,18 @@
 import React, {useState} from 'react'
-import { MdClose } from 'react-icons/md';
+//import { MdClose } from 'react-icons/md';
 import Axios from 'axios';
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
+import './SignIn.css';
+import config from '../../config.js';
+import {useCookies} from 'react-cookie';
 import {useHistory} from 'react-router-dom';
-import './SignIn.css'
 
-const SignUp = () =>{
-    const history = useHistory();
-    const [signedUp, setSignedUp] = useState(false);
+const SignUp = (props) =>{
     const [username, setUsername] = useState('');
-    const [email, setEmail] = useState('');
+    const [email, setEmail] = useState(props.location.state ? props.location.state.email : '');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
-    const [problem, setProblem] = useState('');
-
     const usernameHandleChange = event => {
         setUsername(event.target.value);
     }
@@ -27,118 +25,58 @@ const SignUp = () =>{
     const confirmPasswordHandleChange = event => {
         setConfirmPassword(event.target.value);
     }
-    const signedUpHandleChange = event => {
-        setSignedUp(!signedUp);
+
+    const history = useHistory();
+    const [, setCookie, ] = useCookies([]);
+    const [problem, setProblem] = useState('');
+    const attemptLogin = (_username, _email, _password, _confirmPassword, _method) => {
+        if(_password === _confirmPassword){
+            Axios.post(
+                config.address + '/api/Authentication/SignUp',
+                {
+                    username: _username,
+                    email: _email,
+                    password: _password,
+                    method: _method
+                }
+            )
+            .then(res => {
+                if(res.data.success) {
+                    props.setUser(res.data.user);
+                    setCookie('user', res.data.user, {
+                        path: '/',
+                        expires: new Date(res.data.user.session.expireTime) 
+                    });
+                    history.push('home');
+                }
+                else {
+                    setProblem(res.data.error);
+                }
+            })
+            .catch(err => {
+                console.error(err)
+            });
+        }
+        else{
+            setProblem("Password does not match");
+        }
     }
 
-    const attemptLogin = event => {
+    const responseSignInForm = (event) => {
         event.preventDefault();
-        if(password===confirmPassword){
-        Axios.post(
-            //'https://consider-herbs.herokuapp.com/api/Authentication/SignUp', //DEBUG ADDRESS
-            'http://localhost:5000/api/Authentication/SignUp', ///////For running locally
-            {
-                username: username,
-                email: email,
-                password: password,
-                method: 'Email'
-            },
-            {}
-        )
-        .then(res => {
-            console.log(res.data);
-            if(!res.data.success){
-                setProblem(res.data.reason)
-            }else{
-                setProblem("")
-                setEmail("")
-                setPassword("")
-                setUsername("")
-                setConfirmPassword("")
-                history.push('home')
-            }
-        })
-        .catch(err => {
-            console.error(err)
-        });
-    }else{
-        setProblem("Password does not match")
-    }
+        attemptLogin(username, email, password, confirmPassword, 'Email');
     }
 
     const responseGoogle = (response) => {
-        console.log(response);
-        let profile = response.getBasicProfile();
-        console.log('Name: ' + profile.getName());
-        console.log("Email: " + profile.getEmail());
-        let id_token = response.getAuthResponse().id_token;
-        Axios.post(
-            //'https://consider-herbs.herokuapp.com/api/Authentication/SignUp', //DEBUG ADDRESS
-            'http://localhost:5000/api/Authentication/SignUp', ///////For running locally
-            {
-                username: profile.getName(),
-                email: profile.getEmail(),
-                password: profile.getEmail(),
-                method: 'Gmail'
-            },
-            {}
-        )
-        .then(res => {
-            console.log(res.data);
-            if(!res.data.success){
-                setProblem(res.data.reason)
-            }else{
-                history.push('home')
-            }
-        })
-        .catch(err => {
-            console.error(err)
-        });
+        attemptLogin(response.getBasicProfile().getName(), response.getBasicProfile().getEmail(), response.getBasicProfile().getEmail(), response.getBasicProfile().getEmail(), 'Google');
     }
 
     const responseFacebook = (profile) => {
-        console.log(profile);
-        console.log('Name: ' + profile.name);
-        console.log("Email: " + profile.email);
-        Axios.post(
-            //'https://consider-herbs.herokuapp.com/api/Authentication/SignUp', //DEBUG ADDRESS
-            'http://localhost:5000/api/Authentication/SignUp', ///////For running locally
-            {
-                username: profile.name,
-                email: profile.email,
-                password: profile.email,
-                method: 'Facebook'
-            },
-            {}
-        )
-        .then(res => {
-            console.log(res.data);
-            if(!res.data.success){
-                setProblem(res.data.reason)
-            }else{
-                history.push('home')
-            }
-        })
-        .catch(err => {
-            console.error(err)
-        });
+        attemptLogin(profile.name, profile.email, profile.email, profile.email, 'Facebook');
     }
-   
-    return(
-        <div>
-        { signedUp ? 
-            <div>
-                <div className='message-popup'>
-                    <div className='message-inner'>
-                        <MdClose className='new-thread-close-icon' size='1em' onClick={signedUpHandleChange} />
-                        <form >
-                            <div> You're all set!  </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
 
-        : null}
+    return(
+        <div className='sign-row-container'>
 
            <div className = "green-bar"> &nbsp; </div>
             <form className = "input-container"> 
@@ -147,9 +85,7 @@ const SignUp = () =>{
                 <input placeholder="Email" className="enter" value={email} onChange={emailHandleChange} type="text" required/>
                 <input placeholder="Password" className="enter" value={password} onChange={passwordHandleChange} type="password" required/>
                 <input placeholder="Confirm Password" className="enter" value={confirmPassword} onChange={confirmPasswordHandleChange} type="password" required/>
-
-
-                <button type = "submit" className = "sign-in" onClick={attemptLogin}> Sign Up </button>
+                <button type = "submit" className = "sign-in" onClick={responseSignInForm}> Sign Up </button>
                 <div className = "error">
                     {problem}
                 </div>
@@ -160,33 +96,24 @@ const SignUp = () =>{
                 </div>
             </form>
             <div className = "blank-container">
-                <div className = "detail"> Login with your social media account </div>
-
+                <div className = "detail"> Sign up with an external account </div>
                 <div className = "button-container">
-                <FacebookLogin
-                            
-                            type = "submit" className = "facebook"
-                            appId="282495236070074"
-                            fields="name,email,picture"
-                            callback={responseFacebook}
-                            textButton= "Facebook"
-                            icon="fa-facebook"
-                            version = "6.0"
-                        />
+                    <FacebookLogin
+                        type = "submit" className = "facebook"
+                        appId="282495236070074"
+                        fields="name,email,picture"
+                        callback={responseFacebook}
+                        textButton= "Facebook"
+                        icon="fa-facebook"
+                        version = "6.0"
+                    />
                     <GoogleLogin type = "submit" className="google"
                         buttonText="Google"
                         onSuccess={responseGoogle}
                         onFailure={responseGoogle}
-                        />
+                    />
                 </div>
-
-                <div className="redirect">
-
-                </div>
-
             </div>
-            
-            
         </div>
     )
 }
