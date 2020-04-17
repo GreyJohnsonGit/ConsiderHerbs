@@ -3,6 +3,7 @@ import Axios from 'axios';
 import React, {useState} from 'react';
 import config from '../../../config.js';
 
+
 const loadProductInfo = () => {
     return Axios.get(
         config.address + '/api/Products/'
@@ -18,7 +19,7 @@ const loadProductInfo = () => {
 
 const ConsiderProducts = (props) => {
     return (
-            <div>
+            <div id="grid-container"> 
                 <Async promiseFn={loadProductInfo}>
                     {({data, err, isLoading}) => {
                         if (isLoading) return "Loading...";
@@ -26,8 +27,8 @@ const ConsiderProducts = (props) => {
                             if (data && Array.isArray(data)) {
                                 return (
                                     data.filter(entry => (
-                                        entry.name.toLowerCase().includes(props.typed.toLowerCase()) || 
-                                        entry.description.toLowerCase().includes(props.typed.toLowerCase()) ||
+                                        (entry.name.toLowerCase().includes(props.typed.toLowerCase()) || 
+                                        entry.description.toLowerCase().includes(props.typed.toLowerCase())) && 
                                         entry.type.includes("ConsiderHerbs")))
                                     .map((productEntry) => {
                                     return (

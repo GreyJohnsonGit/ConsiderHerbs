@@ -18,7 +18,7 @@ const loadProductInfo = () => {
 
 const AffiliatedProducts = (props) => {
     return (
-            <div>
+            <div id="grid-container">
                 <Async promiseFn={loadProductInfo}>
                     {({data, err, isLoading}) => {
                         if (isLoading) return "Loading...";
@@ -26,8 +26,8 @@ const AffiliatedProducts = (props) => {
                             if (data && Array.isArray(data)) {
                                 return (
                                     data.filter(entry => (
-                                        entry.name.toLowerCase().includes(props.typed.toLowerCase()) || 
-                                        entry.description.toLowerCase().includes(props.typed.toLowerCase()) ||
+                                        (entry.name.toLowerCase().includes(props.typed.toLowerCase()) || 
+                                        entry.description.toLowerCase().includes(props.typed.toLowerCase())) &&
                                         entry.type.includes("Affiliate")))
                                     .map((productEntry) => {
                                         return (
