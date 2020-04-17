@@ -9,6 +9,7 @@
     font-size: 18px;
     padding-top: 5px;
     padding-bottom: 5px;
+    font-weight: bold;
     color: #363636;
 }
 
@@ -53,14 +54,10 @@
 
 .nav-link:hover {
     text-decoration: underline;
-    color: #363636;
-    font-weight: bold;
 }
 
 .nav-link-last:hover {
     text-decoration: underline;
-    color: #363636;
-    font-weight: bold;
 }
 
 .nav-link-sign-in {
@@ -72,6 +69,4 @@
 }
 .nav-link-sign-in:hover {
     background-color: #898a8a;
-    color: #FFFFFF;
-    font-weight: bold;
 }

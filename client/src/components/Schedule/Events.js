@@ -2,9 +2,9 @@ import Async from 'react-async';
 import Axios from 'axios';
 import React from 'react';
 
-const loadTermInfo = () => {
+const loadEvents = () => {
     return Axios.get(
-        "https://consider-herbs.herokuapp.com/api/glossary" //DEBUG ADDRESS
+        "https://consider-herbs.herokuapp.com/api/Events" //DEBUG ADDRESS
     )
     .then(res => {
         return res.data;
@@ -15,25 +15,25 @@ const loadTermInfo = () => {
     });
 }
 
-const TermInfo = (props) => {
+const EventList = (props) => {
     let firstLetter = '';
     let id = '';
 
     return(
         <div>
-            <Async promiseFn={loadTermInfo}>
+            <Async promiseFn={loadEvents}>
                 {({data, err, isLoading}) => {
                     if (isLoading) return "Loading...";
                     if (err) return `Oops, something went wrong: ${err.message}`
                     if (data && Array.isArray(data)) {
                         return (
                             data.filter(term=>term.title.toLowerCase().includes(props.lookingFor.toLowerCase()))
-                            .map((glossaryEntry) => {
+                            .map((Event) => {
                                 //if(data.length <= 0){
                                   //  <b> Sorry we couldn't find the term you were looking for</b>
                                 //}
                                 //props.foundUp()
-                                if (glossaryEntry.title.charAt(0) >= '0' && glossaryEntry.title.charAt(0) <= '9')
+                                if (Event.title.charAt(0) >= '0' && Event.title.charAt(0) <= '9')
                                 {
                                     if (firstLetter ===  '')
                                     {
@@ -41,9 +41,9 @@ const TermInfo = (props) => {
                                         id = firstLetter;
                                     }
                                 }
-                                else if (firstLetter !== glossaryEntry.title.charAt(0).toUpperCase())
+                                else if (firstLetter !== Event.title.charAt(0).toUpperCase())
                                 {
-                                    firstLetter = glossaryEntry.title.charAt(0).toUpperCase();
+                                    firstLetter = Event.title.charAt(0).toUpperCase();
                                     id = firstLetter;
                                 }
                                 else
@@ -57,17 +57,17 @@ const TermInfo = (props) => {
                                             {id}
                                         </div>
                                         <div>
-                                            <h1>{glossaryEntry.title}</h1>
-                                            <button className='admin-button' onClick={() => props.editFn(glossaryEntry)}>Edit</button>
+                                            <h1>{Event.title}</h1>
+                                            <button className='admin-button' onClick={() => props.editFn(Event)}>Edit</button>
                                             <button className='admin-button'>Delete</button>
                                             <table>
                                                 <tr>
                                                     <th>Definition</th>
-                                                    <td>{glossaryEntry.definition}</td>
+                                                    <td>{Event.definition}</td>
                                                 </tr>
                                                 <tr>
                                                     <th>Usage</th>
-                                                    <td>{glossaryEntry.usage}</td>
+                                                    <td>{Event.usage}</td>
                                                 </tr>
                                             </table>
                                         </div>
@@ -84,4 +84,4 @@ const TermInfo = (props) => {
     );
 }
 
-export default TermInfo;
+export default EventList;

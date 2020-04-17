@@ -1,46 +1,42 @@
-const ProductModel = require('../models/Product.js');
+const EventModel = require('../models/Event.js');
 
 exports.create = function(req,res) {
-    var model = ProductModel;
-    let ProductItem = new model(req.body);
+    var model = EventModel;
+    let EventItem = new model(req.body);
 
-    ProductItem.save(function(err){
+    EventItem.save(function(err, doc){
         if (err) {
             console.log(err);
         }
         else {
-            res.send({
-                success: true
-            })
+            res.send(doc)
         }
     })
 }
 
 exports.read = function(req, res) {
-    var model = ProductModel;
+    var model = EventModel;
     model.find({name: req.params.name}).exec().then(function(docs, err){
         if(err){
-            res.send('error: Product not found')
+            res.send('error: Event not found')
         }
         else{
-            //assumes the Product_id is unique and only one result will be returned - can change to some id param later
             res.send(docs[0])
         }
     })
 }
 
 exports.update = function(req, res) {
-    var model = ProductModel;
+    var model = EventModel;
     let item = req.body;
     model.findOneAndUpdate({name: req.params.name}, item).exec();
-    //make the response pretty
     item.name = req.params.name;
     res.send(item);
 }
 
-//removes Product entry, expects url param :name to denote which entry to remove
+//removes Event entry, expects url param :name to denote which entry to remove
 exports.remove = function(req, res) {
-    var model = ProductModel;
+    var model = EventModel;
     model.find({name: req.params.name}).exec().then(function(docs, err){
         if(err){
             res.send(err.message);
@@ -55,9 +51,9 @@ exports.remove = function(req, res) {
     })
 }
 
-//returns all Products in the database, sorted alphabetically by name
+//returns all Events in the database, sorted alphabetically by name
 exports.getAll = function(req, res) {
-    var model = ProductModel;
+    var model = EventModel;
     model.find({}).exec().then(function(docs, err){
         docs.sort((a,b) => (a.name > b.name) ? 1 : -1);
         res.header('Access-Control-Allow-Origin', '*');
@@ -65,10 +61,17 @@ exports.getAll = function(req, res) {
     })
 }
 
-// returns price of given Product
-exports.giveProductPrice = function(req,res) {
-    var model = ProductModel;
+// returns price of given Event
+exports.giveEventPrice = function(req,res) {
+    var model = EventModel;
     model.find({name: req.params.name}).exec().then(function(docs, err){
         res.send(docs[0].price);
+    })
+}
+
+exports.getEventDate = function(req,res) {
+    var model = EventModel;
+    model.find({name: req.params.name}).exec().then(function(docs, err){
+        res.send(docs[0].date);
     })
 }

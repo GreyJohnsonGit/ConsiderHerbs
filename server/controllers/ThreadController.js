@@ -10,14 +10,13 @@ exports.create = function(req,res) {
         }
         else {
             res.send(doc)
-            console.log(doc);
         }
     })
 }
 
 exports.read = function(req, res) {
     var model = threadModel;
-    model.find({_id: req.params.thread_id}).exec().then(function(docs, err){
+    model.find({title: req.params.title}).exec().then(function(docs, err){
         if(err){
             res.send('error: Thread not found')
         }
@@ -91,19 +90,5 @@ exports.getAllTags = function(req,res) {
     var model = threadModel;
     model.find({title: req.params.title}).exec().then(function(docs,err) {
         res.send(docs[0].tags);
-    })
-}
-
-exports.getAllThreadsfromOneUser = function(req,res) {
-    var model = threadModel;
-    model.find({user: req.params.user}).exec().then(function(docs, err){
-        if(err){
-            res.send('error: Thread not found')
-        }
-        else{
-            docs.sort((a,b) => (a.title > b.title) ? 1 : -1);
-            res.header('Access-Control-Allow-Origin', '*');
-            res.send(docs)
-        }
     })
 }

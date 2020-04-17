@@ -1,205 +1,194 @@
 .green-bar {
-  width: 520px;
-  height: 30px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 10px;
-  background-color: #A6CC78;
-}
+    width: 35%;
+    height: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    background-color: #A6CC78;
+  }
 
-.sign-row-container {
-  margin-bottom: 60px;
-}
+  .input-container {
+    background-color: #F3F3F3;
+    width: 35%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding-top: 25px;
+  }
 
-.input-container {
-  background-color: #F3F3F3;
-  width: 520px;
-  height: auto;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  padding-top: 25px;
-}
-.input-container input {
-  border: none;
-  font-family: Ubuntu-R;
-}
-.input-container button {
-  font-family: Ubuntu-R;
-}
-.input-container button:hover {
-  background-color: #898a8a;
-}
+  .blank-container {
+    background-color: #F3F3F3;
+    width: 35%;
+    height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
 
-.blank-container {
-  background-color: #F3F3F3;
-  width: 520px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  padding-bottom: 20px;
-}
+  .sign-in {
+    background-color: #636363;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    width: 94%;
+    font-size: 24px;
+    color: #ffffff;
+    border: none;
+    text-align: center;
+    font-family: ubuntu;
+  }
 
-.sign-in {
-  background-color: #636363;
-  margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  width: 90%;
-  font-size: 24px;
-  color: #ffffff;
-  border: none;
-  text-align: center;
-  font-family: Ubuntu-R;
-}
+  .SignIn:hover {
+      background-color: #898a8a;
+  }
 
-.SignIn:hover {
-    background-color: #898a8a;
-}
+  .enter {
+    background-color: #E5E5E5;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: left;
+    width: 90%;
+    font-size: 24px;
+    color: #363636;
+    font-family: ubuntu;
+  }
 
-.enter {
-  background-color: #E5E5E5;
-  margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 20px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  text-align: left;
-  width: 90%;
-  font-size: 24px;
-  color: #363636;
-  font-family: Ubuntu-R;
-}
+  .redirect {
+      padding-top: 20px;
+      padding-bottom: 60px;
+      text-align: center;
+      font-size: 18px;
 
-.redirect {
-    padding-top: 20px;
-    padding-bottom: 60px;
+  }
+
+  .redirect-signup {
+    padding-top: 10px;
+    padding-bottom: 20px;
     text-align: center;
     font-size: 18px;
+  }  
+  
+  .sign-up {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 18px;
+    color: #363636;
+    font-family: ubuntu;
+    background-color: none;
 
-}
+  }  
+  .sign-up:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
 
-.redirect-signup {
-  padding-top: 10px;
-  padding-bottom: 20px;
-  text-align: center;
-  font-size: 18px;
-}  
+  .or {
+    display: grid;
+    grid-template-columns: 40% auto 40%;
+    font-size: 18px;
+    padding-top: 20px;
+    padding-left: 6%;
+    padding-right: 6%;
+  }
 
-.sign-up {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  text-decoration: none;
-  text-align: center;
-  font-size: 18px;
-  color: #363636;
-  font-family: Ubuntu-R;
-  background-color: none;
+  hr {
+    border: none;
+    background-color: #B4B4B4;
+    width: 100%;
+  }
 
-}  
-.sign-up:hover {
-  text-decoration: underline;
-  cursor: pointer;
-}
+  .button-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    padding-top: 20px;
 
-.or {
-  display: grid;
-  grid-template-columns: 40% auto 40%;
-  font-size: 18px;
-  padding-top: 20px;
-  padding-left: 6%;
-  padding-right: 6%;
-}
+  }
 
-hr {  
-  color: #636363;
-  width: 100%;
-}
+  .facebook {
+    border: none;
+    background-color: #337AB7;
+    color: #ffffff;
+    font-family: ubuntu;
+    font-size: 24px;
+    margin-left: 6%;
+    margin-right: 2%;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
 
-.button-container {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  padding-top: 20px;
-}
+  .facebook:hover {
+    background-color: #1C5292;
+  }
 
-.facebook {
-  border: none;
-  background-color: #337AB7;
-  color: #ffffff;
-  font-family: Ubuntu-R;
-  font-size: 24px;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  width: 75%;
-  margin: 0 auto;
-}
+  .google {
+    border: none;
+    background-color: #D9534F;
+    color: #ffffff;
+    font-family: ubuntu;
+    font-size: 24px;
+    margin-right: 6%;
+    margin-left: 2%;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
 
-.facebook:hover {
-  background-color: #1C5292;
-}
+  .google:hover {
+      background-color: #C23230;
+  }
 
-.google {
-  border: none;
-  background-color: #D9534F;
-  color: #ffffff;
-  font-family: Ubuntu-R;
-  font-size: 24px;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  width: 176px;
-  margin: 0 auto;
-}
+  .detail {
+      padding-top: 35px;
+      font-size: 14px;
+  }
 
-.google:hover {
-    background-color: #C23230;
-}
+  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #636363;
+    opacity: 40%; /* Firefox */
+  }
 
-.detail {
-    padding-top: 10px;
-    font-size: 14px;
-}
+  /*Pop up Message*/
 
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #636363;
-  opacity: 40%; /* Firefox */
-}
+  .message-popup {
+    position: fixed;  
+    width: 100%;  
+    height: 100%;  
+    top: 0;  
+    left: 0;  
+    right: 0;  
+    bottom: 0;  
+    margin: auto;  
+    background-color: rgba(0,0,0, 0.5);  
+  }
 
-/*Pop up Message*/
-
-.message-popup {
-  position: fixed;  
-  width: 100%;  
-  height: 100%;  
-  top: 0;  
-  left: 0;  
-  right: 0;  
-  bottom: 0;  
-  margin: auto;  
-  background-color: rgba(0,0,0, 0.5);  
-}
-
-.message-inner {
-  position: fixed;  
-  left: 43%;  
-  right: 43%;  
-  top: 43%;  
-  bottom: 43%;  
-  margin: auto;  
-  border-radius: 10px;  
-  color: white;
-  background: rgba(155, 179, 155, 0.76);
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  font-family: Ubuntu-R;
-  font-size: 30px;
-  text-shadow: #636363;
-}
-
-.error {
-  color: red;
-}
+  .message-inner {
+    position: fixed;  
+    left: 43%;  
+    right: 43%;  
+    top: 43%;  
+    bottom: 43%;  
+    margin: auto;  
+    border-radius: 10px;  
+    color: white;
+    background: rgba(155, 179, 155, 0.76);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-family: ubuntu;
+    font-size: 30px;
+    text-shadow: #636363;
+  }
+  
+  .error {
+    color: red;
+  }
+  

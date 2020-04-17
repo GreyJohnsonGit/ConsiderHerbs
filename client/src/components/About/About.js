@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './About.css';
 import { Link } from 'react-router-dom'
 import PlantIcon from './plant-icon.png'
@@ -6,12 +6,6 @@ import Forest from './rosemary-forest.jpg'
 
 
 const About =()=>{
-    const [ email, setEmail ] = useState('');
-
-    const emailHandleChange = event => {
-        setEmail(event.target.value);
-    }
-
     return(
         <div>
             <div className="image-container">
@@ -30,8 +24,10 @@ const About =()=>{
                 <h1>Oh, won't you consider herbs with us?</h1>
                 <h3>Subscribe to view exclusive content</h3>
                 <form>
-                    <input type='text' onChange={emailHandleChange} value={email} placeholder='Enter your email here...' />
-                    <Link className="sign-up-about" to={{pathname:"/SignUp",state:{email: email}}}>Sign Up</Link>
+                    <input type='text' placeholder='Enter your email here...' />
+                    {/*<button type='submit'>Sign Up</button>*/}
+                    <Link className="sign-up-about" to="../SignIn/SignUp"> Sign Up </Link>
+                    
                 </form>
             </div>
             <div className="bottom-container">
