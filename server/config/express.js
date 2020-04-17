@@ -14,9 +14,6 @@ const signinRouter = require('../routes/signinRouter');
 const exampleRouter = require('../routes/examples.server.routes');
 const recipeRouter = require('../routes/recipeRouter');
 const productRouter = require('../routes/ProductRouter');
-const EventRouter = require('../routes/EventRouter');  
-
-
 
 
 module.exports.init = () => {
@@ -51,11 +48,7 @@ module.exports.init = () => {
     app.use('/api/Schedule', scheduleRouter);
     app.use('/api/SignIn', signinRouter);
     app.use('/api/Recipe', recipeRouter);
-
     app.use('/api/Product', productRouter);
-    app.use('/api/Event', EventRouter);
-
-
 
     if (process.env.NODE_ENV === 'production') {
         // Serve any static files

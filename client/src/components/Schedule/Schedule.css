@@ -7,7 +7,7 @@
 
 .sch-image-div {
     position: relative;
-    height:600px;
+    height:500px;
     width: 100%;
     overflow: hidden;
 }
@@ -18,26 +18,15 @@
     top: 25%;
     height: 100%;
     width: 100%;
-    font-size: 3.7em;
-    color: white;
-    text-align: center;
-    display: inline-block;
-    vertical-align: middle ;
-}
-.sch-below-title {
-    position: absolute;
-    top: 37%;
-    height: 100%;
-    width: 100%;
-    font-size: 3em;
+    font-size: 4em;
     color: white;
     text-align: center;
     display: inline-block;
     vertical-align: middle;
 }
-.sch-below-2 {
+.sch-below-title {
     position: absolute;
-    top: 51%;
+    top: 37%;
     height: 100%;
     width: 100%;
     font-size: 3em;
@@ -82,33 +71,4 @@ color: #FFFFFF;
     overflow: hidden;
     width: 100%;
     height: auto;
-    text-align: center;
-}
-
-
-.calendar{
-    margin: auto;
-    width: 90%;
-    content: "";
-    display: table;
-    clear: both;
-    border: 3px solid ;
-}
-
-.CalandarTitle{
-    margin: auto;
-    width: 50%;
-    border: 3px solid green;
-    text-align: center;
-}
-
-.dayCol{
-    float: left;
-    width: calc(100%/7);
-    border: 3px solid green;
-    text-align: center;
-}
-.dayLabel{
-    border: 3px solid;
-    text-align: center;
 }
