@@ -15,6 +15,7 @@ const loadEvents = () => {
     });
 }
 
+
 const EventList = (props) => {
     let firstLetter = '';
     let id = '';
