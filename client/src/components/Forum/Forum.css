@@ -414,14 +414,22 @@
 
 .new-thread-inner {
     position: absolute;  
-    left: 16%;  
-    right: 16%;  
-    top: 15%;  
+    left: 50%;  
+    top: 50%;  
+    transform: translate(-50%,-50%);
     height: auto; 
     margin: auto;  
     background: white;
     display: flex;
     flex-direction: column;
+    overflow: scroll;
+    max-height: 90%;
+    max-width: 90%;
+    width: 700px;
+}
+
+.new-thread-inner::-webkit-scrollbar {
+    display: none;
 }
 
 .new-thread-inner #title-container {

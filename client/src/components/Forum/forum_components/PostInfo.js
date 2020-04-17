@@ -70,7 +70,7 @@ const PostInfo = (props) => {
                                                     <h3>posted by Dee on {didYouKnowEntry.date}</h3>
 
                                                     <div id="image">
-                                                        <img src={didYouKnowEntry} style={{width:"100%"}} />
+                                                        <img src={didYouKnowEntry.image} style={{width:"100%"}} />
                                                     </div>
 
                                                     <div>

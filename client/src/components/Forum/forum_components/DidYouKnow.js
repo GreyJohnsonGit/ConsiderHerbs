@@ -16,7 +16,7 @@ const DidYouKnow = (props) => {
     const [mode, setMode] = useState('');
 
     const [title, setTitle] = useState('');
-    const [image, setImage] = useState([]);
+    const [image, setImage] = useState('');
     const [body, setBody] = useState('');
     const [sources, setSources] = useState('');
 
@@ -24,7 +24,7 @@ const DidYouKnow = (props) => {
         setTitle(event.target.value);
     }
     const handleImage = (event) => {
-        setImage([...image, event.target.files[0]]);
+        setImage(event.target.value);
     }
     const handleBody = (event) => {
         setBody(event.target.value);
