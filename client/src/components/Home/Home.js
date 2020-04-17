@@ -36,6 +36,11 @@ const Home = (props) => {
     const [ filterText,setFilterText ] = useState('');
     const [ userLevel, setUserLevel ] = useState(0);
     const [/*numIngredient*/,setNumIngredients ] = useState(0);
+    const [ email, setEmail ] = useState('');
+
+    const emailHandleChange = event => {
+        setEmail(event.target.value);
+    }
 
     const filterUpdate = (value) => {
         setFilterText(value);
@@ -273,8 +278,8 @@ const Home = (props) => {
                 <h1>Oh, won't you consider herbs with us?</h1>
                 <h3>Subscribe to view exclusive content</h3>
                 <form>
-                    <input type='text' placeholder='Enter your email here...' />
-                    <Link className="sign-up-about" to="../SignUp">Sign Up</Link>
+                    <input type='text' onChange={emailHandleChange} value={email} placeholder='Enter your email here...' />
+                    <Link className="sign-up-about" to={{pathname:"/SignUp",state:{email: email}}}>Sign Up</Link>
                 </form>
             </div>
             <div className='home-text-container-1'>
@@ -282,7 +287,7 @@ const Home = (props) => {
                 Welcome to my site. My intentions are to present the information in 
                 a fun, inviting easy digestible format. One that will reignite that 
                 natural innate desire to return to a more holistic earth based approach 
-                to our health and well being. 
+                to our health and well being.
                 </p>
                 <p> 
                 <b>Do you remember your first introduction?</b>
