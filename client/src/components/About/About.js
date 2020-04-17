@@ -26,7 +26,7 @@ const About =()=>{
                 <form>
                     <input type='text' placeholder='Enter your email here...' />
                     {/*<button type='submit'>Sign Up</button>*/}
-                    <Link className="sign-up-about" to="../SignIn/SignUp"> Sign Up </Link>
+                    <Link className="sign-up-about" to="/SignUp"> Sign Up </Link>
                     
                 </form>
             </div>
