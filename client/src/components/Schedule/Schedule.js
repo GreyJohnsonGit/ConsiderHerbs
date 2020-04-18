@@ -1,6 +1,6 @@
 import './Schedule.css';
 import React, { useState } from 'react';
-import ScheduleImage from './ScheduleImage.jpg'; //temporary until I have the schedule image 
+import Basket from './Basket.png'; //temporary until I have the schedule image 
 import axios from 'axios';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -93,7 +93,7 @@ const Schedule = () => {
         <div>
             <div classname='image-container'>
 
-                <div className="sch-image-div">   <img alt="Schedule" src={ScheduleImage} className="background-image"></img></div>
+                <div className="sch-image-div">   <img alt="Schedule" src={Basket} className="background-image"></img></div>
 
                 <span className="sch-centered-title">Because We Value Human Connection.</span>
 
