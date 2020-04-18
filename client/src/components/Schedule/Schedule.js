@@ -37,6 +37,7 @@ const Schedule = () => {
 
     const editEvent = (entry) => {
         event = entry;
+        setMode('edit');
         toggleShowPopup();
     };
     const newEvent = () => {
@@ -51,48 +52,40 @@ const Schedule = () => {
             price: "",
             description: ""
         }
+        setMode('new');
         toggleShowPopup();
     }
 
     const submitForm = () => {
         console.log(event);
-        toggleShowPopup();
-        // if (mode === 'edit') {
-        //     axios.put(
-        //         config.address + '/api/Glossary/' + title,
-        //         {
-        //             title: title,
-        //             definition: definition,
-        //             usage: usage
-        //         }
-        //     )
-        //         .then((res) => {
-        //             console.log(res);
-        //             toggleShowPopup();
-        //         })
-        //         .catch((err) => {
-        //             console.error(err);
-        //             toggleShowPopup();
-        //         })
-        // }
-        // if (mode === 'new') {
-        //     axios.post(
-        //         config.address + '/api/Glossary/',
-        //         {
-        //             title: title,
-        //             definition: definition,
-        //             usage: usage
-        //         }
-        //     )
-        //         .then((res) => {
-        //             console.log(res);
-        //             toggleShowPopup();
-        //         })
-        //         .catch((err) => {
-        //             console.error(err);
-        //             toggleShowPopup();
-        //         })
-        // }
+        if (mode === 'edit') {
+            axios.put(
+                config.address + '/api/Event/' + event.name,
+                event
+            )
+                .then((res) => {
+                    console.log(res);
+                    toggleShowPopup();
+                })
+                .catch((err) => {
+                    console.error(err);
+                    toggleShowPopup();
+                })
+        }
+        if (mode === 'new') {
+            axios.post(
+                config.address + '/api/Event/',
+                event
+            )
+                .then((res) => {
+                    console.log(res);
+                    toggleShowPopup();
+                })
+                .catch((err) => {
+                    console.error(err);
+                    toggleShowPopup();
+                })
+        }
     }
 
 
@@ -112,10 +105,9 @@ const Schedule = () => {
                     <input type='text' id='name' defaultValue={event.name} onChange={val => { event.name = val.target.value }} />
 
                     <label htmlFor='type'>Type</label>
-                    <textarea rows='1' id='type' tdefaultValue={event.type} onChange={val => { event.type = val.target.value }} />
+                    <textarea rows='1' id='type' defaultValue={event.type} onChange={val => { event.type = val.target.value }} />
 
                     <label htmlFor='date'>Date</label>
-                    <textarea rows='1' id='date' defaultValue={event.date} onChange={val => { event.date = val.target.value }} />
                     <DatePicker selected={event.date} onSelect={val => { event.date = val}} />
 
                     <label htmlFor='time1'>start_time</label>
@@ -137,7 +129,7 @@ const Schedule = () => {
                 </form>
             </AdminPopUp>
             <Calendar />
-            <button onClick={toggleShowPopup}>New Event</button>
+            <button onClick={newEvent}>New Event</button>
 
             <button onClick={console.log("sur")}>Request Personal Consultation</button>
 
