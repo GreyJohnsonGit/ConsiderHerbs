@@ -131,7 +131,7 @@ const Schedule = () => {
             <Calendar />
             <button onClick={newEvent}>New Event</button>
 
-            <button onClick={console.log("sur")}>Request Personal Consultation</button>
+            <button onClick={console.log("make this")}>Request Personal Consultation</button>
 
         </div>
 

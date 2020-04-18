@@ -8,7 +8,7 @@ import config from '../../config.js'
 const loadEvents = async () => {
     try {
         const res = await Axios.get(config.address + '/api/Event/');
-        console.log("got events")
+        // console.log("got events")
         return res.data;
     }
     catch (err) {
@@ -28,13 +28,14 @@ const EventList = (props) => {
                 {({ data, err, isLoading }) => {
                     if (isLoading) return "Loading...";
                     if (err) return `Oops, something went wrong: ${err.message}`
-                    console.log("data: ", data)
+                    // console.log("data: ", data)
                     if (data && Array.isArray(data)) {
                         return (
                             data.map((Event) => {
-                                console.log("fetched Date", new Date(Event.date).getDay());
-                                console.log("sent num: ", (props.day));
-                                if (new Date(Event.date).getDay() === (props.day)) {
+                                // console.log("fetched Date", new Date(Event.date));
+                                // console.log("sent num: ", (new Date(props.date)));
+                                // console.log("comp: ", new Date(Event.date).getTime() == new Date(props.date).getTime())
+                                if (new Date(Event.date).getTime() == new Date(props.date).getTime()) {
                                     return (
                                         <div className="term-container" id={id}>
                                             <div>
