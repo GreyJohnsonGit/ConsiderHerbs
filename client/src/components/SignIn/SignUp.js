@@ -10,7 +10,7 @@ import {useHistory} from 'react-router-dom';
 
 const SignUp = (props) =>{
     const [username, setUsername] = useState('');
-    const [email, setEmail] = useState('');
+    const [email, setEmail] = useState(props.location.state ? props.location.state.email : '');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const usernameHandleChange = event => {

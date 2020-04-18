@@ -121,13 +121,13 @@ const Glossary = (props) =>{
                         defaultValue={typed}
                     />
                     <button type="submit" onClick={searchTerm}>Search </button>
-                    <button type='button' className='admin-button' onClick={toggleNewEntry}>New</button>
+                    { props.user.userLevel >= 3 ? <button type='button' className='admin-button' onClick={toggleNewEntry}>New</button> : null }
                 </form>
             </div>
 
             <div className="column-container">
                 <div className="column1">
-                    <TermInfo editFn={toggleEdit} lookingFor={typed} foundUp={foundUpdate} />
+                    <TermInfo editFn={toggleEdit} lookingFor={typed} foundUp={foundUpdate} userLevel={props.user.userLevel}/>
                 </div>
 
                 <div className="column2">

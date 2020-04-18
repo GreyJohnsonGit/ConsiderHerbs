@@ -30,12 +30,16 @@ let mode = 'edit';
 
 const Home = (props) => {
     let searchInput = React.createRef();
-    let userLevelSelect = React.createRef();
 
     const [ showPopup, setShowPopup ] = useState(0);
     const [ filterText,setFilterText ] = useState('');
     const [ userLevel, setUserLevel ] = useState(0);
     const [/*numIngredient*/,setNumIngredients ] = useState(0);
+    const [ email, setEmail ] = useState('');
+
+    const emailHandleChange = event => {
+        setEmail(event.target.value);
+    }
 
     const filterUpdate = (value) => {
         setFilterText(value);
@@ -90,25 +94,27 @@ const Home = (props) => {
         return ret;
     };
 
+    console.log(props)
+
     return (
         <div>
             <div>
                 <Carousel>
-                    <Carousel.Item style={{position:"relative", height:"300px", width:"100%", overflow:"hidden"}}>
+                    <Carousel.Item style={{height:"300px", width:"100%", overflow:"hidden"}}>
                         <img
                             alt="Picsum"
                             src={carousel_1}
                             style={{width:'100%'}}
                         />
                     </Carousel.Item>
-                    <Carousel.Item style={{position:"relative", height:"300px", width:"100%", overflow:"hidden"}}>
+                    <Carousel.Item style={{height:"300px", width:"100%", overflow:"hidden"}}>
                         <img
                             alt="Picsum"
                             src={carousel_2}
                             style={{width:'100%'}}
                         />
                     </Carousel.Item>
-                    <Carousel.Item style={{position:"relative", height:"300px", width:"100%", overflow:"hidden"}}>
+                    <Carousel.Item style={{height:"300px", width:"100%", overflow:"hidden"}}>
                         <img
                             alt="Picsum"
                             src={carousel_3}
@@ -124,7 +130,7 @@ const Home = (props) => {
                         <div className='recipe-popup-title'>
                             {entryToEdit.name}
                         </div>
-                        { userLevel >= entryToEdit.priviledge ?
+                        { props.user.userLevel >= entryToEdit.priviledge ?
                             <Async promiseFn={LoadTerms}>
                                 {({data,err,isLoading}) => {
                                     console.log(data);
@@ -154,12 +160,18 @@ const Home = (props) => {
                 :
                     <form action='/Recipe'>
                         <div className='recipe-popup-edit-top-row'>
-                            <label for='name'>Name</label>
-                            <label for='bodypart'>Body Part</label>
-                            <label for='ailment'>Ailment</label>
+                            <label htmlFor='name'>Name</label>
+                            <label htmlFor='bodypart'>Body Part</label>
+                            <label htmlFor='ailment'>Ailment</label>
+                            <label htmlFor='tier'>Tier</label>
                             <input type='text' id='name' defaultValue={entryToEdit.name} />
                             <input type='text' id='bodypart' defaultValue={entryToEdit.bodypart} />
                             <input type='text' id='ailment' defaultValue={entryToEdit.ailment} />
+                            <select id='tier'>
+                                <option value='0' selected={entryToEdit.priviledge == 0}>Guest</option>
+                                <option value='1' selected={entryToEdit.priviledge == 1}>Subscriber</option>
+                                <option value='2' selected={entryToEdit.priviledge == 2}>Premium</option>
+                            </select>
                         </div>
                         <div className='recipe-popup-edit-ingredients'>
                             <span>Ingredient</span>
@@ -230,17 +242,7 @@ const Home = (props) => {
                 </div>
                 <div className='recipe-column'>
                     <div style={{position: 'relative'}}>
-                        <h2>Select Your Area of Discomfort on the Body Model</h2>
-                        <select
-                            onChange={() => setUserLevel(userLevelSelect.current.value)}
-                            ref={userLevelSelect} 
-                            style={{position: 'absolute', left: '95%', top: '0%'}} 
-                            id='user-level'>
-                            <option value='0'>0</option>
-                            <option value='1'>1</option>
-                            <option value='2'>2</option>
-                            <option value='3'>3</option>
-                        </select>
+                        <h2>Select Your Area of Discomfort</h2>
                     </div>
                     <form className='search' style={{marginTop:"5px"}}>
                         <input 
@@ -250,7 +252,7 @@ const Home = (props) => {
                             onChange={() => filterUpdate(searchInput.current.value)}
                         />
 
-                        { userLevel === 3 ? 
+                        { props.user.userLevel === 3 ? 
                             <div>
                                 <button type='submit'>Search</button>
                                 <button type='button' onClick={toggleNewEntry}>New Recipe</button>
@@ -261,7 +263,7 @@ const Home = (props) => {
                     </form>
 
                     <RecipeList
-                        userLevel={userLevel}
+                        userLevel={props.user.userLevel}
                         viewFn={toggleView}
                         editFn={toggleEdit}
                         filterText={filterText}
@@ -273,8 +275,8 @@ const Home = (props) => {
                 <h1>Oh, won't you consider herbs with us?</h1>
                 <h3>Subscribe to view exclusive content</h3>
                 <form>
-                    <input type='text' placeholder='Enter your email here...' />
-                    <Link className="sign-up-about" to="../SignUp">Sign Up</Link>
+                    <input type='text' onChange={emailHandleChange} value={email} placeholder='Enter your email here...' />
+                    <Link className="sign-up-about" to={{pathname:"/SignUp",state:{email: email}}}>Sign Up</Link>
                 </form>
             </div>
             <div className='home-text-container-1'>
@@ -282,7 +284,7 @@ const Home = (props) => {
                 Welcome to my site. My intentions are to present the information in 
                 a fun, inviting easy digestible format. One that will reignite that 
                 natural innate desire to return to a more holistic earth based approach 
-                to our health and well being. 
+                to our health and well being.
                 </p>
                 <p> 
                 <b>Do you remember your first introduction?</b>

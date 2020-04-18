@@ -158,7 +158,7 @@
 .recipe-popup-edit-top-row {
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 0.5fr 0.5fr;
+    grid-template-columns: 3fr 1fr 1fr 1fr;
     grid-column-gap: 10px;
 }
 
