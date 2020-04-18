@@ -13,8 +13,8 @@ const Calendar = (props) => {
 
     let today = new Date(new Date().setHours(0, 0, 0, 0));
 
-   
-    
+
+
     let DAYS_OF_THE_WEEK = [
         {
             day: 'SUN',
@@ -44,38 +44,47 @@ const Calendar = (props) => {
         {
             day: 'FRI',
             num: 5,
-            date: new Date(),
+            date: '',
         },
         {
             day: 'SAT',
             num: 6,
-            date: new Date(),
+            date: '',
         },
     ];
 
+    const [daysstate, setDays] = useState([])
+
     let initDates = () => {
         console.log("render:", render)
-        if(render === 0){
-        DAYS_OF_THE_WEEK.forEach(element => {
-            element.date = new Date(today.getTime() + (element.num - today.getDay()) * 24 * 60 * 60 * 1000);
-        })
-    }
+        if (render === 0) {
+            DAYS_OF_THE_WEEK.forEach(element => {
+                element.date = new Date(today.getTime() + (element.num - today.getDay()) * 24 * 60 * 60 * 1000).getTime();
+            })
+
+            setDays(DAYS_OF_THE_WEEK)
+            forceRender(render+1);
+            console.log("Days of week after init: ", DAYS_OF_THE_WEEK)
+        }
     }
     let nextWeek = () => {
         console.log("nweek")
-        DAYS_OF_THE_WEEK.forEach(element => {
-            element.date = new Date(new Date(element.date).getTime() + (7 * 24 * 60 * 60 * 1000))
+        daysstate.forEach(element => {
+            element.date = new Date(new Date(element.date).getTime() + (7 * 24 * 60 * 60 * 1000)).getTime();
         })
+        setDays(daysstate)
+        forceRender(render+1);
     }
 
     let lastWeek = () => {
         console.log("lweek")
-        DAYS_OF_THE_WEEK.forEach(element => {
-            let old = new Date(element.date);
-            element.date = new Date(old.getTime() - (7 * 24 * 60 * 60 * 1000))
+        console.log("Daystate before: ", daysstate)
+        daysstate.forEach(element => {
+            element.date = new Date(new Date(element.date).getTime() - (7 * 24 * 60 * 60 * 1000)).getTime();
         })
+
+        setDays(daysstate)
         forceRender(render+1);
-        console.log(DAYS_OF_THE_WEEK)
     }
 
     // let isLeapYear = (year) => {
@@ -92,16 +101,17 @@ const Calendar = (props) => {
             </div>
 
             {initDates()}
-            {DAYS_OF_THE_WEEK.map(day => {
-                return (
-                    <div className="dayCol">
-                        <h2 className="dayLabel">{day.day}</h2>
-                        <p>{typeof new Date(day.date)}</p>
-                        <p>{new Date(day.date).getDate()}</p>
-                        <Events className="EventinCol" date={day.date} />
-                    </div>
-                )
-            })
+            {
+                daysstate.map(day => {
+                    return (
+                        <div className="dayCol">
+                            <h2 className="dayLabel">{day.day}</h2>
+                            <p>{typeof new Date(day.date)}</p>
+                            <p>{new Date(day.date).getDate()}</p>
+                            <Events className="EventinCol" date={day.date} />
+                        </div>
+                    )
+                })
             }
         </div>
     )
