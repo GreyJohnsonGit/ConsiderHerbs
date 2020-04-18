@@ -11,6 +11,7 @@ import SignIn from "./components/SignIn/SignIn"
 import SignUp from "./components/SignIn/SignUp"
 import Profile from "./components/Profile/Profile"
 import DidYouKnow from './components/Forum/forum_components/DidYouKnow.js';
+import FileUpload from './components/FileUpload';
 
 
 import {CookiesProvider, useCookies} from 'react-cookie';
@@ -36,6 +37,7 @@ const App = () => {
         <div className="content">
           <NavBar user={user} setUser={setUser}/>
           <div className = "spacer" > &nbsp; </div>
+          <FileUpload />
           <Switch>
             <Route exact path="/Home"     render={(props) => <Home {...props}       user={user} setUser={setUser}/>} />
             <Route exact path="/Glossary" render={(props) => <Glossary {...props}   user={user} setUser={setUser}/>} />
