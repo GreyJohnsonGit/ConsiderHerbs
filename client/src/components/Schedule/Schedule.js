@@ -36,7 +36,9 @@ const Schedule = () => {
     };
 
     const editEvent = (entry) => {
+        console.log("trying to edit1: ", entry.name)
         event = entry;
+  
         setMode('edit');
         toggleShowPopup();
     };
@@ -44,7 +46,7 @@ const Schedule = () => {
         event = {
             name: "",
             type: "",
-            date: "",
+            date: new Date(),
             start_time: "",
             end_time: "",
             max_participants: "",
@@ -59,8 +61,9 @@ const Schedule = () => {
     const submitForm = () => {
         console.log(event);
         if (mode === 'edit') {
+            console.log("trying to edit", event)
             axios.put(
-                config.address + '/api/Event/' + event.name,
+                config.address + '/api/Event/' + event._id,
                 event
             )
                 .then((res) => {
@@ -108,7 +111,7 @@ const Schedule = () => {
                     <textarea rows='1' id='type' defaultValue={event.type} onChange={val => { event.type = val.target.value }} />
 
                     <label htmlFor='date'>Date</label>
-                    <DatePicker selected={event.date} onSelect={val => { event.date = val}} />
+                    <DatePicker selected={new Date(event.date)} onSelect={val => { event.date = val}} />
 
                     <label htmlFor='time1'>start_time</label>
                     <textarea rows='1' id='time1' defaultValue={event.start_time} onChange={val => { event.start_time = val.target.value }} />
@@ -128,10 +131,10 @@ const Schedule = () => {
                     <button type='submit'>Submit</button>
                 </form>
             </AdminPopUp>
-            <Calendar />
+            <Calendar editEvent={editEvent} />
             <button onClick={newEvent}>New Event</button>
 
-            <button onClick={console.log("make this")}>Request Personal Consultation</button>
+            <button onClick={()=>{console.log("make this")}}>Request Personal Consultation</button>
 
         </div>
 

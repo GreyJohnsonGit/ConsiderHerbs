@@ -55,6 +55,11 @@ const Calendar = (props) => {
 
     const [daysstate, setDays] = useState([])
 
+    let update  = () =>{
+        setDays(daysstate)
+        forceRender(render+1);
+    }
+
     let initDates = () => {
         console.log("render:", render)
         if (render === 0) {
@@ -73,7 +78,7 @@ const Calendar = (props) => {
             element.date = new Date(new Date(element.date).getTime() + (7 * 24 * 60 * 60 * 1000)).getTime();
         })
         setDays(daysstate)
-        forceRender(render+1);
+       forceRender(render+1);
     }
 
     let lastWeek = () => {
@@ -108,7 +113,7 @@ const Calendar = (props) => {
                             <h2 className="dayLabel">{day.day}</h2>
                             <p>{typeof new Date(day.date)}</p>
                             <p>{new Date(day.date).getDate()}</p>
-                            <Events className="EventinCol" date={day.date} />
+                            <Events className="EventinCol" date={day.date} update={update} editFn={props.editEvent}/>
                         </div>
                     )
                 })
