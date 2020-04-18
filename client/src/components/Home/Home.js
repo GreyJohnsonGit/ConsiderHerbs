@@ -242,7 +242,7 @@ const Home = (props) => {
                 </div>
                 <div className='recipe-column'>
                     <div style={{position: 'relative'}}>
-                        <h2>Select Your Area of Discomfort</h2>
+                        <h2>Select Your Area of Discomfort on the Body Model</h2>
                     </div>
                     <form className='search' style={{marginTop:"5px"}}>
                         <input 
