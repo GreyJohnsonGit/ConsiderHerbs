@@ -32,25 +32,23 @@ const EventList = (props) => {
                     if (data && Array.isArray(data)) {
                         return (
                             data.map((Event) => {
-
-                                return (
-                                    <div className="term-container" id={id}>
-                                        <div>
-                                            <h1>{Event.name}</h1>
-                                            <button className='admin-button' onClick={() => props.editFn(Event)}>Edit</button>
-                                            <button className='admin-button'>Delete</button>
-
-                                            <p>Type</p>
-                                            <p>{Event.type}</p>
-
-
-                                            <p>Date</p>
-                                            <p>{Event.date}</p>
-
-
+                                console.log("fetched Date", new Date(Event.date).getDay());
+                                console.log("sent num: ", (props.day));
+                                if (new Date(Event.date).getDay() === (props.day)) {
+                                    return (
+                                        <div className="term-container" id={id}>
+                                            <div>
+                                                <h1>{Event.name}</h1>
+                                                <button className='admin-button' onClick={() => props.editFn(Event)}>Edit</button>
+                                                <button className='admin-button'>Delete</button>
+                                                <p>Type</p>
+                                                <p>{Event.type}</p>
+                                                <p>Date</p>
+                                                <p>{Event.date}</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                );
+                                    );
+                                }
                             })
 
                         );
