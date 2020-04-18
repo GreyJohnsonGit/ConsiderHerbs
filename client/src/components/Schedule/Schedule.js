@@ -1,23 +1,148 @@
 import './Schedule.css';
-import React from 'react';
+import React, { useState } from 'react';
 import ScheduleImage from './ScheduleImage.jpg'; //temporary until I have the schedule image 
+import axios from 'axios';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
+import config from '../../config.js'
+import Calendar from './Calendar'
+import AdminPopUp from "../Admin/AdminPopup";
 
 
-const Schedule =()=>{
-    return(
-        <div classname='image-container'> 
-            
-            <div className="sch-image-div">   <img alt="Schedule" src={ScheduleImage} className="background-image"></img></div>
+let event = {
+    name: "",
+    type: "",
+    date: new Date(),
+    start_time: "",
+    end_time: "",
+    max_participants: "",
+    current_participants: "",
+    price: "",
+    description: ""
+}
 
-            <div className="sch-centered-title"><span>Because We Value Human Connection.</span></div>
+const Schedule = () => {
+    const [showPopup, setShowPopup] = useState(false);
+    const [mode, setMode] = useState('');
 
-            <div className="sch-below-title"><span>It's just natural!</span></div>
-            
-            <div>Admin tools here (being able to see the bookings)</div>
+    // const[name, setName] = useState('')
+    // const[type, setType] = useState('')
+    // const[date, setDate] = useState('')
+    // const[start_time]
 
-           
+    const toggleShowPopup = () => {
+        setShowPopup(!showPopup);
+    };
+
+    const editEvent = (entry) => {
+        event = entry;
+        toggleShowPopup();
+    };
+    const newEvent = () => {
+        event = {
+            name: "",
+            type: "",
+            date: "",
+            start_time: "",
+            end_time: "",
+            max_participants: "",
+            current_participants: "",
+            price: "",
+            description: ""
+        }
+        toggleShowPopup();
+    }
+
+    const submitForm = () => {
+        console.log(event);
+        toggleShowPopup();
+        // if (mode === 'edit') {
+        //     axios.put(
+        //         config.address + '/api/Glossary/' + title,
+        //         {
+        //             title: title,
+        //             definition: definition,
+        //             usage: usage
+        //         }
+        //     )
+        //         .then((res) => {
+        //             console.log(res);
+        //             toggleShowPopup();
+        //         })
+        //         .catch((err) => {
+        //             console.error(err);
+        //             toggleShowPopup();
+        //         })
+        // }
+        // if (mode === 'new') {
+        //     axios.post(
+        //         config.address + '/api/Glossary/',
+        //         {
+        //             title: title,
+        //             definition: definition,
+        //             usage: usage
+        //         }
+        //     )
+        //         .then((res) => {
+        //             console.log(res);
+        //             toggleShowPopup();
+        //         })
+        //         .catch((err) => {
+        //             console.error(err);
+        //             toggleShowPopup();
+        //         })
+        // }
+    }
+
+
+    return (
+        <div>
+            <div classname='image-container'>
+
+                <div className="sch-image-div">   <img alt="Schedule" src={ScheduleImage} className="background-image"></img></div>
+
+                <span className="sch-centered-title">Because We Value Human Connection.</span>
+
+                <span className="sch-below-title">It's just natural!</span>
+            </div>
+            <AdminPopUp closeFn={toggleShowPopup} showPopup={showPopup}>
+                <form onSubmit={submitForm}>
+                    <label htmlFor='name'>Name</label>
+                    <input type='text' id='name' defaultValue={event.name} onChange={val => { event.name = val.target.value }} />
+
+                    <label htmlFor='type'>Type</label>
+                    <textarea rows='1' id='type' tdefaultValue={event.type} onChange={val => { event.type = val.target.value }} />
+
+                    <label htmlFor='date'>Date</label>
+                    <textarea rows='1' id='date' defaultValue={event.date} onChange={val => { event.date = val.target.value }} />
+                    <DatePicker selected={event.date} onSelect={val => { event.date = val}} />
+
+                    <label htmlFor='time1'>start_time</label>
+                    <textarea rows='1' id='time1' defaultValue={event.start_time} onChange={val => { event.start_time = val.target.value }} />
+
+                    <label htmlFor='time2'>end_time</label>
+                    <textarea rows='1' id='time2' defaultValue={event.end_time} onChange={val => { event.end_time = val.target.value }} />
+
+                    <label htmlFor='maxp'>Max Participants</label>
+                    <textarea rows='1' id='maxp' defaultValue={event.max_participants} onChange={val => { event.max_participants = val.target.value }} />
+
+                    <label htmlFor='price'>Price</label>
+                    <textarea rows='1' id='price' defaultValue={event.price} onChange={val => { event.price = val.target.value }} />
+
+                    <label htmlFor='descip'>Description</label>
+                    <textarea rows='1' id='descrip' defaultValue={event.description} onChange={val => { event.description = val.target.value }} />
+
+                    <button type='submit'>Submit</button>
+                </form>
+            </AdminPopUp>
+            <Calendar />
+            <button onClick={toggleShowPopup}>New Event</button>
+
+            <button onClick={console.log("sur")}>Request Personal Consultation</button>
+
         </div>
-        
+
     );
 }
 

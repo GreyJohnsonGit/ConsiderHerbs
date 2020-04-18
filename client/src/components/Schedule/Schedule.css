@@ -1,4 +1,7 @@
 /* Rosemary Forest 1 */
+.image-Container{
+    height: 400px;
+}
 .background-image{
     position: relative;
     width: 100%;
@@ -7,7 +10,7 @@
 
 .sch-image-div {
     position: relative;
-    height:600px;
+    height:400px;
     width: 100%;
     overflow: hidden;
 }
@@ -15,75 +18,32 @@
 
 .sch-centered-title  {
     position: absolute;
-    top: 25%;
-    height: 100%;
+    top: 100px;
     width: 100%;
     font-size: 3.7em;
     color: white;
     text-align: center;
     display: inline-block;
-    vertical-align: middle ;
 }
 .sch-below-title {
     position: absolute;
-    top: 37%;
-    height: 100%;
+    top: 300px;
     width: 100%;
     font-size: 3em;
     color: white;
     text-align: center;
     display: inline-block;
-    vertical-align: middle;
 }
 .sch-below-2 {
     position: absolute;
-    top: 51%;
-    height: 100%;
+    top: 350px;
     width: 100%;
     font-size: 3em;
     color: white;
     text-align: center;
     display: inline-block;
-    vertical-align: middle;
 }
 
-/* Rectangle 22 */
-.scheduleBot{
-    position: absolute;
-    width: 356px;
-    height: 80px;
-    left: 542px;
-    top: 780px;
-    background: #636363;
-}
-
-/* SCHEDULE NOW */
-.schedule-text{
-position: absolute;
-width: 268px;
-height: 37px;
-left: 586px;
-top: 801px;
-
-font-family: Ubuntu;
-font-style: normal;
-font-weight: 300;
-font-size: 36px;
-line-height: 103.19%;
-/* or 37px */
-
-color: #FFFFFF;
-
-
-
-}
-
-.sch-image {
-    overflow: hidden;
-    width: 100%;
-    height: auto;
-    text-align: center;
-}
 
 
 
