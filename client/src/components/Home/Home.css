@@ -9,11 +9,19 @@
     position: relative;
 }
 
-.body-button-container #view{
+.body-button-container button {
     display: inline-block;
     background-color: #ACACAC;
     color: white;
     border: none;
+}
+
+.body-button-container button:hover {
+    background-color: #636363;
+}
+
+.body-button-container button:focus {
+    background-color: #636363;
 }
 
 .body-button-container #female-button {

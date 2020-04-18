@@ -33,7 +33,7 @@ const MaleBodyFront = (props) => {
     //ctx.drawImage(Male_Front, 0, 0);
     return (
         <div>
-            <img src={Male_Front} width="400" useMap='#MFmap'></img>
+            <img src={props.image} width="400" useMap='#MFmap'></img>
             <map name="MFmap">
                 <area shape="poly" coords={MaleChestArea} onMouseOver={() => { console.log("Chest") }} onClick={()=>{props.setFilterText("chest")}} />
                 <area shape="poly" coords={MaleNeckArea} onMouseOver={() => { console.log("Throat") }} onClick={()=>{props.setFilterText("throat")}} />
