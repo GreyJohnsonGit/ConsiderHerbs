@@ -17,8 +17,6 @@ import {CookiesProvider, useCookies} from 'react-cookie';
 import NotFound from "./views/NotFound";
 import NavBar from "./components/Header/NavBar";
 
-
-
 const App = () => {
   const [userState, setUserState] = useState(1);
   const toggleUserState = () => {

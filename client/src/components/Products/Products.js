@@ -8,13 +8,14 @@ import config from '../../config.js';
 import ConsiderProducts from './products_components/ConsiderProducts.js'
 import AffiliatedProducts from './products_components/AffiliatedProducts.js'
 import SuggestedProducts from './products_components/SuggestedProducts.js'
+import {useCookies} from 'react-cookie'
 
 
 const Products =(props)=>{
     const [showPopup, setShowPopup] = useState(0);
     const [mode, setMode] = useState('');
-    let [typed, typedUpdate]=useState('')
-
+    const [typed, typedUpdate]=useState('')
+    const [cookies] = useCookies(['user']);
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState('');
@@ -162,7 +163,7 @@ const Products =(props)=>{
                                 onChange={(event)=>{typedUpdate(event.target.value)}}
                             />
                             <button type="submit" onClick={searchTerm}>Search </button>
-                            { props.user.userLevel === 3 ? 
+                            { cookies.user.userLevel === 3 ? 
                             <button type='button' className='admin-button' onClick={toggleNewEntry}>New</button> :
                             null}
                         </form>
@@ -173,7 +174,7 @@ const Products =(props)=>{
                             <div id="title"> Consider Herbs Products </div>
                             <hr/>
                         </div>
-                        <ConsiderProducts typed={typed} editFn={toggleEdit} userLevel={props.user.userLevel}/>
+                        <ConsiderProducts typed={typed} editFn={toggleEdit} userLevel={cookies.user.userLevel}/>
                     </div> 
 
                     <div className="affiliate-products">
@@ -181,7 +182,7 @@ const Products =(props)=>{
                             <div id="title"> Affiliate Products </div>
                             <hr/>
                         </div>
-                        <AffiliatedProducts typed={typed} editFn={toggleEdit} userLevel={props.user.userLevel}/>
+                        <AffiliatedProducts typed={typed} editFn={toggleEdit} userLevel={cookies.user.userLevel}/>
                     </div>
 
                     <div className="suggested-products">
@@ -189,7 +190,7 @@ const Products =(props)=>{
                             <div id="title"> Suggested Products </div>
                             <hr/>
                         </div>
-                        <SuggestedProducts typed={typed} editFn={toggleEdit} userLevel={props.user.userLevel}/>
+                        <SuggestedProducts typed={typed} editFn={toggleEdit} userLevel={cookies.user.userLevel}/>
                     </div>                
                 </div>
 

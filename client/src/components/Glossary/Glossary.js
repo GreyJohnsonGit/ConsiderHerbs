@@ -8,13 +8,14 @@ import AlphabetList from "./glossary_components/AlphabetList";
 import axios from 'axios';
 import config from '../../config.js'
 import AdminPopup from "../Admin/AdminPopup";
+import {useCookies} from 'react-cookie';
 
 const Glossary = (props) =>{
     const [showPopup, setShowPopup] = useState(0);
     const [mode, setMode] = useState('');
     let [typed, typedUpdate]=useState(props.location.search.substring(1));
     let [/*found*/, foundUpdate]=useState(1) //true
-
+    const [cookies, ] = useCookies(['user']);
     const [title, setTitle] = useState('');
     const [definition, setDefinition] = useState('');
     const [usage, setUsage] = useState('');
@@ -121,13 +122,13 @@ const Glossary = (props) =>{
                         defaultValue={typed}
                     />
                     <button type="submit" onClick={searchTerm}>Search </button>
-                    { props.user.userLevel >= 3 ? <button type='button' className='admin-button' onClick={toggleNewEntry}>New</button> : null }
+                    { cookies.user.userLevel >= 3 ? <button type='button' className='admin-button' onClick={toggleNewEntry}>New</button> : null }
                 </form>
             </div>
 
             <div className="column-container">
                 <div className="column1">
-                    <TermInfo editFn={toggleEdit} lookingFor={typed} foundUp={foundUpdate} userLevel={props.user.userLevel}/>
+                    <TermInfo editFn={toggleEdit} lookingFor={typed} foundUp={foundUpdate} userLevel={cookies.user.userLevel}/>
                 </div>
 
                 <div className="column2">

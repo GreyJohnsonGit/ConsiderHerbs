@@ -37,7 +37,7 @@ const Home = (props) => {
     const [ userLevel, setUserLevel ] = useState(0);
     const [/*numIngredient*/,setNumIngredients ] = useState(0);
     const [ email, setEmail ] = useState('');
-    const [cookies, removeCookie] = useCookies([]);
+    const [cookies, ] = useCookies(['user']);
 
     const emailHandleChange = event => {
         setEmail(event.target.value);
@@ -132,7 +132,7 @@ const Home = (props) => {
                         <div className='recipe-popup-title'>
                             {entryToEdit.name}
                         </div>
-                        { props.user.userLevel >= entryToEdit.priviledge ?
+                        { cookies.user.userLevel >= entryToEdit.priviledge ?
                             <Async promiseFn={LoadTerms}>
                                 {({data,err,isLoading}) => {
                                     console.log(data);
