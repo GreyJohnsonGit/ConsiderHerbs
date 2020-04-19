@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import config from '../../../config.js'
@@ -88,19 +88,58 @@ const formatDate = (date) => {
 
 const Thread = () => {
     const [cookies, ] = useCookies(['user']);
+    const [ userReply, setUserReply ] = useState("");
 
     //get thread specified in URL
     const getThread = (props) => {
         //console.log(props)
         return axios.get(config.address + '/api/Forum/' + props.thread_id)
         .then(function(res){
-            console.log(res)
+            //console.log(res)
             return res.data
         })
         .catch(err => {
             console.error(err);
             return err;
         });
+    }
+
+    async function likeThread(ev) {
+        let thread = await getThread({thread_id: ev.target.value});
+        let newThread = thread;
+        newThread.likes = newThread.likes + 1;
+        //console.log(thread)
+        axios.put(config.address + '/api/Forum/' + thread._id, newThread)
+        .then(function(res){
+            console.log(res);
+        })
+        .catch(err => {
+            console.error(err);
+        })
+        window.location.reload(false)
+    }
+
+    const postReply = (id) => async (e) => {
+        e.preventDefault()
+        //console.log(id)
+        //console.log(userReply)
+        let thread = await getThread({thread_id: id});
+        let newThread = thread;
+        //console.log(cookies.user.session.username)
+
+        newThread.replies.push({
+            text: userReply,
+            user: '@'+cookies.user.session.username
+        })
+
+        axios.put(config.address + '/api/Forum/' + id, newThread)
+        .then(function(res){
+            console.log(res);
+        })
+        .catch(err => {
+            console.error(err);
+        })
+        window.location.reload(false)
     }
 
     return (
@@ -125,7 +164,7 @@ const Thread = () => {
                                             <p>{thread.body}</p>
                                             <div className='thread-like-container'>
                                                 { cookies.user && cookies.user.userLevel ? 
-                                                    <button>Like</button>
+                                                    <button value={thread._id} onClick={likeThread}>Like</button>
                                                 : null }
                                                 <h3>Likes: {thread.likes} Replies: {thread.replies.length} </h3>
                                             </div>
@@ -144,10 +183,10 @@ const Thread = () => {
                                         )
                                     })}
                                     { cookies.user && cookies.user.userLevel ? 
-                                    <form className="thread-comment">
+                                    <form className="thread-comment" onSubmit={postReply(thread._id)}>
                                         <label htmlFor='comment'>Post a new reply...</label>
-                                        <textarea className="thread-comment-textarea" id='comment' rows='4'/>
-                                        <button>Reply</button>
+                                        <textarea className="thread-comment-textarea" id='comment' rows='4' required="true" onChange={e => setUserReply(e.target.value)}/>
+                                        <button type="submit">Reply</button>
                                     </form>
                                     : null }
                                 </div>
@@ -164,7 +203,12 @@ const Thread = () => {
                                             <h1>{thread.title}</h1> 
                                             <h2>posted by <b>{thread.user}</b> {formatDate(thread.date)} </h2>
                                             <p>{thread.body}</p>
-                                            <h3>Likes: {thread.likes} Replies: 0 </h3>
+                                            <div className='thread-like-container'>
+                                                { cookies.user && cookies.user.userLevel ? 
+                                                    <button value={thread._id} onClick={likeThread}>Like</button>
+                                                : null }
+                                                <h3>Likes: {thread.likes} Replies: {thread.replies.length} </h3>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
