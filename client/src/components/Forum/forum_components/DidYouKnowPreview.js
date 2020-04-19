@@ -45,7 +45,7 @@ const DidYouKnowPreview = (props) => {
                                                 <img src={DidYouKnowImage} style={{width:"100%"}} />
                                             </div>
                                             <a href={`/DidYouKnow`}>{didYouKnowEntry.title}</a>
-                                            <p>{didYouKnowEntry.body}</p>
+                                            <p id='entry'>{didYouKnowEntry.body}</p>
                                         </div>
                                     </div>
                                 );

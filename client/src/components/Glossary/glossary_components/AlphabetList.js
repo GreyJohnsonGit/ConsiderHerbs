@@ -21,7 +21,7 @@ const AlphabetList =()=>{
                     <button className="letter" onClick={() => {scrollToId(`${letter}`,'center')}}> {letter} </button>
                 )
             })}
-            <button className="letter" onClick={() => {scrollToId('footer','end')}}>Bottom</button>
+            <button className="letter" onClick={() => {scrollToId('footer','end')}}>End</button>
         </div>
     )
 };

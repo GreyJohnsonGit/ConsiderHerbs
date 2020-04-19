@@ -49,6 +49,8 @@ const PostInfo = (props) => {
                                             <div className="did-you-know-post">
                                                 <div id='bar'>&nbsp;</div>
                                                 <div>
+
+                                                    {props.userLevel === 3 ? 
                                                     <form>
                                                         <button type='button' className='admin-button' onClick={() => props.editFn(didYouKnowEntry)}>Edit</button>
                                                         <button type='submit' className='admin-button' onClick={(event) => {
@@ -64,29 +66,19 @@ const PostInfo = (props) => {
                                                         }}>
                                                         Delete
                                                         </button>
-                                                    </form>
+                                                    </form>:
+                                                    null}
 
                                                     <h2>{didYouKnowEntry.title}</h2>
                                                     <h3>posted by Dee on {didYouKnowEntry.date}</h3>
 
                                                     <div id="image">
-                                                        <img src={didYouKnowEntry} style={{width:"100%"}} />
+                                                        <img src={didYouKnowEntry.image} style={{width:"100%"}} />
                                                     </div>
 
-                                                    <div>
-                                                        <span>
-                                                            <button>
-                                                                    <Link style={{textDecoration:"none", color:"white"}} to="/DidYouKnow/">CONTENT</Link>
-                                                            </button>
-                                                            <button>
-                                                                <Link style={{textDecoration:"none", color:"white"}} to="/DidYouKnow/Comments/">COMMENTS(3)</Link>
-                                                            </button>
-                                                        </span>
-                                                    </div>
-                                                    <Switch>
-                                                        <Route exact path='/DidYouKnow/' render={DidYouKnowContentPage} />
-                                                        <Route path={`/DidYouKnow/Comments/`} component={DidYouKnowComments} />
-                                                    </Switch>
+                                                    
+                                                    <DidYouKnowContentPage />
+                                                    
                                                     
                                                 </div>
                                             </div>

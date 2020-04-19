@@ -41,21 +41,14 @@ exports.signIn = (req, res) => {
         }
         else{
             AuthenticationTools.generateSession(docs[0].username, (sessionPkg) => {
-                if(sessionPkg.success === false){
-                    res.send({
-                        success: sessionPkg.success,
-                        error: sessionPkg.error
-                    });
-                }
-                else {
-                    res.send({
-                        success: true,
-                        user: {
-                            userLevel: docs[0].userLevel,
-                            session: sessionPkg.session
-                        }
-                    });
-                }
+                res.send({
+                    success: sessionPkg.success,
+                    error: sessionPkg.error,
+                    user: {
+                        userLevel: docs[0].userLevel,
+                        session: sessionPkg.session
+                    }
+                });
             });   
         }
     });

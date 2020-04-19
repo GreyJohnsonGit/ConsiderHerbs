@@ -106,20 +106,20 @@ const Profile = (props) => {
             </AdminPopup>
 
             <div className='profile-text-box'>
-                Hello, {props.user.username}
+                Hello, {props.user.session.username}
             </div>
 
             <div className='profile-container'>
                 <div className='profile-column-container'>
                     <div className='profile-column-1'>
                         <form>
-                            <label for='username'>Username</label>
+                            <label htmlFor='username'>Username</label>
                             <input type='text' id='username' />
-                            <label for='email'>Email</label>
+                            <label htmlFor='email'>Email</label>
                             <input type='text' id='email' />
-                            <label for='password'>Password</label>
+                            <label htmlFor='password'>Password</label>
                             <input type='text' id='password' />
-                            <label for='password'>Verify Password</label>
+                            <label htmlFor='password'>Verify Password</label>
                             <input type='text' id='verify-password' />
                             <button type='button'>CHANGE PASSWORD</button>
                         </form>
@@ -175,13 +175,11 @@ const Profile = (props) => {
             { !props.user.isLoggedIn ?
             <div className='profile-sign-out'>
                 <a href='/Home' onClick={(e) => {
-                    console.log('link was clicked');
-                    removeCookie('session');
+                    removeCookie('user');
                     props.setUser({
-                        isLoggedIn: false,
                         userLevel: 0,
-                        username: 'Anon'
-                    }); 
+                        session: {}
+                    });
                 }}>SIGN OUT</a>
             </div>
             : null }

@@ -33,7 +33,7 @@ const SignIn = (props) => {
         )
         .then(res => {
             if(res.data.success) {
-                props.setUser(res.data.user);
+                props.setUser(JSON.parse(JSON.stringify(res.data.user)));
                 setCookie('user', res.data.user, {
                     path: '/',
                     expires: new Date(res.data.user.session.expireTime) 

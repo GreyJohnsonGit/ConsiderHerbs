@@ -20,6 +20,7 @@ const Products =(props)=>{
     const [price, setPrice] = useState('');
     const [image, setImage] = useState([]);
     const [type, setType] = useState('');
+    const [link, setLink] = useState('');
 
     const handleTitle = (event) => {
         setTitle(event.target.value);
@@ -36,6 +37,9 @@ const Products =(props)=>{
     const handleType = (event) => {
         setType(event.target.value);
     }
+    const handleLink = (event) => {
+        setLink(event.target.value);
+    }
     
     const searchTerm=(prop)=>{
         prop.preventDefault()
@@ -45,11 +49,12 @@ const Products =(props)=>{
         setShowPopup(!showPopup);
     };
     const toggleEdit = (entry) => {
-        setTitle(entry.title);
-        setDescription(entry.definition);
-        setPrice(entry.usage);
-        setImage(entry.title);
+        setTitle(entry.name);
+        setDescription(entry.description);
+        setPrice(entry.price);
+        setImage(entry.image);
         setType(entry.type);
+        setLink(entry.link);
         setMode('edit');
         toggleShowPopup();
     };
@@ -58,6 +63,7 @@ const Products =(props)=>{
         setDescription('');
         setPrice('');
         setImage('');
+        setLink('');
         setType('ConsiderHerbs');
         setMode('new');
         toggleShowPopup();
@@ -71,7 +77,8 @@ const Products =(props)=>{
                     name: title,
                     description: description,
                     price: price,
-                    type: type
+                    type: type,
+                    link: link
                 }
             )
             .then((res) => {
@@ -90,7 +97,8 @@ const Products =(props)=>{
                     name: title,
                     description: description,
                     price: price,
-                    type: type
+                    type: type,
+                    link: link
                 }
             )
             .then((res) => {
@@ -105,21 +113,9 @@ const Products =(props)=>{
     }
 
     return(
-        <div>
+        <div className="Products">
             <AdminPopup closeFn={toggleShowPopup} showPopup={showPopup}>
                     <form onSubmit={submitForm}>
-                        <label htmlFor='title'>Title</label>
-                        <input type='text' id='title' value={title} onChange={handleTitle} required/>
-
-                        <label htmlFor='image'>Image</label>
-                        <input type="file" rows='3' id='definition' value={image} onChange={handleImage}/>
-
-                        <label htmlFor='description'>Description</label>
-                        <textarea rows='3' id='definition' value={description} onChange={handleDescription} required/>
-
-                        <label htmlFor='price'>Price</label>
-                        <input type='text' id='title' value={price} onChange={handlePrice}/>
-
                         <label htmlFor='type'>What Type of Product is This?</label>
                         <select
                             onChange={handleType}
@@ -128,6 +124,31 @@ const Products =(props)=>{
                             <option value='Affiliate'>Affiliate</option>
                             <option value='Suggested'>Suggested</option>
                         </select>
+
+                        <label htmlFor='title'>*Name</label>
+                        <input type='text' id='title' value={title} onChange={handleTitle} required/>
+
+                        <label htmlFor='image'>*Image</label>
+                        <input type="file" id='title' value={image} onChange={handleImage} required/>
+
+                        <label htmlFor='description'>*Description</label>
+                        <textarea value={description} id='title' onChange={handleDescription} required/>
+
+                        {type === "ConsiderHerbs" ? 
+                            <div>
+                                <label htmlFor='price'>*Price</label>
+                                <br/>
+                                <input type='text' id='title' value={price} onChange={handlePrice} required style={{width:"100%"}}/> 
+                            </div>
+                            :
+                            <div>
+                                <label htmlFor='price'>Price</label> <br/>
+                                <input type='text' id='title' value={price} onChange={handlePrice} style={{width:"100%"}}/>
+                                <br/>
+                                <label htmlFor='link'>*Link</label><br/>
+                                <input type='text' id='title' value={link} onChange={handleLink} required style={{width:"100%"}}/>
+                            </div>
+                        }
 
                         <button type='submit'>Submit</button>
                     </form>
@@ -141,18 +162,18 @@ const Products =(props)=>{
                                 onChange={(event)=>{typedUpdate(event.target.value)}}
                             />
                             <button type="submit" onClick={searchTerm}>Search </button>
-                            <button type='button' className='admin-button' onClick={toggleNewEntry}>New</button>
+                            { props.user.userLevel === 3 ? 
+                            <button type='button' className='admin-button' onClick={toggleNewEntry}>New</button> :
+                            null}
                         </form>
                     </div>
 
                     <div className="consider-herbs-products">
                         <div id="title-wrapper">
-                            <div id="title"> Suggested Products </div>
+                            <div id="title"> Consider Herbs Products </div>
                             <hr/>
                         </div>
-                        <div id="grid-container">
-                            <ConsiderProducts typed={typed}/>
-                        </div>
+                        <ConsiderProducts typed={typed} editFn={toggleEdit} userLevel={props.user.userLevel}/>
                     </div> 
 
                     <div className="affiliate-products">
@@ -160,9 +181,7 @@ const Products =(props)=>{
                             <div id="title"> Affiliate Products </div>
                             <hr/>
                         </div>
-                        <div id="grid-container">
-                            <AffiliatedProducts typed={typed}/>
-                        </div>
+                        <AffiliatedProducts typed={typed} editFn={toggleEdit} userLevel={props.user.userLevel}/>
                     </div>
 
                     <div className="suggested-products">
@@ -170,9 +189,7 @@ const Products =(props)=>{
                             <div id="title"> Suggested Products </div>
                             <hr/>
                         </div>
-                        <div id="grid-container">
-                            <SuggestedProducts typed={typed}/>
-                        </div>
+                        <SuggestedProducts typed={typed} editFn={toggleEdit} userLevel={props.user.userLevel}/>
                     </div>                
                 </div>
 

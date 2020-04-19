@@ -12,6 +12,8 @@
 }
 
 .admin-popup-inner {
+    overflow: scroll;
+    max-height: 90%;
     position: absolute;  
     left: 50%;  
     top: 50%;  
@@ -22,6 +24,10 @@
     background: white;
     display: flex;
     flex-direction: column;
+}
+
+.admin-popup-inner::-webkit-scrollbar {
+    display: none;
 }
 
 .admin-popup-close-icon {

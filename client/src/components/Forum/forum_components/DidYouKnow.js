@@ -2,9 +2,6 @@ import React, {useState} from 'react';
 import ForumImage from '../Forum_Image.jpg';
 import PostInfo from './PostInfo.js';
 import DidYouKnowImage from './assets/Did_You_Know_IMG.jpg';
-import DidYouKnowContent from './DidYouKnowContent.js';
-import DidYouKnowComments from './DidYouKnowComments.js';
-import { Route, Switch, Link } from 'react-router-dom';
 import config from '../../../config.js';
 import AdminPopup from "../../Admin/AdminPopup";
 import axios from 'axios';
@@ -16,7 +13,7 @@ const DidYouKnow = (props) => {
     const [mode, setMode] = useState('');
 
     const [title, setTitle] = useState('');
-    const [image, setImage] = useState([]);
+    const [image, setImage] = useState('');
     const [body, setBody] = useState('');
     const [sources, setSources] = useState('');
 
@@ -24,7 +21,7 @@ const DidYouKnow = (props) => {
         setTitle(event.target.value);
     }
     const handleImage = (event) => {
-        setImage([...image, event.target.files[0]]);
+        setImage(event.target.value);
     }
     const handleBody = (event) => {
         setBody(event.target.value);
@@ -125,10 +122,16 @@ const DidYouKnow = (props) => {
             </AdminPopup>
             
             <div className="dyk-spacer">&nbsp;</div>
+
+            {props.user.userLevel === 3 ? 
+            <div>
             <button type='button' className='admin-button' onClick={toggleNewEntry} style={{marginLeft: "15%", marginBottom: "10px", paddingRight:"20px", paddingLeft:"20px"}}>New</button> <br/>
+            </div>:
+            null}
+            
             <a href={`/Forum`} className="did-you-know-back-button"> {"< Back"}</a>
 
-            <PostInfo editFn={toggleEdit}/>
+            <PostInfo editFn={toggleEdit} userLevel={props.user.userLevel}/>
         </div>
     )
 }

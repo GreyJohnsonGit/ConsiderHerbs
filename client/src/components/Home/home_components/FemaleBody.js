@@ -1,5 +1,6 @@
 import React from 'react';
 import Female_Front from './images/Female_Front.png';
+import Female_Front_Colored from './images/Female_Front_Colored.png';
 
 const FemaleBodyFront = (props) => {
 
@@ -29,7 +30,7 @@ const FemaleBodyFront = (props) => {
 
     return (
         <div>
-            <img src={Female_Front} width="400" useMap='#FFmap'></img>
+            <img src={props.image} width="400" useMap='#FFmap'></img>
             <map name="FFmap">
                 <area shape="poly" coords={FemaleChestArea} onMouseOver={() => { console.log("Chest") }} onClick={() => { props.setFilterText("chest") }} />
                 <area shape="poly" coords={FemaleNeckArea} onMouseOver={() => { console.log("Throat") }} onClick={() => { props.setFilterText("throat") }} />
