@@ -122,10 +122,16 @@ const DidYouKnow = (props) => {
             </AdminPopup>
             
             <div className="dyk-spacer">&nbsp;</div>
+
+            {props.user.userLevel === 3 ? 
+            <div>
             <button type='button' className='admin-button' onClick={toggleNewEntry} style={{marginLeft: "15%", marginBottom: "10px", paddingRight:"20px", paddingLeft:"20px"}}>New</button> <br/>
+            </div>:
+            null}
+            
             <a href={`/Forum`} className="did-you-know-back-button"> {"< Back"}</a>
 
-            <PostInfo editFn={toggleEdit}/>
+            <PostInfo editFn={toggleEdit} userLevel={props.user.userLevel}/>
         </div>
     )
 }

@@ -33,6 +33,8 @@ const AffiliatedProducts = (props) => {
                                         return (
                                                 <div id="grid-item"> 
                                                     <div id="product-image">&nbsp;</div>
+
+                                                    {props.userLevel === 3 ? 
                                                     <form>
                                                         <button type='button' onClick={() => props.editFn(productEntry)}>Edit</button>
                                                         <button type='submit' onClick={(event) => {
@@ -48,7 +50,9 @@ const AffiliatedProducts = (props) => {
                                                         }}>
                                                         Delete
                                                         </button>
-                                                    </form>
+                                                    </form> :
+                                                    null}
+                                                    
                                                     <a id="name" href={productEntry.link} target="_blank">{productEntry.name}</a>
                                                     <div id="description"> {productEntry.description} </div>
                                                     {productEntry.price ? 

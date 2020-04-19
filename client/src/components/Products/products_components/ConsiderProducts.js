@@ -34,6 +34,8 @@ const ConsiderProducts = (props) => {
                                     return (
                                             <div id="grid-item"> 
                                                 <div id="product-image">&nbsp;</div>
+
+                                                {props.userLevel === 3 ? 
                                                 <form>
                                                 <button type='button' onClick={() => props.editFn(productEntry)}>Edit</button>
                                                 <button type='submit' onClick={(event) => {
@@ -49,7 +51,9 @@ const ConsiderProducts = (props) => {
                                                     }}>
                                                     Delete
                                                  </button>
-                                                 </form>
+                                                 </form> :
+                                                 null }
+
                                                 <div id="name"> {productEntry.name} </div>
                                                 <div id="description"> {productEntry.description} </div>
                                                 <div id="price"> ${productEntry.price} </div>

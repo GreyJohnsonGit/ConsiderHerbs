@@ -162,7 +162,9 @@ const Products =(props)=>{
                                 onChange={(event)=>{typedUpdate(event.target.value)}}
                             />
                             <button type="submit" onClick={searchTerm}>Search </button>
-                            <button type='button' className='admin-button' onClick={toggleNewEntry}>New</button>
+                            { props.user.userLevel === 3 ? 
+                            <button type='button' className='admin-button' onClick={toggleNewEntry}>New</button> :
+                            null}
                         </form>
                     </div>
 
@@ -171,7 +173,7 @@ const Products =(props)=>{
                             <div id="title"> Consider Herbs Products </div>
                             <hr/>
                         </div>
-                        <ConsiderProducts typed={typed} editFn={toggleEdit}/>
+                        <ConsiderProducts typed={typed} editFn={toggleEdit} userLevel={props.user.userLevel}/>
                     </div> 
 
                     <div className="affiliate-products">
@@ -179,7 +181,7 @@ const Products =(props)=>{
                             <div id="title"> Affiliate Products </div>
                             <hr/>
                         </div>
-                        <AffiliatedProducts typed={typed} editFn={toggleEdit}/>
+                        <AffiliatedProducts typed={typed} editFn={toggleEdit} userLevel={props.user.userLevel}/>
                     </div>
 
                     <div className="suggested-products">
@@ -187,7 +189,7 @@ const Products =(props)=>{
                             <div id="title"> Suggested Products </div>
                             <hr/>
                         </div>
-                        <SuggestedProducts typed={typed} editFn={toggleEdit}/>
+                        <SuggestedProducts typed={typed} editFn={toggleEdit} userLevel={props.user.userLevel}/>
                     </div>                
                 </div>
 

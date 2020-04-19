@@ -49,6 +49,8 @@ const PostInfo = (props) => {
                                             <div className="did-you-know-post">
                                                 <div id='bar'>&nbsp;</div>
                                                 <div>
+
+                                                    {props.userLevel === 3 ? 
                                                     <form>
                                                         <button type='button' className='admin-button' onClick={() => props.editFn(didYouKnowEntry)}>Edit</button>
                                                         <button type='submit' className='admin-button' onClick={(event) => {
@@ -64,7 +66,8 @@ const PostInfo = (props) => {
                                                         }}>
                                                         Delete
                                                         </button>
-                                                    </form>
+                                                    </form>:
+                                                    null}
 
                                                     <h2>{didYouKnowEntry.title}</h2>
                                                     <h3>posted by Dee on {didYouKnowEntry.date}</h3>
