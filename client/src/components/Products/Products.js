@@ -151,7 +151,7 @@ const Products =(props)=>{
                             </div>
                         }
 
-                        <button type='submit'>Submit</button>
+                        <button type='submit' id="admin-button">Submit</button>
                     </form>
             </AdminPopup>
 

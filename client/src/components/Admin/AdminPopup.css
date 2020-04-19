@@ -69,7 +69,7 @@
     border: none;
 }
 
-.admin-popup form button {
+.admin-popup form #admin-button {
     align-self: center;
     margin-top: 25px;
     margin-bottom: 10px;
@@ -81,7 +81,7 @@
     text-transform: uppercase;
     font-size: 1.3em;
 }
-.admin-popup form button:hover
+.admin-popup form #admin-button:hover
 {
     background: #898a8a;
 }
