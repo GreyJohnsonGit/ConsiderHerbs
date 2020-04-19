@@ -11,33 +11,27 @@
 
 .column-container {
     display: grid;
-    grid-template-columns: auto min-content;
+    grid-template-columns: 1fr min-content;
     column-gap: 0px;
-    padding: 0px 15px;
-    padding-right: 50px;
 }
 .column1 {
     display: flex;
     background-color: #FFFFFF;
+    padding-left: 15px;
 }
-
-
 .column2 {
     background-color: #FFFFFF;
 }
 
 .term-container {
     flex-grow: 1;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-right: 20px;
-    padding-left: 45px;
+    padding: 15px 0px;
     display: grid;
-    grid-template-columns: min(125px,13vw) 87.8%;
+    grid-template-columns: min(125px,10vw) 1fr;
 }
 .large-letter {
-    font-size: min(96px,10vw);
-    text-align: left;
+    font-size: 96px;
+    text-align: center;
 }
 .term-container h1 {
     top: 0px;
@@ -60,22 +54,21 @@
 
 .glossary-search
 {
-    display: block;
-    text-align: center;
-    margin: 20px 0px;
+    display: flex;
+    justify-content: center;
+    margin: 20px 10px;
 }
 .glossary-search form
 {
     display: flex;
-    margin-left: auto;
-    margin-right: auto;
-    width: 76.5%;
+    width: min(max(768px,76.5%),100%);
+    flex-wrap: wrap;
 }
 
 .glossary-search button, .glossary-search input
 {
     border: none;
-    height: 45px;
+    font-size: 1.5em;
     vertical-align: top;
 }
 .glossary-search button
@@ -94,7 +87,7 @@
 }
 .glossary-search input
 {
-    flex: 1;
+    flex: 1 1 auto;
     padding: 0px 25px;
     background: #F4F4F4;
     color: #636363;
@@ -107,6 +100,7 @@
     text-transform: uppercase;
     text-align: center;
     font-size: 18px;
+    padding: 0 2vw;
     line-height: 100%;
     float:left;
     position: sticky;
@@ -152,7 +146,7 @@
     bottom: 10px;
     color: white;
     text-align: center;
-    font-size: 90px;
+    font-size: min(90px, 11.7vw);
     width: 100%;
     font-family: Ubuntu-C;
 }
@@ -163,4 +157,28 @@
     border: none;
     background-color: #636363;
     color: #FFFFFF;
-} 
+}
+
+/* less than a tablet */
+@media screen and (max-width:750px) {
+    .large-letter {
+        display: none;
+    }
+    .term-container {
+        display: block;
+    }
+    .term-container table {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+    }
+    .glossary-search form input, .glossary-search button {
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width:450px) {
+    .term-container table {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+    }
+}
