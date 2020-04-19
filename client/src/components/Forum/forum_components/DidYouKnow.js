@@ -5,13 +5,13 @@ import DidYouKnowImage from './assets/Did_You_Know_IMG.jpg';
 import config from '../../../config.js';
 import AdminPopup from "../../Admin/AdminPopup";
 import axios from 'axios';
-
+import {useCookies} from 'react-cookie';
 
 
 const DidYouKnow = (props) => {
     const [showPopup, setShowPopup] = useState(0);
     const [mode, setMode] = useState('');
-
+    const [cookies] = useCookies(['user']);
     const [title, setTitle] = useState('');
     const [image, setImage] = useState('');
     const [body, setBody] = useState('');
@@ -123,7 +123,7 @@ const DidYouKnow = (props) => {
             
             <div className="dyk-spacer">&nbsp;</div>
 
-            {props.user.userLevel === 3 ? 
+            {cookies.user.userLevel === 3 ? 
             <div>
             <button type='button' className='admin-button' onClick={toggleNewEntry} style={{marginLeft: "15%", marginBottom: "10px", paddingRight:"20px", paddingLeft:"20px"}}>New</button> <br/>
             </div>:
@@ -131,7 +131,7 @@ const DidYouKnow = (props) => {
             
             <a href={`/Forum`} className="did-you-know-back-button"> {"< Back"}</a>
 
-            <PostInfo editFn={toggleEdit} userLevel={props.user.userLevel}/>
+            <PostInfo editFn={toggleEdit} userLevel={cookies.user.userLevel}/>
         </div>
     )
 }
