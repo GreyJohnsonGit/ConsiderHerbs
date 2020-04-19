@@ -16,7 +16,7 @@ const NavBar = (props) => {
     }
 
     const UserButton = () => {
-        if(cookies && cookies.user.userLevel) {
+        if(cookies.user && cookies.user.userLevel) {
             return (
                 <div>
                     <Link className="nav-link-sign-in" to="/Profile">PROFILE</Link>

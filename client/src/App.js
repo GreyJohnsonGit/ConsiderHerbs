@@ -13,14 +13,23 @@ import Profile from "./components/Profile/Profile"
 import DidYouKnow from './components/Forum/forum_components/DidYouKnow.js';
 
 
-import {CookiesProvider, useCookies} from 'react-cookie';
+import {CookiesProvider, useCookies, Cookies} from 'react-cookie';
 import NotFound from "./views/NotFound";
 import NavBar from "./components/Header/NavBar";
 
 const App = () => {
   const [userState, setUserState] = useState(1);
+  const [cookies, setCookies] = useCookies(['user'])
   const toggleUserState = () => {
     setUserState(!userState);
+  }
+
+  if(!cookies.user) {
+    setCookies('user', {
+      user:{
+        userLevel: 0
+      }
+    })
   }
 
   return (
