@@ -53,7 +53,7 @@ const Profile = (props) => {
     const [showPopup,setShowPopup] = useState(0);
     const history = useHistory();
 
-    if(!cookies || !cookies.user.userLevel) {
+    if(!cookies.user || !cookies.user.userLevel) {
         history.push('SignIn');
     }
 

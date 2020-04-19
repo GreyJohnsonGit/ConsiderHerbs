@@ -16,7 +16,7 @@ const SignIn = (props) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-    if(cookies && cookies.user.userLevel) {
+    if(cookies.user && cookies.user.userLevel) {
         history.push('home');
     }
 

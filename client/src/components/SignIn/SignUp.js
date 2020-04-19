@@ -17,7 +17,7 @@ const SignUp = (props) =>{
     const [cookies, setCookie] = useCookies(['user']);
     const [problem, setProblem] = useState('');
 
-    if(cookies && cookies.user.userLevel) {
+    if(cookies.user && cookies.user.userLevel) {
         history.push('home');
     }
 
