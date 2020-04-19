@@ -16,7 +16,9 @@ const About =()=>{
         <div>
             <div className="image-container">
                 <img alt="Forest" src={Forest} style={{width:'100%',height:'auto'}}/>
-                <img alt="PlantIcon" src={PlantIcon} className='plant-icon' id="plant-icon-1" />
+                <div className='floating-plant-icon-container'>
+                    <img alt="PlantIcon" src={PlantIcon} className='plant-icon' id="plant-icon-1" />
+                </div>
                 <div className="overlay-container">
                     <div id='about-description-spacer'></div>
                     <div id='about-title'>About Us</div>
