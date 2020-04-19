@@ -156,7 +156,7 @@ const Schedule = () => {
                     <label htmlFor='descip'>Description</label>
                     <textarea rows='1' id='descrip' defaultValue={event.description} onChange={val => { event.description = val.target.value }} />
 
-                    <button type='submit'>Submit</button>
+                    <button type='submit' id="admin-button">Submit</button>
                 </form>
             </AdminPopUp>
             <Calendar editEvent={editEvent} />
