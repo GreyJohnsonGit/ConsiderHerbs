@@ -12,6 +12,7 @@ import { FiPhoneCall, FiMapPin } from 'react-icons/fi';
 import { AiOutlineMail } from 'react-icons/ai';
 import { IoIosGlobe } from 'react-icons/io';
 import { IconContext } from 'react-icons/lib/cjs';
+import  ReactTooltip  from 'react-tooltip';
 
 const iconSize = '1.75em'
 
@@ -31,7 +32,16 @@ const Footer=()=>{
                 </div>
                 <div className="icon-container">
                     <IconContext.Provider value={{ className: 'react-icons' }}>
-                            <FaMobileAlt size={iconSize} className='react-icons'/>
+                            {/*<ReactTooltip title="000">
+                                <span>
+                                <FaMobileAlt  size={iconSize} className='react-icons'/>
+                                </span>
+                                {<span className="tooltiptext">Tooltip text</span>}
+                            </ReactTooltip>
+                            */}   
+
+                            
+                            {/*<FaMobileAlt size={iconSize} className='react-icons'/>*/}
                             <FiPhoneCall size={iconSize} className='react-icons'/>
                             <AiOutlineMail size={iconSize} className='react-icons'/>
                             <IoIosGlobe size={iconSize} className='react-icons'/>

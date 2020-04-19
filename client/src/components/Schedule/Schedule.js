@@ -25,6 +25,7 @@ let event = {
 const Schedule = () => {
     const [showPopup, setShowPopup] = useState(false);
     const [mode, setMode] = useState('');
+   
 
     // const[name, setName] = useState('')
     // const[type, setType] = useState('')
@@ -88,6 +89,10 @@ const Schedule = () => {
         }
     }
 
+    const RequestCons =()=>{
+        console.log("This handles the click")
+
+    }
 
     return (
         <div>
@@ -131,7 +136,7 @@ const Schedule = () => {
             <Calendar />
             <button onClick={newEvent}>New Event</button>
 
-            <button onClick={console.log("make this")}>Request Personal Consultation</button>
+            <button onClick={RequestCons}>Request Personal Consultation</button>
 
         </div>
 
