@@ -22,19 +22,34 @@ let event = {
     description: ""
 }
 
+//need to pass down the list of requests from the database and be able to delete 
+let personalReq={
+    name: "",
+    type: "",
+    date: new Date(),
+    start_time: "",
+    end_time: "",
+    description: ""
+}
+
+
 const Schedule = () => {
     const [showPopup, setShowPopup] = useState(false);
+    const [showPop2, setShowPop2]= useState(false);
     const [mode, setMode] = useState('');
    
 
-    // const[name, setName] = useState('')
-    // const[type, setType] = useState('')
-    // const[date, setDate] = useState('')
-    // const[start_time]
-
+   
+    const [startDate, setStartDate] = useState(new Date());
+    
     const toggleShowPopup = () => {
-        setShowPopup(!showPopup);
+        setShowPopup(!showPopup);        
     };
+
+    const toggleShowPop2=()=>{
+        setShowPop2(!showPop2);
+
+    }
 
     const editEvent = (entry) => {
         console.log("trying to edit1: ", entry.name)
@@ -93,7 +108,9 @@ const Schedule = () => {
     }
 
     const RequestCons =()=>{
+        toggleShowPop2();
         console.log("This handles the click")
+
 
     }
 
@@ -139,7 +156,46 @@ const Schedule = () => {
             <Calendar editEvent={editEvent} />
             <button onClick={newEvent}>New Event</button>
 
+            <AdminPopUp closeFn={toggleShowPop2} showPopup={showPop2}>
+                <form>
+                    <label htmlfor="name">Name</label>
+                    <input type="text" onChange={ (event)=>{personalReq.name=event.target.value}}></input>
+                    {console.log(personalReq.name)}
+                    <label>Type</label>
+                    <input type="text" placeholder="In-person or online"></input>
+                    <label htmlFor='date'>Date</label>
+                    
+                    <DatePicker selected={startDate} onChange={(date) => {
+                        setStartDate(date) 
+                        personalReq.start_time=startDate}} />
+                                       
+                    <label> Start Time</label>
+                    <input type="time" min="0:00" max="24:00" onChange={(time)=>{personalReq.start_time=time}}></input>
+                    <label> End Time</label>
+                    <input type="time" min="0:00" max="24:00" onChange={(time)=>{personalReq.end_time=time}}></input>
+                   
+                    { /*
+                    
+                    {console.log("date")}
+                    {console.log(personalReq.date) }
+                    {console.log(personalReq.start_time)}
+                    {console.log(personalReq.end_time)}
+                    <DatePicker onSelect={(pick) => { personalReq.date=pick}} />
+    
+       
+                    //ask sumanth about date picker, if we should change it, aslo select time? which way is better?              
+                    */}
+                    <label>Description</label>
+                    <input placeholder="Briefly describe your goals for this consultation" 
+                    onChange={(descrip)=>{personalReq.description=descrip}}></input>
+                    <button type='submit'>Submit</button>
+                </form>
+
+            </AdminPopUp>
             <button onClick={RequestCons}>Request Personal Consultation</button>
+
+            <h1> List of requests </h1>
+
 
         </div>
 
