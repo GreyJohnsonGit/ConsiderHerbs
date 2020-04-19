@@ -66,3 +66,30 @@ footer {
     color: black;
     opacity: 0.5;
 }
+@media screen and (max-width:750px) {
+    .footer-container {
+        display: grid;
+        grid-template-areas:
+            "text text text"
+            "links links links"
+            "icons icons icons"
+            "disclaim disclaim disclaim";
+        grid-template-columns: 125px auto 125px;
+        grid-template-rows: 1fr auto auto;
+    }
+    .icon-container {
+        margin: 10px 0;
+    }
+    .link-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        text-align: center;
+    }
+    .link-container h1 {
+        width: 100%;
+    }
+    .link-container a {
+        flex-grow: 1;
+    }
+}
