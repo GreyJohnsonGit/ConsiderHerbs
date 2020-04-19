@@ -111,7 +111,7 @@ const Glossary = (props) =>{
                     <label htmlFor='usage'>Usage</label>
                     <textarea rows='3' id='usage' value={usage} onChange={handleUsage}/>
 
-                    <button type='submit'>Submit</button>
+                    <button type='submit' id="admin-button">Submit</button>
                 </form>
             </AdminPopup>   
             <div className = "glossary-search" id="search_bar">
