@@ -23,6 +23,8 @@ const Forum =()=>{
 
     }
 
+    console.log(cookies)
+
     return(
         <div>        
             <div className="image-container">

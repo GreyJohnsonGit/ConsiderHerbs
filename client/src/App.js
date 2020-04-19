@@ -29,6 +29,9 @@ const App = () => {
       user:{
         userLevel: 0
       }
+    },
+    {
+      path: '/'
     })
   }
 
