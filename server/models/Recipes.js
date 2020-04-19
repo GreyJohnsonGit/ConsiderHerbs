@@ -10,6 +10,7 @@ const RecipeSchema = new mongoose.Schema({
   ailment : String,
   bodypart  : String,
   id  : String,
+  userLevel : {type: Number, default : 3},
   name : String
 });
   
