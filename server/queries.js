@@ -2,6 +2,8 @@ mongoose = require('mongoose');
 config = require('./config/config.js');
 User = require('./models/User.js');
 thread = require('./models/Threads.js');
+Product = require('./models/Product.js');
+var fs = require('fs');
 
 // This file is for testing saving dummy users and dummy forum posts to database
 mongoose.connect(config.db.uri, {useNewUrlParser: true});
@@ -108,6 +110,17 @@ var post_four = new thread ({
     ]
 })
 
+var imgPath = 'C:/Users/KJB23/Documents/GitHub/ConsiderHerbs/grape.jpg';
+var ProductOne = new Product ({
+    name : "Grapes",
+    description : "A grape",
+    type  : "Affiliate",
+    price : 1.00,
+    image : new Buffer(fs.readFileSync(imgPath).toString('base64'))
+})
+
+ProductOne.save();
+
 /*post_two.save(function(error) {
     if (!error) {
         thread.find({})
@@ -130,7 +143,7 @@ var post_four = new thread ({
     }
 }); */
 
-post_four.save(function(error) {
+/*.save(function(error) {
     if (!error) {
         thread.find({})
             .populate('user')
@@ -139,7 +152,7 @@ post_four.save(function(error) {
                 console.log(JSON.stringify(posts, null, "\t"))
             })
     }
-});
+}); */
 
 //Adrian.save();
 //Chelsea.save();
