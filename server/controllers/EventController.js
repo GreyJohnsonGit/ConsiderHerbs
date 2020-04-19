@@ -31,23 +31,24 @@ exports.read = function(req, res) {
 exports.update = function(req, res) {
     var model = EventModel;
     let item = req.body;
-    model.findOneAndUpdate({name: req.params.name}, item).exec();
-    item.name = req.params.name;
+    model.findOneAndUpdate({_id: req.params.id}, item).exec();
+    item.id = req.params.id;
     res.send(item);
 }
 
 //removes Event entry, expects url param :name to denote which entry to remove
 exports.remove = function(req, res) {
     var model = EventModel;
-    model.find({name: req.params.name}).exec().then(function(docs, err){
+    console.log("ID received: ", req.params.id)
+    model.find({_id: req.params.id}).exec().then(function(docs, err){
         if(err){
-            res.send(err.message);
+            res.send("there was an error delting ",req.params.id, ": ", err.message);
         }
         else if(!docs.length){
             res.send('error: Entry not found');
         }
         else{
-            model.find({name: req.params.name}).remove().exec();
+            model.find({_id: req.params.id}).deleteOne().exec();
             res.send(docs[0]);
         }
     })

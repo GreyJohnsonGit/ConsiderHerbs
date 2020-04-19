@@ -42,7 +42,7 @@ EventRouter.post('/', EventController.create);
 
 //calls update, request should send updated entry in req.body and have url param :name
 // PUT: /api/Event/:name
-EventRouter.put('/:name', EventController.update);
+EventRouter.put('/:id', EventController.update);
 
 //calls read, request should include url param :name for entry to grab
 // GET: /api/Event/:name
@@ -50,7 +50,7 @@ EventRouter.get('/:name', EventController.read);
 
 //calls remove, request should include url param :name for entry to remove
 // DELETE: /api/Event/:name
-EventRouter.delete('/:name', EventController.remove);
+EventRouter.delete('/:id', EventController.remove);
 
 //returns the price of a Event
 //GET: /api/Event/:name/price

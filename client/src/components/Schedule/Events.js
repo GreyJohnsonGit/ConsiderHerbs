@@ -19,8 +19,13 @@ const loadEvents = async () => {
 
 
 const EventList = (props) => {
-    let firstLetter = '';
-    let id = '';
+
+    let deleteEvent = (Event) => {
+        console.log("Event chosen to delete: ", Event)
+
+
+        props.update()
+    }
 
     return (
         <div>
@@ -31,21 +36,36 @@ const EventList = (props) => {
                     // console.log("data: ", data)
                     if (data && Array.isArray(data)) {
                         return (
-                            data.map((Event) => {
+                            data.map((Eventy) => {
                                 // console.log("fetched Date", new Date(Event.date));
                                 // console.log("sent num: ", (new Date(props.date)));
                                 // console.log("comp: ", new Date(Event.date).getTime() == new Date(props.date).getTime())
-                                if (new Date(Event.date).getTime() == new Date(props.date).getTime()) {
+                                //console.log("Eventy: ",Eventy)
+                                if (new Date(Eventy.date).getTime() == new Date(props.date).getTime()) {
                                     return (
-                                        <div className="term-container" id={id}>
+                                        <div className="term-container" >
                                             <div>
-                                                <h1>{Event.name}</h1>
-                                                <button className='admin-button' onClick={() => props.editFn(Event)}>Edit</button>
-                                                <button className='admin-button'>Delete</button>
+                                                <h1>{Eventy.name}</h1>
+                                                <button className='admin-button' onClick={() => props.editFn(Eventy)}>Edit</button>
+                                                <button className='admin-button' onClick={() => {
+                                                    console.log("got here1");
+                                                    window.location.reload(true);
+                                                    Axios.delete(
+                                                        config.address + '/api/Event/' + Eventy._id,
+                                                        Eventy
+                                                    )
+                                                        .then((res) => {
+                                                            console.log("got here")
+                                                        })
+                                                        .catch((err) => {
+                                                            console.error("This is the error I caught: ",err);
+                                                        })
+                                                    
+                                                }}>Delete</button>
                                                 <p>Type</p>
-                                                <p>{Event.type}</p>
+                                                <p>{Eventy.type}</p>
                                                 <p>Date</p>
-                                                <p>{Event.date}</p>
+                                                <p>{Eventy.date}</p>
                                             </div>
                                         </div>
                                     );
