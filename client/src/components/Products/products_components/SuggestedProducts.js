@@ -33,9 +33,29 @@ const SuggestedProducts = (props) => {
                                         return (
                                                 <div id="grid-item"> 
                                                     <div id="product-image">&nbsp;</div>
-                                                    <div id="name"> {productEntry.name} </div>
+                                                    <form>
+                                                        <button type='button' onClick={() => props.editFn(productEntry)}>Edit</button>
+                                                        <button type='submit' onClick={(event) => {
+                                                                Axios.delete(
+                                                                    config.address + '/api/Product/' + productEntry.name
+                                                                )
+                                                                .then((res) => {
+                                                                    window.location.reload();
+                                                                })
+                                                                .catch((err) => {
+                                                                    console.error(err);
+                                                                })
+                                                            }}>
+                                                            Delete
+                                                        </button>
+                                                    </form>
+                                                    <a id="name" href={productEntry.link} target="_blank">{productEntry.name}</a>
                                                     <div id="description"> {productEntry.description} </div>
                                                     <div id="link"> {productEntry.link} </div>
+                                                    {productEntry.price ? 
+                                                        <div id="price"> ${productEntry.price} </div> :
+                                                        null
+                                                    }
                                                 </div>
                                         );
                                 })

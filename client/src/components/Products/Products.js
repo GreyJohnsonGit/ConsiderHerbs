@@ -49,11 +49,12 @@ const Products =(props)=>{
         setShowPopup(!showPopup);
     };
     const toggleEdit = (entry) => {
-        setTitle(entry.title);
-        setDescription(entry.definition);
-        setPrice(entry.usage);
-        setImage(entry.title);
+        setTitle(entry.name);
+        setDescription(entry.description);
+        setPrice(entry.price);
+        setImage(entry.image);
         setType(entry.type);
+        setLink(entry.link);
         setMode('edit');
         toggleShowPopup();
     };
@@ -62,6 +63,7 @@ const Products =(props)=>{
         setDescription('');
         setPrice('');
         setImage('');
+        setLink('');
         setType('ConsiderHerbs');
         setMode('new');
         toggleShowPopup();
@@ -75,7 +77,8 @@ const Products =(props)=>{
                     name: title,
                     description: description,
                     price: price,
-                    type: type
+                    type: type,
+                    link: link
                 }
             )
             .then((res) => {
@@ -94,7 +97,8 @@ const Products =(props)=>{
                     name: title,
                     description: description,
                     price: price,
-                    type: type
+                    type: type,
+                    link: link
                 }
             )
             .then((res) => {
@@ -109,7 +113,7 @@ const Products =(props)=>{
     }
 
     return(
-        <div>
+        <div className="Products">
             <AdminPopup closeFn={toggleShowPopup} showPopup={showPopup}>
                     <form onSubmit={submitForm}>
                         <label htmlFor='type'>What Type of Product is This?</label>
@@ -167,7 +171,7 @@ const Products =(props)=>{
                             <div id="title"> Consider Herbs Products </div>
                             <hr/>
                         </div>
-                        <ConsiderProducts typed={typed}/>
+                        <ConsiderProducts typed={typed} editFn={toggleEdit}/>
                     </div> 
 
                     <div className="affiliate-products">
@@ -175,7 +179,7 @@ const Products =(props)=>{
                             <div id="title"> Affiliate Products </div>
                             <hr/>
                         </div>
-                        <AffiliatedProducts typed={typed}/>
+                        <AffiliatedProducts typed={typed} editFn={toggleEdit}/>
                     </div>
 
                     <div className="suggested-products">
@@ -183,7 +187,7 @@ const Products =(props)=>{
                             <div id="title"> Suggested Products </div>
                             <hr/>
                         </div>
-                        <SuggestedProducts typed={typed}/>
+                        <SuggestedProducts typed={typed} editFn={toggleEdit}/>
                     </div>                
                 </div>
 

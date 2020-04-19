@@ -73,20 +73,9 @@ const PostInfo = (props) => {
                                                         <img src={didYouKnowEntry.image} style={{width:"100%"}} />
                                                     </div>
 
-                                                    <div>
-                                                        <span>
-                                                            <button>
-                                                                    <Link style={{textDecoration:"none", color:"white"}} to="/DidYouKnow/">CONTENT</Link>
-                                                            </button>
-                                                            <button>
-                                                                <Link style={{textDecoration:"none", color:"white"}} to="/DidYouKnow/Comments/">COMMENTS(3)</Link>
-                                                            </button>
-                                                        </span>
-                                                    </div>
-                                                    <Switch>
-                                                        <Route exact path='/DidYouKnow/' render={DidYouKnowContentPage} />
-                                                        <Route path={`/DidYouKnow/Comments/`} component={DidYouKnowComments} />
-                                                    </Switch>
+                                                    
+                                                    <DidYouKnowContentPage />
+                                                    
                                                     
                                                 </div>
                                             </div>

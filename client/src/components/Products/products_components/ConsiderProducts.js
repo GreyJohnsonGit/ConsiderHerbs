@@ -34,6 +34,22 @@ const ConsiderProducts = (props) => {
                                     return (
                                             <div id="grid-item"> 
                                                 <div id="product-image">&nbsp;</div>
+                                                <form>
+                                                <button type='button' onClick={() => props.editFn(productEntry)}>Edit</button>
+                                                <button type='submit' onClick={(event) => {
+                                                        Axios.delete(
+                                                            config.address + '/api/Product/' + productEntry.name
+                                                        )
+                                                        .then((res) => {
+                                                            window.location.reload();
+                                                        })
+                                                        .catch((err) => {
+                                                            console.error(err);
+                                                        })
+                                                    }}>
+                                                    Delete
+                                                 </button>
+                                                 </form>
                                                 <div id="name"> {productEntry.name} </div>
                                                 <div id="description"> {productEntry.description} </div>
                                                 <div id="price"> ${productEntry.price} </div>
