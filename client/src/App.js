@@ -20,33 +20,28 @@ import NavBar from "./components/Header/NavBar";
 
 
 const App = () => {
-  const [cookies, ] = useCookies([]);
-  const [user, setUser] = useState({
-    userLevel: 0,
-    session: {}
-  });
-  if(cookies.user) {
-    user.userLevel = cookies.user.userLevel;
-    user.session = cookies.user.session;
+  const [userState, setUserState] = useState(1);
+  const toggleUserState = () => {
+    setUserState(!userState);
   }
 
   return (
     <CookiesProvider>
       <div id="page-container">  
         <div className="content">
-          <NavBar user={user} setUser={setUser}/>
+          <NavBar  toggleUserState={toggleUserState}/>
           <div className = "spacer" > &nbsp; </div>
           <Switch>
-            <Route exact path="/Home"     render={(props) => <Home {...props}       user={user} setUser={setUser}/>} />
-            <Route exact path="/Glossary" render={(props) => <Glossary {...props}   user={user} setUser={setUser}/>} />
-            <Route exact path="/About"    render={(props) => <About {...props}      user={user} setUser={setUser}/>} />
-            <Route path="/Forum"          render={(props) => <Forum {...props}      user={user} setUser={setUser}/>} />
-            <Route path="/DidYouKnow"     render={(props) => <DidYouKnow {...props} user={user} setUser={setUser}/>} />
-            <Route exact path="/Schedule" render={(props) => <Schedule {...props}   user={user} setUser={setUser}/>} />
-            <Route exact path="/Products" render={(props) => <Products {...props}   user={user} setUSer={setUser}/>} />
-            <Route exact path="/SignIn"   render={(props) => <SignIn {...props}     user={user} setUser={setUser}/>} />
-            <Route exact path="/SignUp"   render={(props) => <SignUp {...props}     user={user} setUser={setUser}/>} />
-            <Route exact path="/Profile"  render={(props) => <Profile {...props}    user={user} setUser={setUser}/>} />
+            <Route exact path="/Home"     render={(props) => <Home {...props}        toggleUserState={toggleUserState}/>} />
+            <Route exact path="/Glossary" render={(props) => <Glossary {...props}    toggleUserState={toggleUserState}/>} />
+            <Route exact path="/About"    render={(props) => <About {...props}       toggleUserState={toggleUserState}/>} />
+            <Route path="/Forum"          render={(props) => <Forum {...props}       toggleUserState={toggleUserState}/>} />
+            <Route path="/DidYouKnow"     render={(props) => <DidYouKnow {...props}  toggleUserState={toggleUserState}/>} />
+            <Route exact path="/Schedule" render={(props) => <Schedule {...props}    toggleUserState={toggleUserState}/>} />
+            <Route exact path="/Products" render={(props) => <Products {...props}    toggleUserState={toggleUserState}/>} />
+            <Route exact path="/SignIn"   render={(props) => <SignIn {...props}      toggleUserState={toggleUserState}/>} />
+            <Route exact path="/SignUp"   render={(props) => <SignUp {...props}      toggleUserState={toggleUserState}/>} />
+            <Route exact path="/Profile"  render={(props) => <Profile {...props}     toggleUserState={toggleUserState}/>} />
             <Route exact path="/">
               <Redirect to="/Home" />
             </Route>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
 import Carousel from 'react-bootstrap/Carousel';
 import reactStringReplace from 'react-string-replace';
-
+import {useCookies} from 'react-cookie';
 import BodyMap from './home_components/BodyMap.js';
 import RecipeList from './home_components/RecipeList.js';
 import './Home.css';
@@ -29,6 +29,7 @@ let entryToEdit = {
 let mode = 'edit';
 
 const Home = (props) => {
+    
     let searchInput = React.createRef();
 
     const [ showPopup, setShowPopup ] = useState(0);
@@ -36,6 +37,7 @@ const Home = (props) => {
     const [ userLevel, setUserLevel ] = useState(0);
     const [/*numIngredient*/,setNumIngredients ] = useState(0);
     const [ email, setEmail ] = useState('');
+    const [cookies, removeCookie] = useCookies([]);
 
     const emailHandleChange = event => {
         setEmail(event.target.value);
@@ -252,7 +254,7 @@ const Home = (props) => {
                             onChange={() => filterUpdate(searchInput.current.value)}
                         />
 
-                        { props.user.userLevel === 3 ? 
+                        {  cookies.user.userLevel === 3 ? 
                             <div>
                                 <button type='submit'>Search</button>
                                 <button type='button' onClick={toggleNewEntry}>New Recipe</button>
@@ -263,7 +265,7 @@ const Home = (props) => {
                     </form>
 
                     <RecipeList
-                        userLevel={props.user.userLevel}
+                        userLevel={cookies.user.userLevel}
                         viewFn={toggleView}
                         editFn={toggleEdit}
                         filterText={filterText}

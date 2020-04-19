@@ -10,8 +10,16 @@ import {useCookies} from 'react-cookie';
 import './SignIn.css';
 
 const SignIn = (props) => {
+    const history = useHistory();
+    const [cookies, setCookie] = useCookies(['user']);
+    const [problem, setProblem] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+
+    if(cookies && cookies.user.userLevel) {
+        history.push('home');
+    }
+
     const usernameHandleChange = (event) => {
         setUsername(event.target.value);
     }
@@ -19,9 +27,6 @@ const SignIn = (props) => {
         setPassword(event.target.value);
     }
 
-    const history = useHistory();
-    const [, setCookie, ] = useCookies([]);
-    const [problem, setProblem] = useState('');
     const attemptLogin = (_username, _password, _method) => {
         Axios.post(
             config.address + '/api/Authentication/SignIn',
@@ -33,12 +38,11 @@ const SignIn = (props) => {
         )
         .then(res => {
             if(res.data.success) {
-                props.setUser(JSON.parse(JSON.stringify(res.data.user)));
                 setCookie('user', res.data.user, {
                     path: '/',
                     expires: new Date(res.data.user.session.expireTime) 
                 });
-                history.push('home');
+                props.toggleUserState();
             }
             else {
                 setProblem(res.data.error);

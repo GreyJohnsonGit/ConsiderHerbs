@@ -8,7 +8,7 @@ import {useCookies} from 'react-cookie';
 import { IoIosMenu } from 'react-icons/io';
 
 const NavBar = (props) => {
-    const [cookies, removeCookie] = useCookies([]);
+    const [cookies, ] = useCookies(['user']);
     const [navMenu,setNavMenu] = useState(0);
 
     const toggleNavMenu = () => {
@@ -16,18 +16,9 @@ const NavBar = (props) => {
     }
 
     const UserButton = () => {
-        if(props.user.userLevel) {
+        if(cookies && cookies.user.userLevel) {
             return (
                 <div>
-                    {/*<a className = "nav-link-sign-in" href='/SignIn' onClick={(e) => {
-                        removeCookie('user');
-                        props.setUser({
-                            userLevel: 0,
-                            session: {}
-                        });
-                    }}>
-                    LOG OUT
-                    </a> */}
                     <Link className="nav-link-sign-in" to="/Profile">PROFILE</Link>
                 </div>
             );

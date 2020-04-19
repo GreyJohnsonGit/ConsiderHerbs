@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Profile.css';
 import {useCookies} from 'react-cookie';
 import AdminPopup from '../Admin/AdminPopup';
+import {useHistory} from 'react-router-dom';
 
 const dummyThread = {
     threadId: 'threadId',
@@ -50,6 +51,11 @@ let UserList = Array.apply(null, new Array(10)).map((user,i) => {
 const Profile = (props) => {
     const [cookies, removeCookie] = useCookies([]);
     const [showPopup,setShowPopup] = useState(0);
+    const history = useHistory();
+
+    if(!cookies || !cookies.user.userLevel) {
+        history.push('SignIn');
+    }
 
     const toggleShowPopup = () => {
         setShowPopup(!showPopup);
@@ -106,7 +112,7 @@ const Profile = (props) => {
             </AdminPopup>
 
             <div className='profile-text-box'>
-                Hello, {props.user.session.username}
+                Hello, {cookies.user.session.username}
             </div>
 
             <div className='profile-container'>
@@ -123,12 +129,12 @@ const Profile = (props) => {
                             <input type='text' id='verify-password' />
                             <button type='button'>CHANGE PASSWORD</button>
                         </form>
-                        {accountType(props.user.userLevel)}
+                        {accountType(cookies.user.userLevel)}
                     </div>
                     <div className='profile-column-2'>
                         Your Forum Posts
                         <div className='profile-thread-preview-container'>
-                            {props.user.userLevel == 0 ? 
+                            {cookies.user.userLevel == 0 ? 
                                 <div className='profile-thread-preview-empty'>
                                     <div>Oops... You don't have any posts yet!</div>
                                     <a href='/Forum'>GO TO FORUM</a>
@@ -149,7 +155,7 @@ const Profile = (props) => {
                     </div>
                 </div>
 
-                { props.user.userLevel <= 3 ? 
+                { cookies.user.userLevel <= 3 ? 
                     <div>
                         <div className='profile-manage-accounts-text'>
                             Manage Accounts
@@ -172,14 +178,11 @@ const Profile = (props) => {
 
             </div>
 
-            { !props.user.isLoggedIn ?
+            { !cookies.user.isLoggedIn ?
             <div className='profile-sign-out'>
                 <a href='/Home' onClick={(e) => {
                     removeCookie('user');
-                    props.setUser({
-                        userLevel: 0,
-                        session: {}
-                    });
+                    props.toggleUserState();
                 }}>SIGN OUT</a>
             </div>
             : null }
