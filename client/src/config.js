@@ -1,1 +1,1 @@
-exports.address = 'http://localhost:5000';
+exports.address = 'https://consider-herbs.herokuapp.com'
