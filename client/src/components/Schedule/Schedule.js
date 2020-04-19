@@ -29,7 +29,8 @@ let personalReq={
     date: new Date(),
     start_time: "",
     end_time: "",
-    description: ""
+    description: "",
+    email:""
 }
 
 
@@ -41,6 +42,8 @@ const Schedule = () => {
 
    
     const [startDate, setStartDate] = useState(new Date());
+    const [eventStartDate, setEventStartDate] = useState(new Date());
+
     
     const toggleShowPopup = () => {
         setShowPopup(!showPopup);        
@@ -133,12 +136,15 @@ const Schedule = () => {
                     <textarea rows='1' id='type' defaultValue={event.type} onChange={val => { event.type = val.target.value }} />
 
                     <label htmlFor='date'>Date</label>
-                    <DatePicker selected={new Date(event.date)} onSelect={val => { event.date = val}} />
+                    <DatePicker selected={eventStartDate} 
+                    onChange={(value)=>{
+                        setEventStartDate(value)
+                        event.date=value }} />
 
-                    <label htmlFor='time1'>start_time</label>
+                    <label htmlFor='time1'>Start time</label>
                     <textarea rows='1' id='time1' defaultValue={event.start_time} onChange={val => { event.start_time = val.target.value }} />
 
-                    <label htmlFor='time2'>end_time</label>
+                    <label htmlFor='time2'>End time</label>
                     <textarea rows='1' id='time2' defaultValue={event.end_time} onChange={val => { event.end_time = val.target.value }} />
 
                     <label htmlFor='maxp'>Max Participants</label>
@@ -155,39 +161,34 @@ const Schedule = () => {
             </AdminPopUp>
             <Calendar editEvent={editEvent} />
             <button onClick={newEvent}>New Event</button>
-
+            
             <AdminPopUp closeFn={toggleShowPop2} showPopup={showPop2}>
                 <form>
                     <label htmlfor="name">Name</label>
                     <input type="text" onChange={ (event)=>{personalReq.name=event.target.value}}></input>
                     {console.log(personalReq.name)}
-                    <label>Type</label>
-                    <input type="text" placeholder="In-person or online"></input>
+                    <label>Email address</label>
+                    <textarea rows="1" type="text" onChange={ (event)=>{personalReq.email=event.target.value}}></textarea>
+                    <label>Consulation Type</label>
+                    <textarea rows="1" type="text" placeholder="In-person or online"></textarea>
                     <label htmlFor='date'>Date</label>
                     
-                    <DatePicker selected={startDate} onChange={(date) => {
+                    <DatePicker selected={startDate}  onChange={(date) => {
                         setStartDate(date) 
                         personalReq.start_time=startDate}} />
                                        
                     <label> Start Time</label>
-                    <input type="time" min="0:00" max="24:00" onChange={(time)=>{personalReq.start_time=time}}></input>
+                    <textarea rows="1" type="text" onChange={(time)=>{personalReq.start_time=time}}></textarea>
                     <label> End Time</label>
-                    <input type="time" min="0:00" max="24:00" onChange={(time)=>{personalReq.end_time=time}}></input>
+                    <textarea rows="1" type="text" onChange={(time)=>{personalReq.end_time=time}}></textarea>
                    
                     { /*
-                    
-                    {console.log("date")}
-                    {console.log(personalReq.date) }
-                    {console.log(personalReq.start_time)}
-                    {console.log(personalReq.end_time)}
-                    <DatePicker onSelect={(pick) => { personalReq.date=pick}} />
-    
-       
-                    //ask sumanth about date picker, if we should change it, aslo select time? which way is better?              
+                    //issue with datePicker when it is inside the form
                     */}
                     <label>Description</label>
-                    <input placeholder="Briefly describe your goals for this consultation" 
-                    onChange={(descrip)=>{personalReq.description=descrip}}></input>
+                    <textarea rows="1" placeholder="Briefly describe your goals for this consultation" 
+                    onChange={(descrip)=>{personalReq.description=descrip}}></textarea>
+                    
                     <button type='submit'>Submit</button>
                 </form>
 
