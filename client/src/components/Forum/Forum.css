@@ -185,8 +185,7 @@
 }
 
 .thread-post #main-post-container {
-    padding-left: 18px;
-    padding-right: 18px;
+    padding: 12px 18px;
     margin-bottom: 15px;
     background-color: #EDEDED;
     width: 100%;
@@ -213,21 +212,33 @@
     margin-bottom: 5px;
 }
 
+.thread-like-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.thread-like-container button {
+    background-color: #636363;
+    text-transform: uppercase;
+    color: white;
+    border: none;
+}
+
 .thread-post h3 {
+    flex-grow: 1;
     font-family: Ubuntu-R;
     font-size: 13px;
     color: black;
     text-align: right;
-    padding-right: 10px;
-    padding-bottom: 10px;
+    align-self: center;
 }
 
-.thread-comment {
+.thread-reply {
     position: relative;
     width: 100%;
 }
 
-.thread-comment #comment-side-bar {
+.thread-reply #reply-side-bar {
     margin-left: 2%;
     background: #999999;
     height: 100%;
@@ -237,7 +248,7 @@
     top: 0;
 }
 
-.thread-comment #comment-container {
+.thread-reply #reply-container {
     margin-left: 2%;
     padding-left: 15px;
     padding-right: 15px;
@@ -246,7 +257,7 @@
     height: 100%;
 }
 
-.thread-comment h2 {
+.thread-reply h2 {
     margin-bottom: 5px;
     padding-top: 10px;
     color: #363636;
@@ -254,14 +265,14 @@
     font-style: italic;
 }
 
-.thread-comment p {
+.thread-reply p {
     font-family: Ubuntu-Th;
     font-weight: bold;
     font-size: 14px;
     padding-bottom: 10px;
 }
 
-.thread-comment #title {
+.thread-reply #title {
     margin-bottom: 5px;
     padding-top: 10px;
     color: #363636;
@@ -269,11 +280,32 @@
     font-style: italic;
 }
 
-.thread-comment #body {
+.thread-reply #body {
     font-family: Ubuntu-Th;
     font-weight: bold;
     font-size: 14px;
     padding-bottom: 10px;
+}
+.thread-comment {
+    margin-left: 2%;
+    padding: 10px;
+    width: 50%;
+    background-color: #EDEDED;
+    border-left: 8px #A6CC78 solid;
+}
+.thread-comment label {
+    color: black;
+    font-weight: bold;
+}
+.thread-comment-textarea {
+    width: 100%;
+}
+.thread-comment button {
+    background-color: #636363;
+    text-transform: uppercase;
+    color: white;
+    border: none;
+    padding: 5px 10px;
 }
 
 /* Did You Know Preview */

@@ -4,6 +4,7 @@ import axios from 'axios';
 import config from '../../../config.js'
 import Async from 'react-async';
 import { PromiseProvider } from 'mongoose';
+import {useCookies} from 'react-cookie';
 
 /*const dummyThread = {
     threadId: 'threadId',
@@ -86,6 +87,7 @@ const formatDate = (date) => {
 
 
 const Thread = () => {
+    const [cookies, ] = useCookies(['user']);
 
     //get thread specified in URL
     const getThread = (props) => {
@@ -121,21 +123,33 @@ const Thread = () => {
                                             <h1>{thread.title}</h1> 
                                             <h2>posted by <b>{thread.user}</b> {formatDate(thread.date)} </h2>
                                             <p>{thread.body}</p>
-                                            <h3>Likes: {thread.likes} Replies: {thread.replies.length} </h3>
+                                            <div className='thread-like-container'>
+                                                { cookies.user && cookies.user.userLevel ? 
+                                                    <button>Like</button>
+                                                : null }
+                                                <h3>Likes: {thread.likes} Replies: {thread.replies.length} </h3>
+                                            </div>
                                         </div>
                                     </div>
                                     {thread.replies.map((reply) => {
                                         //console.log(reply)
                                         return (
-                                            <div className="thread-comment">
-                                                <div id="comment-side-bar">&nbsp;</div>
-                                                <div id="comment-container">
+                                            <div className="thread-reply">
+                                                <div id="reply-side-bar">&nbsp;</div>
+                                                <div id="reply-container">
                                                     <h2><b>{reply.user}</b> commented {formatDate(reply.date)} </h2>
                                                     <p>{reply.text}</p>
                                                 </div>
                                             </div>
                                         )
                                     })}
+                                    { cookies.user && cookies.user.userLevel ? 
+                                    <form className="thread-comment">
+                                        <label htmlFor='comment'>Post a new reply...</label>
+                                        <textarea className="thread-comment-textarea" id='comment' rows='4'/>
+                                        <button>Reply</button>
+                                    </form>
+                                    : null }
                                 </div>
                             )
                         }
