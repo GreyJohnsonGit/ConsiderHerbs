@@ -1,30 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import './NavBar.css';
 import ConsiderLogo from './ConsiderLogo.png';
 import {useCookies} from 'react-cookie';
 
-// import { IoIosMenu } from 'react-icons/iSo';
+import { IoIosMenu } from 'react-icons/io';
 
 const NavBar = (props) => {
-    const [cookies,, removeCookie] = useCookies([]);
+    const [cookies, ] = useCookies(['user']);
+    const [navMenu,setNavMenu] = useState(0);
+
+    const toggleNavMenu = () => {
+        setNavMenu(!navMenu);
+    }
 
     const UserButton = () => {
-        if(props.user.isLoggedIn) {
+        if(cookies && cookies.user.userLevel) {
             return (
                 <div>
-                    <a className = "nav-link-sign-in" href='/SignIn' onClick={(e) => {
-                        console.log('link was clicked');
-                        removeCookie('session');
-                        props.setUser({
-                            isLoggedIn: false,
-                            userLevel: 0,
-                            username: 'Anon'
-                        });
-                    }}>
-                    LOG OUT
-                    </a>
+                    <Link className="nav-link-sign-in" to="/Profile">PROFILE</Link>
                 </div>
             );
         }
@@ -41,13 +36,18 @@ const NavBar = (props) => {
             </Link>
 
             {/* Page Links */}
-            <div className = "nav-items">
+            <div className={navMenu ? "nav-items responsive" : "nav-items"}>
                 <Link className = "nav-link" to='/Home'>HOME</Link>
                 <Link className = "nav-link" to='/Forum'>FORUM</Link> 
                 <Link className = "nav-link" to='/Glossary'>GLOSSARY</Link>
                 <Link className = "nav-link" to='/About'>ABOUT</Link>
-                <Link className = "nav-link-last" to='/Schedule'>SCHEDULE</Link>
+                <Link className = "nav-link" to='/Schedule'>SCHEDULE</Link>
+                <Link className = "nav-link-last" to='/Products'>PRODUCTS</Link>
                 <UserButton></UserButton>
+            </div>
+
+            <div className='nav-menu-button-container'>
+                <IoIosMenu className='nav-menu-button' size='2.3em' onClick={toggleNavMenu} />
             </div>
 
         </div>

@@ -1,50 +1,99 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ForumImage from '../Forum_Image.jpg';
+import PostInfo from './PostInfo.js';
 import DidYouKnowImage from './assets/Did_You_Know_IMG.jpg';
-import DidYouKnowContent from './DidYouKnowContent.js';
-import DidYouKnowComments from './DidYouKnowComments.js';
-import { Route, Switch, Link } from 'react-router-dom';
+import config from '../../../config.js';
+import AdminPopup from "../../Admin/AdminPopup";
+import axios from 'axios';
+import {useCookies} from 'react-cookie';
 
-const dummyPost = {
-    postId: 'did i change?',
-    title: 'Some Post',
-    date: '01/01/2020',
-    body: 'Lorem ipsum dolor sit amet, \
-            consectetur adipiscing elit, sed \
-            do eiusmod tempor incididunt ut \
-            labore et dolore magna aliqua. Ut enim ad minim veniam, \
-            quis nostrud exercitation ullamco laboris nisi ut aliquip \
-            ex ea commodo consequat. Duis aute irure dolor in reprehenderit \
-            in voluptate velit esse cillum dolore eu fugiat nulla pariatur. \
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa\
-            qui officia deserunt mollit anim id est laborum.Duis aute irure \
-            dolor in reprehenderit in voluptate velit esse cillum dolore eu \
-            fugiat nulla pariatur. Excepteur sint occaecat cupidatat non \
-            proident, sunt in culpa qui officia deserunt mollit anim id \
-            est laborum.',
-    sources: ["Dean, Cornelia. Executive on a Mission: Saving the Planet. The New York Times, 22 May 2007, www.nytimes.com/2007/05/22/science/earth/22ander.html?_r=0. Accessed 29 May 2019."
-            , "Ebert, Roger. Review of An Inconvenient Truth, directed by Davis Guggenheim. Ebert Digital LLC, 1 June 2006, www.rogerebert.com/reviews/an-inconvenient-truth-2006. Accessed 15 June 2019."],
-    replies: []
-}
 
-const dummyComment = {
-    threadId: 'threadId',
-    userId: 'userId',
-    user: '@some_user',
-    body: 'Lorem ipsum dolor sit amet, \
-            consectetur adipiscing elit, \
-            sed do eiusmod tempor incididunt \
-            ut labore et dolore magna aliqua. \
-            Ut enim ad minim veniam, quis \
-            nostrud exercitation ullamco \
-            laboris nisi ut aliquip ex ea commodo consequat...',
+const DidYouKnow = (props) => {
+    const [showPopup, setShowPopup] = useState(0);
+    const [mode, setMode] = useState('');
+    const [cookies] = useCookies(['user']);
+    const [title, setTitle] = useState('');
+    const [image, setImage] = useState('');
+    const [body, setBody] = useState('');
+    const [sources, setSources] = useState('');
 
-}
+    const handleTitle = (event) => {
+        setTitle(event.target.value);
+    }
+    const handleImage = (event) => {
+        setImage(event.target.value);
+    }
+    const handleBody = (event) => {
+        setBody(event.target.value);
+    }
+    const handleSources = (event) => {
+        setSources(event.target.value);
+    }
 
-const Comments = Array(3).fill(dummyComment);
+    const toggleShowPopup = () => {
+        setShowPopup(!showPopup);
+    };
+    const toggleEdit = (entry) => {
+        setTitle(entry.title);
+        setImage(entry.image);
+        setBody(entry.body);
+        setSources(entry.sources);
+        setMode('edit');
+        toggleShowPopup();
+    };
+    const toggleNewEntry = () => {
+        setTitle('');
+        setImage('');
+        setBody('');
+        setSources('');
+        setMode('new');
+        toggleShowPopup();
+    }
 
-const DidYouKnow = () => {
+    const submitForm = (event) => {
+        if(mode === 'edit') {
+            axios.put(
+                config.address + '/api/DidYouKnow/' + title,
+                {
+                    title: title,
+                    image: image,
+                    body: body,
+                    sources: sources
+                }
+            )
+            .then((res) => {
+                console.log(res);
+                toggleShowPopup();
+            })
+            .catch((err) => {
+                console.error(err);
+                toggleShowPopup();
+            })
+        }
+        if(mode === 'new') {
+            console.log(title);
+            axios.post(
+                config.address + '/api/DidYouKnow/',
+                {
+                    title: title,
+                    image: image,
+                    body: body,
+                    sources: sources
+                }
+            )
+            .then((res) => {
+                console.log(res);
+                toggleShowPopup();
+            })
+            .catch((err) => {
+                console.error(err);
+                toggleShowPopup();
+            })
+        }
+    }
+
     return (
+        
         <div>
             <div className="image-container">
 
@@ -54,39 +103,35 @@ const DidYouKnow = () => {
 
             </div>
 
+            <AdminPopup closeFn={toggleShowPopup} showPopup={showPopup}>
+                <form onSubmit={submitForm}>
+                    <label htmlFor='title'>Title</label>
+                    <input type='text' id='title' value={title} onChange={handleTitle} required/>
+
+                    <label htmlFor='image'>Image</label>
+                    <input type="file" rows='3' id='definition' value={image} onChange={handleImage}/>
+
+                    <label htmlFor='body'>Body</label>
+                    <textarea rows='3' id='usage' value={body} onChange={handleBody} required/>
+
+                    <label htmlFor='sources'>Sources</label>
+                    <textarea rows='3' id='usage' value={sources} onChange={handleSources}/>
+
+                    <button type='submit'>Submit</button>
+                </form>
+            </AdminPopup>
+            
             <div className="dyk-spacer">&nbsp;</div>
+
+            {cookies.user.userLevel === 3 ? 
+            <div>
+            <button type='button' className='admin-button' onClick={toggleNewEntry} style={{marginLeft: "15%", marginBottom: "10px", paddingRight:"20px", paddingLeft:"20px"}}>New</button> <br/>
+            </div>:
+            null}
             
             <a href={`/Forum`} className="did-you-know-back-button"> {"< Back"}</a>
 
-            <div className="did-you-know-post">
-                <h3>{'<'}</h3>
-                <div id='bar'>&nbsp;</div>
-                <div>
-                    <h2>{dummyPost.title}</h2>
-                    <h3>posted by Dee on {dummyPost.date}</h3>
-
-                    <div id="image">
-                        <img src={DidYouKnowImage} style={{width:"100%"}} />
-                    </div>
-
-                    <div>
-                        <span>
-                            <button>
-                                    <Link style={{textDecoration:"none", color:"white"}} to="/DidYouKnow/">CONTENT</Link>
-                            </button>
-                            <button>
-                                <Link style={{textDecoration:"none", color:"white"}} to="/DidYouKnow/Comments/">COMMENTS(3)</Link>
-                            </button>
-                        </span>
-                    </div>
-                    <Switch>
-                        <Route exact path='/DidYouKnow/' component={DidYouKnowContent} />
-                        <Route path={`/DidYouKnow/Comments/`} component={DidYouKnowComments} />
-                    </Switch>
-                    
-                </div>
-                <h3>{'>'}</h3>
-            </div>
+            <PostInfo editFn={toggleEdit} userLevel={cookies.user.userLevel}/>
         </div>
     )
 }

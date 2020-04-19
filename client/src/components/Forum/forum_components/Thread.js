@@ -108,10 +108,8 @@ const Thread = () => {
                     if (isLoading) return "Loading...";
                     if (err) return `Oops, something went wrong: ${err.message}`
                     if (data != null && data.data != null) {
-
                         let thread = data.data;
                         //console.log(data);
-
                         if(thread.replies != null){
                             return (
                                 <div>

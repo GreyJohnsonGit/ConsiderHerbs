@@ -10,9 +10,16 @@ import {useCookies} from 'react-cookie';
 import './SignIn.css';
 
 const SignIn = (props) => {
-    
+    const history = useHistory();
+    const [cookies, setCookie] = useCookies(['user']);
+    const [problem, setProblem] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+
+    if(cookies && cookies.user.userLevel) {
+        history.push('home');
+    }
+
     const usernameHandleChange = (event) => {
         setUsername(event.target.value);
     }
@@ -20,33 +27,25 @@ const SignIn = (props) => {
         setPassword(event.target.value);
     }
 
-    const history = useHistory();
-    const [, setCookie, ] = useCookies([]);
-    const [problem, setProblem] = useState('');
     const attemptLogin = (_username, _password, _method) => {
         Axios.post(
             config.address + '/api/Authentication/SignIn',
             {
                 username: _username,
                 password: _password,
-                method: _method,
+                method: _method
             }
         )
         .then(res => {
             if(res.data.success) {
-                setCookie('session', res.data.session, {
+                setCookie('user', res.data.user, {
                     path: '/',
-                    expires: new Date(res.data.session.expireTime) 
+                    expires: new Date(res.data.user.session.expireTime) 
                 });
-                props.setUser({
-                    isLoggedIn: true,
-                    userLevel: 1,
-                    username: 'SignedIn'
-                });
-                history.push('home');
+                props.toggleUserState();
             }
             else {
-                setProblem(res.data.reason);
+                setProblem(res.data.error);
             }
         })
         .catch(err => {

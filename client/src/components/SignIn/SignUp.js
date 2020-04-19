@@ -10,9 +10,17 @@ import {useHistory} from 'react-router-dom';
 
 const SignUp = (props) =>{
     const [username, setUsername] = useState('');
-    const [email, setEmail] = useState('');
+    const [email, setEmail] = useState(props.location.state ? props.location.state.email : '');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const history = useHistory();
+    const [cookies, setCookie] = useCookies(['user']);
+    const [problem, setProblem] = useState('');
+
+    if(cookies && cookies.user.userLevel) {
+        history.push('home');
+    }
+
     const usernameHandleChange = event => {
         setUsername(event.target.value);
     }
@@ -26,9 +34,6 @@ const SignUp = (props) =>{
         setConfirmPassword(event.target.value);
     }
 
-    const history = useHistory();
-    const [, setCookie, ] = useCookies([]);
-    const [problem, setProblem] = useState('');
     const attemptLogin = (_username, _email, _password, _confirmPassword, _method) => {
         if(_password === _confirmPassword){
             Axios.post(
@@ -42,23 +47,18 @@ const SignUp = (props) =>{
             )
             .then(res => {
                 if(res.data.success) {
-                    setCookie('session', res.data.session, {
+                    setCookie('user', res.data.user, {
                         path: '/',
-                        expires: new Date(res.data.session.expireTime) 
+                        expires: new Date(res.data.user.session.expireTime) 
                     });
-                    props.setUser({
-                        isLoggedIn: true,
-                        userLevel: 1,
-                        username: 'SignedIn'
-                    });
-                    history.push('home');
+                    props.toggleUserState();
                 }
                 else {
-                    setProblem(res.data.reason);
+                    setProblem(res.data.error);
                 }
             })
             .catch(err => {
-                console.error(err);
+                console.error(err)
             });
         }
         else{

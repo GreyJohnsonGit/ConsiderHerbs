@@ -4,12 +4,14 @@ exports.create = function(req,res) {
     var model = ProductModel;
     let ProductItem = new model(req.body);
 
-    ProductItem.save(function(err, doc){
+    ProductItem.save(function(err){
         if (err) {
             console.log(err);
         }
         else {
-            res.send(doc)
+            res.send({
+                success: true
+            })
         }
     })
 }

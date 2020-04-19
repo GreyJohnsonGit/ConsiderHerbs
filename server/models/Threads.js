@@ -6,6 +6,7 @@ const ThreadSchema = new mongoose.Schema({
   user_id  : {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
   user : {type: String, default: "@JaneDoe"},
   date  : {type: Date, default: Date.now},
+  user  : {type : mongoose.Schema.Types.String, ref: 'User'},
   body  : {type: String, default: "Insert text here"},
   likes : mongoose.Number,
   tags  : [{ type : String }],

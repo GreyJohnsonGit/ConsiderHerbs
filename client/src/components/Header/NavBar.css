@@ -75,3 +75,30 @@
     color: #FFFFFF;
     font-weight: bold;
 }
+
+.nav-menu-button-container {
+    display: none;
+}
+
+@media screen and (max-width: 1000px) {
+    .nav-items {
+        display: none;
+        overflow: hidden;
+    }
+    .nav-items.responsive {
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        position: absolute;
+        top: 80px;
+        right: 1vw;
+        height: auto;
+    }
+    .nav-menu-button-container {
+        display: flex;
+        flex-direction: row-reverse;
+        flex: 1;
+        align-self: center;
+        padding: 15px;
+    }
+}

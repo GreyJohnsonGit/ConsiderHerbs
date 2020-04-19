@@ -13,12 +13,22 @@ signinRouter.post('/SignIn/', SignInController.signIn);
 signinRouter.post('/SignUp/', SignInController.signUp);
 
 //Verify SessionID
-signinRouter.post('/Verify/', SignInController.verify);
+//signinRouter.post('/Verify/', SignInController.verify);
 
 //Logout
-signinRouter.post('/Logout/', SignInController.logout);
+//signinRouter.post('/Logout/', SignInController.logout);
 
 //Refresh Session
-signinRouter.post('/Refresh/', SignInController.refresh);
+//signinRouter.post('/Refresh/', SignInController.refresh);
+
+//returns all Users
+// GET: /api/SignIn/
+signinRouter.get('/', SignInController.getAll);
+
+// returns one User from username given
+signinRouter.get('/:username', SignInController.getUser);
+
+//Updates User
+signinRouter.put('/:username/change/:password', SignInController.updatePassword);
 
 module.exports = signinRouter;
