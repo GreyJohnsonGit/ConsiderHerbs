@@ -188,7 +188,7 @@ const Schedule = () => {
                 </form>
             </AdminPopUp>
             <Calendar editEvent={editEvent} />
-            {/* {cookies.user.userLevel>2?<Requests />:""} */}
+            {cookies.user.userLevel>2?<Requests />:""}
 
             {console.log("user : ", cookies)}
             {cookies.user.userLevel > 2?<button onClick={newEvent}>New Event</button>: ""}
@@ -226,7 +226,7 @@ const Schedule = () => {
             </AdminPopUp>
             <button onClick={RequestCons} >Request Personal Consultation</button>
 
-            {cookies.user.userLevel > 2?<MeetingList/>:""}
+            {/* {cookies.user.userLevel > 2?<MeetingList/>:""} */}
 
 
         </div>

@@ -41,6 +41,6 @@ MeetingRouter.post('/', MeetingController.create);
 
 //calls remove, request should include url param :name for entry to remove
 // DELETE: /api/Meeting/:name
-MeetingRouter.delete('/:name', MeetingController.remove);
+MeetingRouter.delete('/:id', MeetingController.remove);
   
 module.exports = MeetingRouter;

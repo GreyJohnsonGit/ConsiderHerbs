@@ -18,7 +18,7 @@ exports.create = function(req,res) {
 //removes MeetingRequest entry, expects url param :name to denote which entry to remove
 exports.remove = function(req, res) {
     var model = MeetingRequestModel;
-    model.find({name: req.params.name}).exec().then(function(docs, err){
+    model.find({_id: req.params.id}).exec().then(function(docs, err){
         if(err){
             res.send(err.message);
         }
@@ -26,7 +26,7 @@ exports.remove = function(req, res) {
             res.send('error: Entry not found');
         }
         else{
-            model.find({name: req.params.name}).remove().exec();
+            model.find({_id: req.params.id}).remove().exec();
             res.send(docs[0]);
         }
     })
