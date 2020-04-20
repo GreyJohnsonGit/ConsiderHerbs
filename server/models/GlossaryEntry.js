@@ -2,7 +2,7 @@ mongoose = require('mongoose');
 const GlossarySchema = new mongoose.Schema({
   title : {type:String, required: true},
   definition: String, 
-  userLevel : {type: Number, default : 3},
+  userLevel : {type: Number, default : 2},
   usage: String
 });
 
