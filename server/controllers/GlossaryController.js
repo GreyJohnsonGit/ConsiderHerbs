@@ -36,6 +36,7 @@ exports.update = function(req, res) {
     res.header('Access-Control-Allow-Origin', '*');
     var model = glossaryModel;
     let item = req.body;
+    item.userLevel  = req.body.userLevel;
     model.findOneAndUpdate({title: req.params.title}, item).exec().then((doc, err) => {
         if(err){console.error(err)}
         if(doc){
