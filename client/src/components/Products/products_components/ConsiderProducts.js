@@ -34,7 +34,7 @@ const ConsiderProducts = (props) => {
                                     return (
                                             <div id="grid-item">
                                                 <div className="outer">
-                                                    <div className="inner">
+                                                    <div className="inner" onClick={() => props.viewFn(productEntry)}>
                                                         <img src={productEntry.image}/>
                                                     </div>
                                                 </div> 
@@ -58,7 +58,7 @@ const ConsiderProducts = (props) => {
                                                  </form> :
                                                  null }
 
-                                                <div id="name"> {productEntry.name} </div>
+                                                <div id="name" onClick={() => props.viewFn(productEntry)}> {productEntry.name} </div>
                                                 <div id="description"> {productEntry.description} </div>
                                                 <div id="price"> ${productEntry.price} </div>
                                             </div>
