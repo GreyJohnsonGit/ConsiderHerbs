@@ -45,7 +45,7 @@ const Footer=()=>{
                             <FiPhoneCall size={iconSize} className='react-icons'/>
                             <p>(954)000-000</p>
                             <AiOutlineMail size={iconSize} className='react-icons'/>
-                            <p>considerHerbs@gmail.com</p>
+                            <p>Dee@ConsiderHerbs.com</p>
                             <FaInstagram size={iconSize} className='react-icons'/>
                             <p>@considerherbs </p>
                             <FiMapPin size={iconSize} className='react-icons'/>
