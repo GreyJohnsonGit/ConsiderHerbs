@@ -98,6 +98,7 @@ const Schedule = () => {
                 })
         }
         if (mode === 'new') {
+            console.log("trying to post", event)
             axios.post(
                 config.address + '/api/Event/',
                 event

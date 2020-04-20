@@ -23,12 +23,6 @@ const loadEvents = async () => {
 const EventList = (props) => {
     const [cookies,] = useCookies(['user']);
 
-    let deleteEvent = (Event) => {
-        console.log("Event chosen to delete: ", Event)
-
-
-        props.update()
-    }
 
     return (
         <div>
@@ -40,11 +34,11 @@ const EventList = (props) => {
                     if (data && Array.isArray(data)) {
                         return (
                             data.map((Eventy) => {
-                                // console.log("fetched Date", new Date(Event.date));
+                                // console.log("fetched Date", new Date(Eventy.date));
                                 // console.log("sent num: ", (new Date(props.date)));
-                                // console.log("comp: ", new Date(Event.date).getTime() == new Date(props.date).getTime())
-                                //console.log("Eventy: ",Eventy)
-                                if (new Date(Eventy.date).getTime() == new Date(props.date).getTime()) {
+                                // console.log("comp: ", new Date(Eventy.date).setHours(0, 0, 0, 0) == new Date(props.date).setHours(0, 0, 0, 0))
+                                // //console.log("Eventy: ",Eventy)
+                                if (new Date(Eventy.date).setHours(0, 0, 0, 0) == new Date(props.date).setHours(0, 0, 0, 0)) {
                                     return (
                                         <div  >
 
