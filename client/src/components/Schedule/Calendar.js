@@ -55,9 +55,9 @@ const Calendar = (props) => {
 
     const [daysstate, setDays] = useState([])
 
-    let update  = () =>{
+    let update = () => {
         setDays(daysstate)
-        forceRender(render+1);
+        forceRender(render + 1);
     }
 
     let initDates = () => {
@@ -68,7 +68,7 @@ const Calendar = (props) => {
             })
 
             setDays(DAYS_OF_THE_WEEK)
-            forceRender(render+1);
+            forceRender(render + 1);
             console.log("Days of week after init: ", DAYS_OF_THE_WEEK)
         }
     }
@@ -78,7 +78,7 @@ const Calendar = (props) => {
             element.date = new Date(new Date(element.date).getTime() + (7 * 24 * 60 * 60 * 1000)).getTime();
         })
         setDays(daysstate)
-       forceRender(render+1);
+        forceRender(render + 1);
     }
 
     let lastWeek = () => {
@@ -89,7 +89,7 @@ const Calendar = (props) => {
         })
 
         setDays(daysstate)
-        forceRender(render+1);
+        forceRender(render + 1);
     }
 
     // let isLeapYear = (year) => {
@@ -110,9 +110,10 @@ const Calendar = (props) => {
                 daysstate.map(day => {
                     return (
                         <div className="dayCol">
-                            <h2 className="dayLabel">{day.day}</h2>
-                            <p>{new Date(day.date).getDate()}</p>
-                            <Events className="EventinCol" date={day.date} update={update} editFn={props.editEvent}/>
+                            <div className="dayLabel"> <h2>{day.day}</h2>
+                                <p>{new Date(day.date).getDate()}</p>
+                            </div>
+                            <Events className="EventinCol" date={day.date} update={update} editFn={props.editEvent} />
                         </div>
                     )
                 })

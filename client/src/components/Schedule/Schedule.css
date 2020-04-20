@@ -51,32 +51,43 @@
     content: "";
     display: table;
     clear: both;
-    border: 3px solid ;
 }
 .changeWeek{
     margin: auto;
     border: 3px solid green;
+    background: rgba(187, 250, 92, 0.493);
     width: 25%;
+    border-radius: 10px;
 }
 .calendarHeader{
-    background: rgba(172, 255, 47, 0.301);
-    border: 3px solid red;
+    background: rgba(5, 5, 5, 0.301);
+    border-radius: 10px;
+    
 }
 .CalandarTitle{
     margin: auto;
     width: 50%;
     border: 3px solid green;
+    background: rgba(187, 250, 92, 0.493);
     text-align: center;
     display: inline-block;
+    border-radius: 10px;
 }
 
 .dayCol{
     float: left;
     width: calc(100%/7);
-    border: 3px solid green;
+    border: 1px solid rgba(2, 172, 2, 0.521);
     text-align: center;
+    border-radius: 15px;
 }
 .dayLabel{
-    border: 3px solid;
+    border: 2px solid;
     text-align: center;
+    border-radius: 10px;
 }
+
+/* .term-container{
+    border: 1px solid;
+    text-align: center;
+} */
