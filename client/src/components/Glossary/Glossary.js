@@ -91,8 +91,6 @@ const Glossary = (props) =>{
         }
     }
 
-    console.log(props.location)
-
     return(
         <div>
             <div className = "image-container">
