@@ -3,7 +3,7 @@ const MeetingRequestModel = require('../models/MeetingRequest.js');
 exports.create = function(req,res) {
     var model = MeetingRequestModel;
     let MeetingRequestItem = new model(req.body);
-
+    console.log("trying to post: ", req.body)
     MeetingRequestItem.save(function(err, doc){
         if (err) {
             console.log(err);
@@ -34,10 +34,10 @@ exports.remove = function(req, res) {
 
 //returns all MeetingRequests in the database, sorted alphabetically by name
 exports.getAll = function(req, res) {
+    res.header('Access-Control-Allow-Origin', '*');
     var model = MeetingRequestModel;
     model.find({}).exec().then(function(docs, err){
-        docs.sort((a,b) => (a.name > b.name) ? 1 : -1);
-        res.header('Access-Control-Allow-Origin', '*');
+       // docs.sort((a,b) => (a.name > b.name) ? 1 : -1);
         res.send(docs);
     })
 }

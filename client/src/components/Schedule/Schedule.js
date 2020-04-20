@@ -10,6 +10,7 @@ import MeetingList from './MeetingList.js'
 import config from '../../config.js'
 import Calendar from './Calendar'
 import AdminPopUp from "../Admin/AdminPopup";
+import Requests from './Requests'
 
 
 let event = {
@@ -54,8 +55,7 @@ const Schedule = () => {
 
     const toggleShowPop2=()=>{
         setShowPop2(!showPop2);
-
-    }
+    };
 
     const editEvent = (entry) => {
         console.log("trying to edit1: ", entry.name)
@@ -115,23 +115,32 @@ const Schedule = () => {
     }
 
     const RequestCons =()=>{
+        personalReq={
+            name: "",
+            type: "",
+            date: new Date(),
+            start_time: "",
+            end_time: "",
+            description: "",
+            email:""
+        }
         toggleShowPop2();
     }
 
     const addMeeting = () => {
         //param.preventDefault() 
-        console.log(personalReq);
+        console.log("meeting being added: ", personalReq);
         axios.post(
             config.address + '/api/Meeting/',
             personalReq
         )
         .then((res) => {
             console.log(res);
-            toggleShowPopup();
+            //toggleShowPop2();
         })
         .catch((err) => {
             console.error(err);
-            toggleShowPopup();
+            //toggleShowPop2();
         })
 
     }
@@ -179,13 +188,14 @@ const Schedule = () => {
                 </form>
             </AdminPopUp>
             <Calendar editEvent={editEvent} />
+            <Requests />
 
             {console.log("user : ", cookies)}
             {cookies.user.userLevel > 2?<button onClick={newEvent}>New Event</button>: ""}
             
             <AdminPopUp closeFn={toggleShowPop2} showPopup={showPop2}>
-                <form > 
-                    <label htmlfor="name">Name</label>
+                <form onSubmit={addMeeting}> 
+                    <label htmlFor="name">Name</label>
                     <input type="text" onChange={ (event)=>{personalReq.name=event.target.value}}></input>
                     {console.log(personalReq.name)}
                     <label>Email address</label>
@@ -210,7 +220,7 @@ const Schedule = () => {
                     <textarea rows="1" placeholder="Briefly describe your goals for this consultation" 
                     onChange={(descrip)=>{personalReq.description=descrip}}></textarea>
                     
-                    <button type='submit' id="admin-button" onSubmit={addMeeting}>Submit</button>
+                    <button type='submit' id="admin-button" >Submit</button>
                 </form>
 
             </AdminPopUp>

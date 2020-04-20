@@ -61,8 +61,8 @@ const EventList = (props) => {
                                             }}>Delete</button> : ""}
                                             <h>Type: </h>
                                             <p>{Eventy.type}</p>
-                                            <h>Date: </h>
-                                            <p>{Eventy.date}</p>
+                                            <h>Start Time: </h>
+                                            <p>{Eventy.start_time}</p>
 
                                         </div>
                                     );
