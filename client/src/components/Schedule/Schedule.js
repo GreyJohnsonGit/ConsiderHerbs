@@ -115,25 +115,24 @@ const Schedule = () => {
 
     const RequestCons =()=>{
         toggleShowPop2();
-        console.log("This handles the click")
     }
 
-    const addMeeting = (param) => {
+    const addMeeting = () => {
         //param.preventDefault() 
         console.log(personalReq);
         axios.post(
             config.address + '/api/Meeting/',
             personalReq
         )
-            .then((res) => {
-                console.log(res);
-                toggleShowPopup();
-            })
-            .catch((err) => {
-                console.error(err);
-                toggleShowPopup();
-            })
-    
+        .then((res) => {
+            console.log(res);
+            toggleShowPopup();
+        })
+        .catch((err) => {
+            console.error(err);
+            toggleShowPopup();
+        })
+
     }
 
     return (
@@ -184,7 +183,7 @@ const Schedule = () => {
             {cookies.user.userLevel > 2?<button onClick={newEvent}>New Event</button>: ""}
             
             <AdminPopUp closeFn={toggleShowPop2} showPopup={showPop2}>
-                <form onSubmit={addMeeting}> 
+                <form > 
                     <label htmlfor="name">Name</label>
                     <input type="text" onChange={ (event)=>{personalReq.name=event.target.value}}></input>
                     {console.log(personalReq.name)}
@@ -210,13 +209,13 @@ const Schedule = () => {
                     <textarea rows="1" placeholder="Briefly describe your goals for this consultation" 
                     onChange={(descrip)=>{personalReq.description=descrip}}></textarea>
                     
-                    <button type='submit' id="admin-button">Submit</button>
+                    <button type='submit' id="admin-button" onSubmit={addMeeting}>Submit</button>
                 </form>
 
             </AdminPopUp>
             <button onClick={RequestCons} >Request Personal Consultation</button>
 
-            <MeetingList/>
+            {cookies.user.userLevel > 2?<MeetingList/>:""}
 
 
         </div>
