@@ -132,7 +132,7 @@ const Home = (props) => {
                         <div className='recipe-popup-title'>
                             {entryToEdit.name}
                         </div>
-                        { cookies.user.userLevel >= entryToEdit.priviledge ?
+                        { cookies.user.userLevel >= entryToEdit.userLevel ?
                             <Async promiseFn={LoadTerms}>
                                 {({data,err,isLoading}) => {
                                     console.log(data);
@@ -246,7 +246,7 @@ const Home = (props) => {
                     <div style={{position: 'relative'}}>
                         <h2>Select Your Area of Discomfort on the Body Model</h2>
                     </div>
-                    <form className='search' style={{marginTop:"5px"}}>
+                    <form style={{marginTop:"5px"}}>
                         <input 
                             type='text'
                             placeholder='Search Recipes...'
