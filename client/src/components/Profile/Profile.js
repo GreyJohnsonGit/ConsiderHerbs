@@ -52,7 +52,7 @@ let UserList = Array.apply(null, new Array(10)).map((user,i) => {
 
 
 const Profile = (props) => {
-    const [cookies, removeCookie] = useCookies(['user'])
+    const [cookies, setCookie, removeCookie] = useCookies(['user'])
     const history = useHistory();
     if(!cookies.user || !cookies.user.userLevel) {
         history.push('SignIn');
@@ -105,6 +105,24 @@ const Profile = (props) => {
         })
     }
 
+    const toggleSubscribe = () => {
+        Axios.post(
+            config.address + '/api/Authentication/ToggleSubscribe/',
+            {
+                username: cookies.user.session.username
+            }
+        )
+        .then((response) => {
+            console.log(response)
+            if(response.data.success) {
+                console.log(response.data.user)
+                setCookie('user', response.data.user, {expires: new Date(response.data.user.session.expireTime)})
+                props.toggleUserState()
+            }
+        })
+        .catch(console.error)
+    }
+
     const toggleShowPopup = () => {
         setShowPopup(!showPopup);
     }
@@ -128,7 +146,7 @@ const Profile = (props) => {
                             <div id='label'>Account Type</div>
                             <div id='type'>User</div>
                         </div>
-                        <button type='button'>UPGRADE ACCOUNT</button>
+                        <button onClick={toggleSubscribe}>UPGRADE ACCOUNT</button>
                     </div>
                 )
             case 2:
@@ -138,7 +156,7 @@ const Profile = (props) => {
                             <div id='label'>Account Type</div>
                             <div id='type'>Subscriber</div>
                         </div>
-                        <button type='button'>UNSUBSCRIBE</button>
+                        <button onClick={toggleSubscribe}>UNSUBSCRIBE</button>
                     </div>
                 )
             case 3:

@@ -98,9 +98,9 @@ exports.updatePassword = (req, res) => {
         res.send(Error.invalidSession);
     }
     else {
-        User.find({username: passData.session.username}, (err, docs) => {
-            if(err) {
-                console.error(err)
+        User.find({username: passData.session.username}, (findErr, docs) => {
+            if(findErr) {
+                console.error(findErr)
                 res.send(Error.dbError)
             }
             else if (docs.length === 0) {
@@ -111,9 +111,9 @@ exports.updatePassword = (req, res) => {
             }
             else {
                 docs[0].password = User.hashPasswordSync(passData.newPassword)
-                docs[0].save((err) => {
-                    if(err) {
-                        console.error(err)
+                docs[0].save((saveErr) => {
+                    if(saveErr) {
+                        console.error(saveErr)
                         res.send(Error.dbError)
                     }
                     else {
@@ -140,5 +140,38 @@ exports.getUser = function(req, res) {
     var model = User;
     model.find({username : req.params.username}).exec().then(function(docs, err){
         res.send(docs);
+    })
+}
+
+exports.toggleSubscribe = (req, res) => {
+    User.find({username: req.body.username}, (findErr, docs) => {
+        if(findErr) {
+            console.error(findErr)
+            res.send(Error.dbError)
+        }
+        else if (docs.length === 0) {
+            res.send(Error.invalidUsernameOrPassword)
+        }
+        else {
+            docs[0].userLevel = docs[0].userLevel === 1 ? 2 : 1
+            docs[0].save((saveErr) => {
+                if(saveErr) {
+                    console.error(saveErr)
+                    res.send(Error.dbError)
+                }
+                else {
+                    console.log(docs[0].userLevel)
+                    AuthenticationTools.generateSession(docs[0].username, (sessionPkg) => {
+                        res.send({
+                            success: true,
+                            user: {
+                                userLevel: docs[0].userLevel,
+                                session: sessionPkg.session 
+                            }
+                        })
+                    });
+                }
+            })
+        }
     })
 }
