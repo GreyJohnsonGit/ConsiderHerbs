@@ -54,11 +54,21 @@ const Forum =()=>{
                     </Switch>
                 </div>
                 <div className="column-2-container">
+                    {cookies.user.userLevel?
                     <div className="forum-column-2">
                         <div id="title"><a href={'/DidYouKnow'} style={{color:"#363636"}}>Did You Know?</a></div>
                         <p><i>Check out some of the links picked by our team!</i></p>
-                        <DidYouKnowPreview />
+                       
+                         <DidYouKnowPreview />
+                    </div>:
+                   
+                    <div className="forum-column-2">
+                        <div id="title"><a href={'/SignIn'} style={{color:"#363636"}}>Did You Know?</a></div>
+                        <p><i>Log in to check out some of the links picked by our team!</i></p>
                     </div>
+                    }
+
+
                 </div>
             </div>
         </div>
