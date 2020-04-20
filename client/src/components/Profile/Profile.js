@@ -230,7 +230,7 @@ const Profile = (props) => {
                                         placeholder='ZIP' 
                                     />
                                 </div>
-                                <button type='button' className='profile-payment-submit' onClick={toggleSubscribe}>Submit</button>
+                                <button type='submit' className='profile-payment-submit' onClick={toggleSubscribe}>Submit</button>
                             </form>
                         </Elements>
                     </div>
