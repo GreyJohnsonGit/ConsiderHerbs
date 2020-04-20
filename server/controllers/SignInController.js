@@ -16,11 +16,15 @@ const Error = {
     },
     usernameUsed: {
         success: false,
-        error: 'Username already in use',
+        error: 'Username already in use'
     },
     emailUsed: {
         success: false,
-        error: 'Email already in use',
+        error: 'Email already in use'
+    },
+    invalidSession: {
+        success: false,
+        error: 'Invalid Session Token'
     }
 }
 
@@ -79,7 +83,7 @@ exports.signUp = (req, res) => {
                 res.send({
                     success: true,
                     user: {
-                        userLevel: 0,
+                        userLevel: 1,
                         session: sessionPkg.session 
                     }
                 })
@@ -88,36 +92,39 @@ exports.signUp = (req, res) => {
     });
 }
 
-exports.logout = (req, res) => {
-    res.send({
-        success: SessionTable.eliminateSession(req.body.sessionID)
-    });
-}
-
-exports.refresh = (req, res) => {
-    if(SessionTable.verify(req.body.sessionID)) {
-        res.send({
-            success: true,
-            reason: 'Session refreshed',
-            session: SessionTable.refreshSession(req.body.sessionID)
-        });
+exports.updatePassword = (req, res) => {
+    let passData = req.body
+    if(!passData.session) {
+        res.send(Error.invalidSession);
     }
     else {
-        res.send({
-            success: false,
-            reason: 'Stale session'
-        });
+        User.find({username: passData.session.username}, (err, docs) => {
+            if(err) {
+                console.error(err)
+                res.send(Error.dbError)
+            }
+            else if (docs.length === 0) {
+                res.send(Error.invalidUsernameOrPassword)
+            }
+            else if(!User.comparePasswordSync(passData.oldPassword, docs[0].password)) {
+                res.send(Error.invalidUsernameOrPassword)
+            }
+            else {
+                docs[0].password = User.hashPasswordSync(passData.newPassword)
+                docs[0].save((err) => {
+                    if(err) {
+                        console.error(err)
+                        res.send(Error.dbError)
+                    }
+                    else {
+                        res.send({
+                            success: true
+                        })
+                    }
+                })
+            }
+        })
     }
-}
-
-exports.updatePassword = function(req, res) {
-    var model = User;
-    let item = req.body;
-    model.findOne({username: req.params.username}, item).exec().then(function(doc,err){
-        item.username = req.params.username;
-        item.pasword = model.hashPasswordSync(req.params.password);
-        res.send(item);
-    })
 }
 
 exports.getAll = function(req, res) {

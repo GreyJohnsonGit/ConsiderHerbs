@@ -3,6 +3,8 @@ import './Profile.css';
 import {useCookies} from 'react-cookie';
 import AdminPopup from '../Admin/AdminPopup';
 import {useHistory} from 'react-router-dom';
+import Axios from 'axios'
+import config from '../../config.js'
 
 const dummyThread = {
     threadId: 'threadId',
@@ -49,12 +51,45 @@ let UserList = Array.apply(null, new Array(10)).map((user,i) => {
 
 
 const Profile = (props) => {
-    const [cookies, removeCookie] = useCookies([]);
-    const [showPopup,setShowPopup] = useState(0);
+    const [cookies, removeCookie] = useCookies(['user'])
     const history = useHistory();
-
     if(!cookies.user || !cookies.user.userLevel) {
         history.push('SignIn');
+    }
+
+    const [showPopup,setShowPopup] = useState(0)
+    const [oldPassword, setOldPassword] = useState('')
+    const [newPassword, setNewPassword] = useState('')
+    const [newPasswordVerify, setNewPasswordVerify] = useState('')
+
+    const handleOldPasswordChange = (event) => {
+        setOldPassword(event.target.value)
+    }
+    const handleNewPasswordChange = (event) => {
+        setNewPassword(event.target.value)
+    }
+    const handleNewPasswordVerifyChange = (event) => {
+        setNewPasswordVerify(event.target.value)
+    }
+
+    const changePassword = (event) => {
+        event.preventDefault()
+        if(event.target.newPassword.value === event.target.newPasswordVerify.value) {
+            Axios.post(
+                config.address + '/api/Authentication/ChangePassword/',
+                {
+                    oldPassword: event.target.oldPassword.value,
+                    newPassword: event.target.newPassword.value,
+                    session: cookies.user.session 
+                }
+            )
+            .then((response) => {
+                console.log(response.data);
+            })
+            .catch((err) => {
+                console.error(err);
+            })
+        }
     }
 
     const toggleShowPopup = () => {
@@ -105,6 +140,7 @@ const Profile = (props) => {
         }
     }
 
+
     return (
         <div>
             <AdminPopup showPopup={showPopup} closeFn={toggleShowPopup}>
@@ -118,16 +154,14 @@ const Profile = (props) => {
             <div className='profile-container'>
                 <div className='profile-column-container'>
                     <div className='profile-column-1'>
-                        <form>
-                            <label htmlFor='username'>Username</label>
-                            <input type='text' id='username' />
-                            <label htmlFor='email'>Email</label>
-                            <input type='text' id='email' />
-                            <label htmlFor='password'>Password</label>
-                            <input type='text' id='password' />
-                            <label htmlFor='password'>Verify Password</label>
-                            <input type='text' id='verify-password' />
-                            <button type='button'>CHANGE PASSWORD</button>
+                        <form onSubmit={changePassword}>
+                            <label htmlFor='oldPassword'>Old Password</label>
+                            <input type='text' id='oldPassword' value={oldPassword} onChange={handleOldPasswordChange}/>
+                            <label htmlFor='newPassword'>New Password</label>
+                            <input type='text' id='newPassword' value={newPassword} onChange={handleNewPasswordChange}/>
+                            <label htmlFor='newPasswordVerify'>Verify New Password</label>
+                            <input type='text' id='newPasswordVerify' value={newPasswordVerify} onChange={handleNewPasswordVerifyChange}/>
+                            <button type='submit'>CHANGE PASSWORD</button>
                         </form>
                         {accountType(cookies.user.userLevel)}
                     </div>
@@ -155,7 +189,7 @@ const Profile = (props) => {
                     </div>
                 </div>
 
-                { cookies.user.userLevel <= 3 ? 
+                { cookies.user.userLevel >= 3 ? 
                     <div>
                         <div className='profile-manage-accounts-text'>
                             Manage Accounts
@@ -178,14 +212,14 @@ const Profile = (props) => {
 
             </div>
 
-            { !cookies.user.isLoggedIn ?
+            {
             <div className='profile-sign-out'>
                 <a href='/Home' onClick={(e) => {
                     removeCookie('user');
                     props.toggleUserState();
                 }}>SIGN OUT</a>
             </div>
-            : null }
+            }
         </div>
     )
 }
