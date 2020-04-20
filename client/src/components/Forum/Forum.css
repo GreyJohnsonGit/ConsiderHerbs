@@ -361,10 +361,29 @@
     display: grid;
     grid-template-columns: auto 75fr;
     margin-top: 10px;
-    padding-right: 15%;
-    padding-left: 15%;
+    width: 1000px;
+    max-width: 95%;
+    margin: auto;
     column-gap: 13px;
     margin-bottom: 50px;
+}
+
+
+.Didouter {
+    width: 100%; 
+    max-height: 300px;
+    overflow: hidden;
+}
+.Didinner {
+    display: inline-block; 
+    position:relative; 
+    top: -50%;
+    width: 100%;
+}
+.Didinner img {
+    position: relative; 
+    bottom:-50%; 
+    width: 100%;
 }
 
 .did-you-know-post #bar {

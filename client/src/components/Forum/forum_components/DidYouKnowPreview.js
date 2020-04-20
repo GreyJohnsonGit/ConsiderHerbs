@@ -42,7 +42,7 @@ const DidYouKnowPreview = (props) => {
                                         <div className='post-spacer'></div>
                                         <div className='post-content'>
                                             <div style={{position:'relative', overflow:'hidden', width:'100%', height:"110px"}}>
-                                                <img src={DidYouKnowImage} style={{width:"100%"}} />
+                                                <img src={didYouKnowEntry.image} style={{width:"100%"}} />
                                             </div>
                                             <a href={`/DidYouKnow`}>{didYouKnowEntry.title}</a>
                                             <p id='entry'>{didYouKnowEntry.body}</p>
