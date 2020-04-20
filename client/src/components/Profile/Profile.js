@@ -5,7 +5,13 @@ import AdminPopup from '../Admin/AdminPopup';
 import {useHistory} from 'react-router-dom';
 import Axios from 'axios'
 import config from '../../config.js'
-import Async from 'react-async';;
+import Async from 'react-async';
+
+import {Elements} from '@stripe/react-stripe-js';
+import {loadStripe} from '@stripe/stripe-js';
+import {CardElement} from '@stripe/react-stripe-js';
+
+const stripePromise = loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
 
 const dummyThread = {
     threadId: 'threadId',
@@ -39,6 +45,25 @@ const dummyUser = {
     id :  'id'
 }
 
+const CARD_ELEMENT_OPTIONS = {
+    style: {
+        base: {
+            color: "#363636",
+            fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+            fontSmoothing: "antialiased",
+            fontSize: "20px",
+            backgroundColor: '#ededed',
+            "::placeholder": {
+                color: "#a0a0a0",
+            },
+        },
+        invalid: {
+            color: "#fa755a",
+            iconColor: "#fa755a",
+        },
+    },
+};
+
 let ThreadList = Array(7).fill(dummyThread);
 let UserList = Array.apply(null, new Array(10)).map((user,i) => {
     return {
@@ -62,6 +87,7 @@ const Profile = (props) => {
     const [oldPassword, setOldPassword] = useState('')
     const [newPassword, setNewPassword] = useState('')
     const [newPasswordVerify, setNewPasswordVerify] = useState('')
+    const [mode,setMode] = useState('');
 
     const handleOldPasswordChange = (event) => {
         setOldPassword(event.target.value)
@@ -127,6 +153,16 @@ const Profile = (props) => {
         setShowPopup(!showPopup);
     }
 
+    const toggleAdminChange = () => {
+        setMode('admin');
+        toggleShowPopup();
+    }
+
+    const toggleUpgradeAccount = () => {
+        setMode('upgrade');
+        toggleShowPopup();
+    }
+
     const accountType = (level) => {
         switch (level) {
             case 0:
@@ -146,7 +182,7 @@ const Profile = (props) => {
                             <div id='label'>Account Type</div>
                             <div id='type'>User</div>
                         </div>
-                        <button onClick={toggleSubscribe}>UPGRADE ACCOUNT</button>
+                        <button type='button' onClick={toggleUpgradeAccount}>UPGRADE ACCOUNT</button>
                     </div>
                 )
             case 2:
@@ -175,7 +211,30 @@ const Profile = (props) => {
     return (
         <div>
             <AdminPopup showPopup={showPopup} closeFn={toggleShowPopup}>
-                change account type
+                { mode === 'admin' ? 
+                    <div>change account type</div> 
+                :
+                    <div>
+                        <div className='profile-payment-title'>
+                            Subscription: $10/month
+                        </div>
+                        <Elements stripe={stripePromise}>
+                            <form>
+                                <div className='profile-payment-entries'>
+                                    <CardElement options={CARD_ELEMENT_OPTIONS} className='profile-payment-cc'/>
+                                    <input 
+                                        type='text' 
+                                        size='5'
+                                        maxLength='5'
+                                        className='profile-payment-zip' 
+                                        placeholder='ZIP' 
+                                    />
+                                </div>
+                                <button type='button' className='profile-payment-submit' onClick={toggleSubscribe}>Submit</button>
+                            </form>
+                        </Elements>
+                    </div>
+                }
             </AdminPopup>
 
             <div className='profile-text-box'>
@@ -248,7 +307,7 @@ const Profile = (props) => {
                                     return (
                                         <div className='profile-account-preview'>
                                             <span id='username'>{user.username}</span>
-                                            <a onClick={toggleShowPopup} id='usertype'>{user.usertype}</a>
+                                            <a onClick={toggleAdminChange} id='usertype'>{user.usertype}</a>
                                         </div>
                                     )
                                 })}
