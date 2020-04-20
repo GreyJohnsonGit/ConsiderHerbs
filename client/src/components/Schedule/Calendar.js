@@ -111,7 +111,6 @@ const Calendar = (props) => {
                     return (
                         <div className="dayCol">
                             <h2 className="dayLabel">{day.day}</h2>
-                            <p>{typeof new Date(day.date)}</p>
                             <p>{new Date(day.date).getDate()}</p>
                             <Events className="EventinCol" date={day.date} update={update} editFn={props.editEvent}/>
                         </div>

@@ -2,6 +2,8 @@ import './Schedule.css';
 import React, { useState } from 'react';
 import RoseImage from './rose.png'; //temporary until I have the schedule image 
 import axios from 'axios';
+import {useCookies} from 'react-cookie';
+
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -38,6 +40,7 @@ const Schedule = () => {
     const [showPopup, setShowPopup] = useState(false);
     const [showPop2, setShowPop2]= useState(false);
     const [mode, setMode] = useState('');
+    const [cookies, ] = useCookies(['user']);
    
 
    
@@ -160,7 +163,9 @@ const Schedule = () => {
                 </form>
             </AdminPopUp>
             <Calendar editEvent={editEvent} />
-            <button onClick={newEvent}>New Event</button>
+
+            {console.log("user : ", cookies)}
+            {cookies.user.userLevel > 2?<button onClick={newEvent}>New Event</button>: ""}
             
             <AdminPopUp closeFn={toggleShowPop2} showPopup={showPop2}>
                 <form>

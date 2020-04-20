@@ -5,6 +5,8 @@ import Axios from 'axios';
 import React from 'react';
 import config from '../../config.js'
 
+import {useCookies} from 'react-cookie';
+
 const loadEvents = async () => {
     try {
         const res = await Axios.get(config.address + '/api/Event/');
@@ -19,6 +21,7 @@ const loadEvents = async () => {
 
 
 const EventList = (props) => {
+    const [cookies, ] = useCookies(['user']);
 
     let deleteEvent = (Event) => {
         console.log("Event chosen to delete: ", Event)
@@ -46,8 +49,8 @@ const EventList = (props) => {
                                         <div className="term-container" >
                                             <div>
                                                 <h1>{Eventy.name}</h1>
-                                                <button className='admin-button' onClick={() => props.editFn(Eventy)}>Edit</button>
-                                                <button className='admin-button' onClick={() => {
+                                                {cookies.user.userLevel > 2?<button className='admin-button' onClick={() => props.editFn(Eventy)}>Edit</button>: ""}
+                                                {cookies.user.userLevel > 2? <button className='admin-button' onClick={() => {
                                                     console.log("got here1");
                                                     window.location.reload(true);
                                                     Axios.delete(
@@ -61,7 +64,7 @@ const EventList = (props) => {
                                                             console.error("This is the error I caught: ",err);
                                                         })
                                                     
-                                                }}>Delete</button>
+                                                }}>Delete</button>: ""}
                                                 <p>Type</p>
                                                 <p>{Eventy.type}</p>
                                                 <p>Date</p>
