@@ -10,8 +10,9 @@
     left: 0;
     height: 100%;
     width: 100%;
-    font-size: 4em;
+    font-size: min(4em,5vw);
     text-transform: capitalize;
+    vertical-align: middle;
     text-align: right;
     color: white;
     text-align: center;
@@ -65,12 +66,8 @@
     position: sticky;
     top: 100px;
     height: calc(100vh - 150px);
-    overflow: auto;
+    overflow: hidden;
     
-}
-
-.forum-column-2::-webkit-scrollbar {
-    display: none;
 }
 
 .column-2-container {
@@ -343,6 +340,12 @@
 }
 
 /* Did You Know */
+.did-you-know-container {
+    overflow-y: scroll;
+}
+.did-you-know-container::-webkit-scrollbar {
+    display: none;
+}
 
 .dyk-spacer {
     height: 40px;
@@ -575,4 +578,23 @@
 
 #tag-text:hover {
     background-color: #A6CC78;
+}
+
+@media screen and (max-width:765px) {
+    .forum-content {
+        grid-template-columns: 1fr;
+        grid-template-rows: min-content auto;
+    }
+    .column-2-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .forum-column-2 {
+        overflow: hidden;
+        width: 300px;
+    }
+    .did-you-know-container {
+        overflow-y: scroll;
+    }
 }
