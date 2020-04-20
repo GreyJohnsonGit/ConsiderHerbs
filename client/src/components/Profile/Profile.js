@@ -221,7 +221,12 @@ const Profile = (props) => {
                                                 })
                                             }
                                             else {
-                                                return "No posts yet!"
+                                                return (
+                                                    <div className='profile-thread-preview-empty'>
+                                                        <div>Oops... You don't have any posts yet!</div>
+                                                        <a href='/Forum'>GO TO FORUM</a>
+                                                    </div>
+                                                )
                                             }
                                         }}
                                     </Async>
