@@ -5,6 +5,7 @@ import AdminPopup from '../Admin/AdminPopup';
 import {useHistory} from 'react-router-dom';
 import Axios from 'axios'
 import config from '../../config.js'
+import Async from 'react-async';;
 
 const dummyThread = {
     threadId: 'threadId',
@@ -73,7 +74,6 @@ const Profile = (props) => {
     }
 
     const changePassword = (event) => {
-        event.preventDefault()
         if(event.target.newPassword.value === event.target.newPasswordVerify.value) {
             Axios.post(
                 config.address + '/api/Authentication/ChangePassword/',
@@ -90,6 +90,19 @@ const Profile = (props) => {
                 console.error(err);
             })
         }
+    }
+
+    const getUserThread = () => {
+        return Axios.get(
+            config.address + '/api/Forum/@' + cookies.user.session.username + '/posts/'
+        )
+        .then((response) => {
+            return response.data
+        })
+        .catch((err) => {
+            console.error(err)
+            return err
+        })
     }
 
     const toggleShowPopup = () => {
@@ -175,14 +188,25 @@ const Profile = (props) => {
                                 </div>
                                 :
                                 <div>
-                                    { ThreadList.map((thread) => {
-                                        return (
-                                            <div className='profile-thread-preview'>
-                                                <div id='title'>{thread.title}</div>
-                                                <div id='body'>{thread.body}</div>
-                                            </div>
-                                        )
-                                    })}
+                                    <Async promiseFn={getUserThread}>
+                                        {({data, err, isLoading}) => {
+                                            if (isLoading) return "Loading...";
+                                            if (err) return `Oops, something went wrong: ${err.message}`
+                                            if (data && Array.isArray(data) && data.length > 0) {
+                                                return data.map((thread) => {
+                                                    return (
+                                                        <div className='profile-thread-preview'>
+                                                            <div id='title'>{thread.title}</div>
+                                                            <div id='body'>{thread.body}</div>
+                                                        </div>
+                                                    )
+                                                })
+                                            }
+                                            else {
+                                                return "No posts yet!"
+                                            }
+                                        }}
+                                    </Async>
                                 </div>
                             }
                         </div>
