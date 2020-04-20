@@ -4,7 +4,7 @@ import RoseImage from './rose.png'; //temporary until I have the schedule image
 import axios from 'axios';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-
+import Meeting from './Meeting.js'
 import config from '../../config.js'
 import Calendar from './Calendar'
 import AdminPopUp from "../Admin/AdminPopup";
@@ -195,7 +195,7 @@ const Schedule = () => {
             </AdminPopUp>
             <button onClick={RequestCons}>Request Personal Consultation</button>
 
-            <h1> List of requests </h1>
+            <Meeting/>
 
 
         </div>
