@@ -178,3 +178,36 @@
     cursor: pointer;
     text-decoration: none;
 }
+
+.profile-payment-title {
+    text-align: center;
+    font-size: 2em;
+}
+.profile-payment-entries {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    width: 70%;
+}
+.profile-payment-cc {
+    flex-grow: 1;
+}
+.profile-payment-zip {
+    background-color: #ededed;
+    margin-left: 10px;
+    font-weight: bold;
+    padding: 0 10px;
+    border: none;
+}
+.profile-payment-submit {
+    background-color: #636363;
+    color: white;
+    border: none;
+    width: 150px;
+    margin: 5px;
+    align-self: center;
+}
+.profile-payment-submit:hover {
+    background-color: #898a8a;
+    cursor: pointer;
+}
