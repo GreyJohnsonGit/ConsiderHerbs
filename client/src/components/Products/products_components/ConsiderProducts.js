@@ -32,8 +32,12 @@ const ConsiderProducts = (props) => {
                                         entry.type.includes("ConsiderHerbs")))
                                     .map((productEntry) => {
                                     return (
-                                            <div id="grid-item"> 
-                                                <div id="product-image">&nbsp;</div>
+                                            <div id="grid-item">
+                                                <div className="outer">
+                                                    <div className="inner">
+                                                        <img src={productEntry.image}/>
+                                                    </div>
+                                                </div> 
 
                                                 {props.userLevel === 3 ? 
                                                 <form>

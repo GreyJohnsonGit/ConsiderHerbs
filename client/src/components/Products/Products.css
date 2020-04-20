@@ -37,6 +37,23 @@ button:hover {
     background-color: #ACACAC;
 }
 
+.outer {
+    width: 20vw; 
+    height: 20vw;
+    overflow: hidden;
+}
+.inner {
+    display: inline-block; 
+    position:relative; 
+    right: -50%;
+    height: 100%;
+}
+.inner img {
+    position: relative; 
+    left:-50%; 
+    height: 100%;
+}
+
 /* ===== SEARCH BAR ====== */
 
 .product-search

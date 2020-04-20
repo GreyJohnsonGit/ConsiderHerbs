@@ -19,7 +19,7 @@ const Products =(props)=>{
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState('');
-    const [image, setImage] = useState([]);
+    const [image, setImage] = useState();
     const [type, setType] = useState('');
     const [link, setLink] = useState('');
 
@@ -33,6 +33,13 @@ const Products =(props)=>{
         setPrice(event.target.value);
     }
     const handleImage = (event) => {
+            var fileReader = new FileReader();
+            fileReader.readAsDataURL(event.target.files[0]);
+            fileReader.onloadend = function() {
+                console.log(fileReader.result);
+                setImage(fileReader.result);
+            }
+
         setImage(event.target.value);
     }
     const handleType = (event) => {
@@ -79,7 +86,8 @@ const Products =(props)=>{
                     description: description,
                     price: price,
                     type: type,
-                    link: link
+                    link: link,
+                    image: image
                 }
             )
             .then((res) => {
@@ -99,7 +107,8 @@ const Products =(props)=>{
                     description: description,
                     price: price,
                     type: type,
-                    link: link
+                    link: link,
+                    image: image
                 }
             )
             .then((res) => {
@@ -130,7 +139,7 @@ const Products =(props)=>{
                         <input type='text' id='title' value={title} onChange={handleTitle} required/>
 
                         <label htmlFor='image'>*Image</label>
-                        <input type="file" id='title' value={image} onChange={handleImage} required/>
+                        <input type="file" id='title' onChange={handleImage} required/>
 
                         <label htmlFor='description'>*Description</label>
                         <textarea value={description} id='title' onChange={handleDescription} required/>

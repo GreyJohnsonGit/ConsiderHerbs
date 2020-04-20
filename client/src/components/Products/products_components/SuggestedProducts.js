@@ -32,8 +32,11 @@ const SuggestedProducts = (props) => {
                                     .map((productEntry) => {
                                         return (
                                                 <div id="grid-item"> 
-                                                    <div id="product-image">&nbsp;</div>
-
+                                                    <div className="outer">
+                                                        <div className="inner">
+                                                            <img src={productEntry.image}/>
+                                                        </div>
+                                                    </div> 
                                                     {props.userLevel === 3 ? 
                                                     <form>
                                                         <button type='button' onClick={() => props.editFn(productEntry)}>Edit</button>
@@ -55,7 +58,6 @@ const SuggestedProducts = (props) => {
                                                     
                                                     <a id="name" href={productEntry.link} target="_blank">{productEntry.name}</a>
                                                     <div id="description"> {productEntry.description} </div>
-                                                    <div id="link"> {productEntry.link} </div>
                                                     {productEntry.price ? 
                                                         <div id="price"> ${productEntry.price} </div> :
                                                         null
