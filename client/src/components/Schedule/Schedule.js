@@ -4,7 +4,7 @@ import RoseImage from './rose.png'; //temporary until I have the schedule image
 import axios from 'axios';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import Meeting from './Meeting.js'
+import MeetingList from './MeetingList.js'
 import config from '../../config.js'
 import Calendar from './Calendar'
 import AdminPopUp from "../Admin/AdminPopup";
@@ -41,8 +41,8 @@ const Schedule = () => {
    
 
    
-    const [startDate, setStartDate] = useState(new Date());
-    const [eventStartDate, setEventStartDate] = useState(new Date());
+    const [startDate, setStartDate] = useState(new Date()); //sets the date in the DatePicker for Meeting request
+    const [eventStartDate, setEventStartDate] = useState(new Date()); // same^ but for NewEvent form
 
     
     const toggleShowPopup = () => {
@@ -113,8 +113,24 @@ const Schedule = () => {
     const RequestCons =()=>{
         toggleShowPop2();
         console.log("This handles the click")
+    }
 
-
+    const addMeeting = (param) => {
+        //param.preventDefault() 
+        console.log(personalReq);
+        axios.post(
+            config.address + '/api/Meeting/',
+            personalReq
+        )
+            .then((res) => {
+                console.log(res);
+                toggleShowPopup();
+            })
+            .catch((err) => {
+                console.error(err);
+                toggleShowPopup();
+            })
+    
     }
 
     return (
@@ -163,14 +179,14 @@ const Schedule = () => {
             <button onClick={newEvent}>New Event</button>
             
             <AdminPopUp closeFn={toggleShowPop2} showPopup={showPop2}>
-                <form>
+                <form onSubmit={addMeeting}> 
                     <label htmlfor="name">Name</label>
                     <input type="text" onChange={ (event)=>{personalReq.name=event.target.value}}></input>
                     {console.log(personalReq.name)}
                     <label>Email address</label>
                     <textarea rows="1" type="text" onChange={ (event)=>{personalReq.email=event.target.value}}></textarea>
                     <label>Consulation Type</label>
-                    <textarea rows="1" type="text" placeholder="In-person or online"></textarea>
+                    <textarea rows="1" type="text" placeholder="In-person or online" onChange={ (event)=>{personalReq.type=event.target.value}}></textarea>
                     <label htmlFor='date'>Date</label>
                     
                     <DatePicker selected={startDate}  onChange={(date) => {
@@ -178,9 +194,9 @@ const Schedule = () => {
                         personalReq.start_time=startDate}} />
                                        
                     <label> Start Time</label>
-                    <textarea rows="1" type="text" onChange={(time)=>{personalReq.start_time=time}}></textarea>
+                    <textarea rows="1" type="text" onChange={(event)=>{personalReq.start_time=event.target.value}}></textarea>
                     <label> End Time</label>
-                    <textarea rows="1" type="text" onChange={(time)=>{personalReq.end_time=time}}></textarea>
+                    <textarea rows="1" type="text" onChange={(event)=>{personalReq.end_time=event.target.value}}></textarea>
                    
                     { /*
                     //issue with datePicker when it is inside the form
@@ -193,9 +209,9 @@ const Schedule = () => {
                 </form>
 
             </AdminPopUp>
-            <button onClick={RequestCons}>Request Personal Consultation</button>
+            <button onClick={RequestCons} >Request Personal Consultation</button>
 
-            <Meeting/>
+            <MeetingList/>
 
 
         </div>

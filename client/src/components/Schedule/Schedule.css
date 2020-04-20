@@ -55,17 +55,17 @@
 }
 .changeWeek{
     margin: auto;
-    border: 3px solid green;
+    border: 3px solid #636363;
     width: 25%;
 }
 .calendarHeader{
     background: rgba(172, 255, 47, 0.301);
-    border: 3px solid red;
+    border: 3px solid #A6CC78;
 }
 .CalandarTitle{
     margin: auto;
     width: 50%;
-    border: 3px solid green;
+    border: 3px solid #636363;
     text-align: center;
     display: inline-block;
 }
@@ -73,7 +73,7 @@
 .dayCol{
     float: left;
     width: calc(100%/7);
-    border: 3px solid green;
+    border: 3px solid #A6CC78;
     text-align: center;
 }
 .dayLabel{
