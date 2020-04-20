@@ -1,5 +1,3 @@
-///////EventRouter.js
-
 EventController = require('../controllers/EventController.js');
 express = require('express'); 
 const EventRouter = express.Router();

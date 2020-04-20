@@ -33,6 +33,7 @@ exports.update = function(req, res) {
     model.findOneAndUpdate({name: req.params.name}, item).exec();
     //make the response pretty
     item.name = req.params.name;
+    item.userLevel  = req.body.userLevel;
     res.send(item);
 }
 
