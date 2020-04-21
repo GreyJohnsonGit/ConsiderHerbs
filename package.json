@@ -29,6 +29,7 @@
     "cb": "^0.1.0",
     "concurrently": "^4.1.0",
     "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-static": "^1.2.6",
     "fs": "0.0.1-security",
@@ -51,6 +52,7 @@
     "react-icons": "^3.9.0",
     "react-string-replace": "^0.4.4",
     "should": "^13.2.3",
+    "stripe": "^8.44.0",
     "supertest": "^4.0.2"
   },
   "homepage": "https://github.com/UFWebApps/React_Template_Repo#readme",
