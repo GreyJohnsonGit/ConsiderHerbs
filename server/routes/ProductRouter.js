@@ -37,6 +37,13 @@ ProductRouter.options('/', (req, res, next) => {
     next();
 })
 
+ProductRouter.get('/', (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header('Access-Control-Allow-Methods', '*');
+    res.header('Access-Control-Allow-Headers', '*');
+    next();
+})
+
 ProductRouter.options('/:name', (req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header('Access-Control-Allow-Methods', '*');
