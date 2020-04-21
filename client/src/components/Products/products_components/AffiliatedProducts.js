@@ -32,8 +32,11 @@ const AffiliatedProducts = (props) => {
                                     .map((productEntry) => {
                                         return (
                                                 <div id="grid-item"> 
-                                                    <div id="product-image">&nbsp;</div>
-
+                                                    <div className="outer">
+                                                        <div className="inner">
+                                                            <img src={productEntry.image}/>
+                                                        </div>
+                                                    </div> 
                                                     {props.userLevel === 3 ? 
                                                     <form>
                                                         <button type='button' onClick={() => props.editFn(productEntry)}>Edit</button>

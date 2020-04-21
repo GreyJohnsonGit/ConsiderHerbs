@@ -8,12 +8,13 @@ const Calendar = (props) => {
     // const DAYS_LEAP = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
     const [render, forceRender] = useState(0);
+    const [month, setMonth] = useState("APR")
 
     const MONTHS = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
 
     let today = new Date(new Date().setHours(0, 0, 0, 0));
 
-
+    
 
     let DAYS_OF_THE_WEEK = [
         {
@@ -55,9 +56,9 @@ const Calendar = (props) => {
 
     const [daysstate, setDays] = useState([])
 
-    let update  = () =>{
+    let update = () => {
         setDays(daysstate)
-        forceRender(render+1);
+        forceRender(render + 1);
     }
 
     let initDates = () => {
@@ -68,7 +69,7 @@ const Calendar = (props) => {
             })
 
             setDays(DAYS_OF_THE_WEEK)
-            forceRender(render+1);
+            forceRender(render + 1);
             console.log("Days of week after init: ", DAYS_OF_THE_WEEK)
         }
     }
@@ -76,9 +77,10 @@ const Calendar = (props) => {
         console.log("nweek")
         daysstate.forEach(element => {
             element.date = new Date(new Date(element.date).getTime() + (7 * 24 * 60 * 60 * 1000)).getTime();
+            setMonth(MONTHS[new Date(element.date).getMonth()])
         })
         setDays(daysstate)
-       forceRender(render+1);
+        forceRender(render + 1);
     }
 
     let lastWeek = () => {
@@ -86,10 +88,11 @@ const Calendar = (props) => {
         console.log("Daystate before: ", daysstate)
         daysstate.forEach(element => {
             element.date = new Date(new Date(element.date).getTime() - (7 * 24 * 60 * 60 * 1000)).getTime();
+            setMonth(MONTHS[new Date(element.date).getMonth()])
         })
 
         setDays(daysstate)
-        forceRender(render+1);
+        forceRender(render + 1);
     }
 
     // let isLeapYear = (year) => {
@@ -99,21 +102,23 @@ const Calendar = (props) => {
 
     return (
         <div className="calendar">
+            {initDates()}
+
             <div className="calendarHeader">
                 <button className="changeWeek" onClick={lastWeek}> Last Week </button>
-                <h1 className="CalandarTitle">{MONTHS[today.getMonth()]}</h1>
+                {console.log("daysstate: ", daysstate[0])}
+                <h1 className="CalandarTitle">{month}</h1>
                 <button className="changeWeek" onClick={nextWeek}> Next Week </button>
             </div>
 
-            {initDates()}
             {
                 daysstate.map(day => {
                     return (
                         <div className="dayCol">
-                            <h2 className="dayLabel">{day.day}</h2>
-                            <p>{typeof new Date(day.date)}</p>
-                            <p>{new Date(day.date).getDate()}</p>
-                            <Events className="EventinCol" date={day.date} update={update} editFn={props.editEvent}/>
+                            <div className="dayLabel"> <h2>{day.day}</h2>
+                                <p>{new Date(day.date).getDate()}</p>
+                            </div>
+                            <Events className="EventinCol" date={day.date} update={update} editFn={props.editEvent} />
                         </div>
                     )
                 })

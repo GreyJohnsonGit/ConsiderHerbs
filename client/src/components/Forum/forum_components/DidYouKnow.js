@@ -13,7 +13,7 @@ const DidYouKnow = (props) => {
     const [mode, setMode] = useState('');
     const [cookies] = useCookies(['user']);
     const [title, setTitle] = useState('');
-    const [image, setImage] = useState('');
+    const [image, setImage] = useState();
     const [body, setBody] = useState('');
     const [sources, setSources] = useState('');
 
@@ -21,6 +21,12 @@ const DidYouKnow = (props) => {
         setTitle(event.target.value);
     }
     const handleImage = (event) => {
+        var fileReader = new FileReader();
+        fileReader.readAsDataURL(event.target.files[0]);
+        fileReader.onloadend = function() {
+            console.log(fileReader.result);
+            setImage(fileReader.result);
+        }
         setImage(event.target.value);
     }
     const handleBody = (event) => {
@@ -109,7 +115,7 @@ const DidYouKnow = (props) => {
                     <input type='text' id='title' value={title} onChange={handleTitle} required/>
 
                     <label htmlFor='image'>Image</label>
-                    <input type="file" rows='3' id='definition' value={image} onChange={handleImage}/>
+                    <input type="file" rows='3' id='definition' onChange={handleImage}/>
 
                     <label htmlFor='body'>Body</label>
                     <textarea rows='3' id='usage' value={body} onChange={handleBody} required/>
@@ -123,7 +129,7 @@ const DidYouKnow = (props) => {
             
             <div className="dyk-spacer">&nbsp;</div>
 
-            {cookies.user.userLevel === 3 ? 
+            {cookies.user && cookies.user.userLevel === 3 ? 
             <div>
             <button type='button' className='admin-button' onClick={toggleNewEntry} style={{marginLeft: "15%", marginBottom: "10px", paddingRight:"20px", paddingLeft:"20px"}}>New</button> <br/>
             </div>:

@@ -9,6 +9,31 @@ import ConsiderProducts from './products_components/ConsiderProducts.js'
 import AffiliatedProducts from './products_components/AffiliatedProducts.js'
 import SuggestedProducts from './products_components/SuggestedProducts.js'
 import {useCookies} from 'react-cookie'
+import { set } from 'mongoose';
+
+import {Elements} from '@stripe/react-stripe-js';
+import {loadStripe} from '@stripe/stripe-js';
+import {CardElement} from '@stripe/react-stripe-js';
+
+const stripePromise = loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
+const CARD_ELEMENT_OPTIONS = {
+    style: {
+        base: {
+            color: "#363636",
+            fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+            fontSmoothing: "antialiased",
+            fontSize: "20px",
+            backgroundColor: '#ededed',
+            "::placeholder": {
+                color: "#a0a0a0",
+            },
+        },
+        invalid: {
+            color: "#fa755a",
+            iconColor: "#fa755a",
+        },
+    },
+};
 
 
 const Products =(props)=>{
@@ -19,9 +44,10 @@ const Products =(props)=>{
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState('');
-    const [image, setImage] = useState([]);
+    const [image, setImage] = useState();
     const [type, setType] = useState('');
     const [link, setLink] = useState('');
+    const [buy,setBuy] = useState(0);
 
     const handleTitle = (event) => {
         setTitle(event.target.value);
@@ -33,6 +59,13 @@ const Products =(props)=>{
         setPrice(event.target.value);
     }
     const handleImage = (event) => {
+            var fileReader = new FileReader();
+            fileReader.readAsDataURL(event.target.files[0]);
+            fileReader.onloadend = function() {
+                console.log(fileReader.result);
+                setImage(fileReader.result);
+            }
+
         setImage(event.target.value);
     }
     const handleType = (event) => {
@@ -68,6 +101,17 @@ const Products =(props)=>{
         setType('ConsiderHerbs');
         setMode('new');
         toggleShowPopup();
+    };
+    const toggleView = (entry) => {
+        setBuy(0);
+        setTitle(entry.name);
+        setDescription(entry.description);
+        setPrice(entry.price);
+        setImage(entry.image);
+        setType(entry.type);
+        setLink(entry.link);
+        setMode('view');
+        toggleShowPopup();
     }
 
     const submitForm = (event) => {
@@ -79,7 +123,8 @@ const Products =(props)=>{
                     description: description,
                     price: price,
                     type: type,
-                    link: link
+                    link: link,
+                    image: image
                 }
             )
             .then((res) => {
@@ -99,7 +144,8 @@ const Products =(props)=>{
                     description: description,
                     price: price,
                     type: type,
-                    link: link
+                    link: link,
+                    image: image
                 }
             )
             .then((res) => {
@@ -116,6 +162,35 @@ const Products =(props)=>{
     return(
         <div className="Products">
             <AdminPopup closeFn={toggleShowPopup} showPopup={showPopup}>
+                {mode === 'view' ?
+                    <div className='product-view-container'>
+                        <img src={image} width='305px' />
+                        <div className='product-view-text'>
+                            <h4>{title}</h4>
+                            {description}
+                            <h5>${price}</h5>
+                            { !buy ? 
+                                <button type='button' className='product-buy-button' onClick={() => setBuy(1)}>BUY</button>
+                            :
+                                <Elements stripe={stripePromise}>
+                                    <form>
+                                        <div className='profile-payment-entries'>
+                                            <CardElement options={CARD_ELEMENT_OPTIONS} className='profile-payment-cc'/>
+                                            <input 
+                                                type='text' 
+                                                size='5'
+                                                maxLength='5'
+                                                className='profile-payment-zip' 
+                                                placeholder='ZIP' 
+                                            />
+                                        </div>
+                                        <button type='submit' className='profile-payment-submit'>Submit</button>
+                                    </form>
+                                </Elements>
+                            }
+                        </div>
+                    </div>
+                :
                     <form onSubmit={submitForm}>
                         <label htmlFor='type'>What Type of Product is This?</label>
                         <select
@@ -130,7 +205,7 @@ const Products =(props)=>{
                         <input type='text' id='title' value={title} onChange={handleTitle} required/>
 
                         <label htmlFor='image'>*Image</label>
-                        <input type="file" id='title' value={image} onChange={handleImage} required/>
+                        <input type="file" id='title' onChange={handleImage} required/>
 
                         <label htmlFor='description'>*Description</label>
                         <textarea value={description} id='title' onChange={handleDescription} required/>
@@ -153,6 +228,7 @@ const Products =(props)=>{
 
                         <button type='submit' id="admin-button">Submit</button>
                     </form>
+                }
             </AdminPopup>
 
             <div className="products-page">
@@ -163,7 +239,7 @@ const Products =(props)=>{
                                 onChange={(event)=>{typedUpdate(event.target.value)}}
                             />
                             <button type="submit" onClick={searchTerm}>Search </button>
-                            { cookies.user.userLevel === 3 ? 
+                            { cookies && cookies.user.userLevel === 3 ? 
                             <button type='button' className='admin-button' onClick={toggleNewEntry}>New</button> :
                             null}
                         </form>
@@ -174,7 +250,7 @@ const Products =(props)=>{
                             <div id="title"> Consider Herbs Products </div>
                             <hr/>
                         </div>
-                        <ConsiderProducts typed={typed} editFn={toggleEdit} userLevel={cookies.user.userLevel}/>
+                        <ConsiderProducts typed={typed} editFn={toggleEdit} viewFn={toggleView} userLevel={cookies.user.userLevel}/>
                     </div> 
 
                     <div className="affiliate-products">

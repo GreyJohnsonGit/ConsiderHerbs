@@ -18,31 +18,30 @@ import Axios from 'axios';
 import config from '../../config.js'
 import Async from 'react-async';
 
-let entryToEdit = {
+const initialFormData = Object.freeze({
     name: '',
     bodypart: '',
     ailment: '',
     ingredients: [],
-    description: ''
-};
+    description: '',
+    userLevel: 0
+});
 
 let mode = 'edit';
 
 const Home = (props) => {
-    
     let searchInput = React.createRef();
 
     const [ showPopup, setShowPopup ] = useState(0);
     const [ filterText,setFilterText ] = useState('');
-    const [ userLevel, setUserLevel ] = useState(0);
     const [/*numIngredient*/,setNumIngredients ] = useState(0);
     const [ email, setEmail ] = useState('');
+    const [formData,setFormData] = useState(initialFormData);
     const [cookies, ] = useCookies(['user']);
 
     const emailHandleChange = event => {
         setEmail(event.target.value);
     }
-
     const filterUpdate = (value) => {
         setFilterText(value);
     }
@@ -51,23 +50,17 @@ const Home = (props) => {
         setShowPopup(!showPopup);
     };
     const toggleView = (entry) => {
-        entryToEdit = Object.assign({},entry);
+        setFormData(entry);
         mode = 'view';
         toggleShowPopup();
     };
     const toggleEdit = (entry) => {
-        entryToEdit = Object.assign({},entry);
+        setFormData(entry);
         mode = 'edit';
         toggleShowPopup();
     };
     const toggleNewEntry = () => {
-        entryToEdit = {
-            name: '',
-            bodypart: '',
-            ailment: '',
-            ingredients: [],
-            description: ''
-        };
+        setFormData(initialFormData);
         mode = 'new';
         toggleShowPopup();
     };
@@ -96,7 +89,72 @@ const Home = (props) => {
         return ret;
     };
 
-    console.log(props)
+    const handleSubmit = (event) => {
+        if(mode==='new')
+        {
+            Axios.post(
+                config.address + '/api/Recipe',
+                { ...formData }
+            )
+            .then((res) => {
+                console.log(res);
+                toggleShowPopup();
+            })
+            .catch((err) => {
+                console.error(err);
+                toggleShowPopup();
+            })
+        }
+        else if (mode==='edit')
+        {
+            Axios.put(
+                config.address + '/api/Recipe/' + formData.name,
+                { ...formData }
+            )
+            .then((res) => {
+                console.log(res);
+                toggleShowPopup();
+            })
+            .catch((err) => {
+                console.error(err);
+                toggleShowPopup();
+            })
+        }
+    };
+    const handleChange = (e) => {
+        if (e.target.name.includes('ingredients'))
+        {
+            var res = e.target.name.split('.');
+            var i = parseInt(res[1]);
+            var field = res[2];
+            const newIng = [
+                ...formData.ingredients.slice(0,i),
+                {
+                    ...formData.ingredients[i],
+                    [field]: e.target.value
+                },
+                ...formData.ingredients.slice(i+1)
+            ]
+            setFormData({
+                ...formData,
+                ingredients: newIng
+            });
+        }
+        else if (e.target.name === 'userLevel')
+        {
+            setFormData({
+                ...formData,
+                [e.target.name]: parseInt(e.target.value.trim())
+            });
+        }
+        else
+        {
+            setFormData({
+                ...formData,
+                [e.target.name]: e.target.value.trim()
+            });
+        }
+    };
 
     return (
         <div>
@@ -130,9 +188,9 @@ const Home = (props) => {
                 { mode === 'view' ?
                     <div>
                         <div className='recipe-popup-title'>
-                            {entryToEdit.name}
+                            {formData.name}
                         </div>
-                        { cookies.user.userLevel >= entryToEdit.priviledge ?
+                        { cookies.user && cookies.user.userLevel >= formData.userLevel ?
                             <Async promiseFn={LoadTerms}>
                                 {({data,err,isLoading}) => {
                                     console.log(data);
@@ -143,10 +201,10 @@ const Home = (props) => {
                                         return (
                                             <div>
                                                 <div className='recipe-popup-description'>
-                                                    {glossarizeText(entryToEdit.description,data)}
+                                                    {glossarizeText(formData.description,data)}
                                                 </div>
                                                 <ul>
-                                                    { entryToEdit.ingredients.map((ingredient) => {
+                                                    { formData.ingredients.map((ingredient) => {
                                                         return (
                                                             <li>{glossarizeText(ingredient.ingredient,data)} - {ingredient.amount} {ingredient.unit}</li>
                                                         )
@@ -160,19 +218,19 @@ const Home = (props) => {
                             : <div className='recipe-popup-description'>Subscribe to view this content</div> }
                     </div>
                 :
-                    <form action='/Recipe'>
+                    <form onSubmit={handleSubmit}>
                         <div className='recipe-popup-edit-top-row'>
                             <label htmlFor='name'>Name</label>
                             <label htmlFor='bodypart'>Body Part</label>
                             <label htmlFor='ailment'>Ailment</label>
                             <label htmlFor='tier'>Tier</label>
-                            <input type='text' id='name' defaultValue={entryToEdit.name} />
-                            <input type='text' id='bodypart' defaultValue={entryToEdit.bodypart} />
-                            <input type='text' id='ailment' defaultValue={entryToEdit.ailment} />
-                            <select id='tier'>
-                                <option value='0' selected={entryToEdit.priviledge == 0}>Guest</option>
-                                <option value='1' selected={entryToEdit.priviledge == 1}>Subscriber</option>
-                                <option value='2' selected={entryToEdit.priviledge == 2}>Premium</option>
+                            <input type='text' id='name' name='name' value={formData.name} onChange={handleChange} />
+                            <input type='text' id='bodypart' name='bodypart' value={formData.bodypart} onChange={handleChange} />
+                            <input type='text' id='ailment' name='ailment' value={formData.ailment} onChange={handleChange} />
+                            <select id='tier' name='userLevel' onChange={handleChange}>
+                                <option value='2' selected={formData.userLevel == 2}>Premium</option>
+                                <option value='1' selected={formData.userLevel == 1}>Subscriber</option>
+                                <option value='0' selected={formData.userLevel == 0}>Guest</option>
                             </select>
                         </div>
                         <div className='recipe-popup-edit-ingredients'>
@@ -181,18 +239,18 @@ const Home = (props) => {
                             <span>Unit</span>
                             <span></span>
                         </div>
-                        { entryToEdit.ingredients.map((ingredient,i) => {
+                        { formData.ingredients.map((ingredient,i) => {
                             return (
                                 <div className='recipe-popup-edit-ingredients'>
-                                    <input type='text' defaultValue={ingredient.ingredient} />
-                                    <input type='text' defaultValue={ingredient.amount} />
-                                    <input type='text' defaultValue={ingredient.unit} />
+                                    <input type='text' name={`ingredients.${i}.ingredient`} value={ingredient.ingredient} onChange={handleChange} />
+                                    <input type='text' name={`ingredients.${i}.amount`} value={ingredient.amount} onChange={handleChange} />
+                                    <input type='text' name={`ingredients.${i}.unit`} value={ingredient.unit} onChange={handleChange} />
                                     <FaTrashAlt
                                         size='1.7em'
                                         color='red'
                                         onClick={() => {
-                                            entryToEdit.ingredients.splice(i,1);
-                                            setNumIngredients(entryToEdit.ingredients.length);
+                                            formData.ingredients.splice(i,1);
+                                            setNumIngredients(formData.ingredients.length);
                                         }}
                                     />
                                 </div>
@@ -202,12 +260,12 @@ const Home = (props) => {
                             size='1.7em'
                             color='green'
                             onClick={() => {
-                                entryToEdit.ingredients.push([]);
-                                setNumIngredients(entryToEdit.ingredients.length);
+                                formData.ingredients.push([]);
+                                setNumIngredients(formData.ingredients.length);
                             }}
                         />
                         <label for='description'>Description</label>
-                        <textarea rows='3' id='description' value={entryToEdit.description}/>
+                        <textarea rows='3' id='description' value={formData.description}/>
                         
                         <button type='submit'>Submit</button>
                     </form>
@@ -246,7 +304,7 @@ const Home = (props) => {
                     <div style={{position: 'relative'}}>
                         <h2>Select Your Area of Discomfort on the Body Model</h2>
                     </div>
-                    <form className='search' style={{marginTop:"5px"}}>
+                    <form style={{marginTop:"5px"}}>
                         <input 
                             type='text'
                             placeholder='Search Recipes...'
@@ -254,7 +312,7 @@ const Home = (props) => {
                             onChange={() => filterUpdate(searchInput.current.value)}
                         />
 
-                        {  cookies.user.userLevel === 3 ? 
+                        { cookies.user && cookies.user.userLevel === 3 ? 
                             <div>
                                 <button type='submit'>Search</button>
                                 <button type='button' onClick={toggleNewEntry}>New Recipe</button>

@@ -4,7 +4,10 @@ const SignInController = require('../controllers/SignInController.js');
 
 const signinRouter = express.Router();
 
-signinRouter.post('/', (req, res, next) => {next();});
+signinRouter.options('/(.+)', (req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*')
+    next()
+})
 
 //Login Route
 signinRouter.post('/SignIn/', SignInController.signIn);
@@ -29,6 +32,10 @@ signinRouter.get('/', SignInController.getAll);
 signinRouter.get('/:username', SignInController.getUser);
 
 //Updates User
-signinRouter.put('/:username/change/:password', SignInController.updatePassword);
+signinRouter.post('/ChangePassword/', SignInController.updatePassword);
+
+signinRouter.post('/ToggleSubscribe', SignInController.toggleSubscribe);
+
+signinRouter.post('/ChangeLevel', SignInController.updateUserLevel);
 
 module.exports = signinRouter;

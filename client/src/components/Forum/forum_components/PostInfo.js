@@ -72,9 +72,11 @@ const PostInfo = (props) => {
                                                     <h2>{didYouKnowEntry.title}</h2>
                                                     <h3>posted by Dee on {didYouKnowEntry.date}</h3>
 
-                                                    <div id="image">
-                                                        <img src={didYouKnowEntry.image} style={{width:"100%"}} />
-                                                    </div>
+                                                    <div className="Didouter">
+                                                        <div className="Didinner">
+                                                            <img src={didYouKnowEntry.image}/>
+                                                        </div>
+                                                    </div> 
 
                                                     
                                                     <DidYouKnowContentPage />

@@ -8,6 +8,7 @@ const loadTermInfo = () => {
         config.address + '/api/glossary'
     )
     .then(res => {
+        console.log(res);
         return res.data;
     })
     .catch(err => {
@@ -59,7 +60,7 @@ const TermInfo = (props) => {
                                         <div className="large-letter">
                                             {id}
                                         </div>
-                                        <div>
+                                        <div className="term-info-container">
                                             <h1>{glossaryEntry.title}</h1>
                                             { props.userLevel >= 3 ?
                                                 <form>
@@ -79,16 +80,18 @@ const TermInfo = (props) => {
                                                     </button>
                                                     </form>
                                             : null }
-                                            <table>
-                                                <tr>
-                                                    <th>Definition</th>
-                                                    <td>{glossaryEntry.definition}</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Usage</th>
-                                                    <td>{glossaryEntry.usage}</td>
-                                                </tr>
-                                            </table>
+                                            { props.userLevel >= glossaryEntry.userLevel ? 
+                                                <table>
+                                                    <tr>
+                                                        <th>Definition</th>
+                                                        <td>{glossaryEntry.definition}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Usage</th>
+                                                        <td>{glossaryEntry.usage}</td>
+                                                    </tr>
+                                                </table>
+                                            : <table><tr><th></th><td>Subscribe to View This Content!</td></tr></table> }
                                         </div>
                                     </div>
                                 );

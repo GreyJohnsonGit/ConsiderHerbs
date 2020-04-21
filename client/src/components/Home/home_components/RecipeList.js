@@ -11,6 +11,7 @@ const LoadRecipeList = () => {
         config.address + '/api/Recipe'
     )
     .then(res => {
+        console.log(res.data);
         return res.data;
     })
     .catch(err => {
@@ -46,20 +47,6 @@ const RecipeList = (props) => {
                                     entry.description.toLowerCase().includes(props.filterText.toLowerCase()) ||
                                     entry.bodypart.toLowerCase().includes(props.filterText.toLowerCase())))
                                 .map((entry,i) => {
-                                    //entry.priviledge = 0;
-                                    if (i < 3)
-                                    {
-                                        entry.priviledge = 0;
-                                    }
-                                    else if (i < 6)
-                                    {
-                                        entry.priviledge = 1;
-                                    }
-                                    else
-                                    {
-                                        entry.priviledge = 2;
-                                    }
-        
                                     return (
                                         <div>
                                             <div className='recipe-list-item-spacer'></div>
@@ -67,9 +54,9 @@ const RecipeList = (props) => {
                                                 <b onClick={() => props.viewFn(entry)}>
                                                     {entry.bodypart} - {entry.name}
                                                 </b>
-                                                {priviledgeSwitch(entry.priviledge)}
+                                                {priviledgeSwitch(entry.userLevel)}
                                                 <p>
-                                                    { props.userLevel >= entry.priviledge ? 
+                                                    { props.userLevel >= entry.userLevel ? 
                                                     entry.description : 'Subscribe to view this content'}
                                                 </p>  
 

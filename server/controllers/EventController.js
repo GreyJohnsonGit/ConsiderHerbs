@@ -1,11 +1,9 @@
-//// EventController.js
-
 const EventModel = require('../models/Event.js');
 
 exports.create = function(req,res) {
     var model = EventModel;
     let EventItem = new model(req.body);
-   // console.log("EventItem: ", EventItem);
+    console.log("trying to post: ", req.body)
     EventItem.save(function(err, doc){
         if (err) {
             console.log(err);

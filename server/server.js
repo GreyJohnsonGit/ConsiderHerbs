@@ -28,7 +28,7 @@ app.use(cors());
 app.use('/api/Glossary', glossaryRouter);
 app.use('/api/Authentication', signinRouter);
 app.use('/api/Forum', forumRouter);
-app.use('/api/Products', productRouter)
+app.use('/api/Products', productRouter);
 
 //Serve static files
 app.use('/', expressStatic('./client/'));

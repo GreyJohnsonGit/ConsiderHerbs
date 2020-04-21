@@ -15,6 +15,8 @@ const exampleRouter = require('../routes/examples.server.routes');
 const recipeRouter = require('../routes/recipeRouter');
 const productRouter = require('../routes/ProductRouter');
 const EventRouter = require('../routes/EventRouter');
+const meetingRouter = require('../routes/MeetingRouter');
+const StripeRouter = require('../routes/StripeRouter');
 
 
 module.exports.init = () => {
@@ -51,6 +53,8 @@ module.exports.init = () => {
     app.use('/api/Recipe', recipeRouter);
     app.use('/api/Product', productRouter);
     app.use('/api/Event', EventRouter);
+    app.use('/api/Meeting', meetingRouter);
+    app.use('/api/Stripe', StripeRouter);
 
     if (process.env.NODE_ENV === 'production') {
         // Serve any static files
