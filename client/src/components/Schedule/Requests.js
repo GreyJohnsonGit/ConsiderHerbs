@@ -42,7 +42,7 @@ const ReqList = () => {
                                                 console.log("got here1");
                                                 window.location.reload(true);
                                                 Axios.delete(
-                                                    config.address + '/api/Event/' + meeting._id,
+                                                    config.address + '/api/Meeting/' + meeting._id,
                                                     meeting
                                                 )
                                                     .then((res) => {
