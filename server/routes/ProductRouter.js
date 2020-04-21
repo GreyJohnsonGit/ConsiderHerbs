@@ -53,7 +53,7 @@ ProductRouter.options('/:name/price', (req, res, next) => {
 
 //returns all entries, vanilla get request
 // GET: /api/Product/
-ProductRouter.get('/', ProductController.getAll)
+ProductRouter.get('/GetAll', ProductController.getAll)
 
 //calls create, request should send entry in req.body
 // POST: /api/Product/

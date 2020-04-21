@@ -4,9 +4,8 @@ import React, {useState} from 'react';
 import config from '../../../config.js';
 
 const loadProductInfo = () => {
-    console.log(config.address + '/api/Products/')
     return Axios.get(
-        config.address + '/api/Products/'
+        config.address + '/api/Products/GetAll'
     )
     .then(res => {
         console.log(res)
