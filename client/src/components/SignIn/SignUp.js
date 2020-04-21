@@ -104,7 +104,7 @@ const SignUp = (props) =>{
                 <div className = "button-container">
                     <FacebookLogin
                         type = "submit" className = "facebook"
-                        appId="282495236070074"
+                        appId={config.facebookKey}
                         fields="name,email,picture"
                         callback={responseFacebook}
                         textButton= "Facebook"

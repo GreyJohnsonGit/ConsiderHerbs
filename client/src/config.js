@@ -1,1 +1,2 @@
-exports.address = 'http://localhost:5000';
+exports.facebookKey = '282495236070074';
+exports.address = 'https://consider-herbs.herokuapp.com'
