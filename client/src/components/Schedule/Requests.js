@@ -22,6 +22,7 @@ const ReqList = () => {
 
     return (
         <div>
+            <div className='meeting-title' >List of Consulations </div>
             <Async promiseFn={loadRequests}>
                 {({ data, err, isLoading }) => {
                     if (isLoading) return "Loading...";
@@ -29,31 +30,59 @@ const ReqList = () => {
                     console.log("data: ", data)
                     if (data && Array.isArray(data)) {
                         return (
-                            data.map((Eventy) => {
+                            data.map((meeting) => {
                                 
                                 return (
                                     <div>
-                                        <h2>{Eventy.name}</h2>
-                                        <button className='admin-button' onClick={() => {
-                                            console.log("got here1");
-                                            window.location.reload(true);
-                                            Axios.delete(
-                                                config.address + '/api/Event/' + Eventy._id,
-                                                Eventy
-                                            )
-                                                .then((res) => {
-                                                    console.log("got here")
-                                                })
-                                                .catch((err) => {
-                                                    console.error("This is the error I caught: ", err);
-                                                })
+                                        <div className='meeting-item-spacer'></div>                                        
+                                        <div className='meeting-item'>
+                                            <h4>Client: {meeting.name}</h4>
+                                            <div>
+                                            <button className='admin-button' onClick={() => {
+                                                console.log("got here1");
+                                                window.location.reload(true);
+                                                Axios.delete(
+                                                    config.address + '/api/Event/' + meeting._id,
+                                                    meeting
+                                                )
+                                                    .then((res) => {
+                                                        console.log("got here")
+                                                    })
+                                                    .catch((err) => {
+                                                        console.error("This is the error I caught: ", err);
+                                                    })
 
-                                        }}> Delete</button>
+                                            }}> Deny </button>
 
-                                        <h>Type: </h>
-                                        <p>{Eventy.type}</p>
-                                        <h>Date: </h>
-                                        <p>{Eventy.date}</p>
+                                            <button className='admin-button'>Accept </button>
+                                            </div>
+                                            {console.log(meeting)}
+                                            <tr>
+                                                <th>Type: </th> 
+                                                <td>{meeting.type}</td>
+                                                  
+                                            </tr>
+                                            <tr>
+                                                <th>Date: </th> 
+                                                <td>{meeting.date}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Start: </th> 
+                                                <td>{meeting.start_time}</td>
+                                                <th>End: </th> 
+                                                <td>{meeting.end_time}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Description: </th> 
+                                                <td>{meeting.description}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Contact Information: </th> 
+                                                <td>{meeting.description}</td>
+                                            </tr>  
+                                                                                      
+                                        </div>
+                                        
 
                                     </div>
                                 );

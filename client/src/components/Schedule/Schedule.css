@@ -54,21 +54,21 @@
 }
 .changeWeek{
     margin: auto;
-    border: 3px solid green;
-    background: rgba(187, 250, 92, 0.493);
+    background: rgba(176, 214, 130, 0.932);
+    color: white;
     width: 25%;
     border-radius: 10px;
 }
 .calendarHeader{
-    background: rgba(5, 5, 5, 0.301);
+    background: rgba(176, 214, 130, 0.932);
     border-radius: 10px;
     
 }
 .CalandarTitle{
     margin: auto;
     width: 50%;
-    border: 3px solid green;
-    background: rgba(187, 250, 92, 0.493);
+    color:white;
+    background: rgba(176, 214, 130, 0.932);
     text-align: center;
     display: inline-block;
     border-radius: 10px;
@@ -87,7 +87,66 @@
     border-radius: 10px;
 }
 
-/* .term-container{
-    border: 1px solid;
+.meeting-item {
+    background-color: #ededed;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.meeting-item b:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.meeting-item-spacer {
+    background-color: #A6CC78;
+    height: 10px;
+}
+
+.meeting-title{
+    font-size: 36px;
+    text-align: left;
+    display: grid;
+    
+    height: 54px;
+}
+.schedule-buttons{
     text-align: center;
-} */
+    padding: 2px;
+    margin-left: 32%;
+    background: #636363a9;
+    color: white;
+    text-transform: uppercase;
+    font-size: 1.6em;
+    border: none;
+    white-space: nowrap;
+}
+.schedule-button-event{
+    text-align: center;
+    padding: 2px;
+    margin-left: 45%;
+    background: #636363a9;
+    color: white;
+    text-transform: uppercase;
+    font-size: 1.6em;
+    border: none;
+    white-space: nowrap;
+}
+/*
+ width: 150px;
+
+*/
+
+.buttons-divider{
+    width:auto;
+    height:10px;
+   
+}
+.top-div{
+    width:auto;
+    height:20px;
+}
+.side-divider{
+    text-align: center;
+    height:auto;
+   
+}

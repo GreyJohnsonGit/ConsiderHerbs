@@ -58,7 +58,7 @@ const EventList = (props) => {
                                                         console.error("This is the error I caught: ", err);
                                                     })
 
-                                            }}>Delete</button> : ""}
+                                            }}> Delete </button> : ""}
                                             <h>Type: </h>
                                             <p>{Eventy.type}</p>
                                             <h>Start Time: </h>
