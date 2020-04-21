@@ -5,28 +5,28 @@ This repository contains the code for the ConsiderHerbs website, but does not in
 This repository uses the facebook and google api's for login and signup. MongoDB is used to host the database. Finally, Stipe is used to manage payments for the site.
 
 ## Features
-# Home Page
+#### Home Page
 The home page contains an interactive list of herbal recipes. This list can be narrowed by searching or by clicking on an adjacent body diagram. These recipes detail the ingredients and the method of use.
 
-# Forum Page
+#### Forum Page
 The forum page contains the user discussions within threads. A user can see important threads, search for specific threads and click on threads to read, comment, and like. In addition, the Did You Know threads are available for specially selected topics.
 
-# Glossary Page
+#### Glossary Page
 The glossary page contains a comprehensive list of important terms on the site. This list can be searched using terms, alphabet, or through scrolling.
 
-# About Page
+#### About Page
 The about page contains the site’s goal as presented for the world to see.
 
-# Schedule Page
+#### Schedule Page
 The schedule page contains an interactive calendar which allows for users to sign up for meetings, classes, and personal consultations.
 
-# Products Page
+#### Products Page
 The products page contains a list of products for Users to view and purchase. These products can be searched by name and are separated by whether they are ConsiderHerb, Affiliate, or Suggested. A user can click on the product to see it’s external page.
 
-# Sign In Page
+#### Sign In Page
 The sign in page allows users to sign in and sign up using their information, google, or facebook.
 
-# Profile Page
+#### Profile Page
 The profile page allows users to change their password, see their forum posts, and manage their subscription. The owner can also manage user permissions from here.
 
 ## Available Scripts
