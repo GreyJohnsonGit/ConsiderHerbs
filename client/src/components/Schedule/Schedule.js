@@ -155,6 +155,9 @@ const Schedule = () => {
 
                 <span className="sch-below-title">It's just natural!</span>
             </div>
+
+            <div className="buttons-divider"></div>
+            
             <AdminPopUp closeFn={toggleShowPopup} showPopup={showPopup}>
                 <form onSubmit={submitForm}>
                     <label htmlFor='name'>Name</label>
@@ -187,11 +190,13 @@ const Schedule = () => {
                     <button type='submit' id="admin-button">Submit</button>
                 </form>
             </AdminPopUp>
+            
             <Calendar editEvent={editEvent} />
-            {cookies.user.userLevel>2?<Requests />:""}
 
+           <div className="buttons-divider"></div>
+           <div className="side-divider"></div>
             {/* {console.log("user : ", cookies)} */}
-            {cookies.user && cookies.user.userLevel > 2?<button onClick={newEvent}>New Event</button>: ""}
+            {cookies.user && cookies.user.userLevel > 2?<button className="schedule-button-event" onClick={newEvent}>New Event</button>: ""}
             
             <AdminPopUp closeFn={toggleShowPop2} showPopup={showPop2}>
                 <form onSubmit={addMeeting}> 
@@ -224,10 +229,20 @@ const Schedule = () => {
                 </form>
 
             </AdminPopUp>
-            <button onClick={RequestCons} >Request Personal Consultation</button>
+
+
+            <div className="buttons-divider"></div>
+           
+            <button className='schedule-buttons' onClick={RequestCons} >Request Personal Consultation</button>
+            
+            <div className="buttons-divider"></div>
 
             {/* {cookies.user.userLevel > 2?<MeetingList/>:""} */}
-
+            {cookies.user.userLevel>2?<Requests />:""}
+            
+            <div className="buttons-divider"></div>
+          
+            <div className="side-divider"></div>
 
         </div>
 
