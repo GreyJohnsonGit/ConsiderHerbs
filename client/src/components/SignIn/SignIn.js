@@ -90,7 +90,7 @@ const SignIn = (props) => {
                     {/* <div class="fb-login-button" data-width="" data-size="medium" data-button-type="login_with" data-layout="default" data-auto-logout-link="true" data-use-continue-as="ftrue"></div>*/}
                     <FacebookLogin  
                         type = "submit" className = "facebook"
-                        appId="282495236070074"
+                        appId={config.facebookKey}
                         fields="name,email,picture"
                         callback={responseFacebook}
                         textButton= "Facebook"
