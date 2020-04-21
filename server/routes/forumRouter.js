@@ -9,6 +9,13 @@ forumRouter.get('/:thread_id', (req, res, next) => {
     next();
 })
 
+forumRouter.put('/:thread_id', (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header('Access-Control-Allow-Methods', '*');
+    res.header('Access-Control-Allow-Headers', '*');
+    next();
+})
+
 forumRouter.options('/', (req, res, next) => {
     console.log("REDEF")
     res.header("Access-Control-Allow-Origin", "*");
@@ -41,9 +48,9 @@ forumRouter.get('/', ThreadController.getAll)
 // POST: /api/Forum/
 forumRouter.post('/', ThreadController.create);
 
-//calls update, request should send updated entry in req.body and have url param :title
-// PUT: /api/Forum/:title
-forumRouter.put('/:title', ThreadController.update);
+//calls update, request should send updated entry in req.body and have url param :thread_id corresponding to _id in database
+// PUT: /api/Forum/:thread_id
+forumRouter.put('/:thread_id', ThreadController.update);
 
 //calls read, request should include url param :thread_id for entry to grab (thread_id refers to _id attribute of thread, named for clarity)
 // GET: /api/Forum/:thread_id

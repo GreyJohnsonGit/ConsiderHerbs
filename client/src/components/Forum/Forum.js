@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {useCookies} from 'react-cookie';
 import { Route, Switch, Link } from 'react-router-dom';
 import ForumPreview from './forum_components/ForumPreview.js';
 import Thread from './forum_components/Thread.js';
@@ -12,6 +13,7 @@ import ThreadPreviewBlock from './forum_components/ThreadPreviewBlock.js';
 const Forum =()=>{
     const [ showPopup, setShowPopup ] = useState(0);
     const [ threadFilterText, setThreadFilterText ] = useState("");
+    const [cookies, ] = useCookies(['user']);
 
     const toggleShowPopup = () => {
         setShowPopup(!showPopup);
@@ -20,6 +22,8 @@ const Forum =()=>{
     const searchForThread = () => {
 
     }
+
+    console.log(cookies)
 
     return(
         <div>        
@@ -38,7 +42,9 @@ const Forum =()=>{
                         <form>
                             <input type="text" value={threadFilterText} onChange={ev => setThreadFilterText(ev.target.value)} placeholder="Search Threads..."/>
                             <button type="submit" onClick={searchForThread}>Search</button>
-                            <button type='button' onClick={toggleShowPopup}>New Thread</button>
+                            { cookies.user && cookies.user.userLevel ?
+                                <button type='button' onClick={toggleShowPopup}>New Thread</button>
+                            : null }
                         </form>
                     </div>
                     <ThreadPreviewBlock type="search" filterText={threadFilterText}></ThreadPreviewBlock>
@@ -48,11 +54,21 @@ const Forum =()=>{
                     </Switch>
                 </div>
                 <div className="column-2-container">
+                    {cookies.user && cookies.user.userLevel?
                     <div className="forum-column-2">
                         <div id="title"><a href={'/DidYouKnow'} style={{color:"#363636"}}>Did You Know?</a></div>
                         <p><i>Check out some of the links picked by our team!</i></p>
-                        <DidYouKnowPreview />
+                       
+                         <DidYouKnowPreview />
+                    </div>:
+                   
+                    <div className="forum-column-2">
+                        <div id="title"><a href={'/SignIn'} style={{color:"#363636"}}>Did You Know?</a></div>
+                        <p><i>Log in to check out some of the links picked by our team!</i></p>
                     </div>
+                    }
+
+
                 </div>
             </div>
         </div>

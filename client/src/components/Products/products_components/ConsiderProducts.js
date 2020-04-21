@@ -3,10 +3,9 @@ import Axios from 'axios';
 import React, {useState} from 'react';
 import config from '../../../config.js';
 
-
 const loadProductInfo = () => {
-    return Axios.get(
-        config.address + '/api/Products/'
+    return Axios.post(
+        config.address + '/api/Products/GetAll'
     )
     .then(res => {
         return res.data;
@@ -32,8 +31,12 @@ const ConsiderProducts = (props) => {
                                         entry.type.includes("ConsiderHerbs")))
                                     .map((productEntry) => {
                                     return (
-                                            <div id="grid-item"> 
-                                                <div id="product-image">&nbsp;</div>
+                                            <div id="grid-item">
+                                                <div className="outer">
+                                                    <div className="inner" onClick={() => props.viewFn(productEntry)}>
+                                                        <img src={productEntry.image}/>
+                                                    </div>
+                                                </div> 
 
                                                 {props.userLevel === 3 ? 
                                                 <form>
@@ -54,7 +57,7 @@ const ConsiderProducts = (props) => {
                                                  </form> :
                                                  null }
 
-                                                <div id="name"> {productEntry.name} </div>
+                                                <div id="name" onClick={() => props.viewFn(productEntry)}> {productEntry.name} </div>
                                                 <div id="description"> {productEntry.description} </div>
                                                 <div id="price"> ${productEntry.price} </div>
                                             </div>

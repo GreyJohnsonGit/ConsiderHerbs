@@ -1,4 +1,5 @@
 const ProductModel = require('../models/Product.js');
+var fs = require('fs');
 
 exports.create = function(req,res) {
     var model = ProductModel;
@@ -9,6 +10,7 @@ exports.create = function(req,res) {
             console.log(err);
         }
         else {
+            res.header("Access-Control-Allow-Origin", "*");
             res.send({
                 success: true
             })

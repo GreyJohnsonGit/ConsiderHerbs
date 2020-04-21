@@ -31,9 +31,9 @@ exports.read = function(req, res) {
 exports.update = function(req, res) {
     var model = threadModel;
     let item = req.body;
-    model.findOneAndUpdate({title: req.params.title}, item).exec();
+    model.findOneAndUpdate({_id: req.params.thread_id}, item).exec();
     //make the response pretty
-    item.title = req.params.title;
+    //item.title = req.params.title;
     res.send(item);
 }
 

@@ -26,9 +26,10 @@ const App = () => {
 
   if(!cookies.user) {
     setCookies('user', {
-      user:{
         userLevel: 0
-      }
+    },
+    {
+      path: '/'
     })
   }
 

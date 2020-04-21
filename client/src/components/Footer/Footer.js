@@ -7,11 +7,12 @@ import './Footer.css';
 
 //import TempLogo from "./temp_logo.png";
 
-import { FaMobileAlt } from 'react-icons/fa';
+import { FaInstagram } from 'react-icons/fa';
 import { FiPhoneCall, FiMapPin } from 'react-icons/fi';
 import { AiOutlineMail } from 'react-icons/ai';
 import { IoIosGlobe } from 'react-icons/io';
 import { IconContext } from 'react-icons/lib/cjs';
+import  ReactTooltip  from 'react-tooltip';
 
 const iconSize = '1.75em'
 
@@ -31,11 +32,24 @@ const Footer=()=>{
                 </div>
                 <div className="icon-container">
                     <IconContext.Provider value={{ className: 'react-icons' }}>
-                            <FaMobileAlt size={iconSize} className='react-icons'/>
+                            {/*<ReactTooltip title="000">
+                                <span>
+                                <FaMobileAlt  size={iconSize} className='react-icons'/>
+                                </span>
+                                {<span className="tooltiptext">Tooltip text</span>}
+                            </ReactTooltip>
+                            */}   
+
+                            
+                            {/*<FaMobileAlt size={iconSize} className='react-icons'/>*/}
                             <FiPhoneCall size={iconSize} className='react-icons'/>
+                            <p>(954)000-000</p>
                             <AiOutlineMail size={iconSize} className='react-icons'/>
-                            <IoIosGlobe size={iconSize} className='react-icons'/>
+                            <p>Dee@ConsiderHerbs.com</p>
+                            <FaInstagram size={iconSize} className='react-icons'/>
+                            <p>@considerherbs </p>
                             <FiMapPin size={iconSize} className='react-icons'/>
+                            <p>Gainesville, FL</p>
                     </IconContext.Provider>
                 </div>
                 <div className="disclaim-container">

@@ -19,6 +19,7 @@ const Glossary = (props) =>{
     const [title, setTitle] = useState('');
     const [definition, setDefinition] = useState('');
     const [usage, setUsage] = useState('');
+    const [tier, setTier] = useState(0);
 
     const handleTitle = (event) => {
         setTitle(event.target.value);
@@ -28,6 +29,9 @@ const Glossary = (props) =>{
     }
     const handleUsage = (event) => {
         setUsage(event.target.value);
+    }
+    const handleTier = (event) => {
+        setTier(event.target.value);
     }
     
     const searchTerm=(prop)=>{
@@ -41,6 +45,7 @@ const Glossary = (props) =>{
         setTitle(entry.title);
         setDefinition(entry.definition);
         setUsage(entry.usage);
+        setTier(entry.userLevel);
         setMode('edit');
         toggleShowPopup();
     };
@@ -48,6 +53,7 @@ const Glossary = (props) =>{
         setTitle('');
         setDefinition('');
         setUsage('');
+        setTier(0);
         setMode('new');
         toggleShowPopup();
     }
@@ -59,7 +65,8 @@ const Glossary = (props) =>{
                 {
                     title: title,
                     definition: definition,
-                    usage: usage
+                    usage: usage,
+                    userLevel: tier
                 }
             )
             .then((res) => {
@@ -77,7 +84,8 @@ const Glossary = (props) =>{
                 {
                     title: title,
                     definition: definition,
-                    usage: usage
+                    usage: usage,
+                    userLevel: tier
                 }
             )
             .then((res) => {
@@ -90,8 +98,6 @@ const Glossary = (props) =>{
             })
         }
     }
-
-    console.log(props.location)
 
     return(
         <div>
@@ -106,13 +112,20 @@ const Glossary = (props) =>{
                     <label htmlFor='title'>Title</label>
                     <input type='text' id='title' value={title} onChange={handleTitle}/>
 
+                    <label htmlFor='tier'>Tier</label>
+                    <select id='tier' onChange={handleTier}>
+                        <option value='2' selected={tier == 2}>Premium</option>
+                        <option value='1' selected={tier == 1}>Subscriber</option>
+                        <option value='0' selected={tier == 0}>Guest</option>
+                    </select>
+
                     <label htmlFor='definition'>Defintion</label>
                     <textarea rows='3' id='definition' value={definition} onChange={handleDefinition}/>
 
                     <label htmlFor='usage'>Usage</label>
                     <textarea rows='3' id='usage' value={usage} onChange={handleUsage}/>
 
-                    <button type='submit'>Submit</button>
+                    <button type='submit' id="admin-button">Submit</button>
                 </form>
             </AdminPopup>   
             <div className = "glossary-search" id="search_bar">
@@ -122,7 +135,7 @@ const Glossary = (props) =>{
                         defaultValue={typed}
                     />
                     <button type="submit" onClick={searchTerm}>Search </button>
-                    { cookies.user.userLevel >= 3 ? <button type='button' className='admin-button' onClick={toggleNewEntry}>New</button> : null }
+                    { cookies.user && cookies.user.userLevel >= 3 ? <button type='button' className='admin-button' onClick={toggleNewEntry}>New</button> : null }
                 </form>
             </div>
 

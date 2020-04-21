@@ -16,6 +16,7 @@
 }
 .column1 {
     display: flex;
+    flex-direction: column;
     background-color: #FFFFFF;
     padding-left: 15px;
 }
@@ -26,14 +27,20 @@
 .term-container {
     flex-grow: 1;
     padding: 15px 0px;
-    display: grid;
-    grid-template-columns: min(125px,10vw) 1fr;
+    display: flex;
+    flex-direction: row;
 }
 .large-letter {
+    flex-shrink: 0;
+    width: 125px;
     font-size: 96px;
     text-align: center;
 }
+.term-info-container {
+    flex-grow: 1;
+}
 .term-container h1 {
+    flex-grow: 1;
     top: 0px;
     position: sticky;
     font-size: 24px;
@@ -50,6 +57,10 @@
     vertical-align: top;
     text-align: left;
     display: contents;
+}
+
+.term-content-hidden {
+    width: 100%;
 }
 
 .glossary-search
