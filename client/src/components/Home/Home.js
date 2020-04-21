@@ -190,7 +190,7 @@ const Home = (props) => {
                         <div className='recipe-popup-title'>
                             {formData.name}
                         </div>
-                        { cookies.user.userLevel >= formData.userLevel ?
+                        { cookies.user && cookies.user.userLevel >= formData.userLevel ?
                             <Async promiseFn={LoadTerms}>
                                 {({data,err,isLoading}) => {
                                     console.log(data);
@@ -312,7 +312,7 @@ const Home = (props) => {
                             onChange={() => filterUpdate(searchInput.current.value)}
                         />
 
-                        {  cookies.user.userLevel === 3 ? 
+                        { cookies.user && cookies.user.userLevel === 3 ? 
                             <div>
                                 <button type='submit'>Search</button>
                                 <button type='button' onClick={toggleNewEntry}>New Recipe</button>

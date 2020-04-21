@@ -43,8 +43,8 @@ const EventList = (props) => {
                                         <div  >
 
                                             <h2>{Eventy.name}</h2>
-                                            {cookies.user.userLevel > 2 ? <button className='admin-button' onClick={() => props.editFn(Eventy)}>Edit</button> : ""}
-                                            {cookies.user.userLevel > 2 ? <button className='admin-button' onClick={() => {
+                                            {cookies.user && cookies.user.userLevel > 2 ? <button className='admin-button' onClick={() => props.editFn(Eventy)}>Edit</button> : ""}
+                                            {cookies.user && cookies.user.userLevel > 2 ? <button className='admin-button' onClick={() => {
                                                 console.log("got here1");
                                                 window.location.reload(true);
                                                 Axios.delete(

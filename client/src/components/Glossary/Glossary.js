@@ -135,7 +135,7 @@ const Glossary = (props) =>{
                         defaultValue={typed}
                     />
                     <button type="submit" onClick={searchTerm}>Search </button>
-                    { cookies.user.userLevel >= 3 ? <button type='button' className='admin-button' onClick={toggleNewEntry}>New</button> : null }
+                    { cookies.user && cookies.user.userLevel >= 3 ? <button type='button' className='admin-button' onClick={toggleNewEntry}>New</button> : null }
                 </form>
             </div>
 
