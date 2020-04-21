@@ -7,6 +7,7 @@ The Facebook API ke can be located in client/src/config.js at line 1.
 It would not need to be changed, however the Facebook exports.address at line 2 of the same file would need to be updated to the new url of the wwebsite depending on where it is hosted.
 The Google API key can be found in the server/config/credentials.js at line 1.
 The redirect link here would need to be updated to the new url of the site.
+The Stripe API secrets are located in the .env file. The client already has a stripe account so she can just replace the .env variables with her own. The stripe secret key is in lab 1 and public key is in line 2.
 
 
 
