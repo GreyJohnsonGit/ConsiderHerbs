@@ -10,6 +10,7 @@ exports.create = function(req,res) {
             console.log(err);
         }
         else {
+            res.header("Access-Control-Allow-Origin", "*");
             res.send({
                 success: true
             })
