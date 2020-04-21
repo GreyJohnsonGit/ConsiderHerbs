@@ -157,7 +157,10 @@ const Schedule = () => {
             </div>
 
             <div className="buttons-divider"></div>
-            
+            <div className="side-divider">
+                <h2>Choose a group event from the calendar or request a personal consulatation today</h2>
+            </div>
+            <div className="buttons-divider"></div>
             <AdminPopUp closeFn={toggleShowPopup} showPopup={showPopup}>
                 <form onSubmit={submitForm}>
                     <label htmlFor='name'>Name</label>
