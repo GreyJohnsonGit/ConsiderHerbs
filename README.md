@@ -1,49 +1,53 @@
-## _**PLEASE READ THIS TO COMPLETION BEFORE ASKING ANY QUESTIONS!**_
-
-### _**IMPORTANT NOTES**_ - 
-This project does not have a mongoDB connection setup. Setup the connection based on the environments below.
-- local development: create a config file (make sure to name it config.js) in the config folder, which exports your db.uri connection. An example is provided, config/config.example.js. This file will be ignored by git so your db credentials will be kept safe when the app is deployed.
-- production: Since the config file is not pushed when you deploy your app, you must specifiy your db uri in heorku. Set the uri in heroku as specified in [this](https://devcenter.heroku.com/articles/config-vars) resource. Make sure you name the environement variable "DB_URI".
-
-This project contains an example project board meant to showcase how one can be used. The issues posted to it are not real issues.
-
 ## Getting Started
-This repository aims to assist you in beginning work on a MERN stack application for heroku deployment with a solid file structure as a foundation. To get started make a copy of this template repo for your project teams by clicking the green "Use this template" button above.
+This repository contains the code for the ConsiderHerbs website, but does not include the database information or setup (the connection to your database can be made using the [config.js](server/config/config.js)
 
-Since this project will hold both the client application and the server application there will be node modules in two different places. First run `npm install` from the root. After this you will run `npm run-script install-all` from the root. From now on run this command anytime you want to install all modules again. This is a script we have defined in package.json. Alternatively your group may choose to simplify this process by using yarn workspaces as specified [here](https://yarnpkg.com/lang/en/docs/workspaces/).
+## API's used
+This repository uses the facebook and google api's for login and signup. MongoDB is used to host the database. Finally, Stripe is used to manage payments for the site. If our project is chosen then we can add the client to the google console project that manages our google login API and handover ownership of it. The same goes for the Facebook API.
+The Facebook API ke can be located in client/src/config.js at line 1.
+It would not need to be changed, however the Facebook exports.address at line 2 of the same file would need to be updated to the new url of the wwebsite depending on where it is hosted.
+The Google API key can be found in the server/config/credentials.js at line 1.
+The redirect link here would need to be updated to the new url of the site.
+The Stripe API secrets are located in the .env file. The client already has a stripe account so she can just replace the .env variables with her own. The stripe secret key is in lab 1 and public key is in line 2.
 
-This app can be deployed directly to heroku since there is a script defined in package.json which will automatically handle building and deploying the app. For more information on deploying to heroku reference the extra resources at the bottom of this file. 
 
+
+## Features
+#### Home Page
+The home page contains an interactive list of herbal recipes. This list can be narrowed by searching or by clicking on an adjacent body diagram. These recipes detail the ingredients and the method of use.
+
+#### Forum Page
+The forum page contains the user discussions within threads. A user can see important threads, search for specific threads and click on threads to read, comment, and like. In addition, the Did You Know threads are available for specially selected topics.
+
+#### Glossary Page
+The glossary page contains a comprehensive list of important terms on the site. This list can be searched using terms, alphabet, or through scrolling.
+
+#### About Page
+The about page contains the site’s goal as presented for the world to see.
+
+#### Schedule Page
+The schedule page contains an interactive calendar which allows for users to sign up for meetings, classes, and personal consultations.
+
+#### Products Page
+The products page contains a list of products for Users to view and purchase. These products can be searched by name and are separated by whether they are ConsiderHerb, Affiliate, or Suggested. A user can click on the product to see it’s external page.
+
+#### Sign In Page
+The sign in page allows users to sign in and sign up using their information, google, or facebook.
+
+#### Profile Page
+The profile page allows users to change their password, see their forum posts, and manage their subscription. The owner can also manage user permissions from here.
 
 ## Available Scripts
-
-Please note that any time the server is run in these scripts `nodemon` is used in place of `node` for easier development. If you are interested in how this works follow the nodemon In the project directory, you can run:
-
 ### `npm run-script dev`
-
-Runs both the client app and the server app in development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view the client in the browser.
+Runs the server and client side of the application.
 
 ### `npm run-script client`
-
-Runs just the client app in development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view the client in the browser.
-
+Runs the client side of the application.
 
 ### `npm run-script server`
-
-Runs just the server in development mode.<br>
-
+Runs the server side of the application.
 
 ### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-If deploying to heroku this does not need to be run since it is handled by the heroku-postbuild script<br>
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
+Produces an optimized version of the application for deployment.
 
 ## File structure
 #### `client` - Holds the client application
@@ -54,21 +58,16 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
     - #### `views` - These represent a unique page on the website i.e. Home or About. These are still normal react components
     - #### `App.js` - This is what renders all of our browser routes and different views
     - #### `index.js` - This is what renders the react app by rendering App.js, should not change
+    - #### `config.js` - Defines constants for server and facebook connection
 - #### `package.json` - Defines npm behaviors and packages for the client
 #### `server` - Holds the server application
-- #### `config` - This holds our configuration files, like mongoDB uri
+- #### `config` - This holds our configuration file for mongodb and google credentials
 - #### `controllers` - These hold all of the callback functions that each route will call
 - #### `models` - This holds all of our data models
 - #### `routes` - This holds all of our HTTP to URL path associations for each unique url
 - #### `tests` - This holds all of our server tests that we have defined
 - #### `server.js` - Defines npm behaviors and packages for the client
+- #### `AuthenticationTools.js` - Authentication tools to manage user sessions and login
 #### `package.json` - Defines npm behaviors like the scripts defined in the next section of the README
 #### `.gitignore` - Tells git which files to ignore
 #### `README` - This file!
-
-## Learn More
-To learn how to setup a local MongoDB instance for testing, check out how to [connect to MongoDB](https://docs.mongodb.com/guides/server/drivers/).
-
-To learn how to deploy a full-stack web app to heroku, check out [this great guide](https://daveceddia.com/deploy-react-express-app-heroku/).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
