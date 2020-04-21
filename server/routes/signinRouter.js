@@ -34,6 +34,8 @@ signinRouter.get('/:username', SignInController.getUser);
 //Updates User
 signinRouter.post('/ChangePassword/', SignInController.updatePassword);
 
-signinRouter.post('/ToggleSubscribe', SignInController.toggleSubscribe)
+signinRouter.post('/ToggleSubscribe', SignInController.toggleSubscribe);
+
+signinRouter.post('/ChangeLevel', SignInController.updateUserLevel);
 
 module.exports = signinRouter;

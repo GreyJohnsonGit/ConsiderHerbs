@@ -13,38 +13,6 @@ import {CardElement} from '@stripe/react-stripe-js';
 
 const stripePromise = loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
 
-const dummyThread = {
-    threadId: 'threadId',
-    userId: 'userId',
-    title: 'Some Thread',
-    user: '@JaneDoe',
-
-    // eslint-disable-next-line
-    body: 'Lorem ipsum dolor sit amet, \
-            consectetur adipiscing elit, sed \
-            do eiusmod tempor incididunt ut \
-            labore et dolore magna aliqua. Ut enim ad minim veniam, \
-            quis nostrud exercitation ullamco laboris nisi ut aliquip \
-            ex ea commodo consequat. Duis aute irure dolor in reprehenderit \
-            in voluptate velit esse cillum dolore eu fugiat nulla pariatur. \
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa\
-            qui officia deserunt mollit anim id est laborum.Duis aute irure \
-            dolor in reprehenderit in voluptate velit esse cillum dolore eu \
-            fugiat nulla pariatur. Excepteur sint occaecat cupidatat non \
-            proident, sunt in culpa qui officia deserunt mollit anim id \
-            est laborum.',
-    likes: 0,
-    replies: []
-}
-
-const dummyUser = {
-    username : 'Some_User',
-    usertype : 'User',
-    email : 'something@email.com',
-    password : 'password',
-    id :  'id'
-}
-
 const CARD_ELEMENT_OPTIONS = {
     style: {
         base: {
@@ -64,17 +32,10 @@ const CARD_ELEMENT_OPTIONS = {
     },
 };
 
-let ThreadList = Array(7).fill(dummyThread);
-let UserList = Array.apply(null, new Array(10)).map((user,i) => {
-    return {
-        username : 'Some_User'+i.toString(),
-        usertype : 'User',
-        email : 'something@email.com',
-        password : 'password',
-        id :  'id'
-    }
+const defaultViewData = Object.freeze({
+    username: '',
+    userLevel: 0
 });
-
 
 const Profile = (props) => {
     const [cookies, setCookie, removeCookie] = useCookies(['user'])
@@ -86,7 +47,8 @@ const Profile = (props) => {
     const [showPopup,setShowPopup] = useState(0)
     const [oldPassword, setOldPassword] = useState('')
     const [newPassword, setNewPassword] = useState('')
-    const [newPasswordVerify, setNewPasswordVerify] = useState('')
+    const [newPasswordVerify, setNewPasswordVerify] = useState('');
+    const [viewData,setViewData] = useState(defaultViewData);
     const [mode,setMode] = useState('');
 
     const handleOldPasswordChange = (event) => {
@@ -97,6 +59,12 @@ const Profile = (props) => {
     }
     const handleNewPasswordVerifyChange = (event) => {
         setNewPasswordVerify(event.target.value)
+    }
+    const handleViewData = (e) => {
+        setViewData({
+            ...viewData,
+            [e.target.name]: parseInt(e.target.value)
+        })
     }
 
     const changePassword = (event) => {
@@ -131,6 +99,20 @@ const Profile = (props) => {
         })
     }
 
+    const getAllUsers = () => {
+        return Axios.get(
+            config.address + '/api/SignIn'
+        )
+        .then((response) => {
+            //console.log(response.data);
+            return response.data;
+        })
+        .catch((err) => {
+            console.error(err)
+            return err;
+        })
+    }
+
     const toggleSubscribe = () => {
         Axios.post(
             config.address + '/api/Authentication/ToggleSubscribe/',
@@ -149,28 +131,62 @@ const Profile = (props) => {
         .catch(console.error)
     }
 
+    const updateUserLevel = (e) => {
+        Axios.post(
+            config.address + '/api/Authentication/ChangeLevel',
+            { ...viewData }
+        )
+        .then((res) => {
+            if (res.data.success) {
+                toggleShowPopup();
+            }
+        })
+        .catch((err) => {
+            console.error(err);
+        })
+    }
+
     const toggleShowPopup = () => {
         setShowPopup(!showPopup);
     }
 
-    const toggleAdminChange = () => {
+    const toggleAdminChange = (user) => {
         setMode('admin');
+        setViewData({
+            username: user.username,
+            userLevel: user.userLevel
+        });
         toggleShowPopup();
     }
-
     const toggleUpgradeAccount = () => {
         setMode('upgrade');
         toggleShowPopup();
     }
 
-    const accountType = (level) => {
+    const levelToType = (level) => {
+        switch (level) {
+            case 0:
+                return 'Guest';
+            case 1:
+                return 'Subscriber';
+            case 2:
+                return 'Premium User';
+            case 3:
+                return 'Administrator';
+            case 4:
+                return 'Owner';
+            default:
+                return 'Guest*';
+        }
+    }
+    const accountTypeElement = (level) => {
         switch (level) {
             case 0:
                 return (
                     <div>
                         <div className='profile-account-type'>
                             <div id='label'>Account Type</div>
-                            <div id='type'>Anonymous User</div>
+                            <div id='type'>Guest</div>
                         </div>
                         <button type='button'>SIGN UP</button>
                     </div>
@@ -180,7 +196,7 @@ const Profile = (props) => {
                     <div>
                         <div className='profile-account-type'>
                             <div id='label'>Account Type</div>
-                            <div id='type'>User</div>
+                            <div id='type'>Subscriber</div>
                         </div>
                         <button type='button' onClick={toggleUpgradeAccount}>UPGRADE ACCOUNT</button>
                     </div>
@@ -190,7 +206,7 @@ const Profile = (props) => {
                     <div>
                         <div className='profile-account-type'>
                             <div id='label'>Account Type</div>
-                            <div id='type'>Subscriber</div>
+                            <div id='type'>Premium Subscriber</div>
                         </div>
                         <button onClick={toggleSubscribe}>UNSUBSCRIBE</button>
                     </div>
@@ -200,7 +216,16 @@ const Profile = (props) => {
                     <div>
                         <div className='profile-account-type'>
                             <div id='label'>Account Type</div>
-                            <div id='type'>Admin</div>
+                            <div id='type'>Administrator</div>
+                        </div>
+                    </div>
+                )
+            case 4:
+                return (
+                    <div>
+                        <div className='profile-account-type'>
+                            <div id='label'>Account Type</div>
+                            <div id='type'>Owner</div>
                         </div>
                     </div>
                 )
@@ -212,7 +237,19 @@ const Profile = (props) => {
         <div>
             <AdminPopup showPopup={showPopup} closeFn={toggleShowPopup}>
                 { mode === 'admin' ? 
-                    <div>change account type</div> 
+                    <form className='profile-manage-form' onSubmit={updateUserLevel}>
+                        <div>
+                            <span>{viewData.username}</span>
+                            <select name='userLevel' onChange={handleViewData}>
+                                {viewData.userLevel===0 ? <option value='0' selected={viewData.userLevel===0}>Guest</option> : null }
+                                <option value='1' selected={viewData.userLevel===1}>Subscriber</option>
+                                <option value='2' selected={viewData.userLevel===2}>Premium User</option>
+                                <option value='3' selected={viewData.userLevel===3}>Administrator</option>
+                                {typeof viewData.userLevel==='undefined' ? <option value='0' selected={typeof viewData.userLevel==='undefined'}>Guest</option> : null }
+                            </select>
+                        </div>
+                        <button type='submit'>SUBMIT</button>
+                    </form> 
                 :
                     <div>
                         <div className='profile-payment-title'>
@@ -238,7 +275,7 @@ const Profile = (props) => {
             </AdminPopup>
 
             <div className='profile-text-box'>
-                Hello, {cookies.user.session.username}
+                Hello, {cookies.user.session ? cookies.user.session.username : 'error'}
             </div>
 
             <div className='profile-container'>
@@ -253,7 +290,7 @@ const Profile = (props) => {
                             <input type='text' id='newPasswordVerify' value={newPasswordVerify} onChange={handleNewPasswordVerifyChange}/>
                             <button type='submit'>CHANGE PASSWORD</button>
                         </form>
-                        {accountType(cookies.user.userLevel)}
+                        {accountTypeElement(cookies.user.userLevel)}
                     </div>
                     <div className='profile-column-2'>
                         Your Forum Posts
@@ -302,20 +339,29 @@ const Profile = (props) => {
                         </div>
                         <div className='profile-manage-accounts'>
                             <input type='text' placeholder='Search Accounts...'></input>
-                            <div className='profile-account-preview-container'>
-                                {UserList.map((user) => {
-                                    return (
-                                        <div className='profile-account-preview'>
-                                            <span id='username'>{user.username}</span>
-                                            <a onClick={toggleAdminChange} id='usertype'>{user.usertype}</a>
-                                        </div>
-                                    )
-                                })}
-                            </div>
+                            <Async promiseFn={getAllUsers}>
+                                {({data, err, isLoading}) => {
+                                    if (isLoading) return "Loading...";
+                                    if (err) return `Oops, something went wrong: ${err.message}`
+                                    if (data && Array.isArray(data) && data.length > 0) {
+                                        return (
+                                            <div className='profile-account-preview-container'>
+                                                {data.map((user) => {
+                                                    return (
+                                                        <div className='profile-account-preview'  onClick={() => toggleAdminChange(user)}>
+                                                            <span id='username'>{user.username}</span>
+                                                            <div id='usertype'>{levelToType(user.userLevel)}</div>
+                                                        </div>
+                                                    )
+                                                })}
+                                            </div>
+                                        );
+                                    }
+                                }}
+                            </Async>
                         </div>
                     </div>
                 : null }
-
             </div>
 
             {

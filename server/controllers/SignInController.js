@@ -127,6 +127,33 @@ exports.updatePassword = (req, res) => {
     }
 }
 
+exports.updateUserLevel = (req,res) => {
+    User.find({username : req.body.username}, (err,docs) => {
+        if(err) {
+            console.error(err);
+            res.send(Error.dbError);
+        }
+        else if (docs.length === 0) {
+            res.send(Error.invalidUsernameOrPassword);
+        }
+        else {
+            console.log(docs[0]);
+            docs[0].userLevel = req.body.userLevel;
+            docs[0].save((saveErr) => {
+                if(saveErr) {
+                    console.error(saveErr);
+                    res.send(Error.dbError);
+                }
+                else {
+                    res.send({
+                        success: true
+                    });
+                }
+            });
+        }
+    })
+}
+
 exports.getAll = function(req, res) {
     var model = User;
     model.find({}).exec().then(function(docs, err){
