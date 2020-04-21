@@ -4,10 +4,12 @@ import React, {useState} from 'react';
 import config from '../../../config.js';
 
 const loadProductInfo = () => {
+    console.log(config.address + '/api/Products/')
     return Axios.get(
         config.address + '/api/Products/'
     )
     .then(res => {
+        console.log(res.data)
         return res.data;
     })
     .catch(err => {
