@@ -36,6 +36,12 @@ ProductRouter.options('/', (req, res, next) => {
     res.header('Access-Control-Allow-Headers', '*');
     next();
 })
+ProductRouter.options('/GetAll', (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header('Access-Control-Allow-Methods', '*');
+    res.header('Access-Control-Allow-Headers', '*');
+    next();
+})
 
 ProductRouter.options('/:name', (req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
@@ -53,7 +59,7 @@ ProductRouter.options('/:name/price', (req, res, next) => {
 
 //returns all entries, vanilla get request
 // GET: /api/Product/
-ProductRouter.get('/', ProductController.getAll)
+ProductRouter.post('/GetAll', ProductController.getAll)
 
 //calls create, request should send entry in req.body
 // POST: /api/Product/
