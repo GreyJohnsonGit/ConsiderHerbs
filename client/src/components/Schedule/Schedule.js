@@ -190,8 +190,8 @@ const Schedule = () => {
             <Calendar editEvent={editEvent} />
             {cookies.user.userLevel>2?<Requests />:""}
 
-            {console.log("user : ", cookies)}
-            {cookies.user.userLevel > 2?<button onClick={newEvent}>New Event</button>: ""}
+            {/* {console.log("user : ", cookies)} */}
+            {cookies.user && cookies.user.userLevel > 2?<button onClick={newEvent}>New Event</button>: ""}
             
             <AdminPopUp closeFn={toggleShowPop2} showPopup={showPop2}>
                 <form onSubmit={addMeeting}> 

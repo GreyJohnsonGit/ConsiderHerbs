@@ -129,7 +129,7 @@ const DidYouKnow = (props) => {
             
             <div className="dyk-spacer">&nbsp;</div>
 
-            {cookies.user.userLevel === 3 ? 
+            {cookies.user && cookies.user.userLevel === 3 ? 
             <div>
             <button type='button' className='admin-button' onClick={toggleNewEntry} style={{marginLeft: "15%", marginBottom: "10px", paddingRight:"20px", paddingLeft:"20px"}}>New</button> <br/>
             </div>:

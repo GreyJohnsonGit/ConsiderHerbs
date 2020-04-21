@@ -239,7 +239,7 @@ const Products =(props)=>{
                                 onChange={(event)=>{typedUpdate(event.target.value)}}
                             />
                             <button type="submit" onClick={searchTerm}>Search </button>
-                            { cookies.user.userLevel === 3 ? 
+                            { cookies && cookies.user.userLevel === 3 ? 
                             <button type='button' className='admin-button' onClick={toggleNewEntry}>New</button> :
                             null}
                         </form>
