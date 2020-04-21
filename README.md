@@ -1,5 +1,5 @@
 ## Getting Started
-This repository contains the code for the ConsiderHerbs website, but does not include the database information or setup (the connection to your database can be made using the ![server/config.js]
+This repository contains the code for the ConsiderHerbs website, but does not include the database information or setup (the connection to your database can be made using the ![config.js](server/config.js)
 
 
 ## Available Scripts
