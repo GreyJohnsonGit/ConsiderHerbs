@@ -2,7 +2,13 @@
 This repository contains the code for the ConsiderHerbs website, but does not include the database information or setup (the connection to your database can be made using the [config.js](server/config/config.js)
 
 ## API's used
-This repository uses the facebook and google api's for login and signup. MongoDB is used to host the database. Finally, Stipe is used to manage payments for the site.
+This repository uses the facebook and google api's for login and signup. MongoDB is used to host the database. Finally, Stripe is used to manage payments for the site. If our project is chosen then we can add the client to the google console project that manages our google login API and handover ownership of it. The same goes for the Facebook API.
+The Facebook API ke can be located in client/src/config.js at line 1.
+It would not need to be changed, however the Facebook exports.address at line 2 of the same file would need to be updated to the new url of the wwebsite depending on where it is hosted.
+The Google API key can be found in the server/config/credentials.js at line 1.
+The redirect link here would need to be updated to the new url of the site.
+
+
 
 ## Features
 #### Home Page
