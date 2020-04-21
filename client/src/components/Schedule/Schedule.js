@@ -161,10 +161,10 @@ const Schedule = () => {
             <AdminPopUp closeFn={toggleShowPopup} showPopup={showPopup}>
                 <form onSubmit={submitForm}>
                     <label htmlFor='name'>Name</label>
-                    <input type='text' id='name' defaultValue={event.name} onChange={val => { event.name = val.target.value }} />
+                    <input type='text' id='name'  defaultValue={event.name} onChange={val => { event.name = val.target.value }} />
 
                     <label htmlFor='type'>Type</label>
-                    <textarea rows='1' id='type' defaultValue={event.type} onChange={val => { event.type = val.target.value }} />
+                    <textarea rows='1' id='type' placeholder="In-person or online" defaultValue={event.type} onChange={val => { event.type = val.target.value }} />
 
                     <label htmlFor='date'>Date</label>
                     <DatePicker selected={eventStartDate} 
@@ -195,7 +195,7 @@ const Schedule = () => {
 
            <div className="buttons-divider"></div>
            <div className="side-divider"></div>
-            {/* {console.log("user : ", cookies)} */}
+            
             {cookies.user && cookies.user.userLevel > 2?<button className="schedule-button-event" onClick={newEvent}>New Event</button>: ""}
             
             <AdminPopUp closeFn={toggleShowPop2} showPopup={showPop2}>
@@ -218,9 +218,7 @@ const Schedule = () => {
                     <label> End Time</label>
                     <textarea rows="1" type="text" onChange={(event)=>{personalReq.end_time=event.target.value}}></textarea>
                    
-                    { /*
-                    //issue with datePicker when it is inside the form
-                    */}
+                    
                     <label>Description</label>
                     <textarea rows="1" placeholder="Briefly describe your goals for this consultation" 
                     onChange={(descrip)=>{personalReq.description=descrip}}></textarea>
@@ -237,7 +235,7 @@ const Schedule = () => {
             
             <div className="buttons-divider"></div>
 
-            {/* {cookies.user.userLevel > 2?<MeetingList/>:""} */}
+           
             {cookies.user.userLevel>2?<Requests />:""}
             
             <div className="buttons-divider"></div>
